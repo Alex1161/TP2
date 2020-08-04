@@ -35,22 +35,37 @@ public class FabricaPreguntas {
         Pregunta pregunta = new Pregunta(enunciado);
         pregunta.asignarOpcionCorrecta("F");
         pregunta.asignarOpcionPosible("V");
-        Calificador calificador = new ComparadorConOrden(new AsignadorPenalizado());
+        Calificador calificador = new AsignadorPenalizado();
         pregunta.asignarCalificador(calificador);
         return pregunta;
     }
 
     public static Pregunta preguntaMultipleChoiceClasico(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
         Pregunta pregunta = new Pregunta(enunciado);
-
-        for(String opcion: opcionesCorrectas.obtenerOpciones()){
-            pregunta.asignarOpcionCorrecta(opcion);
-        }
-        for(String opcion: opcionesPosibles.obtenerOpciones()){
-            pregunta.asignarOpcionPosible(opcion);
-        }
+        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
+        pregunta.asignarOpcionPosible(opcionesPosibles);
 
         Calificador calificador = new ComparadorSinOrden((new AsignadorClasico()));
+        pregunta.asignarCalificador(calificador);
+
+        return pregunta;
+    }
+
+    public static Pregunta preguntaMultipleChoicePenalizado(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
+        Pregunta pregunta = new Pregunta(enunciado);
+        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
+        pregunta.asignarOpcionPosible(opcionesPosibles);
+        Calificador calificador = (new AsignadorPenalizado());
+        pregunta.asignarCalificador(calificador);
+
+        return pregunta;
+    }
+
+    public static Pregunta preguntaMultipleChoiceParcial(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
+        Pregunta pregunta = new Pregunta(enunciado);
+        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
+        pregunta.asignarOpcionPosible(opcionesPosibles);
+        Calificador calificador =new ComparadorParcial (new AsignadorClasico());
         pregunta.asignarCalificador(calificador);
 
         return pregunta;

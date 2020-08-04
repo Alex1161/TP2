@@ -38,4 +38,7 @@ public class Opciones {
         return misOpciones.equals(opcionesAComparar);
     }
 
+    public void agregarOpciones(Opciones opciones) {
+        elementos.addAll(opciones.elementos());
+    }
 }
