@@ -10,9 +10,11 @@ public class Respuesta {
     Puntaje puntajeObtenido;
     Multiplicador multiplicador;
     Jugador jugador;
+
     public Respuesta(Jugador jugador){
         this.jugador=jugador;
     }
+
     public Respuesta(Jugador jugador, Multiplicador multiplicador ){
         this.multiplicador=multiplicador;
         this.jugador=jugador;
@@ -20,12 +22,15 @@ public class Respuesta {
     public void agregarOpcion(String opcion){
         opcionesElegidas.agregarOpcion(opcion);
     }
+
     public void aplicarPuntaje(){
         jugador.agregarPuntaje(puntajeObtenido);
     }
+
     public void agregarPuntajeObtenido(Puntaje puntaje){
         puntajeObtenido=puntaje;
     }
+
     public Opciones obtenerOpciones(){
         return opcionesElegidas;
     }
