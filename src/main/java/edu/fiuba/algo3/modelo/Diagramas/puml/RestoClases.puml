@@ -15,11 +15,18 @@ Class Opciones{
 Abstract Class Pregunta{
     -enunciado: String
     -calificador: Calificador
+
     +{abstract}{static}Pregunta(enunciado: String)
+    +conPenalidad(): void
     +asignarOpcionesCorrectas(opcionesCorrectas: Opciones): void
     +asignarOpcionesPosibles(opcionesPosibles: Opciones): void
     +sonCorrectas(opciones: Opciones): boolean
     +calificar(Respuestas: List<Respuesta>): void
+    +agregarMultiplicador(multiplicador: Multiplicador, respuesta: Respuseta): void
+}
+
+Interface Penalidad{
+{method} +agregarComodin(multiplicador: Multiplicador, respuesta: Respuesta);
 }
 
 Class Respuesta{
@@ -31,6 +38,7 @@ Class Respuesta{
     +agregarOpcion(opcion: String): void
     +agregarPuntajeObtenido(puntaje:Puntaje):void
     +aplicarPuntaje(): void
+    +cambiarMultiplicador(multiplicador: Multiplicador): void
 }
 
 Class Jugador{
@@ -52,5 +60,6 @@ Respuesta o-- Jugador
 Pregunta "1" *-left- "2" Opciones
 Respuesta *-up- Opciones
 Jugador "1" *-left- "2" Multiplicador
+Pregunta " " *-rigth- "1" Penalidad
 
 @enduml

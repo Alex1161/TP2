@@ -198,8 +198,8 @@ public class MultipleChoicePenalizadoTest {
         respuestaJugador2.agregarOpcion("no");
         respuestaJugador2.agregarOpcion("no en verde");
 
-        preguntaMultipleChoice.agregarMultiplicador(new Multiplicador(2), respuestaJugador1);
-        preguntaMultipleChoice.agregarMultiplicador(new Multiplicador(3), respuestaJugador2);
+        preguntaMultipleChoice.agregarComodin(new Multiplicador(2), respuestaJugador1);
+        preguntaMultipleChoice.agregarComodin(new Multiplicador(3), respuestaJugador2);
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);

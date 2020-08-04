@@ -148,8 +148,8 @@ public class OrderedChoiceTest {
         respuestaJugador2.agregarOpcion("4");
         respuestaJugador2.agregarOpcion("1");
 
-        preguntaOrderedChoice.agregarMultiplicador(new Multiplicador(2), respuestaJugador1);
-        preguntaOrderedChoice.agregarMultiplicador(new Multiplicador(3), respuestaJugador1);
+        preguntaOrderedChoice.agregarComodin(new Multiplicador(2), respuestaJugador1);
+        preguntaOrderedChoice.agregarComodin(new Multiplicador(3), respuestaJugador1);
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);

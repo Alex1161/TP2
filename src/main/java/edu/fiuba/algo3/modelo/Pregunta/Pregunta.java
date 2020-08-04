@@ -66,7 +66,7 @@ public class Pregunta {
         return opcionesCorrectas.compararConOrden(opcion);
     }
 
-    public void agregarMultiplicador(Multiplicador multiplicador, Respuesta respuesta){
+    public void agregarComodin(Multiplicador multiplicador, Respuesta respuesta){
         penalidad.agregarComodin(multiplicador, respuesta);
     }
 }
