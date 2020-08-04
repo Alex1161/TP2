@@ -41,4 +41,18 @@ public class FabricaPreguntas {
 
         return pregunta;
     }
+
+    public static Pregunta preguntaOrderecChoice(String enunciado, Opciones opcionesPosibles) {
+        Pregunta pregunta =  new Pregunta(enunciado);
+
+        for(String opcion: opcionesPosibles.obtenerOpciones()){
+            pregunta.asignarOpcionPosible(opcion);
+            pregunta.asignarOpcionCorrecta(opcion);
+        }
+
+        Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
+        pregunta.asignarCalificador(calificador);
+
+        return pregunta;
+    }
 }
