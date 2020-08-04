@@ -17,6 +17,7 @@ public class Respuesta {
 
     public Respuesta(Jugador jugador){
         this.jugador=jugador;
+        this.multiplicador = new Multiplicador(1);
     }
 
     public Respuesta(Jugador jugador, Multiplicador multiplicador ){
@@ -36,7 +37,7 @@ public class Respuesta {
     }
 
     public void aplicarPuntaje(){
-        jugador.agregarPuntaje(puntajeObtenido);
+        jugador.agregarPuntaje(multiplicador.aplicar(puntajeObtenido));
     }
 
     public void agregarPuntajeObtenido(Puntaje puntaje){
@@ -45,6 +46,10 @@ public class Respuesta {
 
     public Opciones obtenerOpciones(){
         return opcionesElegidas;
+    }
+
+    public void cambiarMultiplicador(Multiplicador multiplicador){
+        this.multiplicador = multiplicador;
     }
 
 }
