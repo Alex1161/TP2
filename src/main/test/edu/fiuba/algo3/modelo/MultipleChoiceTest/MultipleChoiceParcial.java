@@ -168,4 +168,53 @@ public class MultipleChoiceParcial {
 
 
     }
+
+    @Test
+    public void Test05PreguntaMultipleChoiceConSeisOpciones(){
+
+        Opciones opcionesCorrectas = new Opciones();
+
+        opcionesCorrectas.agregarOpcion("perro");
+        opcionesCorrectas.agregarOpcion("gato");
+        opcionesCorrectas.agregarOpcion("loro");
+        opcionesCorrectas.agregarOpcion("oso");
+
+        Opciones opcionesPosibles = new Opciones();
+
+        opcionesPosibles.agregarOpcion("perro");
+        opcionesPosibles.agregarOpcion("gato");
+        opcionesPosibles.agregarOpcion("loro");
+        opcionesPosibles.agregarOpcion("oso");
+        opcionesPosibles.agregarOpcion("lapiz");
+        opcionesPosibles.agregarOpcion("computadora");
+
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("mamiferos", opcionesCorrectas, opcionesPosibles);
+
+        Jugador jugador1 = new Jugador("pedrito");
+        Jugador jugador2 = new Jugador("juanito");
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        respuestaJugador1.agregarOpcion("perro");
+        respuestaJugador1.agregarOpcion("gato");
+        respuestaJugador1.agregarOpcion("loro");
+        respuestaJugador1.agregarOpcion("oso");
+
+        Respuesta respuestaJugador2 = new Respuesta(jugador2);
+        respuestaJugador2.agregarOpcion("loro");
+        respuestaJugador2.agregarOpcion("oso");
+        respuestaJugador2.agregarOpcion("lapiz");
+        respuestaJugador2.agregarOpcion("computadora");
+
+
+        List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
+        listaDeRespuestas.add(respuestaJugador1);
+        listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaMultipleChoice.calificar((listaDeRespuestas));
+
+        assertEquals( 4,jugador1.obtenerPuntaje().valor());
+        assertEquals(0,jugador2.obtenerPuntaje().valor());
+
+
+    }
 }
