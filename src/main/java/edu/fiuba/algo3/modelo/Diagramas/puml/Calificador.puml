@@ -5,32 +5,32 @@ skinparam classAttributeIconSize 0
 'Clases
 Abstract Calificador{
     +{static}Calificador(calificador: Calificador)
-    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+    +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
 }
 
 Class ComparadorSinOrden{
     +{static}ComparadorConOrden(calificador: Calificador)
-    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+    +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
 }
 
 Class ComparadorConOrden{
     +{static}ComparadorSinOrden(calificador: Calificador)
-    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+    +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
 }
 
 Class ComparadorParcial{
     +{static}ComparadorParcial(calificador: Calificador)
-    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+    +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
 }
 
 Class AsignadorClasico{
     +{static}AsignadorClasico(calificador: Calificador)
-    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+    +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
 }
 
 Class AsignadorPenalizado{
     +{static}AsignadorPenalizado(calificador: Calificador)
-    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+    +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
 }
 
 Class Opciones{
