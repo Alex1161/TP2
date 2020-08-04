@@ -1,0 +1,56 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+'Clases
+Class Opciones{
+    -opciones: Collection<String>
+    +agregarOpcion(opcion: String): void
+    +obtenerOpciones(): Collection<String>
+    +compararConOrden(opciones: Opciones): boolean
+    +compararSinOrden(opciones: Opciones): boolean
+    +esta(opcion: String): boolean
+}
+
+Abstract Class Pregunta{
+    -enunciado: String
+    -calificador: Calificador
+    +{abstract}{static}Pregunta(enunciado: String)
+    +asignarOpcionesCorrectas(opcionesCorrectas: Opciones): void
+    +asignarOpcionesPosibles(opcionesPosibles: Opciones): void
+    +sonCorrectas(opciones: Opciones): boolean
+    +calificar(Respuestas: List<Respuesta>): void
+}
+
+Class Respuesta{
+    -opcionesElegidas: Opciones
+    -puntajeObtenido: Puntaje
+    -multiplicador: Multiplicador
+    +{static}Respuesta(jugador: Jugador)
+    +{static}Respuesta(jugador: Jugador, multiplicador: Multiplicador)
+    +agregarOpcion(opcion: String): void
+    +agregarPuntajeObtenido(puntaje:Puntaje):void
+    +aplicarPuntaje(): void
+}
+
+Class Jugador{
+    -nombre: String
+    +{Static}Jugador(nombre: String)
+    +modificarPuntaje(puntaje: puntaje): void
+    +obtenerPuntaje(): int
+}
+
+Class Multiplicador{
+    -factor: int
+    -puntaje: Puntaje
+    +{static}Multiplicador(factor: int)
+    +aplicar(puntaje: Puntaje ): Puntaje
+}
+
+'Relaciones
+Respuesta o-- Jugador
+Pregunta "1" *-left- "2" Opciones
+Respuesta *-up- Opciones
+Jugador "1" *-left- "2" Multiplicador
+
+@enduml

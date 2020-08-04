@@ -5,14 +5,17 @@ import edu.fiuba.algo3.modelo.puntaje.Puntos;
 
 public class Multiplicador {
     private int factor;
+
     public Multiplicador(int factor){
         this.factor=factor;
     }
-    public Puntaje aplicar(Puntaje puntos){
-        Puntaje puntosMultiplicados= new Puntos();
+
+    public Puntaje aplicar(Puntaje puntaje){
+        Puntaje puntosMultiplicados = new Puntos();
         for (int j = 0; j < factor; j++){
-            puntosMultiplicados.aniadir(puntos);
+            puntosMultiplicados.aniadir(puntaje);
         }
         return puntosMultiplicados;
     }
+
 }
