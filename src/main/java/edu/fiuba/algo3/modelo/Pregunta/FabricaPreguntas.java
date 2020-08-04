@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Pregunta;
 import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
 import edu.fiuba.algo3.modelo.Calificador.Calificador;
 import edu.fiuba.algo3.modelo.Calificador.ComparadorConOrden;
+import edu.fiuba.algo3.modelo.Calificador.ComparadorSinOrden;
+import edu.fiuba.algo3.modelo.Opciones.Opciones;
 
 public class FabricaPreguntas {
 
@@ -24,4 +26,19 @@ public class FabricaPreguntas {
         return pregunta;
     }
 
+    public static Pregunta preguntaMultipleChoiceClasico(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
+        Pregunta pregunta = new Pregunta(enunciado);
+
+        for(String opcion: opcionesCorrectas.obtenerOpciones()){
+            pregunta.asignarOpcionCorrecta(opcion);
+        }
+        for(String opcion: opcionesPosibles.obtenerOpciones()){
+            pregunta.asignarOpcionPosible(opcion);
+        }
+
+        Calificador calificador = new ComparadorSinOrden((new AsignadorClasico()));
+        pregunta.asignarCalificador(calificador);
+
+        return pregunta;
+    }
 }
