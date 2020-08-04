@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Pregunta;
 import edu.fiuba.algo3.modelo.Calificador.*;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 
+import java.util.HashMap;
+
 public class FabricaPreguntas {
 
     public static Pregunta preguntaVoFVerdadera(String enunciado){
@@ -83,6 +85,15 @@ public class FabricaPreguntas {
 
         pregunta.asignarCalificador(calificador);
 
+        return pregunta;
+    }
+
+    public static Pregunta preguntaGroupChoice(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
+        Pregunta pregunta = new Pregunta(enunciado);
+        pregunta.asignarOpcionPosible(opcionesPosibles);
+        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
+        Calificador calificador = new ComparadorSinOrden(new AsignadorClasico());
+        pregunta.asignarCalificador(calificador);
         return pregunta;
     }
 }
