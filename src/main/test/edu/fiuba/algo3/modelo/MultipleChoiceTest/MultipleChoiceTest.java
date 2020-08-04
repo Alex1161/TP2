@@ -56,7 +56,7 @@ public class MultipleChoiceTest {
     }
 
     @Test
-    public void Test03PreguntaMultipleChoiceUnJugadorContestaUnaBienYUnaMalYasignaCorrectamente){
+    public void Test03PreguntaMultipleChoiceUnJugadorContestaUnaBienYUnaMalYasignaCorrectamente(){
 
         Opciones opcionesCorrectas = new Opciones();
 
