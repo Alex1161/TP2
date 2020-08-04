@@ -96,8 +96,8 @@ public class PreguntaVoFPenalizadoTest {
         respuesta1.agregarOpcion("V");
         respuesta2.agregarOpcion("F");
         List<Respuesta> respuestas= new ArrayList<>();
-        pregunta.agregarMultiplicador(new Multiplicador(2), respuesta1);
-        pregunta.agregarMultiplicador(new Multiplicador(3), respuesta2);
+        pregunta.agregarComodin(new Multiplicador(2), respuesta1);
+        pregunta.agregarComodin(new Multiplicador(3), respuesta2);
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);

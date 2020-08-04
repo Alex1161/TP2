@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.MultipleChoiceTest;
 
+import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
@@ -167,5 +168,46 @@ public class MultipleChoicePenalizadoTest {
         assertEquals(0 ,jugador2.obtenerPuntaje().valor());
 
 
+    }
+
+    @Test
+    public void Test05PreguntaMultipleChoiceAsignaCorrectamenteLosPuntajesConMultiplicadores2y3(){
+
+        Opciones opcionesCorrectas = new Opciones();
+
+        opcionesCorrectas.agregarOpcion("si");
+        opcionesCorrectas.agregarOpcion("si en verde");
+
+        Opciones opcionesPosibles = new Opciones();
+
+        opcionesPosibles.agregarOpcion("si");
+        opcionesPosibles.agregarOpcion("si en verde");
+        opcionesPosibles.agregarOpcion("no");
+        opcionesPosibles.agregarOpcion("no en verde");
+
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+
+        Jugador jugador1 = new Jugador("pedrito");
+        Jugador jugador2 = new Jugador("juanito");
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        respuestaJugador1.agregarOpcion("si");
+        respuestaJugador1.agregarOpcion("si en verde");
+
+        Respuesta respuestaJugador2 = new Respuesta(jugador2);
+        respuestaJugador2.agregarOpcion("no");
+        respuestaJugador2.agregarOpcion("no en verde");
+
+        preguntaMultipleChoice.agregarComodin(new Multiplicador(2), respuestaJugador1);
+        preguntaMultipleChoice.agregarComodin(new Multiplicador(3), respuestaJugador2);
+
+        List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
+        listaDeRespuestas.add(respuestaJugador1);
+        listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaMultipleChoice.calificar((listaDeRespuestas));
+
+        assertEquals( 4,jugador1.obtenerPuntaje().valor());
+        assertEquals( -6,jugador2.obtenerPuntaje().valor());
     }
 }

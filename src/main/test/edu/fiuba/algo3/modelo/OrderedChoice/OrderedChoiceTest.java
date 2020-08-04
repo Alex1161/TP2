@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.OrderedChoice;
 
+import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
@@ -116,6 +117,47 @@ public class OrderedChoiceTest {
         preguntaOrderedChoice.calificar((listaDeRespuestas));
 
         assertEquals( 0,jugador1.obtenerPuntaje().valor());
+        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+
+    }
+
+    @Test
+    public void Test04PreguntaOrderedChoiceUnJugadorContestaBienYElOtroMalSeAgreganMultiplicadoresYSeAsignaCorrectamenteLosPuntajesNoAfectaElMultiplicadorAlSerUnaPreguntaSinPenalidad() {
+
+        Opciones opcionesPosibles = new Opciones();
+
+        opcionesPosibles.agregarOpcion("1");
+        opcionesPosibles.agregarOpcion("2");
+        opcionesPosibles.agregarOpcion("3");
+        opcionesPosibles.agregarOpcion("4");
+
+        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderecChoice("de menor a mayor ", opcionesPosibles);
+
+        Jugador jugador1 = new Jugador("pedrito");
+        Jugador jugador2 = new Jugador("juanito");
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        respuestaJugador1.agregarOpcion("1");
+        respuestaJugador1.agregarOpcion("2");
+        respuestaJugador1.agregarOpcion("3");
+        respuestaJugador1.agregarOpcion("4");
+
+        Respuesta respuestaJugador2 = new Respuesta(jugador2);
+        respuestaJugador2.agregarOpcion("2");
+        respuestaJugador2.agregarOpcion("3");
+        respuestaJugador2.agregarOpcion("4");
+        respuestaJugador2.agregarOpcion("1");
+
+        preguntaOrderedChoice.agregarComodin(new Multiplicador(2), respuestaJugador1);
+        preguntaOrderedChoice.agregarComodin(new Multiplicador(3), respuestaJugador1);
+
+        List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
+        listaDeRespuestas.add(respuestaJugador1);
+        listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaOrderedChoice.calificar((listaDeRespuestas));
+
+        assertEquals( 1,jugador1.obtenerPuntaje().valor());
         assertEquals( 0,jugador2.obtenerPuntaje().valor());
 
     }
