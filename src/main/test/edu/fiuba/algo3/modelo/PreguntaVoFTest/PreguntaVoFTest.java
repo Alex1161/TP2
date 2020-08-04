@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.PreguntaVoFTest;
 
+import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
@@ -77,6 +78,26 @@ public class PreguntaVoFTest {
         respuesta1.agregarOpcion("V");
         respuesta2.agregarOpcion("F");
         List<Respuesta> respuestas= new ArrayList<>();
+        respuestas.add(respuesta1);
+        respuestas.add(respuesta2);
+        pregunta.calificar(respuestas);
+        assertEquals(1,jugador1.obtenerPuntaje().valor());
+        assertEquals(0,jugador2.obtenerPuntaje().valor());
+    }
+
+    @Test
+    public void Test07PreguntaVoFTrueSinPenalizarSeAgregaMultiplicadorPeroEsteNoHaceNadaYaQueNoSePuedeUsar(){
+
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFVerdadera("Enunciado");
+        Jugador jugador1 = new Jugador("carlos");
+        Jugador jugador2 = new Jugador("juan");
+        Respuesta respuesta1= new Respuesta(jugador1);
+        Respuesta respuesta2= new Respuesta(jugador2);
+        respuesta1.agregarOpcion("V");
+        respuesta2.agregarOpcion("F");
+        List<Respuesta> respuestas= new ArrayList<>();
+        pregunta.agregarMultiplicador(new Multiplicador(2), respuesta1);
+        pregunta.agregarMultiplicador(new Multiplicador(3), respuesta2);
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);

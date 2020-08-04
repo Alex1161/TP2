@@ -30,6 +30,7 @@ public class FabricaPreguntas {
         pregunta.asignarOpcionPosible("F");
         Calificador calificador = new ComparadorConOrden(new AsignadorPenalizado());
         pregunta.asignarCalificador(calificador);
+        pregunta.conPenalidad();
         return pregunta;
     }
 
@@ -39,6 +40,7 @@ public class FabricaPreguntas {
         pregunta.asignarOpcionPosible("V");
         Calificador calificador = new AsignadorPenalizado();
         pregunta.asignarCalificador(calificador);
+        pregunta.conPenalidad();
         return pregunta;
     }
 
@@ -72,6 +74,7 @@ public class FabricaPreguntas {
         pregunta.asignarOpcionPosible(opcionesPosibles);
         Calificador calificador = (new AsignadorPenalizado());
         pregunta.asignarCalificador(calificador);
+        pregunta.conPenalidad();
 
         return pregunta;
     }
