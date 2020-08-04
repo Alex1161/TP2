@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PreguntaVoFTest {
+public class PreguntaVoFPenalizadoTest {
     @Test
     public void Test01PreguntaVoFPenalizadaConEnunciadoVerdaderoSeCrea(){
 

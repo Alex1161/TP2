@@ -17,6 +17,9 @@ public class Pregunta {
         opcionesCorrectas = new Opciones();
         opcionesPosibles = new Opciones();
     }
+    public void asignarOpcionCorrecta(Opciones opciones){
+        opcionesCorrectas.agregarOpciones(opciones);
+    }
 
     public void asignarOpcionCorrecta(String opcion){
         opcionesCorrectas.agregarOpcion(opcion);
@@ -24,6 +27,10 @@ public class Pregunta {
 
     public void asignarOpcionPosible(String opcion){
         opcionesPosibles.agregarOpcion(opcion);
+    }
+
+    public void asignarOpcionPosible(Opciones opciones){
+        opcionesPosibles.agregarOpciones(opciones);
     }
 
     public void asignarCalificador(Calificador calificador){

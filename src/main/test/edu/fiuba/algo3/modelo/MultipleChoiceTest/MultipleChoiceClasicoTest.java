@@ -15,7 +15,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class MultipleChoiceTest {
+public class MultipleChoiceClasicoTest {
 
     @Test
     public void Test02PreguntaMultipleChoiceAsignaCorrectamenteLosPuntajes01(){
