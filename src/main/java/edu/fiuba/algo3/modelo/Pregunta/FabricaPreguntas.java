@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo.Pregunta;
 
-import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
-import edu.fiuba.algo3.modelo.Calificador.Calificador;
-import edu.fiuba.algo3.modelo.Calificador.ComparadorConOrden;
-import edu.fiuba.algo3.modelo.Calificador.ComparadorSinOrden;
+import edu.fiuba.algo3.modelo.Calificador.*;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 
 public class FabricaPreguntas {
@@ -25,32 +22,65 @@ public class FabricaPreguntas {
         pregunta.asignarCalificador(calificador);
         return pregunta;
     }
+    public static Pregunta preguntaVoFVerdaderaPenalizado(String enunciado){
+        Pregunta pregunta = new Pregunta(enunciado);
+        pregunta.asignarOpcionCorrecta("V");
+        pregunta.asignarOpcionPosible("F");
+        Calificador calificador = new ComparadorConOrden(new AsignadorPenalizado());
+        pregunta.asignarCalificador(calificador);
+        return pregunta;
+    }
+
+    public static Pregunta preguntaVoFFalsaPenalizado(String enunciado){
+        Pregunta pregunta = new Pregunta(enunciado);
+        pregunta.asignarOpcionCorrecta("F");
+        pregunta.asignarOpcionPosible("V");
+        Calificador calificador = new AsignadorPenalizado();
+        pregunta.asignarCalificador(calificador);
+        return pregunta;
+    }
 
     public static Pregunta preguntaMultipleChoiceClasico(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
         Pregunta pregunta = new Pregunta(enunciado);
-
-        for(String opcion: opcionesCorrectas.obtenerOpciones()){
-            pregunta.asignarOpcionCorrecta(opcion);
-        }
-        for(String opcion: opcionesPosibles.obtenerOpciones()){
-            pregunta.asignarOpcionPosible(opcion);
-        }
+        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
+        pregunta.asignarOpcionPosible(opcionesPosibles);
 
         Calificador calificador = new ComparadorSinOrden((new AsignadorClasico()));
         pregunta.asignarCalificador(calificador);
 
         return pregunta;
     }
-
     public static Pregunta preguntaOrderecChoice(String enunciado, Opciones opcionesPosibles) {
-        Pregunta pregunta =  new Pregunta(enunciado);
+        Pregunta pregunta = new Pregunta(enunciado);
 
-        for(String opcion: opcionesPosibles.obtenerOpciones()){
+        for (String opcion : opcionesPosibles.obtenerOpciones()) {
             pregunta.asignarOpcionPosible(opcion);
             pregunta.asignarOpcionCorrecta(opcion);
         }
 
         Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
+        pregunta.asignarCalificador(calificador);
+
+        return pregunta;
+    }
+
+    public static Pregunta preguntaMultipleChoicePenalizado(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
+        Pregunta pregunta = new Pregunta(enunciado);
+        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
+        pregunta.asignarOpcionPosible(opcionesPosibles);
+        Calificador calificador = (new AsignadorPenalizado());
+        pregunta.asignarCalificador(calificador);
+
+        return pregunta;
+    }
+
+    public static Pregunta preguntaMultipleChoiceParcial(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
+
+        Pregunta pregunta = new Pregunta(enunciado);
+        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
+        pregunta.asignarOpcionPosible(opcionesPosibles);
+        Calificador calificador =new ComparadorParcial (new AsignadorClasico());
+
         pregunta.asignarCalificador(calificador);
 
         return pregunta;

@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo.Calificador;
 
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.puntaje.Puntaje;
-import edu.fiuba.algo3.modelo.puntaje.PuntoNulo;
-import edu.fiuba.algo3.modelo.puntaje.PuntoPositivo;
-import edu.fiuba.algo3.modelo.puntaje.Puntos;
+import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
+import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
+import edu.fiuba.algo3.modelo.Puntaje.Puntos;
 
 public class ComparadorParcial extends Calificador {
     public ComparadorParcial(Calificador unCalificador) {

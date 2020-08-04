@@ -1,0 +1,26 @@
+@startuml
+
+Package "Calificador"
+
+Package "Puntaje"
+
+Package "Opciones"
+
+Package "Pregunta"
+
+Package "Opciones"
+
+Package "Respuesta"
+
+Package "Jugador"
+
+Package "Multiplicador"
+
+Pregunta -right-> Calificador
+Pregunta -left-> Opciones
+Respuesta -up-> Opciones
+Respuesta --> Jugador
+Jugador -right-> Multiplicador
+Jugador --> Puntaje
+
+@enduml

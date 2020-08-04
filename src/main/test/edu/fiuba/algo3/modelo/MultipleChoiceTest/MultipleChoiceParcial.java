@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.MultipleChoiceTest;
 
-import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
-import edu.fiuba.algo3.modelo.Calificador.Calificador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
@@ -12,36 +10,47 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-public class MultipleChoiceTest {
-
+public class MultipleChoiceParcial {
     @Test
-    public void Test01PreguntaMultipleChoiceSeCreaCorretamente(){
+    public void Test01PreguntaMultipleChoiceAsignaCorrectamenteLosPuntajes01(){
 
-    Opciones opcionesPosibles = new Opciones();
+        Opciones opcionesCorrectas = new Opciones();
 
-    opcionesPosibles.agregarOpcion("1");
-    opcionesPosibles.agregarOpcion("2");
-    opcionesPosibles.agregarOpcion("3");
-    opcionesPosibles.agregarOpcion("4");
+        opcionesCorrectas.agregarOpcion("si");
+        opcionesCorrectas.agregarOpcion("si en verde");
 
-    Opciones opcionesCorrectas = new Opciones();
+        Opciones opcionesPosibles = new Opciones();
 
-    opcionesCorrectas.agregarOpcion("2");
-    opcionesCorrectas.agregarOpcion("4");
+        opcionesPosibles.agregarOpcion("si");
+        opcionesPosibles.agregarOpcion("si en verde");
+        opcionesPosibles.agregarOpcion("no");
+        opcionesPosibles.agregarOpcion("no en verde");
 
-    Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("mutiplo de dos: ", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
-    Opciones opcion = new Opciones();
+        Jugador jugador1 = new Jugador("pedrito");
+        Jugador jugador2 = new Jugador("juanito");
 
-    opcion.agregarOpcion("2");
-    opcion.agregarOpcion("4");
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        respuestaJugador1.agregarOpcion("si en verde");
+        respuestaJugador1.agregarOpcion("si");
 
-    assertTrue(preguntaMultipleChoice.esCorrecta(opcion));
-}
 
+        Respuesta respuestaJugador2 = new Respuesta(jugador2);
+        respuestaJugador2.agregarOpcion("no en verde");
+        respuestaJugador2.agregarOpcion("no");
+
+        List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
+        listaDeRespuestas.add(respuestaJugador1);
+        listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaMultipleChoice.calificar((listaDeRespuestas));
+
+        assertEquals( 2,jugador1.obtenerPuntaje().valor());
+        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+    }
     @Test
     public void Test02PreguntaMultipleChoiceAsignaCorrectamenteLosPuntajes01(){
 
@@ -57,7 +66,7 @@ public class MultipleChoiceTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -76,12 +85,12 @@ public class MultipleChoiceTest {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.obtenerPuntaje().valor());
+        assertEquals( 2,jugador1.obtenerPuntaje().valor());
         assertEquals( 0,jugador2.obtenerPuntaje().valor());
     }
 
     @Test
-    public void Test03PreguntaMultipleChoiceUnJugadorContestaUnaBienYUnaMalYNoLeAsignaPuntaje(){
+    public void Test03PreguntaMultipleChoiceUnJugadorContestaUnaBienYUnaMalYasignaCorrectamente(){
 
         Opciones opcionesCorrectas = new Opciones();
 
@@ -95,7 +104,7 @@ public class MultipleChoiceTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -121,7 +130,7 @@ public class MultipleChoiceTest {
     }
 
     @Test
-    public void Test04PreguntaMultipleChoiceLosDosJugadoresContestanBienYSeLesasignaUnPunto(){
+    public void Test04PreguntaMultipleChoiceUnJugadorContestaUnaBienYUnaMalYasignaCorrectamente(){
 
         Opciones opcionesCorrectas = new Opciones();
 
@@ -135,18 +144,18 @@ public class MultipleChoiceTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
         respuestaJugador1.agregarOpcion("si");
-        respuestaJugador1.agregarOpcion("si en verde");
+        respuestaJugador1.agregarOpcion("no");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
+        respuestaJugador2.agregarOpcion("no");
         respuestaJugador2.agregarOpcion("si en verde");
-        respuestaJugador2.agregarOpcion("si");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -154,8 +163,8 @@ public class MultipleChoiceTest {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.obtenerPuntaje().valor());
-        assertEquals( 1,jugador2.obtenerPuntaje().valor());
+        assertEquals( 0,jugador1.obtenerPuntaje().valor());
+        assertEquals(0,jugador2.obtenerPuntaje().valor());
 
 
     }

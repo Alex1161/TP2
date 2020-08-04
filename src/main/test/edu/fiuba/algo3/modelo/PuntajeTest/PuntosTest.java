@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.PuntajeTest;
 
-import edu.fiuba.algo3.modelo.puntaje.PuntoNegativo;
-import edu.fiuba.algo3.modelo.puntaje.PuntoNulo;
-import edu.fiuba.algo3.modelo.puntaje.PuntoPositivo;
-import edu.fiuba.algo3.modelo.puntaje.Puntos;
+import edu.fiuba.algo3.modelo.Puntaje.PuntoNegativo;
+import edu.fiuba.algo3.modelo.Puntaje.PuntoNulo;
+import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
+import edu.fiuba.algo3.modelo.Puntaje.Puntos;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

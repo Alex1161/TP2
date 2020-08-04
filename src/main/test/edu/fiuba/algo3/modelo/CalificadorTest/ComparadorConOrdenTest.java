@@ -2,10 +2,10 @@ package edu.fiuba.algo3.modelo.CalificadorTest;
 
 import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.puntaje.Puntaje;
+import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Calificador.ComparadorConOrden;
-import edu.fiuba.algo3.modelo.puntaje.PuntoNulo;
-import edu.fiuba.algo3.modelo.puntaje.PuntoPositivo;
+import edu.fiuba.algo3.modelo.Puntaje.PuntoNulo;
+import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
