@@ -37,8 +37,7 @@ public class Respuesta {
     }
 
     public void aplicarPuntaje(){
-        multiplicador.aplicar(puntajeObtenido);
-        jugador.agregarPuntaje(puntajeObtenido);
+        jugador.agregarPuntaje(multiplicador.aplicar(puntajeObtenido));
     }
 
     public void agregarPuntajeObtenido(Puntaje puntaje){
