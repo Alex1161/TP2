@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.modelo.Pregunta;
 
 import edu.fiuba.algo3.modelo.Calificador.Calificador;
+import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
+import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
+import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
 import java.util.List;
@@ -11,11 +14,13 @@ public class Pregunta {
     String enunciado;
     Opciones opcionesCorrectas, opcionesPosibles;
     Calificador calificador;
+    Penalidad penalidad;
 
     public Pregunta(String enunciado){
         this.enunciado = enunciado;
         opcionesCorrectas = new Opciones();
         opcionesPosibles = new Opciones();
+        penalidad = new SinPenalidad();
     }
     public void asignarOpcionCorrecta(Opciones opciones){
         opcionesCorrectas.agregarOpciones(opciones);
@@ -52,4 +57,7 @@ public class Pregunta {
         return opcionesCorrectas.compararConOrden(opcion);
     }
 
+    public void agregarMultiplicador(Multiplicador multiplicador, Respuesta respuesta){
+
+    }
 }
