@@ -2,11 +2,9 @@ package edu.fiuba.algo3.modelo.JugadorTest;
 
 import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.puntaje.*;
+import edu.fiuba.algo3.modelo.Puntaje.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;

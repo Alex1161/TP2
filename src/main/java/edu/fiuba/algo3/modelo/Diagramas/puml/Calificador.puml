@@ -1,0 +1,54 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+'Clases
+Abstract Calificador{
+    +{static}Calificador(calificador: Calificador)
+    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+}
+
+Class ComparadorSinOrden{
+    +{static}ComparadorConOrden(calificador: Calificador)
+    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+}
+
+Class ComparadorConOrden{
+    +{static}ComparadorSinOrden(calificador: Calificador)
+    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+}
+
+Class ComparadorParcial{
+    +{static}ComparadorParcial(calificador: Calificador)
+    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+}
+
+Class AsignadorClasico{
+    +{static}AsignadorClasico(calificador: Calificador)
+    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+}
+
+Class AsignadorPenalizado{
+    +{static}AsignadorPenalizado(calificador: Calificador)
+    +calificar(opcionesCorrectas: Opciones, opcionesElegidas: Opciones): Puntaje
+}
+
+Class Opciones{
+    -opciones: Collection<String>
+    +agregarOpcion(opcion: String): void
+    +obtenerOpciones(): Collection<String>
+    +compararConOrden(opciones: Opciones): boolean
+    +compararSinOrden(opciones: Opciones): boolean
+    +esta(opcion: String): boolean
+}
+
+'Relaciones
+Calificador ..> Opciones
+Calificador o-- Calificador
+ComparadorConOrden -up-|> Calificador
+ComparadorSinOrden -up-|> Calificador
+ComparadorParcial -right-|> Calificador
+AsignadorClasico --|> Calificador
+AsignadorPenalizado --|> Calificador
+
+@enduml
