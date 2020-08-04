@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.puntaje;
+package edu.fiuba.algo3.modelo.Puntaje;
 
 public interface Puntaje {
 

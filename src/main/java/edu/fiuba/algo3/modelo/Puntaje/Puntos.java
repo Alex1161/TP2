@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.puntaje;
+package edu.fiuba.algo3.modelo.Puntaje;
 
 import java.util.ArrayList;
 import java.util.List;

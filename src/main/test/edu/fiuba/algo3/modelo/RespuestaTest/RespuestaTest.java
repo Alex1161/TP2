@@ -2,8 +2,8 @@ package edu.fiuba.algo3.modelo.RespuestaTest;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
-import edu.fiuba.algo3.modelo.puntaje.PuntoNegativo;
-import edu.fiuba.algo3.modelo.puntaje.PuntoPositivo;
+import edu.fiuba.algo3.modelo.Puntaje.PuntoNegativo;
+import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

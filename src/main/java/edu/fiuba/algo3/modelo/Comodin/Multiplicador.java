@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Comodin;
 
-import edu.fiuba.algo3.modelo.puntaje.Puntaje;
-import edu.fiuba.algo3.modelo.puntaje.Puntos;
+import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
+import edu.fiuba.algo3.modelo.Puntaje.Puntos;
 
 public class Multiplicador {
     private int factor;
