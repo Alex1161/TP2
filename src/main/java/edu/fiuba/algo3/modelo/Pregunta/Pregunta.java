@@ -1,7 +1,11 @@
 package edu.fiuba.algo3.modelo.Pregunta;
 
 import edu.fiuba.algo3.modelo.Calificador.Calificador;
+import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
+import edu.fiuba.algo3.modelo.Penalidad.ConPenalidad;
+import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
+import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
 import java.util.List;
@@ -11,12 +15,18 @@ public class Pregunta {
     String enunciado;
     Opciones opcionesCorrectas, opcionesPosibles;
     Calificador calificador;
+    Penalidad penalidad;
 
     public Pregunta(String enunciado){
         this.enunciado = enunciado;
         opcionesCorrectas = new Opciones();
         opcionesPosibles = new Opciones();
+        penalidad = new SinPenalidad();
     }
+    public void conPenalidad(){
+        penalidad = new ConPenalidad();
+    }
+
     public void asignarOpcionCorrecta(Opciones opciones){
         opcionesCorrectas.agregarOpciones(opciones);
     }
@@ -42,6 +52,10 @@ public class Pregunta {
         for (Respuesta resp: respuestas){
             resp.agregarPuntajeObtenido(calificador.calificar(opcionesCorrectas, resp.obtenerOpciones()));
         }
+        /*
+         * Aca vamos a hacer doble dispatch entre Puntaje
+         * siempre y cuando sea una pregunta no penalizada.
+         */
 
         for (Respuesta resp: respuestas){
             resp.aplicarPuntaje();
@@ -52,4 +66,7 @@ public class Pregunta {
         return opcionesCorrectas.compararConOrden(opcion);
     }
 
+    public void agregarMultiplicador(Multiplicador multiplicador, Respuesta respuesta){
+        penalidad.agregarComodin(multiplicador, respuesta);
+    }
 }
