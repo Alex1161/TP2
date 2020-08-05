@@ -2,7 +2,8 @@ package edu.fiuba.algo3.modelo.Puntaje;
 
 public interface Puntaje {
 
-    void aniadir(Puntaje puntaje);
+
+    Puntaje agregar(Puntaje puntaje);
 
     int valor();
 

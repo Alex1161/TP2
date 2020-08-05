@@ -45,8 +45,8 @@ public class JugadorTest {
     public void jugadorRecibePuntajePusitivo(){
         Puntaje puntoPositivo= new PuntoPositivo();
         Puntaje puntaje= new Puntos();
-        puntaje.aniadir(puntoPositivo);
-        puntaje.aniadir(puntoPositivo);
+        puntaje.agregar(puntoPositivo);
+        puntaje.agregar(puntoPositivo);
         Jugador jugador = new Jugador("carlos");
         jugador.agregarPuntaje(puntaje);
         Puntaje puntaje1 = jugador.obtenerPuntaje();

@@ -13,7 +13,7 @@ public class Multiplicador {
     public Puntaje aplicar(Puntaje puntaje){
         Puntaje puntosMultiplicados = new Puntos();
         for (int j = 0; j < factor; j++){
-            puntosMultiplicados.aniadir(puntaje);
+            puntosMultiplicados= puntosMultiplicados.agregar(puntaje);
         }
         return puntosMultiplicados;
     }

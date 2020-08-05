@@ -19,7 +19,7 @@ public class Jugador {
         multiplicadores.put(3, new Multiplicador(3));
     }
     public void agregarPuntaje(Puntaje puntaje){
-        this.puntaje.aniadir(puntaje);
+        this.puntaje = puntaje;
     }
 
     public Puntaje obtenerPuntaje(){

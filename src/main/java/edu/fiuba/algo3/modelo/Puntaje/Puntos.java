@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Puntos implements Puntaje {
+
     List<Puntaje> listaDePuntos = new ArrayList<Puntaje>();
 
-    @Override
-    public void aniadir(Puntaje puntaje){
+
+    public Puntaje agregar(Puntaje puntaje){
         listaDePuntos.add(puntaje);
+        return this;
     }
 
     public int valor(){

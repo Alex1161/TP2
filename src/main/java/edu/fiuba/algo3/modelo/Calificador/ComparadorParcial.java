@@ -13,10 +13,10 @@ public class ComparadorParcial extends Calificador {
 
     @Override
     public Puntaje calificar(Opciones correctas, Opciones elegidas) {
-        Puntos puntosActuales= new Puntos();
+        Puntaje puntosActuales= new Puntos();
         for (String opcionElegida : elegidas.obtenerOpciones()) {
             if (correctas.esta(opcionElegida)) {
-                puntosActuales.aniadir(new PuntoPositivo());
+                puntosActuales = puntosActuales.agregar(new PuntoPositivo());
             } else {
                 return siguienteCalificador.calificar(correctas, elegidas);
             }

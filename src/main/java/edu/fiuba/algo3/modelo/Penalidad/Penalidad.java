@@ -4,5 +4,6 @@ import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
 public interface Penalidad {
+    //penalizable
     void agregarComodin(Multiplicador multiplicador, Respuesta respuesta);
 }
