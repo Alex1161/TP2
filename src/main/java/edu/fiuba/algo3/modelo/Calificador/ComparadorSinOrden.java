@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Calificador;
 
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
+import edu.fiuba.algo3.modelo.Puntaje.IPunteable;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
 
 public class ComparadorSinOrden extends Calificador{
@@ -12,7 +12,7 @@ public class ComparadorSinOrden extends Calificador{
     }
 
     @Override
-    public Puntaje calificar(Opciones correctas, Opciones elegidas) {
+    public IPunteable calificar(Opciones correctas, Opciones elegidas) {
         if (correctas.compararSinOrden(elegidas)){
             return new PuntoPositivo();
         }else{

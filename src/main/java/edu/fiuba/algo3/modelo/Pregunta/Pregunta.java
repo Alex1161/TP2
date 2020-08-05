@@ -53,7 +53,7 @@ public class Pregunta {
             resp.agregarPuntajeObtenido(calificador.calificar(opcionesCorrectas, resp.obtenerOpciones()));
         }
         /*
-         * Aca vamos a hacer doble dispatch entre Puntaje
+         * Aca vamos a hacer doble dispatch entre IPunteable
          * siempre y cuando sea una pregunta no penalizada.
          */
 

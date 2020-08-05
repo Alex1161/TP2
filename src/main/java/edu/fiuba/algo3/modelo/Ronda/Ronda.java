@@ -5,17 +5,17 @@
 
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta;
-import edu.fiuba.algo3.modelo.puntaje.Puntaje;
+import edu.fiuba.algo3.modelo.puntaje.IPunteable;
 
 public class Ronda {
     public calificarEn(Jugador jugador, Pregunta pregunta){
-        Puntaje puntaje=pregunta.calificar(jugador.respuestas());
+        IPunteable puntaje=pregunta.calificar(jugador.respuestas());
 
         jugador.sumar(puntaje);
     }*/
     /*
     public calificarEn(Jugadores jugadores,Pregunta pregunta){
-        Puntaje puntaje=pregunta.calificar(jugador.respuestas());
+        IPunteable puntaje=pregunta.calificar(jugador.respuestas());
         jugador.sumarTemporalemente(puntaje);
 
 

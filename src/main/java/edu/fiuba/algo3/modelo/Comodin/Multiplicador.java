@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Comodin;
 
-import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
+import edu.fiuba.algo3.modelo.Puntaje.IPunteable;
 import edu.fiuba.algo3.modelo.Puntaje.Puntos;
 
 public class Multiplicador {
@@ -10,8 +10,8 @@ public class Multiplicador {
         this.factor=factor;
     }
 
-    public Puntaje aplicar(Puntaje puntaje){
-        Puntaje puntosMultiplicados = new Puntos();
+    public IPunteable aplicar(IPunteable puntaje){
+        IPunteable puntosMultiplicados = new Puntos();
         for (int j = 0; j < factor; j++){
             puntosMultiplicados= puntosMultiplicados.agregar(puntaje);
         }
