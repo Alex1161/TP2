@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo.Puntaje;
 
-public class PuntoNegativo implements Puntaje {
-
-    @Override
-    public void aniadir(Puntaje puntaje){}
+public class PuntoNegativo extends Punto {
 
     @Override
     public int valor(){

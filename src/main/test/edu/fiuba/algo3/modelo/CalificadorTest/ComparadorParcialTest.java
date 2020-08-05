@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
 import edu.fiuba.algo3.modelo.Calificador.Calificador;
 import edu.fiuba.algo3.modelo.Calificador.ComparadorParcial;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
+import edu.fiuba.algo3.modelo.Puntaje.IPunteable;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,7 +27,7 @@ public class ComparadorParcialTest {
 
         Calificador comparador = new ComparadorParcial(new AsignadorClasico());
 
-        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals(4, puntajeObtenido.valor());
     }
@@ -49,7 +49,7 @@ public class ComparadorParcialTest {
 
         Calificador comparador = new ComparadorParcial(new AsignadorClasico());
 
-        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals(0, puntajeObtenido.valor());
     }
@@ -69,7 +69,7 @@ public class ComparadorParcialTest {
 
         Calificador comparador = new ComparadorParcial(new AsignadorClasico());
 
-        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals(1, puntajeObtenido.valor());
     }

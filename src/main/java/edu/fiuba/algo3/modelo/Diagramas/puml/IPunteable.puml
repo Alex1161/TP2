@@ -1,0 +1,39 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+'Clases
+Interface IPunteable{
+    +{abstract}agregar(puntaje: IPunteable): IPunteable
+    +{abstract}valor(puntaje: Puntaje): int
+}
+
+Class Puntos{
+    +agregar(puntaje: IPunteable): IPunteable
+    +valor(): int
+}
+
+Abstract Class Punto{
+    +agregar(puntaje: IPunteable): IPunteable
+    +valor(): int
+}
+
+Class PuntoNulo{
+    +valor(): int
+}
+
+Class PuntoNegativo{
+    +valor(): int
+}
+
+Class PuntoPositivo{
+    +valor(): int
+}
+
+'Relaciones
+PuntoNegativo -up-|> Punto
+PuntoNulo -up-|> Punto
+PuntoPositivo -up-|> Punto
+Puntos .up.|> " *" IPunteable
+Punto .up.|> IPunteable
+@enduml

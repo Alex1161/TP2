@@ -43,29 +43,9 @@ Class Jugador{
     +obtenerPuntaje(): int
 }
 
-Abstract Class Puntaje{
-    +{abstract}añadir(puntaje: Puntaje): void
-    +{abstract}valor(puntaje: Puntaje): int
-}
-
-Class Puntos{
-    +añadir(puntaje: Puntaje): void
-    +valor(): int
-}
-
-Class PuntoNulo{
-    +añadir(puntaje: Puntaje): void
-    +valor(): int
-}
-
-Class PuntoNegativo{
-    +añadir(puntaje: Puntaje): void
-    +valor(): int
-}
-
-Class PuntoPositivo{
-    +añadir(puntaje: Puntaje): void
-    +valor(): int
+Interface IPunteable{
+    +{abstract}agregar(puntaje: IPunteable): IPunteable
+    +{abstract}valor(): int
 }
 
 Abstract Calificador{
@@ -109,12 +89,7 @@ Respuesta o-- Jugador
 Pregunta *-left- Opciones
 Respuesta *-up- Opciones
 
-PuntoNegativo -up-|> Puntaje
-PuntoNulo -up-|> Puntaje
-PuntoPositivo -up-|> Puntaje
-Puntos -left-|> Puntaje
-Puntos "1" o-left- "*" Puntaje
-Jugador *-- Puntaje
+Jugador *-- IPunteable
 
 Pregunta o-right- Calificador
 ComparadorConOrden -up-|> Calificador
@@ -124,5 +99,4 @@ AsignadorClasico --|> Calificador
 AsignadorPenalizado --|> Calificador
 
 Jugador "1" *-left- "2" Multiplicador
-
 @enduml
