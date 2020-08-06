@@ -18,48 +18,48 @@ public class PreguntaVoFTest {
      @Test
     public void Test01PreguntaVoFConEnunciadoVerdaderoSeCrea(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","V");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Verdadero");
         Opciones opcion = new Opciones();
-        opcion.agregarOpcion("V");
+        opcion.agregarOpcion("Verdadero");
         assertTrue(pregunta.esCorrecta(opcion));
     }
 
     @Test
     public void Test02PreguntaVoFConEnunciadoVerdaderoSeCreaYSeTesteaConUnFalso(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","V");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Verdadero");
         Opciones opcion = new Opciones();
-        opcion.agregarOpcion("F");
+        opcion.agregarOpcion("Falso");
         assertFalse(pregunta.esCorrecta(opcion));
     }
 
     @Test
     public void Test03PreguntaVoFConEnunciadoFalsoSeCreaYVerificaConFalso(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","F");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Falso");
         Opciones opcion = new Opciones();
-        opcion.agregarOpcion("F");
+        opcion.agregarOpcion("Falso");
         assertTrue(pregunta.esCorrecta(opcion));
     }
 
     @Test
     public void Test04PreguntaVoFConEnunciadoFalsoSeCreaYSeTesteaConUnVerdadero(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","F");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Falso");
         Opciones opcion = new Opciones();
-        opcion.agregarOpcion("V");
+        opcion.agregarOpcion("Verdadero");
         assertFalse(pregunta.esCorrecta(opcion));
     }
     @Test
     public void Test05PreguntaVoFFalsaSePrubaInteraccionConJugadores(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","F");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Falso");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1= new Respuesta(jugador1);
         Respuesta respuesta2= new Respuesta(jugador2);
-        respuesta1.agregarOpcion("V");
-        respuesta2.agregarOpcion("F");
+        respuesta1.agregarOpcion("Verdadero");
+        respuesta2.agregarOpcion("Falso");
         List<Respuesta> respuestas= new ArrayList<>();
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
@@ -70,13 +70,13 @@ public class PreguntaVoFTest {
     @Test
     public void Test06PreguntaVoFTrueSePrubaInteraccionConJugadores(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","V");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1= new Respuesta(jugador1);
         Respuesta respuesta2= new Respuesta(jugador2);
-        respuesta1.agregarOpcion("V");
-        respuesta2.agregarOpcion("F");
+        respuesta1.agregarOpcion("Verdadero");
+        respuesta2.agregarOpcion("Falso");
         List<Respuesta> respuestas= new ArrayList<>();
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
@@ -88,13 +88,13 @@ public class PreguntaVoFTest {
     @Test
     public void Test07PreguntaVoFTrueSinPenalizarSeAgregaMultiplicadorPeroEsteNoHaceNadaYaQueNoSePuedeUsar(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","V");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1= new Respuesta(jugador1);
         Respuesta respuesta2= new Respuesta(jugador2);
-        respuesta1.agregarOpcion("V");
-        respuesta2.agregarOpcion("F");
+        respuesta1.agregarOpcion("Verdadero");
+        respuesta2.agregarOpcion("Falso");
         List<Respuesta> respuestas= new ArrayList<>();
         pregunta.agregarComodin(new Multiplicador(2), respuesta1);
         pregunta.agregarComodin(new Multiplicador(3), respuesta2);

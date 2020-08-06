@@ -8,9 +8,9 @@ import java.util.*;
 
 
 public class Jugador {
-    protected String nombre;
-    protected Puntaje puntaje  ;
-    protected Map<String,Multiplicador> multiplicadores = new HashMap<String,Multiplicador>();
+    private String nombre;
+    private Puntaje puntaje  ;
+    private Map<String,Multiplicador> multiplicadores = new HashMap<String,Multiplicador>();
 
     public Jugador(String nombre) {
         this.nombre = nombre;

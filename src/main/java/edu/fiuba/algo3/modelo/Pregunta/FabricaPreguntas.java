@@ -10,8 +10,8 @@ public class FabricaPreguntas {
     public static Pregunta preguntaVoFClasico(String enunciado, String opcionCorrecta){
         Pregunta pregunta = new Pregunta(enunciado);
         pregunta.asignarOpcionCorrecta(opcionCorrecta);
-        pregunta.asignarOpcionPosible("V");
-        pregunta.asignarOpcionPosible("F");
+        pregunta.asignarOpcionPosible("Verdadero");
+        pregunta.asignarOpcionPosible("Falso");
         Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
         pregunta.asignarCalificador(calificador);
         return pregunta;
@@ -20,8 +20,8 @@ public class FabricaPreguntas {
     public static Pregunta preguntaVoFPenalizado(String enunciado, String opcionCorrecta){
         Pregunta pregunta = new Pregunta(enunciado);
         pregunta.asignarOpcionCorrecta(opcionCorrecta);
-        pregunta.asignarOpcionPosible("V");
-        pregunta.asignarOpcionPosible("F");
+        pregunta.asignarOpcionPosible("Verdadero");
+        pregunta.asignarOpcionPosible("Falso");
         Calificador calificador = new ComparadorConOrden(new AsignadorPenalizado());
         pregunta.asignarCalificador(calificador);
         pregunta.conPenalidad();
