@@ -18,7 +18,7 @@ public class PreguntaVoFTest {
      @Test
     public void Test01PreguntaVoFConEnunciadoVerdaderoSeCrea(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFVerdadera("Enunciado");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasica("Enunciado","V");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("V");
         assertTrue(pregunta.esCorrecta(opcion));
@@ -27,7 +27,7 @@ public class PreguntaVoFTest {
     @Test
     public void Test02PreguntaVoFConEnunciadoVerdaderoSeCreaYSeTesteaConUnFalso(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFVerdadera("Enunciado");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasica("Enunciado","V");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("F");
         assertFalse(pregunta.esCorrecta(opcion));
@@ -36,7 +36,7 @@ public class PreguntaVoFTest {
     @Test
     public void Test03PreguntaVoFConEnunciadoFalsoSeCreaYVerificaConFalso(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFFalsa("Enunciado");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasica("Enunciado","F");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("F");
         assertTrue(pregunta.esCorrecta(opcion));
@@ -45,7 +45,7 @@ public class PreguntaVoFTest {
     @Test
     public void Test04PreguntaVoFConEnunciadoFalsoSeCreaYSeTesteaConUnVerdadero(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFFalsa("Enunciado");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasica("Enunciado","F");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("V");
         assertFalse(pregunta.esCorrecta(opcion));
@@ -53,7 +53,7 @@ public class PreguntaVoFTest {
     @Test
     public void Test05PreguntaVoFFalsaSePrubaInteraccionConJugadores(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFFalsa("Enunciado");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasica("Enunciado","F");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1= new Respuesta(jugador1);
@@ -70,7 +70,7 @@ public class PreguntaVoFTest {
     @Test
     public void Test06PreguntaVoFTrueSePrubaInteraccionConJugadores(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFVerdadera("Enunciado");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasica("Enunciado","V");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1= new Respuesta(jugador1);
@@ -88,7 +88,7 @@ public class PreguntaVoFTest {
     @Test
     public void Test07PreguntaVoFTrueSinPenalizarSeAgregaMultiplicadorPeroEsteNoHaceNadaYaQueNoSePuedeUsar(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFVerdadera("Enunciado");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasica("Enunciado","V");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1= new Respuesta(jugador1);

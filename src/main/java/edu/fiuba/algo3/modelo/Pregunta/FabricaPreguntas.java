@@ -7,38 +7,22 @@ import java.util.HashMap;
 
 public class FabricaPreguntas {
 
-    public static Pregunta preguntaVoFVerdadera(String enunciado){
+    public static Pregunta preguntaVoFClasica(String enunciado, String opcionCorrecta){
         Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta("V");
+        pregunta.asignarOpcionCorrecta(opcionCorrecta);
+        pregunta.asignarOpcionPosible("V");
         pregunta.asignarOpcionPosible("F");
         Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
         pregunta.asignarCalificador(calificador);
         return pregunta;
     }
 
-    public static Pregunta preguntaVoFFalsa(String enunciado){
+    public static Pregunta preguntaVoFPenalizada(String enunciado, String opcionCorrecta){
         Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta("F");
+        pregunta.asignarOpcionCorrecta(opcionCorrecta);
         pregunta.asignarOpcionPosible("V");
-        Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
-        pregunta.asignarCalificador(calificador);
-        return pregunta;
-    }
-    public static Pregunta preguntaVoFVerdaderaPenalizado(String enunciado){
-        Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta("V");
         pregunta.asignarOpcionPosible("F");
         Calificador calificador = new ComparadorConOrden(new AsignadorPenalizado());
-        pregunta.asignarCalificador(calificador);
-        pregunta.conPenalidad();
-        return pregunta;
-    }
-
-    public static Pregunta preguntaVoFFalsaPenalizado(String enunciado){
-        Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta("F");
-        pregunta.asignarOpcionPosible("V");
-        Calificador calificador = new AsignadorPenalizado();
         pregunta.asignarCalificador(calificador);
         pregunta.conPenalidad();
         return pregunta;
