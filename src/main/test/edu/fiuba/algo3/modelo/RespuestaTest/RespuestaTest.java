@@ -26,7 +26,7 @@ public class RespuestaTest {
         Respuesta respuesta= new Respuesta(jugador1);
         respuesta.agregarPuntajeObtenido(new PuntoPositivo());
         respuesta.aplicarPuntaje();
-        assertEquals(1,jugador1.obtenerPuntaje().valor());
+        assertEquals(1,jugador1.puntajeValorNumerico());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class RespuestaTest {
         Respuesta respuesta= new Respuesta(jugador1);
         respuesta.agregarPuntajeObtenido(new PuntoNegativo());
         respuesta.aplicarPuntaje();
-        assertEquals(-1,jugador1.obtenerPuntaje().valor());
+        assertEquals(-1,jugador1.puntajeValorNumerico());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class RespuestaTest {
         respuesta.agregarPuntajeObtenido(new PuntoPositivo());
         respuesta.cambiarMultiplicador(multiplicador);
         respuesta.aplicarPuntaje();
-        assertEquals(2,jugador1.obtenerPuntaje().valor());
+        assertEquals(2,jugador1.puntajeValorNumerico());
     }
 
     @Test
@@ -57,7 +57,7 @@ public class RespuestaTest {
         respuesta.agregarPuntajeObtenido(new PuntoPositivo());
         respuesta.cambiarMultiplicador(multiplicador);
         respuesta.aplicarPuntaje();
-        assertEquals(3,jugador1.obtenerPuntaje().valor());
+        assertEquals(3,jugador1.puntajeValorNumerico());
     }
 
     @Test
@@ -68,7 +68,7 @@ public class RespuestaTest {
         respuesta.agregarPuntajeObtenido(new PuntoNegativo());
         respuesta.cambiarMultiplicador(multiplicador);
         respuesta.aplicarPuntaje();
-        assertEquals(-3,jugador1.obtenerPuntaje().valor());
+        assertEquals(-3,jugador1.puntajeValorNumerico());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class RespuestaTest {
         respuesta.agregarPuntajeObtenido(new PuntoNegativo());
         respuesta.cambiarMultiplicador(multiplicador);
         respuesta.aplicarPuntaje();
-        assertEquals(-2,jugador1.obtenerPuntaje().valor());
+        assertEquals(-2,jugador1.puntajeValorNumerico());
     }
 
     @Test
@@ -90,6 +90,6 @@ public class RespuestaTest {
         respuesta.agregarPuntajeObtenido(new PuntoNulo());
         respuesta.cambiarMultiplicador(multiplicador);
         respuesta.aplicarPuntaje();
-        assertEquals(0,jugador1.obtenerPuntaje().valor());
+        assertEquals(0,jugador1.puntajeValorNumerico());
     }
 }

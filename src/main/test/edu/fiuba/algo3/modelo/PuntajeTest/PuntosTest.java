@@ -9,27 +9,27 @@ public class PuntosTest {
 
     @Test
     public void Test01PuntosSeAgregaPuntoPositivosYdevuelveElValorEsperado(){
-        IPunteable puntos = new Puntos();
+        Puntaje puntos = new Puntos();
         puntos = puntos.agregar(new PuntoPositivo());
         assertEquals(puntos.valor(),1);
     }
 
     @Test
     public void Test02PuntosSeAgregaPuntoNegativoYdevuelveElValorEsperado(){
-        IPunteable puntos = new Puntos();
+        Puntaje puntos = new Puntos();
         puntos = puntos.agregar(new PuntoNegativo());
         assertEquals(puntos.valor(),-1);
     }
     @Test
     public void Test03PuntosSeAgregaPuntoNuloYdevuelveElValorEsperado(){
-        IPunteable puntos = new Puntos();
+        Puntaje puntos = new Puntos();
         puntos.agregar(new PuntoNulo());
         assertEquals(puntos.valor(),0);
     }
 
     @Test
     public void Test04PuntosSeAgregaPuntosDiferentesYdevuelveElValorEsperado(){
-        IPunteable puntos = new Puntos();
+        Puntaje puntos = new Puntos();
         puntos.agregar(new PuntoPositivo());
         puntos.agregar(new PuntoPositivo());
         puntos.agregar(new PuntoNulo());
@@ -40,7 +40,7 @@ public class PuntosTest {
     }
     @Test
     public void Test05PuntosSeAgregaPuntosDiferentesYdevuelveElValorEsperado(){
-        IPunteable puntos = new Puntos();
+        Puntaje puntos = new Puntos();
         puntos.agregar(new PuntoPositivo());
         puntos.agregar(new PuntoPositivo());
         puntos.agregar(new PuntoNulo());

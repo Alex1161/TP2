@@ -3,12 +3,12 @@ package edu.fiuba.algo3.modelo.Respuesta;
 import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Puntaje.IPunteable;
+import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 
 public class Respuesta {
     Opciones grupo2 = new Opciones();
     Opciones opcionesElegidas=new Opciones();
-    IPunteable puntajeObtenido;
+    Puntaje puntajeObtenido;
     Multiplicador multiplicador;
     Jugador jugador;
 
@@ -37,7 +37,7 @@ public class Respuesta {
         jugador.agregarPuntaje(multiplicador.aplicar(puntajeObtenido));
     }
 
-    public void agregarPuntajeObtenido(IPunteable puntaje){
+    public void agregarPuntajeObtenido(Puntaje puntaje){
         puntajeObtenido=puntaje;
     }
 

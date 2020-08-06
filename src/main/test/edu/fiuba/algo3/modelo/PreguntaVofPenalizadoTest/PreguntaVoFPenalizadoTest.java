@@ -64,8 +64,8 @@ public class PreguntaVoFPenalizadoTest {
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);
-        assertEquals(-1,jugador1.obtenerPuntaje().valor());
-        assertEquals(1,jugador2.obtenerPuntaje().valor());
+        assertEquals(-1,jugador1.puntajeValorNumerico());
+        assertEquals(1,jugador2.puntajeValorNumerico());
     }
     @Test
     public void Test06PreguntaVoFVerdaderaPenalizadaSePrubaInteraccionConJugadores(){
@@ -81,8 +81,8 @@ public class PreguntaVoFPenalizadoTest {
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);
-        assertEquals(1,jugador1.obtenerPuntaje().valor());
-        assertEquals(-1,jugador2.obtenerPuntaje().valor());
+        assertEquals(1,jugador1.puntajeValorNumerico());
+        assertEquals(-1,jugador2.puntajeValorNumerico());
     }
 
     @Test
@@ -101,7 +101,7 @@ public class PreguntaVoFPenalizadoTest {
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);
-        assertEquals(2,jugador1.obtenerPuntaje().valor());
-        assertEquals(-3,jugador2.obtenerPuntaje().valor());
+        assertEquals(2,jugador1.puntajeValorNumerico());
+        assertEquals(-3,jugador2.puntajeValorNumerico());
     }
 }

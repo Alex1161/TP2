@@ -76,8 +76,8 @@ public class MultipleChoiceClasicoTest {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.obtenerPuntaje().valor());
-        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 1,jugador1.puntajeValorNumerico());
+        assertEquals( 0,jugador2.puntajeValorNumerico());
     }
 
     @Test
@@ -114,8 +114,8 @@ public class MultipleChoiceClasicoTest {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 0,jugador1.obtenerPuntaje().valor());
-        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 0,jugador1.puntajeValorNumerico());
+        assertEquals( 0,jugador2.puntajeValorNumerico());
 
 
     }
@@ -154,8 +154,8 @@ public class MultipleChoiceClasicoTest {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.obtenerPuntaje().valor());
-        assertEquals( 1,jugador2.obtenerPuntaje().valor());
+        assertEquals( 1,jugador1.puntajeValorNumerico());
+        assertEquals( 1,jugador2.puntajeValorNumerico());
 
 
     }

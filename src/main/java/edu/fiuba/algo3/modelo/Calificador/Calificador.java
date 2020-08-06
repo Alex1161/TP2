@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Calificador;
 
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Puntaje.IPunteable;
+import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 
 public abstract class Calificador {
 
@@ -15,5 +15,5 @@ public abstract class Calificador {
         this.siguienteCalificador = siguienteCalificador;
     }
 
-    public abstract IPunteable calificar(Opciones correctas, Opciones elegidas);
+    public abstract Puntaje calificar(Opciones correctas, Opciones elegidas);
 }

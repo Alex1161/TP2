@@ -64,8 +64,8 @@ public class PreguntaVoFTest {
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);
-        assertEquals(0,jugador1.obtenerPuntaje().valor());
-        assertEquals(1,jugador2.obtenerPuntaje().valor());
+        assertEquals(0,jugador1.puntajeValorNumerico());
+        assertEquals(1,jugador2.puntajeValorNumerico());
     }
     @Test
     public void Test06PreguntaVoFTrueSePrubaInteraccionConJugadores(){
@@ -81,8 +81,8 @@ public class PreguntaVoFTest {
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);
-        assertEquals(1,jugador1.obtenerPuntaje().valor());
-        assertEquals(0,jugador2.obtenerPuntaje().valor());
+        assertEquals(1,jugador1.puntajeValorNumerico());
+        assertEquals(0,jugador2.puntajeValorNumerico());
     }
 
     @Test
@@ -101,7 +101,7 @@ public class PreguntaVoFTest {
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);
-        assertEquals(1,jugador1.obtenerPuntaje().valor());
-        assertEquals(0,jugador2.obtenerPuntaje().valor());
+        assertEquals(1,jugador1.puntajeValorNumerico());
+        assertEquals(0,jugador2.puntajeValorNumerico());
     }
 }
