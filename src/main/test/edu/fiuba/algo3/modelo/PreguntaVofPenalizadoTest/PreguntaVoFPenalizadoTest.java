@@ -18,7 +18,7 @@ public class PreguntaVoFPenalizadoTest {
     @Test
     public void Test01PreguntaVoFPenalizadaConEnunciadoVerdaderoSeCrea(){
 
-    Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizada("Enunciado","V");
+    Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","V");
     Opciones opcion = new Opciones();
     opcion.agregarOpcion("V");
     assertTrue(pregunta.esCorrecta(opcion));
@@ -27,7 +27,7 @@ public class PreguntaVoFPenalizadoTest {
     @Test
     public void Test02PreguntaVoFPenalizadaConEnunciadoVerdaderoSeCreaYSeTesteaConUnFalso(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizada("Enunciado","V");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","V");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("F");
         assertFalse(pregunta.esCorrecta(opcion));
@@ -36,7 +36,7 @@ public class PreguntaVoFPenalizadoTest {
     @Test
     public void Test03PreguntaVoFPenalizadaConEnunciadoFalsoSeCreaYVerificaConFalso(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizada("Enunciado","F");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","F");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("F");
         assertTrue(pregunta.esCorrecta(opcion));
@@ -45,7 +45,7 @@ public class PreguntaVoFPenalizadoTest {
     @Test
     public void Test04PreguntaVoFPenalizadaConEnunciadoFalsoSeCreaYSeTesteaConUnVerdadero(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizada("Enunciado","F");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","F");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("V");
         assertFalse(pregunta.esCorrecta(opcion));
@@ -53,7 +53,7 @@ public class PreguntaVoFPenalizadoTest {
     @Test
     public void Test05PreguntaVoFFalsaPenalizadaSePrubaInteraccionConJugadores(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizada("Enunciado","F");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","F");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1= new Respuesta(jugador1);
@@ -70,7 +70,7 @@ public class PreguntaVoFPenalizadoTest {
     @Test
     public void Test06PreguntaVoFVerdaderaPenalizadaSePrubaInteraccionConJugadores(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizada("Enunciado","V");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","V");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1= new Respuesta(jugador1);
@@ -88,7 +88,7 @@ public class PreguntaVoFPenalizadoTest {
     @Test
     public void Test07PreguntaVoFTruePenalizadoSeAgregaMultiplicadorx2YSeVeReflejadoEnLosPuntajes(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizada("Enunciado","V");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","V");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1= new Respuesta(jugador1);

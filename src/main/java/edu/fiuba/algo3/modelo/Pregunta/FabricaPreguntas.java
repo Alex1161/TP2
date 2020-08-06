@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class FabricaPreguntas {
 
-    public static Pregunta preguntaVoFClasica(String enunciado, String opcionCorrecta){
+    public static Pregunta preguntaVoFClasico(String enunciado, String opcionCorrecta){
         Pregunta pregunta = new Pregunta(enunciado);
         pregunta.asignarOpcionCorrecta(opcionCorrecta);
         pregunta.asignarOpcionPosible("V");
@@ -17,7 +17,7 @@ public class FabricaPreguntas {
         return pregunta;
     }
 
-    public static Pregunta preguntaVoFPenalizada(String enunciado, String opcionCorrecta){
+    public static Pregunta preguntaVoFPenalizado(String enunciado, String opcionCorrecta){
         Pregunta pregunta = new Pregunta(enunciado);
         pregunta.asignarOpcionCorrecta(opcionCorrecta);
         pregunta.asignarOpcionPosible("V");
@@ -38,7 +38,7 @@ public class FabricaPreguntas {
 
         return pregunta;
     }
-    public static Pregunta preguntaOrderecChoice(String enunciado, Opciones opcionesPosibles) {
+    public static Pregunta preguntaOrderedChoice(String enunciado, Opciones opcionesPosibles) {
         Pregunta pregunta = new Pregunta(enunciado);
 
         for (String opcion : opcionesPosibles.obtenerOpciones()) {
