@@ -34,6 +34,7 @@ Class PuntoPositivo{
 PuntoNegativo -up-|> Punto
 PuntoNulo -up-|> Punto
 PuntoPositivo -up-|> Punto
-Puntos .up.|> " *" IPunteable
+Puntos .up.|> IPunteable
+Puntos o-up- "*" IPunteable
 Punto .up.|> IPunteable
 @enduml
