@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.CalificadorTest;
 
 import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Puntaje.IPunteable;
+import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Calificador.ComparadorConOrden;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoNulo;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
@@ -28,7 +28,7 @@ public class ComparadorConOrdenTest {
         opcionesElegidas.agregarOpcion("4");
 
         ComparadorConOrden comparador = new ComparadorConOrden(new AsignadorClasico());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoPositivo().valor()), puntajeObtenido.valor());
     }
@@ -49,7 +49,7 @@ public class ComparadorConOrdenTest {
         opcionesElegidas.agregarOpcion("4");
 
         ComparadorConOrden comparador = new ComparadorConOrden(new AsignadorClasico());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
     }
@@ -69,7 +69,7 @@ public class ComparadorConOrdenTest {
         opcionesElegidas.agregarOpcion("3");
 
         ComparadorConOrden comparador = new ComparadorConOrden(new AsignadorClasico());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
     }

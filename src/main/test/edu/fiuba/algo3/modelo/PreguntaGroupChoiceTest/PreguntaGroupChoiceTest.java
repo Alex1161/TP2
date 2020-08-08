@@ -42,7 +42,7 @@ public class PreguntaGroupChoiceTest {
 
         preguntaGroupChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.obtenerPuntaje().valor());
+        assertEquals( 1,jugador1.puntajeValorNumerico());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class PreguntaGroupChoiceTest {
 
         groupChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 0,jugador1.obtenerPuntaje().valor());
+        assertEquals( 0,jugador1.puntajeValorNumerico());
     }
 
     @Test
@@ -116,8 +116,8 @@ public class PreguntaGroupChoiceTest {
 
         preguntaGroupChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.obtenerPuntaje().valor());
-        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 1,jugador1.puntajeValorNumerico());
+        assertEquals( 0,jugador2.puntajeValorNumerico());
     }
 
     @Test
@@ -160,8 +160,8 @@ public class PreguntaGroupChoiceTest {
 
         preguntaGroupChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.obtenerPuntaje().valor());
-        assertEquals( 1,jugador2.obtenerPuntaje().valor());
+        assertEquals( 1,jugador1.puntajeValorNumerico());
+        assertEquals( 1,jugador2.puntajeValorNumerico());
     }
 /*
     @Test
@@ -249,7 +249,7 @@ public class PreguntaGroupChoiceTest {
 
         preguntaGroupChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 0,jugador1.obtenerPuntaje().valor());
-        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 0,jugador1.puntajeValorNumerico());
+        assertEquals( 0,jugador2.puntajeValorNumerico());
     }
 }

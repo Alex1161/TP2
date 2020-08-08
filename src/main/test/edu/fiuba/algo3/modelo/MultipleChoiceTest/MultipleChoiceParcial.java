@@ -48,8 +48,8 @@ public class MultipleChoiceParcial {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 2,jugador1.obtenerPuntaje().valor());
-        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 2,jugador1.puntajeValorNumerico());
+        assertEquals( 0,jugador2.puntajeValorNumerico());
     }
     @Test
     public void Test02PreguntaMultipleChoiceAsignaCorrectamenteLosPuntajes01(){
@@ -85,8 +85,8 @@ public class MultipleChoiceParcial {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 2,jugador1.obtenerPuntaje().valor());
-        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 2,jugador1.puntajeValorNumerico());
+        assertEquals( 0,jugador2.puntajeValorNumerico());
     }
 
     @Test
@@ -123,8 +123,8 @@ public class MultipleChoiceParcial {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 0,jugador1.obtenerPuntaje().valor());
-        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 0,jugador1.puntajeValorNumerico());
+        assertEquals( 0,jugador2.puntajeValorNumerico());
 
 
     }
@@ -163,8 +163,8 @@ public class MultipleChoiceParcial {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 0,jugador1.obtenerPuntaje().valor());
-        assertEquals(0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 0,jugador1.puntajeValorNumerico());
+        assertEquals(0,jugador2.puntajeValorNumerico());
 
 
     }
@@ -212,8 +212,8 @@ public class MultipleChoiceParcial {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 4,jugador1.obtenerPuntaje().valor());
-        assertEquals(0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 4,jugador1.puntajeValorNumerico());
+        assertEquals(0,jugador2.puntajeValorNumerico());
 
 
     }

@@ -6,9 +6,6 @@ import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
-import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +27,7 @@ public class OrderedChoiceTest {
         opcionesPosibles.agregarOpcion("3");
         opcionesPosibles.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderecChoice("de menor a mayor ", opcionesPosibles);
+        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("de menor a mayor ", opcionesPosibles);
 
         Opciones opcion = new Opciones();
 
@@ -52,7 +49,7 @@ public class OrderedChoiceTest {
         opcionesPosibles.agregarOpcion("3");
         opcionesPosibles.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderecChoice("de menor a mayor ", opcionesPosibles);
+        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("de menor a mayor ", opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -75,8 +72,8 @@ public class OrderedChoiceTest {
 
         preguntaOrderedChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.obtenerPuntaje().valor());
-        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 1,jugador1.puntajeValorNumerico());
+        assertEquals( 0,jugador2.puntajeValorNumerico());
 
     }
 
@@ -91,7 +88,7 @@ public class OrderedChoiceTest {
         opcionesPosibles.agregarOpcion("3");
         opcionesPosibles.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderecChoice("de menor a mayor ", opcionesPosibles);
+        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("de menor a mayor ", opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -116,8 +113,8 @@ public class OrderedChoiceTest {
 
         preguntaOrderedChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 0,jugador1.obtenerPuntaje().valor());
-        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 0,jugador1.puntajeValorNumerico());
+        assertEquals( 0,jugador2.puntajeValorNumerico());
 
     }
 
@@ -131,7 +128,7 @@ public class OrderedChoiceTest {
         opcionesPosibles.agregarOpcion("3");
         opcionesPosibles.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderecChoice("de menor a mayor ", opcionesPosibles);
+        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("de menor a mayor ", opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -157,8 +154,8 @@ public class OrderedChoiceTest {
 
         preguntaOrderedChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.obtenerPuntaje().valor());
-        assertEquals( 0,jugador2.obtenerPuntaje().valor());
+        assertEquals( 1,jugador1.puntajeValorNumerico());
+        assertEquals( 0,jugador2.puntajeValorNumerico());
 
     }
 }

@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
 import edu.fiuba.algo3.modelo.Calificador.AsignadorPenalizado;
 import edu.fiuba.algo3.modelo.Calificador.ComparadorSinOrden;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Puntaje.IPunteable;
+import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoNulo;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
 import org.junit.jupiter.api.Test;
@@ -29,7 +29,7 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("4");
 
         ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoPositivo().valor()), puntajeObtenido.valor());
     }
@@ -50,7 +50,7 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("4");
 
         ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoPositivo().valor()), puntajeObtenido.valor());
     }
@@ -70,7 +70,7 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("3");
 
         ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
     }
@@ -91,7 +91,7 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("7");
 
         ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
     }
@@ -111,7 +111,7 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("3");
 
         ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorPenalizado());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals(3, puntajeObtenido.valor());
     }
@@ -132,7 +132,7 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("7");
 
         ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorPenalizado());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals(-2, puntajeObtenido.valor());
     }
@@ -149,7 +149,7 @@ public class ComparadorSinOrdenTest {
 
 
         ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoPositivo().valor()), puntajeObtenido.valor());
     }
@@ -165,7 +165,7 @@ public class ComparadorSinOrdenTest {
 
 
         ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
-        IPunteable puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
+        Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
     }

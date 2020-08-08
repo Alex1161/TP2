@@ -1,17 +1,15 @@
 package edu.fiuba.algo3.modelo.Puntaje;
 
-public class Punto implements IPunteable {
+public abstract class Punto implements Puntaje {
 
     @Override
-    public IPunteable agregar(IPunteable puntaje) {
-        IPunteable puntos = new Puntos();
+    public Puntaje agregar(Puntaje puntaje) {
+        Puntaje puntos = new Puntos();
         puntos.agregar(this);
         puntos.agregar(puntaje);
         return puntos;
     }
 
     @Override
-    public int valor() {
-        return 0;
-    }
+    public abstract int valor();
 }

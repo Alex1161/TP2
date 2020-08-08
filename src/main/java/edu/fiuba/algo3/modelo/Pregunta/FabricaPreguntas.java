@@ -7,38 +7,22 @@ import java.util.HashMap;
 
 public class FabricaPreguntas {
 
-    public static Pregunta preguntaVoFVerdadera(String enunciado){
+    public static Pregunta preguntaVoFClasico(String enunciado, String opcionCorrecta){
         Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta("V");
-        pregunta.asignarOpcionPosible("F");
+        pregunta.asignarOpcionCorrecta(opcionCorrecta);
+        pregunta.asignarOpcionPosible("Verdadero");
+        pregunta.asignarOpcionPosible("Falso");
         Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
         pregunta.asignarCalificador(calificador);
         return pregunta;
     }
 
-    public static Pregunta preguntaVoFFalsa(String enunciado){
+    public static Pregunta preguntaVoFPenalizado(String enunciado, String opcionCorrecta){
         Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta("F");
-        pregunta.asignarOpcionPosible("V");
-        Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
-        pregunta.asignarCalificador(calificador);
-        return pregunta;
-    }
-    public static Pregunta preguntaVoFVerdaderaPenalizado(String enunciado){
-        Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta("V");
-        pregunta.asignarOpcionPosible("F");
+        pregunta.asignarOpcionCorrecta(opcionCorrecta);
+        pregunta.asignarOpcionPosible("Verdadero");
+        pregunta.asignarOpcionPosible("Falso");
         Calificador calificador = new ComparadorConOrden(new AsignadorPenalizado());
-        pregunta.asignarCalificador(calificador);
-        pregunta.conPenalidad();
-        return pregunta;
-    }
-
-    public static Pregunta preguntaVoFFalsaPenalizado(String enunciado){
-        Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta("F");
-        pregunta.asignarOpcionPosible("V");
-        Calificador calificador = new AsignadorPenalizado();
         pregunta.asignarCalificador(calificador);
         pregunta.conPenalidad();
         return pregunta;
@@ -54,7 +38,7 @@ public class FabricaPreguntas {
 
         return pregunta;
     }
-    public static Pregunta preguntaOrderecChoice(String enunciado, Opciones opcionesPosibles) {
+    public static Pregunta preguntaOrderedChoice(String enunciado, Opciones opcionesPosibles) {
         Pregunta pregunta = new Pregunta(enunciado);
 
         for (String opcion : opcionesPosibles.obtenerOpciones()) {

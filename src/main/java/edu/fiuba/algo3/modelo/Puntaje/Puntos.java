@@ -3,19 +3,19 @@ package edu.fiuba.algo3.modelo.Puntaje;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Puntos implements IPunteable {
+public class Puntos implements Puntaje {
 
-    List<IPunteable> listaDePuntos = new ArrayList<IPunteable>();
+    List<Puntaje> listaDePuntos = new ArrayList<Puntaje>();
 
 
-    public IPunteable agregar(IPunteable puntaje){
+    public Puntaje agregar(Puntaje puntaje){
         listaDePuntos.add(puntaje);
         return this;
     }
 
     public int valor(){
         int valor = 0;
-        for(IPunteable puntaje: listaDePuntos) {
+        for(Puntaje puntaje: listaDePuntos) {
             valor += puntaje.valor();
         }
         return valor;
