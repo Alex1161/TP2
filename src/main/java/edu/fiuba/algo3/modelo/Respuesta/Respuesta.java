@@ -16,13 +16,19 @@ public class Respuesta {
     Jugador jugador;
 
     public Respuesta(Jugador jugador){
+        this.multiplicador = new Multiplicador(1);
         this.jugador=jugador;
+    }
+
+    public void setMultiplicador(Multiplicador unMultiplicador){
+        multiplicador = unMultiplicador;
     }
 
     public Respuesta(Jugador jugador, Multiplicador multiplicador ){
         this.multiplicador=multiplicador;
         this.jugador=jugador;
     }
+
     public void agregarOpcion(String opcion){
         opcionesElegidas.agregarOpcion(opcion);
     }

@@ -1,23 +1,34 @@
 
-/*package edu.fiuba.algo3.modelo.Ronda;
+package edu.fiuba.algo3.modelo.Ronda;
 
 
 
-import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Pregunta;
-import edu.fiuba.algo3.modelo.puntaje.Puntaje;
+
+import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
+import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ronda {
-    public calificarEn(Jugador jugador, Pregunta pregunta){
-        Puntaje puntaje=pregunta.calificar(jugador.respuestas());
+    public void jugarRonda(Respuesta respuestaJugador1, Respuesta respuestaJugador2, Pregunta unaPregunta){
+        List<Respuesta> respuestas = new ArrayList<>();
+        respuestas.add(respuestaJugador1);
+        respuestas.add(respuestaJugador2);
 
-        jugador.sumar(puntaje);
-    }*/
-    /*
+        unaPregunta.calificar(respuestas);
+
+        respuestaJugador1.aplicarPuntaje();
+        respuestaJugador2.aplicarPuntaje();
+
+    }
+/*
+    public void aplicarBonus(Jugador jugador, IBonus unBonus, Pregunta unaPregunta);
+
     public calificarEn(Jugadores jugadores,Pregunta pregunta){
         Puntaje puntaje=pregunta.calificar(jugador.respuestas());
         jugador.sumarTemporalemente(puntaje);
-
 
 
     }
@@ -29,6 +40,6 @@ public class Ronda {
         return puntajesTemporales.contains(new PuntoNulo);
     }
 
+    */
+}
 
-
-}     */
