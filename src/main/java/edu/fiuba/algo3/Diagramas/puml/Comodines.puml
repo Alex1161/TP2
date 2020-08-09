@@ -17,11 +17,9 @@ Abstract Class Pregunta{
     -tipoPenalidad: Penalidad
     -calificador: Calificador
     -exclusividad: Comodin
-    +{abstract}{static}Pregunta(enunciado: String)
-    +asignarOpcionesCorrectas(opcionesCorrectas: Opciones): void
-    +asignarOpcionesPosibles(opcionesPosibles: Opciones): void
     +esCorrecta(Opcion: String): boolean
     +calificar(Respuestas: List<Respuesta>): void
+    +asignarComodin(comodin: Comodin): void
 }
 
 Class Respuesta{

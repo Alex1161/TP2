@@ -19,4 +19,9 @@ public class ComparadorSinOrden extends Calificador{
             return siguienteCalificador.calificar(correctas, elegidas);
         }
     }
+
+    @Override
+    public boolean sonCorrectas(Opciones opcionesCorrectas, Opciones opciones) {
+        return opcionesCorrectas.compararSinOrden(opciones);
+    }
 }

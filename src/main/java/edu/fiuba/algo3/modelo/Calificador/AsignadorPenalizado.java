@@ -21,4 +21,9 @@ public class AsignadorPenalizado extends Calificador {
         return puntajeParcial;
 
     }
+
+    @Override
+    public boolean sonCorrectas(Opciones opcionesCorrectas, Opciones opciones) {
+        return false;
+    }
 }

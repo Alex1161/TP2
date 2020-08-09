@@ -14,4 +14,9 @@ public class AsignadorClasico extends Calificador {
     public Puntaje calificar(Opciones correctas, Opciones elegidas) {
         return new PuntoNulo();
     }
+
+    @Override
+    public boolean sonCorrectas(Opciones opcionesCorrectas, Opciones opciones) {
+        return false;
+    }
 }

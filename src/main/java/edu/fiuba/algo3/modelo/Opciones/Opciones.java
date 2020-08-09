@@ -41,4 +41,11 @@ public class Opciones {
     public void agregarOpciones(Opciones opciones) {
         elementos.addAll(opciones.elementos());
     }
+
+    public boolean contiene(Opciones opciones) {
+        Collection<String> misOpciones = new HashSet<String>(this.elementos);
+        Collection<String> opcionesAComparar = new HashSet<String>(opciones.elementos());
+
+        return misOpciones.containsAll(opcionesAComparar);
+    }
 }

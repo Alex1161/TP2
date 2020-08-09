@@ -23,6 +23,7 @@ public class Pregunta {
         opcionesPosibles = new Opciones();
         penalidad = new SinPenalidad();
     }
+
     public void conPenalidad(){
         penalidad = new ConPenalidad();
     }
@@ -62,8 +63,8 @@ public class Pregunta {
         }
     }
 
-    public boolean esCorrecta(Opciones opcion){
-        return opcionesCorrectas.compararConOrden(opcion);
+    public boolean esCorrecta(Opciones opciones){
+        return calificador.sonCorrectas(opcionesCorrectas, opciones);
     }
 
     public void agregarComodin(Multiplicador multiplicador, Respuesta respuesta){
