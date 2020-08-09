@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Puntaje;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Puntos implements Puntaje {
+public class Puntos extends Puntaje {
 
     List<Puntaje> listaDePuntos = new ArrayList<Puntaje>();
 

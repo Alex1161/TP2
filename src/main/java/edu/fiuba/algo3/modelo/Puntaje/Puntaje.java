@@ -1,10 +1,19 @@
 package edu.fiuba.algo3.modelo.Puntaje;
 
-public interface Puntaje {
+public abstract class Puntaje {
 
 
-    Puntaje agregar(Puntaje puntaje);
+    public abstract Puntaje agregar(Puntaje puntaje);
 
-    int valor();
+    public abstract int valor();
 
+    public Puntaje multiplicarPor(int factor){
+        Puntaje puntosMultiplicados = new Puntos();
+
+        for (int i = 0; i < factor; i++){
+            puntosMultiplicados.agregar(this);
+        }
+
+        return puntosMultiplicados;
+    }
 }

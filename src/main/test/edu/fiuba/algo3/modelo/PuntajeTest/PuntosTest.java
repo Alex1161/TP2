@@ -54,5 +54,43 @@ public class PuntosTest {
         assertEquals(puntos.valor(),-2);
     }
 
+    @Test
+    public void puntosMultiplicarX2FuncionaCorrectamente(){
+        Puntos puntos = new Puntos();
+        puntos.agregar(new PuntoPositivo());
+        puntos.agregar(new PuntoPositivo());
+        puntos.agregar(new PuntoNulo());
+        puntos.agregar(new PuntoPositivo());
+        puntos.agregar(new PuntoNegativo());
+        puntos.agregar(new PuntoNegativo());
+        puntos.agregar(new PuntoNegativo());
+        puntos.agregar(new PuntoNegativo());
+        puntos.agregar(new PuntoNegativo());
+        puntos.agregar(new PuntoNulo());
+
+        Puntaje puntajeMultiplicado = puntos.multiplicarPor(2);
+
+        assertEquals(-4, puntajeMultiplicado.valor());
+    }
+
+    @Test
+    public void puntosMultiplicarX3FuncionaCorrectamente(){
+        Puntos puntos = new Puntos();
+        puntos.agregar(new PuntoPositivo());
+        puntos.agregar(new PuntoPositivo());
+        puntos.agregar(new PuntoNulo());
+        puntos.agregar(new PuntoPositivo());
+        puntos.agregar(new PuntoNegativo());
+        puntos.agregar(new PuntoNegativo());
+        puntos.agregar(new PuntoNegativo());
+        puntos.agregar(new PuntoNegativo());
+        puntos.agregar(new PuntoNegativo());
+        puntos.agregar(new PuntoNulo());
+
+        Puntaje puntajeMultiplicado = puntos.multiplicarPor(3);
+
+        assertEquals(-6, puntajeMultiplicado.valor());
+    }
+
 
 }

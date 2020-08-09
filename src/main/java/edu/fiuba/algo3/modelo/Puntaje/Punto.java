@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Puntaje;
 
-public abstract class Punto implements Puntaje {
+public abstract class Punto extends Puntaje {
 
     @Override
     public Puntaje agregar(Puntaje puntaje) {

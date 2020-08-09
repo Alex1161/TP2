@@ -14,10 +14,9 @@ Class Opciones{
 
 Abstract Class Pregunta{
     -enunciado: String
-    -opcionesCorrectas: Opciones
-    -opcionesPosibles: Opciones
     -tipoPenalidad: Penalidad
-    -exclusividades: List<Exclusividad>
+    -calificador: Calificador
+    -exclusividad: Comodin
     +{abstract}{static}Pregunta(enunciado: String)
     +asignarOpcionesCorrectas(opcionesCorrectas: Opciones): void
     +asignarOpcionesPosibles(opcionesPosibles: Opciones): void
@@ -28,11 +27,12 @@ Abstract Class Pregunta{
 Class Respuesta{
     -opcionesElegidas: Opciones
     -puntajeObtenido: Puntaje
-    -multiplicador: Multiplicador
+    -multiplicador: Comodin
     +{static}Respuesta(jugador: Jugador)
     +{static}Respuesta(jugador: Jugador, multiplicador: Multiplicador)
     +agregarOpcion(opcion: String): void
     +agregarPuntajeObtenido(puntaje:Puntaje):void
+    +aplicarComodin(): void
     +aplicarPuntaje(): void
 }
 
@@ -40,7 +40,8 @@ Class Jugador{
     -nombre: String
     +{Static}Jugador(nombre: String)
     +modificarPuntaje(puntaje: puntaje): void
-    +obtenerPuntaje(): int
+    +puntajeValorNumerico(): int
+    +removerComodin(): Comodin
 }
 
 Interface IPunteable{
@@ -48,17 +49,39 @@ Interface IPunteable{
     +{abstract}valor(): int
 }
 
-Class Multiplicador{
+Abstract Multiplicador{
     -factor: int
     +{static}Multiplicador(factor: int)
+    -aplicar(puntaje: Puntaje): Puntaje
+}
+
+Interface Comodin{
+    -aplicar(puntaje: Puntaje): Puntaje
+}
+
+Class Exclusividad{
+    -aplicar(puntaje: Puntaje): Puntaje
+}
+
+Class MultiplicadorX2{
+    -aplicar(puntaje: Puntaje): Puntaje
+}
+
+Class MultiplicadorX3{
+    -aplicar(puntaje: Puntaje): Puntaje
 }
 
 'Relaciones
 Respuesta o-- Jugador
-Pregunta *-left- Opciones
+Pregunta "1" *-left- "2" Opciones
 Respuesta *-up- Opciones
 
 Jugador *-- IPunteable
 
-Jugador "1" *-left- "2" Multiplicador
+Jugador "1" *-left- "4" Comodin
+Multiplicador --|> Comodin
+Exclusividad --|> Comodin
+MultiplicadorX2 --|> Multiplicador
+MultiplicadorX3 --|> Multiplicador
+
 @enduml
