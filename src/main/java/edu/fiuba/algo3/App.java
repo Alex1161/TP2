@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 
 public class App extends Application {
+    Controlador control;
     private static final String NOMBRE_JUEGO = "AlgoHoot" ;
     private static final int ANCHO = 1024;
     private static final int ALTO = 768;
@@ -20,7 +21,7 @@ public class App extends Application {
         //var javaVersion = SystemInfo.javaVersion();
         //var javafxVersion = SystemInfo.javafxVersion();
 
-        Label labelPreguntas = new Label("Hola Algohoot, Acá Pueden ir las Preguntas");
+        /*Label labelPreguntas = new Label("Hola Algohoot, Acá Pueden ir las Preguntas");
 
 
         Label labelComodines = new Label("Acá Pueden Ir Los comodines disponibles");
@@ -35,13 +36,16 @@ public class App extends Application {
         panelPrincipal.setLeft(labelComodines);
         panelPrincipal.setBottom((eleccionRespuestasUsuario));
 
-
         Scene scene = new Scene(panelPrincipal, ANCHO, ALTO);
 
 
         stage.setTitle(NOMBRE_JUEGO);
         stage.setScene(scene);
         stage.show();
+        */
+
+        this.control = new Controlador();
+        this.control.comienzo(stage);
     }
 
     /*private void setFondoDePantalla(BorderPane miPanel) {
