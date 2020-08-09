@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Respuesta;
 
+import edu.fiuba.algo3.modelo.Comodin.Comodin;
+import edu.fiuba.algo3.modelo.Comodin.ComodinVacio;
 import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
@@ -10,6 +12,7 @@ public class Respuesta {
     Opciones opcionesElegidas=new Opciones();
     Puntaje puntajeObtenido;
     Multiplicador multiplicador;
+    Comodin multiplicadorC = new ComodinVacio();
     Jugador jugador;
 
     public Respuesta(Jugador jugador){
@@ -34,7 +37,7 @@ public class Respuesta {
     }
 
     public void aplicarPuntaje(){
-        jugador.agregarPuntaje(multiplicador.aplicar(puntajeObtenido));
+        jugador.agregarPuntaje(multiplicadorC.aplicar(puntajeObtenido));
     }
 
     public void agregarPuntajeObtenido(Puntaje puntaje){
@@ -46,7 +49,24 @@ public class Respuesta {
     }
 
     public void cambiarMultiplicador(Multiplicador multiplicador){
-        this.multiplicador = multiplicador;
+        this.multiplicadorC = multiplicador;
     }
 
+    public void vs(Respuesta respuesta) {
+        Puntaje puntajeOponente = respuesta.puntaje();
+        Puntaje puntajeAuxiliar = puntajeObtenido;
+
+        puntajeObtenido = puntajeOponente.vs(puntajeObtenido);
+        puntajeOponente = puntajeAuxiliar.vs(puntajeOponente);
+
+        respuesta.agregarPuntajeObtenido(puntajeOponente);
+    }
+
+    private Puntaje puntaje() {
+        return puntajeObtenido;
+    }
+
+    public void agregarComodin(Comodin multiplicador) {
+        this.multiplicadorC = multiplicador;
+    }
 }

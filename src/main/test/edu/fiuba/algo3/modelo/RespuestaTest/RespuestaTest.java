@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RespuestaTest {
+
     @Test
     public void test01creoRespuestaYagregoOpcionYSeLAPido(){
         String opcion="1";
@@ -20,6 +21,7 @@ public class RespuestaTest {
         respuesta.agregarOpcion(opcion);
         assertTrue(respuesta.obtenerOpciones().esta("1"));
     }
+
     @Test
     public void test02creoRespuestaYasignoPuntajePositivo(){
         Jugador jugador1= new Jugador("carl");

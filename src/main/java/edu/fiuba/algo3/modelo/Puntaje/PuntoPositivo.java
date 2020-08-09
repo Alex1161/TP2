@@ -7,4 +7,9 @@ public class PuntoPositivo extends Punto {
         return 1;
     }
 
+    @Override
+    public Puntaje vs(Puntaje puntajeOponente) {
+        return new PuntoNulo();
+    }
+
 }

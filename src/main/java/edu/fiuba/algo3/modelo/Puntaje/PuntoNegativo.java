@@ -6,4 +6,9 @@ public class PuntoNegativo extends Punto {
     public int valor(){
         return -1;
     }
+
+    @Override
+    public Puntaje vs(Puntaje puntajeOponente) {
+        return new PuntoNulo();
+    }
 }

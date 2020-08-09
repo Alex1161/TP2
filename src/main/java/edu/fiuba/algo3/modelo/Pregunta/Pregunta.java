@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Pregunta;
 
 import edu.fiuba.algo3.modelo.Calificador.Calificador;
+import edu.fiuba.algo3.modelo.Comodin.Comodin;
 import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Penalidad.ConPenalidad;
@@ -8,14 +9,16 @@ import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
 import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Pregunta {
 
-    String enunciado;
-    Opciones opcionesCorrectas, opcionesPosibles;
-    Calificador calificador;
-    Penalidad penalidad;
+    private String enunciado;
+    private Opciones opcionesCorrectas, opcionesPosibles;
+    private Calificador calificador;
+    private Penalidad penalidad;
+    private List<Comodin> exclusividades = new LinkedList<Comodin>();
 
     public Pregunta(String enunciado){
         this.enunciado = enunciado;
@@ -53,10 +56,10 @@ public class Pregunta {
         for (Respuesta resp: respuestas){
             resp.agregarPuntajeObtenido(calificador.calificar(opcionesCorrectas, resp.obtenerOpciones()));
         }
-        /*
-         * Aca vamos a hacer doble dispatch entre IPunteable
-         * siempre y cuando sea una pregunta no penalizada.
-         */
+
+        for (Comodin exclusividad : exclusividades){
+            exclusividad.aplicar(respuestas);
+        }
 
         for (Respuesta resp: respuestas){
             resp.aplicarPuntaje();
@@ -68,6 +71,12 @@ public class Pregunta {
     }
 
     public void agregarComodin(Multiplicador multiplicador, Respuesta respuesta){
-        penalidad.agregarComodin(multiplicador, respuesta);
+        penalidad.validar(multiplicador);
+        respuesta.agregarComodin(multiplicador);
+    }
+
+    public void agregarComodin(Comodin comodin) {
+        penalidad.validar(comodin);
+        exclusividades.add(comodin);
     }
 }

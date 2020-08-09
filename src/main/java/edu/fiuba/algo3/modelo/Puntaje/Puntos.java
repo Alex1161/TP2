@@ -21,4 +21,9 @@ public class Puntos extends Puntaje {
         return valor;
     }
 
+    @Override
+    public Puntaje vs(Puntaje puntajeOponente) {
+        return new PuntoNulo();
+    }
+
 }

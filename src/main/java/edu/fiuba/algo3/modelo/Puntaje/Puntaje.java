@@ -16,4 +16,6 @@ public abstract class Puntaje {
 
         return puntosMultiplicados;
     }
+
+    public abstract Puntaje vs(Puntaje puntajeOponente);
 }

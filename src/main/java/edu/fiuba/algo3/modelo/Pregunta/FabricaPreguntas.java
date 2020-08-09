@@ -38,13 +38,11 @@ public class FabricaPreguntas {
 
         return pregunta;
     }
-    public static Pregunta preguntaOrderedChoice(String enunciado, Opciones opcionesPosibles) {
+    public static Pregunta preguntaOrderedChoice(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
         Pregunta pregunta = new Pregunta(enunciado);
 
-        for (String opcion : opcionesPosibles.obtenerOpciones()) {
-            pregunta.asignarOpcionPosible(opcion);
-            pregunta.asignarOpcionCorrecta(opcion);
-        }
+        pregunta.asignarOpcionPosible(opcionesPosibles);
+        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
 
         Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
         pregunta.asignarCalificador(calificador);
