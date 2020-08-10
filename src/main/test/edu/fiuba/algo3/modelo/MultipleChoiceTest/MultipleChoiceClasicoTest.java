@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.MultipleChoiceTest;
 
-import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
-import edu.fiuba.algo3.modelo.Calificador.Calificador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;

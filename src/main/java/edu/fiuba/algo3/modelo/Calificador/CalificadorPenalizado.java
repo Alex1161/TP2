@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Puntaje.*;
 
 
-public class AsignadorPenalizado extends Calificador {
+public class CalificadorPenalizado extends Calificador {
 
     @Override
     public Puntaje calificar(Opciones correctas, Opciones elegidas) {

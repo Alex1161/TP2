@@ -3,8 +3,6 @@ package edu.fiuba.algo3.modelo.Pregunta;
 import edu.fiuba.algo3.modelo.Calificador.*;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 
-import java.util.HashMap;
-
 public class FabricaPreguntas {
 
     public static Pregunta preguntaVoFClasico(String enunciado, String opcionCorrecta){
@@ -12,7 +10,7 @@ public class FabricaPreguntas {
         pregunta.asignarOpcionCorrecta(opcionCorrecta);
         pregunta.asignarOpcionPosible("Verdadero");
         pregunta.asignarOpcionPosible("Falso");
-        Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
+        Calificador calificador = new ComparadorConOrden(new CalificadorNoPenalizado());
         pregunta.asignarCalificador(calificador);
         return pregunta;
     }
@@ -22,7 +20,7 @@ public class FabricaPreguntas {
         pregunta.asignarOpcionCorrecta(opcionCorrecta);
         pregunta.asignarOpcionPosible("Verdadero");
         pregunta.asignarOpcionPosible("Falso");
-        Calificador calificador = new ComparadorConOrden(new AsignadorPenalizado());
+        Calificador calificador = new ComparadorConOrden(new CalificadorPenalizado());
         pregunta.asignarCalificador(calificador);
         pregunta.conPenalidad();
         return pregunta;
@@ -33,7 +31,7 @@ public class FabricaPreguntas {
         pregunta.asignarOpcionCorrecta(opcionesCorrectas);
         pregunta.asignarOpcionPosible(opcionesPosibles);
 
-        Calificador calificador = new ComparadorSinOrden((new AsignadorClasico()));
+        Calificador calificador = new ComparadorSinOrden((new CalificadorNoPenalizado()));
         pregunta.asignarCalificador(calificador);
 
         return pregunta;
@@ -44,7 +42,7 @@ public class FabricaPreguntas {
         pregunta.asignarOpcionPosible(opcionesPosibles);
         pregunta.asignarOpcionCorrecta(opcionesCorrectas);
 
-        Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
+        Calificador calificador = new ComparadorConOrden(new CalificadorNoPenalizado());
         pregunta.asignarCalificador(calificador);
 
         return pregunta;
@@ -54,7 +52,7 @@ public class FabricaPreguntas {
         Pregunta pregunta = new Pregunta(enunciado);
         pregunta.asignarOpcionCorrecta(opcionesCorrectas);
         pregunta.asignarOpcionPosible(opcionesPosibles);
-        Calificador calificador = (new AsignadorPenalizado());
+        Calificador calificador = (new CalificadorPenalizado());
         pregunta.asignarCalificador(calificador);
         pregunta.conPenalidad();
 
@@ -66,7 +64,7 @@ public class FabricaPreguntas {
         Pregunta pregunta = new Pregunta(enunciado);
         pregunta.asignarOpcionCorrecta(opcionesCorrectas);
         pregunta.asignarOpcionPosible(opcionesPosibles);
-        Calificador calificador =new ComparadorParcial (new AsignadorClasico());
+        Calificador calificador =new ComparadorParcial (new CalificadorNoPenalizado());
 
         pregunta.asignarCalificador(calificador);
 
@@ -77,7 +75,7 @@ public class FabricaPreguntas {
         Pregunta pregunta = new Pregunta(enunciado);
         pregunta.asignarOpcionPosible(opcionesPosibles);
         pregunta.asignarOpcionCorrecta(opcionesCorrectas);
-        Calificador calificador = new ComparadorSinOrden(new AsignadorClasico());
+        Calificador calificador = new ComparadorSinOrden(new CalificadorNoPenalizado());
         pregunta.asignarCalificador(calificador);
         return pregunta;
     }

@@ -4,9 +4,9 @@ import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoNulo;
 
-public class AsignadorClasico extends Calificador {
+public class CalificadorNoPenalizado extends Calificador {
 
-    public AsignadorClasico() {
+    public CalificadorNoPenalizado() {
 
     }
 

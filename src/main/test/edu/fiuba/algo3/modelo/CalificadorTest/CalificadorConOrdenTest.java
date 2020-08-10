@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.CalificadorTest;
 
-import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
+import edu.fiuba.algo3.modelo.Calificador.CalificadorNoPenalizado;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Calificador.ComparadorConOrden;
@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ComparadorConOrdenTest {
+public class CalificadorConOrdenTest {
 
     @Test
-    public void Test01SeEvaluanDosOpcionesIdenticasEnOrdenYSeObtieneUnPuntoPositivo(){
+    public void Test01SeCalificadoConOrdenNoPenalizadoCalificaDosOpcionesCon(){
 
         Opciones opcionesCorrectas = new Opciones();
         opcionesCorrectas.agregarOpcion("1");
@@ -27,7 +27,7 @@ public class ComparadorConOrdenTest {
         opcionesElegidas.agregarOpcion("3");
         opcionesElegidas.agregarOpcion("4");
 
-        ComparadorConOrden comparador = new ComparadorConOrden(new AsignadorClasico());
+        ComparadorConOrden comparador = new ComparadorConOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoPositivo().valor()), puntajeObtenido.valor());
@@ -48,7 +48,7 @@ public class ComparadorConOrdenTest {
         opcionesElegidas.agregarOpcion("2");
         opcionesElegidas.agregarOpcion("4");
 
-        ComparadorConOrden comparador = new ComparadorConOrden(new AsignadorClasico());
+        ComparadorConOrden comparador = new ComparadorConOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
@@ -68,7 +68,7 @@ public class ComparadorConOrdenTest {
         opcionesElegidas.agregarOpcion("2");
         opcionesElegidas.agregarOpcion("3");
 
-        ComparadorConOrden comparador = new ComparadorConOrden(new AsignadorClasico());
+        ComparadorConOrden comparador = new ComparadorConOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
         assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
