@@ -16,7 +16,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PreguntaVoFTest {
+public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test01PreguntaVoFClasicoConOpcionCorrectaVerdaderoSeLePasaUnaOpcionVerdaderoDaTrue(){
@@ -106,7 +106,8 @@ public class PreguntaVoFTest {
 
         assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
                 () -> {
-                    pregunta.agregarComodin(new MultiplicadorX2());
+                    Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
+                    pregunta.agregarComodin(new MultiplicadorX2(), respuesta);
                 });
     }
 
@@ -114,10 +115,11 @@ public class PreguntaVoFTest {
     public void Test08PreguntaVoFClasicoSeAgregaMultiplicadorX3LanzaException(){
         Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
 
-        assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
-                () -> {
-                    pregunta.agregarComodin(new MultiplicadorX3());
-                });
+            assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
+                    () -> {
+                        Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
+                        pregunta.agregarComodin(new MultiplicadorX3(), respuesta);
+                    });
     }
 
     @Test

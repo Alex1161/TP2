@@ -18,78 +18,91 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaVoFPenalizadoTest {
+
     @Test
-    public void test01PreguntaVoFPenalizadaConEnunciadoVerdaderoSeCrea(){
+    public void test01PreguntaVoFPenalizadaConOpcionCorrectaVerdaderoSeLePasaOpcionVerdaderoDaTrue(){
         Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("4 + 2 = 6","Verdadero");
+
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
+
         assertTrue(pregunta.sonCorrectas(opcion));
     }
 
     @Test
-    public void test02PreguntaVoFPenalizadaConEnunciadoVerdaderoSeCreaYSeTesteaConUnFalso(){
+    public void test02PreguntaVoFPenalizadaConOpcionCorrectaVerdaderoSeLePasaOpcionFalsoDaFalse(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Verdadero");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
+
         assertFalse(pregunta.sonCorrectas(opcion));
     }
 
     @Test
-    public void test03PreguntaVoFPenalizadaConEnunciadoFalsoSeCreaYVerificaConFalso(){
+    public void test03PreguntaVoFPenalizadaConOpcionCorrectaFalsoSeLePasaOpcionFalsoDaTrue(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Falso");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
+
         assertTrue(pregunta.sonCorrectas(opcion));
     }
 
     @Test
-    public void test04PreguntaVoFPenalizadaConEnunciadoFalsoSeCreaYSeTesteaConUnVerdadero(){
+    public void test04PreguntaVoFPenalizadaConOpcionCorrectaFalsoSeLePasaOpcionVerdaderoDaFalse(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Falso");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
+
         assertFalse(pregunta.sonCorrectas(opcion));
     }
-    @Test
-    public void test05PreguntaVoFFalsaPenalizadaSePrubaInteraccionConJugadores(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Falso");
+    @Test
+    public void Test05PreguntaVoFPenalizadoJugadorUnoContestaMalJugadorDosBienRecibenMenosUnoYUnoPuntosRespectivamente(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
+
         Respuesta respuesta1= new Respuesta(jugador1);
         Respuesta respuesta2= new Respuesta(jugador2);
         respuesta1.agregarOpcion("Verdadero");
         respuesta2.agregarOpcion("Falso");
+
         List<Respuesta> respuestas= new ArrayList<>();
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
+
         pregunta.calificar(respuestas);
+
         assertEquals(-1,jugador1.puntajeValorNumerico());
         assertEquals(1,jugador2.puntajeValorNumerico());
     }
     @Test
-    public void test06PreguntaVoFVerdaderaPenalizadaSePrubaInteraccionConJugadores(){
-
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Verdadero");
+    public void test06PreguntaVoFPenalizadoJugadorUnoContestaBienJugadorDosMalRecibenUnoYMenosUnoPuntosRespectivamente(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
+
         Respuesta respuesta1= new Respuesta(jugador1);
         Respuesta respuesta2= new Respuesta(jugador2);
         respuesta1.agregarOpcion("Verdadero");
         respuesta2.agregarOpcion("Falso");
+
         List<Respuesta> respuestas= new ArrayList<>();
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
+
         pregunta.calificar(respuestas);
+
         assertEquals(1,jugador1.puntajeValorNumerico());
         assertEquals(-1,jugador2.puntajeValorNumerico());
     }
 
     @Test
-    public void test07PreguntaVoFPenalizadoSeAgregaMultiplicadorx2YSeVeReflejadoEnLosPuntajes(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Verdadero");
+    public void test07PreguntaVoFPenalizadoSeAgregaMultiplicadorX2YSeVeReflejadoEnLosPuntajes(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -111,7 +124,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test08PreguntaVoFPenalizadoSeAgregaMultiplicadorx3YSeVeReflejadoEnLosPuntajes(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Verdadero");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -133,7 +146,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test09PreguntaVoFPenalizadoSeAgregaMultiplicadorx2YX3SeVeReflejadoEnLosPuntajes(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Verdadero");
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -163,4 +176,5 @@ public class PreguntaVoFPenalizadoTest {
                     pregunta.agregarComodin(new Exclusividad());
                 });
     }
+
 }
