@@ -17,5 +17,5 @@ public abstract class Calificador {
 
     public abstract Puntaje calificar(Opciones correctas, Opciones elegidas);
 
-    public abstract boolean sonCorrectas(Opciones opcionesCorrectas, Opciones opciones);
+    public abstract boolean sonCorrectas(Opciones correctas, Opciones elegidas);
 }

@@ -23,7 +23,7 @@ public class AsignadorPenalizado extends Calificador {
     }
 
     @Override
-    public boolean sonCorrectas(Opciones opcionesCorrectas, Opciones opciones) {
+    public boolean sonCorrectas(Opciones correctas, Opciones elegidas) {
         return false;
     }
 }

@@ -26,7 +26,7 @@ public class ComparadorParcial extends Calificador {
     }
 
     @Override
-    public boolean sonCorrectas(Opciones opcionesCorrectas, Opciones opciones) {
-        return opcionesCorrectas.contiene(opciones);
+    public boolean sonCorrectas(Opciones correctas, Opciones elegidas) {
+        return correctas.contiene(elegidas);
     }
 }
