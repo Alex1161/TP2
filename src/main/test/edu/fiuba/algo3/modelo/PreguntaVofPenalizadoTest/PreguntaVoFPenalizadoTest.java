@@ -21,12 +21,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PreguntaVoFPenalizadoTest {
     @Test
     public void test01PreguntaVoFPenalizadaConEnunciadoVerdaderoSeCrea(){
-
-    Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Verdadero");
-    Opciones opcion = new Opciones();
-    opcion.agregarOpcion("Verdadero");
-    assertTrue(pregunta.esCorrecta(opcion));
-}
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("4 + 2 = 6","Verdadero");
+        Opciones opcion = new Opciones();
+        opcion.agregarOpcion("Verdadero");
+        assertTrue(pregunta.esCorrecta(opcion));
+    }
 
     @Test
     public void test02PreguntaVoFPenalizadaConEnunciadoVerdaderoSeCreaYSeTesteaConUnFalso(){

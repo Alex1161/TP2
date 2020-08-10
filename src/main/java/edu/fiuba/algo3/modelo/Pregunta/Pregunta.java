@@ -31,19 +31,11 @@ public class Pregunta {
         penalidad = new ConPenalidad();
     }
 
-    public void asignarOpcionCorrecta(Opciones opciones){
+    public void asignarOpcionesCorrectas(Opciones opciones){
         opcionesCorrectas.agregarOpciones(opciones);
     }
 
-    public void asignarOpcionCorrecta(String opcion){
-        opcionesCorrectas.agregarOpcion(opcion);
-    }
-
-    public void asignarOpcionPosible(String opcion){
-        opcionesPosibles.agregarOpcion(opcion);
-    }
-
-    public void asignarOpcionPosible(Opciones opciones){
+    public void asignarOpcionesPosibles(Opciones opciones){
         opcionesPosibles.agregarOpciones(opciones);
     }
 
@@ -78,5 +70,9 @@ public class Pregunta {
     public void agregarComodin(Comodin comodin) {
         penalidad.validar(comodin);
         exclusividades.add(comodin);
+    }
+
+    public void setPenalidad(Penalidad penalidad) {
+        this.penalidad = penalidad;
     }
 }
