@@ -7,13 +7,14 @@ import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
 import java.util.List;
 
-public class Multiplicador extends Comodin {
+public class Multiplicador implements Comodin {
     private int factor;
 
     public Multiplicador(int factor){
         this.factor = factor;
     }
 
+    @Override
     public Puntaje aplicar(Puntaje puntaje){
 
         return puntaje.multiplicarPor(factor);

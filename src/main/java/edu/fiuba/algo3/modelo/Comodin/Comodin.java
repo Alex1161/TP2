@@ -6,10 +6,11 @@ import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
 import java.util.List;
 
-public abstract class Comodin {
-    public abstract void validar(Penalidad penalidad);
+public interface Comodin {
 
-    public abstract void aplicar(List<Respuesta> respuestas);
+    void validar(Penalidad penalidad);
 
-    public abstract Puntaje aplicar(Puntaje puntaje);
+    void aplicar(List<Respuesta> respuestas);
+
+    Puntaje aplicar(Puntaje puntaje);
 }
