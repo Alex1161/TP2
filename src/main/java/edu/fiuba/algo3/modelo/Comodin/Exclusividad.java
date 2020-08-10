@@ -19,8 +19,8 @@ public class Exclusividad extends Comodin {
 
         respuesta1.vs(respuesta2);
 
-        respuesta1.agregarComodin(new MultiplicadorX2());
-        respuesta2.agregarComodin(new MultiplicadorX2());
+        respuesta1.aplicarComodin(new MultiplicadorX2());
+        respuesta2.aplicarComodin(new MultiplicadorX2());
     }
 
     @Override

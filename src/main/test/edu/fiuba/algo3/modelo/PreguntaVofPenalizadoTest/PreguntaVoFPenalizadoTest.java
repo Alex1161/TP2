@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Penalidad.ExclusividadPreguntaConPenalidadNoPermitidoException;
 import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
-import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import org.junit.jupiter.api.Test;
@@ -24,7 +23,7 @@ public class PreguntaVoFPenalizadoTest {
         Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("4 + 2 = 6","Verdadero");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
-        assertTrue(pregunta.esCorrecta(opcion));
+        assertTrue(pregunta.sonCorrectas(opcion));
     }
 
     @Test
@@ -33,7 +32,7 @@ public class PreguntaVoFPenalizadoTest {
         Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Verdadero");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
-        assertFalse(pregunta.esCorrecta(opcion));
+        assertFalse(pregunta.sonCorrectas(opcion));
     }
 
     @Test
@@ -42,7 +41,7 @@ public class PreguntaVoFPenalizadoTest {
         Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Falso");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
-        assertTrue(pregunta.esCorrecta(opcion));
+        assertTrue(pregunta.sonCorrectas(opcion));
     }
 
     @Test
@@ -51,7 +50,7 @@ public class PreguntaVoFPenalizadoTest {
         Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("Enunciado","Falso");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
-        assertFalse(pregunta.esCorrecta(opcion));
+        assertFalse(pregunta.sonCorrectas(opcion));
     }
     @Test
     public void test05PreguntaVoFFalsaPenalizadaSePrubaInteraccionConJugadores(){

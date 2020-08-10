@@ -37,7 +37,7 @@ public class MultipleChoiceClasicoTest {
     opcion.agregarOpcion("2");
     opcion.agregarOpcion("4");
 
-    assertTrue(preguntaMultipleChoice.esCorrecta(opcion));
+    assertTrue(preguntaMultipleChoice.sonCorrectas(opcion));
 }
 
     @Test

@@ -18,72 +18,84 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PreguntaVoFTest {
 
-     @Test
-    public void Test01PreguntaVoFConEnunciadoVerdaderoSeCrea(){
+    @Test
+    public void Test01PreguntaVoFClasicoConOpcionCorrectaVerdaderoSeLePasaUnaOpcionVerdaderoDaTrue(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Verdadero");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
-        assertTrue(pregunta.esCorrecta(opcion));
+
+        assertTrue(pregunta.sonCorrectas(opcion));
     }
 
     @Test
-    public void Test02PreguntaVoFConEnunciadoVerdaderoSeCreaYSeTesteaConUnFalso(){
+    public void Test02PreguntaVoFClasicoConOpcionCorrectaVerdaderoSeLePasaUnaOpcionFalsoDaFalse(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Verdadero");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
-        assertFalse(pregunta.esCorrecta(opcion));
+
+        assertFalse(pregunta.sonCorrectas(opcion));
     }
 
     @Test
-    public void Test03PreguntaVoFConEnunciadoFalsoSeCreaYVerificaConFalso(){
+    public void Test03PreguntaVoFClasicoConOpcionCorrectaFalsoSeLePasaUnaOpcionFalsoDaTrue(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 1 = 4","Falso");
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Falso");
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
-        assertTrue(pregunta.esCorrecta(opcion));
+
+        assertTrue(pregunta.sonCorrectas(opcion));
     }
 
     @Test
-    public void Test04PreguntaVoFConEnunciadoFalsoSeCreaYSeTesteaConUnVerdadero(){
-
+    public void Test04PreguntaVoFClasicoConOpcionCorrectaFalsoSeLePasaUnaOpcionVerdaderoDaFalse(){
         Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Falso");
+
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
-        assertFalse(pregunta.esCorrecta(opcion));
-    }
-    @Test
-    public void Test05PreguntaVoFFalsaSePrubaInteraccionConJugadores(){
 
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Falso");
+        assertFalse(pregunta.sonCorrectas(opcion));
+    }
+
+    @Test
+    public void Test05PreguntaVoFClasicoJugadorUnoContestaMalJugadorDosBienRecibenCeroYUnoPuntosRespectivamente(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 3","Falso");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
+
         Respuesta respuesta1= new Respuesta(jugador1);
         Respuesta respuesta2= new Respuesta(jugador2);
         respuesta1.agregarOpcion("Verdadero");
         respuesta2.agregarOpcion("Falso");
+
         List<Respuesta> respuestas= new ArrayList<>();
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
+
         pregunta.calificar(respuestas);
+
         assertEquals(0,jugador1.puntajeValorNumerico());
         assertEquals(1,jugador2.puntajeValorNumerico());
     }
-    @Test
-    public void Test06PreguntaVoFTrueSePrubaInteraccionConJugadores(){
 
+    @Test
+    public void Test06PreguntaVoFClasicoJugadorUnoContestaBienJugadorDosMalRecibenUnoYCeroPuntosRespectivamente(){
         Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
+
         Respuesta respuesta1= new Respuesta(jugador1);
         Respuesta respuesta2= new Respuesta(jugador2);
         respuesta1.agregarOpcion("Verdadero");
         respuesta2.agregarOpcion("Falso");
+
         List<Respuesta> respuestas= new ArrayList<>();
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
+
         pregunta.calificar(respuestas);
+
         assertEquals(1,jugador1.puntajeValorNumerico());
         assertEquals(0,jugador2.puntajeValorNumerico());
     }
@@ -174,5 +186,50 @@ public class PreguntaVoFTest {
         assertEquals(0, jugador2.puntajeValorNumerico());
     }
 
+    @Test
+    public void Test12PreguntaVoFSeAgregaDosExclusividadUnoRespondeBienElOtroTambienAmbosTienenCeroDePuntaje(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Jugador jugador1 = new Jugador("carlos");
+        Jugador jugador2 = new Jugador("juan");
+
+        Respuesta respuesta1= new Respuesta(jugador1);
+        Respuesta respuesta2= new Respuesta(jugador2);
+        respuesta1.agregarOpcion("Verdadero");
+        respuesta2.agregarOpcion("Verdadero");
+
+        List<Respuesta> respuestas= new ArrayList<>();
+        pregunta.agregarComodin(new Exclusividad());
+        pregunta.agregarComodin(new Exclusividad());
+        respuestas.add(respuesta1);
+        respuestas.add(respuesta2);
+
+        pregunta.calificar(respuestas);
+
+        assertEquals(0, jugador1.puntajeValorNumerico());
+        assertEquals(0, jugador2.puntajeValorNumerico());
+    }
+
+    @Test
+    public void Test13PreguntaVoFSeAgregaDosExclusividadUnoRespondeBienElOtroMalElPrimeroRecibeCuatroPuntos(){
+        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Jugador jugador1 = new Jugador("carlos");
+        Jugador jugador2 = new Jugador("juan");
+
+        Respuesta respuesta1= new Respuesta(jugador1);
+        Respuesta respuesta2= new Respuesta(jugador2);
+        respuesta1.agregarOpcion("Verdadero");
+        respuesta2.agregarOpcion("Falso");
+
+        List<Respuesta> respuestas= new ArrayList<>();
+        pregunta.agregarComodin(new Exclusividad());
+        pregunta.agregarComodin(new Exclusividad());
+        respuestas.add(respuesta1);
+        respuestas.add(respuesta2);
+
+        pregunta.calificar(respuestas);
+
+        assertEquals(4, jugador1.puntajeValorNumerico());
+        assertEquals(0, jugador2.puntajeValorNumerico());
+    }
 
 }

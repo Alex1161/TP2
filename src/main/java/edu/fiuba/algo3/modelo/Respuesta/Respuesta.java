@@ -69,4 +69,8 @@ public class Respuesta {
     public void agregarComodin(Comodin multiplicador) {
         this.multiplicadorC = multiplicador;
     }
+
+    public void aplicarComodin(Comodin comodin) {
+        puntajeObtenido = comodin.aplicar(puntajeObtenido);
+    }
 }

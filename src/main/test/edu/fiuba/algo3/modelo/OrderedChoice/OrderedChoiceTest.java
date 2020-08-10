@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.modelo.OrderedChoice;
 
-import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
-import edu.fiuba.algo3.modelo.Jugador.MultiplicadorYaUsadoException;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
@@ -44,7 +42,7 @@ public class OrderedChoiceTest {
         opcion.agregarOpcion("3");
         opcion.agregarOpcion("4");
 
-        assertTrue(preguntaOrderedChoice.esCorrecta(opcion));
+        assertTrue(preguntaOrderedChoice.sonCorrectas(opcion));
     }
 
     @Test

@@ -11,4 +11,9 @@ public class PuntoNulo extends Punto {
     public Puntaje vs(Puntaje puntajeOponente) {
         return puntajeOponente;
     }
+
+    @Override
+    public Puntaje multiplicarPor(int factor) {
+        return new PuntoNulo();
+    }
 }

@@ -27,10 +27,6 @@ public class Pregunta {
         penalidad = new SinPenalidad();
     }
 
-    public void conPenalidad(){
-        penalidad = new ConPenalidad();
-    }
-
     public void asignarOpcionesCorrectas(Opciones opciones){
         opcionesCorrectas.agregarOpciones(opciones);
     }
@@ -58,7 +54,7 @@ public class Pregunta {
         }
     }
 
-    public boolean esCorrecta(Opciones opciones){
+    public boolean sonCorrectas(Opciones opciones){
         return calificador.sonCorrectas(opcionesCorrectas, opciones);
     }
 
@@ -75,4 +71,5 @@ public class Pregunta {
     public void setPenalidad(Penalidad penalidad) {
         this.penalidad = penalidad;
     }
+
 }
