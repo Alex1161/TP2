@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
 import java.util.List;
 
-public class Multiplicador implements Comodin {
+public class Multiplicador extends Comodin {
     private int factor;
 
     public Multiplicador(int factor){

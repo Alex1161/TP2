@@ -6,11 +6,17 @@ import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
 import java.util.List;
 
-public interface Comodin {
+public abstract class Comodin {
 
-    void validar(Penalidad penalidad);
+    public abstract void validar(Penalidad penalidad);
 
-    void aplicar(List<Respuesta> respuestas);
+    public abstract void aplicar(List<Respuesta> respuestas);
 
-    Puntaje aplicar(Puntaje puntaje);
+    public abstract Puntaje aplicar(Puntaje puntaje);
+
+    @Override
+    public boolean equals(Object obj) {
+        //Se fija si son de la misma clase
+        return this.getClass().equals(obj.getClass());
+    }
 }

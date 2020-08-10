@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
 import java.util.List;
 
-public class Exclusividad implements Comodin {
+public class Exclusividad extends Comodin {
     @Override
     public void validar(Penalidad penalidad) {
         penalidad.validarExclusividad();
