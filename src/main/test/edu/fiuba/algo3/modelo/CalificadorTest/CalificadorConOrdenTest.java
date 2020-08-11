@@ -30,7 +30,7 @@ public class CalificadorConOrdenTest {
         ComparadorConOrden comparador = new ComparadorConOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals((new PuntoPositivo().valor()), puntajeObtenido.valor());
+        assertEquals((new PuntoPositivo().valorNumerico()), puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -51,7 +51,7 @@ public class CalificadorConOrdenTest {
         ComparadorConOrden comparador = new ComparadorConOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
+        assertEquals((new PuntoNulo().valorNumerico()), puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class CalificadorConOrdenTest {
         ComparadorConOrden comparador = new ComparadorConOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
+        assertEquals((new PuntoNulo().valorNumerico()), puntajeObtenido.valorNumerico());
     }
 
 

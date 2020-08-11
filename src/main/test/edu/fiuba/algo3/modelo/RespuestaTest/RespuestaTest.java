@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.RespuestaTest;
 
 import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
+import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
+import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoNulo;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
@@ -44,7 +46,7 @@ public class RespuestaTest {
     public void test04seLePasaUnMultiplicadorx2ARespuestaYAplicaPuntajeAJugador(){
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
-        Multiplicador multiplicador = new Multiplicador(2);
+        Multiplicador multiplicador = new MultiplicadorX2();
         respuesta.agregarPuntajeObtenido(new PuntoPositivo());
         respuesta.cambiarMultiplicador(multiplicador);
         respuesta.aplicarPuntaje();
@@ -55,7 +57,7 @@ public class RespuestaTest {
     public void test05seLePasaUnMultiplicadorx3ARespuestaYAplicaPuntajeAJugador(){
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
-        Multiplicador multiplicador = new Multiplicador(3);
+        Multiplicador multiplicador = new MultiplicadorX3();
         respuesta.agregarPuntajeObtenido(new PuntoPositivo());
         respuesta.cambiarMultiplicador(multiplicador);
         respuesta.aplicarPuntaje();
@@ -66,7 +68,7 @@ public class RespuestaTest {
     public void test06seLePasaUnMultiplicadorx3APuntoNegativoRespuestaYAplicaPuntajeAJugador(){
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
-        Multiplicador multiplicador = new Multiplicador(3);
+        Multiplicador multiplicador = new MultiplicadorX3();
         respuesta.agregarPuntajeObtenido(new PuntoNegativo());
         respuesta.cambiarMultiplicador(multiplicador);
         respuesta.aplicarPuntaje();
@@ -77,7 +79,7 @@ public class RespuestaTest {
     public void test07seLePasaUnMultiplicadorx2APuntoNegativoRespuestaYAplicaPuntajeAJugador(){
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
-        Multiplicador multiplicador = new Multiplicador(2);
+        Multiplicador multiplicador = new MultiplicadorX2();
         respuesta.agregarPuntajeObtenido(new PuntoNegativo());
         respuesta.cambiarMultiplicador(multiplicador);
         respuesta.aplicarPuntaje();
@@ -88,7 +90,7 @@ public class RespuestaTest {
     public void test08seLePasaUnMultiplicadorx2APuntoNuloRespuestaYAplicaPuntajeAJugador(){
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
-        Multiplicador multiplicador = new Multiplicador(2);
+        Multiplicador multiplicador = new MultiplicadorX2();
         respuesta.agregarPuntajeObtenido(new PuntoNulo());
         respuesta.cambiarMultiplicador(multiplicador);
         respuesta.aplicarPuntaje();

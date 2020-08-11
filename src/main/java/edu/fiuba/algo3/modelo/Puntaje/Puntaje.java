@@ -4,7 +4,7 @@ public abstract class Puntaje {
 
     public abstract Puntaje agregar(Puntaje puntaje);
 
-    public abstract int valor();
+    public abstract int valorNumerico();
 
     public Puntaje multiplicarPor(int factor){
         Puntaje puntosMultiplicados = new Puntos();

@@ -83,12 +83,12 @@ public class PreguntaGroupChoiceTest {
         Jugador jugador2 = new Jugador("Luis");
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
-        respuestaJugador1.agregarOpcionEnGrupo1("4");
-        respuestaJugador1.agregarOpcionEnGrupo1("2");
+        respuestaJugador1.agregarOpcion("4");
+        respuestaJugador1.agregarOpcion("2");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
-        respuestaJugador2.agregarOpcionEnGrupo1("1");
-        respuestaJugador2.agregarOpcionEnGrupo1("2");
+        respuestaJugador2.agregarOpcion("1");
+        respuestaJugador2.agregarOpcion("2");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -121,12 +121,12 @@ public class PreguntaGroupChoiceTest {
         Jugador jugador2 = new Jugador("Luis");
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
-        respuestaJugador1.agregarOpcionEnGrupo1("1");
-        respuestaJugador1.agregarOpcionEnGrupo1("2");
+        respuestaJugador1.agregarOpcion("1");
+        respuestaJugador1.agregarOpcion("2");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
-        respuestaJugador2.agregarOpcionEnGrupo1("2");
-        respuestaJugador2.agregarOpcionEnGrupo1("4");
+        respuestaJugador2.agregarOpcion("2");
+        respuestaJugador2.agregarOpcion("4");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -159,12 +159,12 @@ public class PreguntaGroupChoiceTest {
         Jugador jugador2 = new Jugador("Luis");
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
-        respuestaJugador1.agregarOpcionEnGrupo1("1");
-        respuestaJugador1.agregarOpcionEnGrupo1("2");
+        respuestaJugador1.agregarOpcion("1");
+        respuestaJugador1.agregarOpcion("2");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
-        respuestaJugador2.agregarOpcionEnGrupo1("2");
-        respuestaJugador2.agregarOpcionEnGrupo1("1");
+        respuestaJugador2.agregarOpcion("2");
+        respuestaJugador2.agregarOpcion("1");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -197,12 +197,12 @@ public class PreguntaGroupChoiceTest {
         Jugador jugador2 = new Jugador("Luis");
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
-        respuestaJugador1.agregarOpcionEnGrupo1("4");
-        respuestaJugador1.agregarOpcionEnGrupo1("2");
+        respuestaJugador1.agregarOpcion("4");
+        respuestaJugador1.agregarOpcion("2");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
-        respuestaJugador2.agregarOpcionEnGrupo1("2");
-        respuestaJugador2.agregarOpcionEnGrupo1("4");
+        respuestaJugador2.agregarOpcion("2");
+        respuestaJugador2.agregarOpcion("4");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -283,12 +283,12 @@ public class PreguntaGroupChoiceTest {
         Jugador jugador2 = new Jugador("Luis");
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
-        respuestaJugador1.agregarOpcionEnGrupo1("4");
-        respuestaJugador1.agregarOpcionEnGrupo1("2");
+        respuestaJugador1.agregarOpcion("4");
+        respuestaJugador1.agregarOpcion("2");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
-        respuestaJugador2.agregarOpcionEnGrupo1("2");
-        respuestaJugador2.agregarOpcionEnGrupo1("4");
+        respuestaJugador2.agregarOpcion("2");
+        respuestaJugador2.agregarOpcion("4");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -323,12 +323,12 @@ public class PreguntaGroupChoiceTest {
         Jugador jugador2 = new Jugador("Luis");
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
-        respuestaJugador1.agregarOpcionEnGrupo1("1");
-        respuestaJugador1.agregarOpcionEnGrupo1("2");
+        respuestaJugador1.agregarOpcion("1");
+        respuestaJugador1.agregarOpcion("2");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
-        respuestaJugador2.agregarOpcionEnGrupo1("2");
-        respuestaJugador2.agregarOpcionEnGrupo1("3");
+        respuestaJugador2.agregarOpcion("2");
+        respuestaJugador2.agregarOpcion("3");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -363,12 +363,12 @@ public class PreguntaGroupChoiceTest {
         Jugador jugador2 = new Jugador("Luis");
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
-        respuestaJugador1.agregarOpcionEnGrupo1("1");
-        respuestaJugador1.agregarOpcionEnGrupo1("2");
+        respuestaJugador1.agregarOpcion("1");
+        respuestaJugador1.agregarOpcion("2");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
-        respuestaJugador2.agregarOpcionEnGrupo1("4");
-        respuestaJugador2.agregarOpcionEnGrupo1("2");
+        respuestaJugador2.agregarOpcion("4");
+        respuestaJugador2.agregarOpcion("2");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -403,12 +403,12 @@ public class PreguntaGroupChoiceTest {
         Jugador jugador2 = new Jugador("Luis");
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
-        respuestaJugador1.agregarOpcionEnGrupo1("1");
-        respuestaJugador1.agregarOpcionEnGrupo1("2");
+        respuestaJugador1.agregarOpcion("1");
+        respuestaJugador1.agregarOpcion("2");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
-        respuestaJugador2.agregarOpcionEnGrupo1("4");
-        respuestaJugador2.agregarOpcionEnGrupo1("2");
+        respuestaJugador2.agregarOpcion("4");
+        respuestaJugador2.agregarOpcion("2");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);

@@ -29,7 +29,7 @@ public class ComparadorParcialTest {
 
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals(4, puntajeObtenido.valor());
+        assertEquals(4, puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -51,7 +51,7 @@ public class ComparadorParcialTest {
 
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals(0, puntajeObtenido.valor());
+        assertEquals(0, puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -71,6 +71,6 @@ public class ComparadorParcialTest {
 
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals(1, puntajeObtenido.valor());
+        assertEquals(1, puntajeObtenido.valorNumerico());
     }
 }

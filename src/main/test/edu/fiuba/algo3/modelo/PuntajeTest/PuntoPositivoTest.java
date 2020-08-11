@@ -9,7 +9,7 @@ public class PuntoPositivoTest {
     @Test
     public void inicializarUnPuntoPositivoNoDevuelveErrores(){
         PuntoPositivo nuevoPunto = new PuntoPositivo();
-        assertEquals(nuevoPunto.valor(),1);
+        assertEquals(nuevoPunto.valorNumerico(),1);
     }
 
     @Test
@@ -17,7 +17,7 @@ public class PuntoPositivoTest {
         PuntoPositivo nuevoPunto = new PuntoPositivo();
         Puntaje puntajeMultiplicado = nuevoPunto.multiplicarPor(2);
 
-        assertEquals(2, puntajeMultiplicado.valor());
+        assertEquals(2, puntajeMultiplicado.valorNumerico());
     }
 
     @Test
@@ -25,7 +25,7 @@ public class PuntoPositivoTest {
         PuntoPositivo nuevoPunto = new PuntoPositivo();
         Puntaje puntajeMultiplicado = nuevoPunto.multiplicarPor(3);
 
-        assertEquals(3, puntajeMultiplicado.valor());
+        assertEquals(3, puntajeMultiplicado.valorNumerico());
     }
 
 }

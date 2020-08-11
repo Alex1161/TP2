@@ -26,7 +26,7 @@ public class Jugador {
     }
 
     public int puntajeValorNumerico() {
-        return puntaje.valor();
+        return puntaje.valorNumerico();
     }
 
     public void sacarComodin(Comodin comodin) throws ComodinYaUsadoException{

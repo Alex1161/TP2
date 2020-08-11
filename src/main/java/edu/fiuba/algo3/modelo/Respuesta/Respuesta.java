@@ -11,33 +11,29 @@ public class Respuesta {
     Opciones grupo2 = new Opciones();
     Opciones opcionesElegidas=new Opciones();
     Puntaje puntajeObtenido;
-    Multiplicador multiplicador;
-    Comodin multiplicadorC = new ComodinVacio();
+    Comodin multiplicador = new ComodinVacio();
     Jugador jugador;
 
     public Respuesta(Jugador jugador){
         this.jugador=jugador;
-        this.multiplicador = new Multiplicador(1);
+        this.multiplicador = new ComodinVacio();
     }
 
     public Respuesta(Jugador jugador, Multiplicador multiplicador ){
         this.multiplicador=multiplicador;
         this.jugador=jugador;
     }
+
+    public Respuesta() {
+
+    }
+
     public void agregarOpcion(String opcion){
         opcionesElegidas.agregarOpcion(opcion);
     }
 
-    public void agregarOpcionEnGrupo1(String opcion){
-        this.agregarOpcion(opcion);
-    }
-
-    public void agregarOpcionEnGrupo2(String opcion){
-        grupo2.agregarOpcion(opcion);
-    }
-
     public void aplicarPuntaje(){
-        jugador.agregarPuntaje(multiplicadorC.aplicar(puntajeObtenido));
+        jugador.agregarPuntaje(multiplicador.aplicar(puntajeObtenido));
     }
 
     public void agregarPuntajeObtenido(Puntaje puntaje){
@@ -49,7 +45,7 @@ public class Respuesta {
     }
 
     public void cambiarMultiplicador(Multiplicador multiplicador){
-        this.multiplicadorC = multiplicador;
+        this.multiplicador = multiplicador;
     }
 
     public void vs(Respuesta respuesta) {
@@ -67,10 +63,14 @@ public class Respuesta {
     }
 
     public void agregarComodin(Comodin multiplicador) {
-        this.multiplicadorC = multiplicador;
+        this.multiplicador = multiplicador;
     }
 
     public void aplicarComodin(Comodin comodin) {
         puntajeObtenido = comodin.aplicar(puntajeObtenido);
+    }
+
+    public int calificacionValorNumerico() {
+        return puntajeObtenido.valorNumerico();
     }
 }

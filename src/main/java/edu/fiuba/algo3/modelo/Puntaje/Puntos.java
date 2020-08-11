@@ -13,10 +13,10 @@ public class Puntos extends Puntaje {
         return this;
     }
 
-    public int valor(){
+    public int valorNumerico(){
         int valor = 0;
         for(Puntaje puntaje: listaDePuntos) {
-            valor += puntaje.valor();
+            valor += puntaje.valorNumerico();
         }
         return valor;
     }

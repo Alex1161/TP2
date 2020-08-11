@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Puntaje;
 public class PuntoNulo extends Punto {
 
     @Override
-    public int valor(){
+    public int valorNumerico(){
         return 0;
     }
 

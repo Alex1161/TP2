@@ -11,7 +11,7 @@ public abstract class Punto extends Puntaje {
     }
 
     @Override
-    public abstract int valor();
+    public abstract int valorNumerico();
 
     @Override
     public abstract Puntaje vs(Puntaje puntajeOponente);
