@@ -50,27 +50,33 @@ public class VistaPreguntaEnCurso extends JFrame{
         enunciadoTxt.setFont(Font.font("Arial", FontWeight.BOLD, 36));
         enunciadoTxt.setMaxWidth(800);
         enunciadoTxt.setWrapText(true);
+        enunciadoTxt.setAlignment(Pos.CENTER);
+        enunciadoTxt.getStyleClass().add("enunciado-text");
         panelCentral.getChildren().addAll(enunciadoTxt);
-
+        panelCentral.setAlignment(Pos.CENTER);
+        panelCentral.getStyleClass().add("enunciado-style");
         /*
             Panel derecho "Tiempo"
          */
         VBox panelDerecho = new VBox();
         panelDerecho.setSpacing(20);
         Label tiempoLbl = new Label("Tiempo");
+        tiempoLbl.getStyleClass().add("otros-text");
         panelDerecho.getChildren().addAll(tiempoLbl);
+        panelCentral.setAlignment(Pos.CENTER);
 
         /*
             Panel inferior
          */
         Button respuesta1 = new Button("Respuesta 1");
-        respuesta1.setStyle(".button");
+        respuesta1.getStyleClass().add(".button");
         Button respuesta2 = new Button("Respuesta 2");
-        respuesta1.setStyle(".button2");
+        respuesta2.getStyleClass().add("button2");
         Button respuesta3 = new Button("Respuesta 3");
-        respuesta1.setStyle(".button3");
+        respuesta3.getStyleClass().add("button3");
         Button respuesta4 = new Button("Respuesta 4");
-        respuesta1.setStyle(".button4");
+        respuesta4.getStyleClass().add("my-button4");
+
         GridPane grillaDeBotones = new GridPane();
         grillaDeBotones.setPadding(new Insets(5, 5, 5, 5));
         grillaDeBotones.setVgap(5);
@@ -89,12 +95,19 @@ public class VistaPreguntaEnCurso extends JFrame{
         VBox principal = new VBox();
 
         principal.getChildren().addAll(panelSuperior, grillaDeBotones);
+        respuesta1.setPrefSize(300, 40);
+        respuesta2.setPrefSize(300, 40);
+        respuesta3.setPrefSize(300, 40);
+        respuesta4.setPrefSize(300, 40);
+
+        principal.getStyleClass().add("fondo-general");
 
         File f = new File("EstilosDeBotones.css");
 
         Scene escena = new Scene(principal);
-        escena.getStylesheets().clear();
+        //escena.getStylesheets().clear();
         escena.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+
         Stage stage = new Stage();
         stage.setScene(escena);
         stage.setResizable(false);
