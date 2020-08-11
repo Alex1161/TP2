@@ -41,7 +41,7 @@ public class VistaIngresoDeJugadores{
 
         vistaPregunta = new VistaPreguntaEnCurso();
 
-        Scene proximaEscena = new Scene(vistaPregunta, ANCHO, ALTO);
+        Scene proximaEscena = new Scene(vistaPregunta.obtenerVista(), ANCHO, ALTO);
         File f = new File("EstilosDeBotones.css");
         proximaEscena.getStylesheets().clear();
         proximaEscena.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
