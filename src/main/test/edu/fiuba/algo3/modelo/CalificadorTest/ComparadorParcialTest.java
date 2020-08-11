@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.CalificadorTest;
 
-import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
+import edu.fiuba.algo3.modelo.Calificador.CalificadorNoPenalizado;
 import edu.fiuba.algo3.modelo.Calificador.Calificador;
 import edu.fiuba.algo3.modelo.Calificador.ComparadorParcial;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
@@ -25,11 +25,11 @@ public class ComparadorParcialTest {
         opcionesElegidas.agregarOpcion("3");
         opcionesElegidas.agregarOpcion("4");
 
-        Calificador comparador = new ComparadorParcial(new AsignadorClasico());
+        Calificador comparador = new ComparadorParcial(new CalificadorNoPenalizado());
 
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals(4, puntajeObtenido.valor());
+        assertEquals(4, puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -47,11 +47,11 @@ public class ComparadorParcialTest {
         opcionesElegidas.agregarOpcion("3");
         opcionesElegidas.agregarOpcion("8");
 
-        Calificador comparador = new ComparadorParcial(new AsignadorClasico());
+        Calificador comparador = new ComparadorParcial(new CalificadorNoPenalizado());
 
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals(0, puntajeObtenido.valor());
+        assertEquals(0, puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -67,10 +67,10 @@ public class ComparadorParcialTest {
         opcionesElegidas.agregarOpcion("1");
 
 
-        Calificador comparador = new ComparadorParcial(new AsignadorClasico());
+        Calificador comparador = new ComparadorParcial(new CalificadorNoPenalizado());
 
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals(1, puntajeObtenido.valor());
+        assertEquals(1, puntajeObtenido.valorNumerico());
     }
 }

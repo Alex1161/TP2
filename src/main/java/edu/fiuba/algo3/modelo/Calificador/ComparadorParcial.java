@@ -24,4 +24,9 @@ public class ComparadorParcial extends Calificador {
         }
         return puntosActuales;
     }
+
+    @Override
+    public boolean sonCorrectas(Opciones correctas, Opciones elegidas) {
+        return correctas.contiene(elegidas);
+    }
 }

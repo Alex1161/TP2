@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo.JugadorTest;
 
+import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
+import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
+import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
+import edu.fiuba.algo3.modelo.Jugador.ComodinYaUsadoException;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.MultiplicadorYaUsadoException;
 import edu.fiuba.algo3.modelo.Puntaje.*;
@@ -55,24 +59,36 @@ public class JugadorTest {
     }
 
     @Test
-    public void test05JugadorSacoMultiplicadorX2LuegoEsteYaNoSeEncuentraEnJugador(){
+    public void test05JugadorSacoMultiplicadorX2LuegoSacarMultiplicadorX2LanzaComodinYaUsadoExeption(){
         Jugador jugador = new Jugador("carlos");
-        jugador.sacarMultiplicador("MultiplicadorX2");
+        jugador.sacarComodin(new MultiplicadorX2());
 
-        assertThrows(MultiplicadorYaUsadoException.class,
+        assertThrows(ComodinYaUsadoException.class,
                 () -> {
-                    jugador.sacarMultiplicador("MultiplicadorX2");
+                    jugador.sacarComodin(new MultiplicadorX2());
                 });
     }
 
     @Test
-    public void test06JugadorSacoMultiplicadorX3LuegoEsteYaNoSeEncuentraEnJugador(){
+    public void test06JugadorSacoMultiplicadorX3LuegoSacarMultplicadorX3LanzaComodinYaUsadoExeption(){
         Jugador jugador = new Jugador("carlos");
-        jugador.sacarMultiplicador("MultiplicadorX3");
+        jugador.sacarComodin(new MultiplicadorX3());
 
-        assertThrows(MultiplicadorYaUsadoException.class,
+        assertThrows(ComodinYaUsadoException.class,
                 () -> {
-                    jugador.sacarMultiplicador("MultiplicadorX3");
+                    jugador.sacarComodin(new MultiplicadorX3());
+                });
+    }
+
+    @Test
+    public void test07JugadorSacoExclusividadDosVecesLuegoSacarExclusividadLanzaComodinYaUsadoExeption(){
+        Jugador jugador = new Jugador("carlos");
+        jugador.sacarComodin(new Exclusividad());
+        jugador.sacarComodin(new Exclusividad());
+
+        assertThrows(ComodinYaUsadoException.class,
+                () -> {
+                    jugador.sacarComodin(new Exclusividad());
                 });
     }
 

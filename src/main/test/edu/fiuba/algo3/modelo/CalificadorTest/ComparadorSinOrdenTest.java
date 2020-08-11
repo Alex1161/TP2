@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.CalificadorTest;
 
-import edu.fiuba.algo3.modelo.Calificador.AsignadorClasico;
-import edu.fiuba.algo3.modelo.Calificador.AsignadorPenalizado;
+import edu.fiuba.algo3.modelo.Calificador.CalificadorNoPenalizado;
+import edu.fiuba.algo3.modelo.Calificador.CalificadorPenalizado;
 import edu.fiuba.algo3.modelo.Calificador.ComparadorSinOrden;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
@@ -28,10 +28,10 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("3");
         opcionesElegidas.agregarOpcion("4");
 
-        ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
+        ComparadorSinOrden comparador = new ComparadorSinOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals((new PuntoPositivo().valor()), puntajeObtenido.valor());
+        assertEquals((new PuntoPositivo().valorNumerico()), puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -49,10 +49,10 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("2");
         opcionesElegidas.agregarOpcion("4");
 
-        ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
+        ComparadorSinOrden comparador = new ComparadorSinOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals((new PuntoPositivo().valor()), puntajeObtenido.valor());
+        assertEquals((new PuntoPositivo().valorNumerico()), puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -69,10 +69,10 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("2");
         opcionesElegidas.agregarOpcion("3");
 
-        ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
+        ComparadorSinOrden comparador = new ComparadorSinOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
+        assertEquals((new PuntoNulo().valorNumerico()), puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -90,10 +90,10 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("9");
         opcionesElegidas.agregarOpcion("7");
 
-        ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
+        ComparadorSinOrden comparador = new ComparadorSinOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
+        assertEquals((new PuntoNulo().valorNumerico()), puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -110,10 +110,10 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("2");
         opcionesElegidas.agregarOpcion("3");
 
-        ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorPenalizado());
+        ComparadorSinOrden comparador = new ComparadorSinOrden(new CalificadorPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals(3, puntajeObtenido.valor());
+        assertEquals(3, puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -131,10 +131,10 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("9");
         opcionesElegidas.agregarOpcion("7");
 
-        ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorPenalizado());
+        ComparadorSinOrden comparador = new ComparadorSinOrden(new CalificadorPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals(-2, puntajeObtenido.valor());
+        assertEquals(-2, puntajeObtenido.valorNumerico());
     }
 
 
@@ -148,10 +148,10 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("1");
 
 
-        ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
+        ComparadorSinOrden comparador = new ComparadorSinOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals((new PuntoPositivo().valor()), puntajeObtenido.valor());
+        assertEquals((new PuntoPositivo().valorNumerico()), puntajeObtenido.valorNumerico());
     }
 
     @Test
@@ -164,10 +164,10 @@ public class ComparadorSinOrdenTest {
         opcionesElegidas.agregarOpcion("4");
 
 
-        ComparadorSinOrden comparador = new ComparadorSinOrden(new AsignadorClasico());
+        ComparadorSinOrden comparador = new ComparadorSinOrden(new CalificadorNoPenalizado());
         Puntaje puntajeObtenido = comparador.calificar(opcionesCorrectas, opcionesElegidas);
 
-        assertEquals((new PuntoNulo().valor()), puntajeObtenido.valor());
+        assertEquals((new PuntoNulo().valorNumerico()), puntajeObtenido.valorNumerico());
     }
 
 }
