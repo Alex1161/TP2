@@ -16,7 +16,6 @@ Abstract Class Pregunta{
     -enunciado: String
     -tipoPenalidad: Penalidad
     -calificador: Calificador
-    -exclusividad: Comodin
     +esCorrecta(Opcion: String): boolean
     +calificar(Respuestas: List<Respuesta>): void
     +asignarComodin(comodin: Comodin): void
@@ -25,7 +24,6 @@ Abstract Class Pregunta{
 Class Respuesta{
     -opcionesElegidas: Opciones
     -puntajeObtenido: Puntaje
-    -multiplicador: Comodin
     +{static}Respuesta(jugador: Jugador)
     +{static}Respuesta(jugador: Jugador, multiplicador: Multiplicador)
     +agregarOpcion(opcion: String): void
@@ -42,7 +40,7 @@ Class Jugador{
     +removerComodin(): Comodin
 }
 
-Interface IPunteable{
+Interface Puntaje{
     +{abstract}agregar(puntaje: IPunteable): IPunteable
     +{abstract}valor(): int
 }
@@ -72,14 +70,16 @@ Class MultiplicadorX3{
 'Relaciones
 Respuesta o-- Jugador
 Pregunta "1" *-left- "2" Opciones
+Pregunta "1" *-- "2" Comodin
 Respuesta *-up- Opciones
+Respuesta *-- Comodin
 
-Jugador *-- IPunteable
+Jugador *-- Puntaje
 
-Jugador "1" *-left- "4" Comodin
-Multiplicador --|> Comodin
-Exclusividad --|> Comodin
-MultiplicadorX2 --|> Multiplicador
-MultiplicadorX3 --|> Multiplicador
+Jugador "1" *-right- "4" Comodin
+Multiplicador -up-|> Comodin
+Exclusividad -up-|> Comodin
+MultiplicadorX2 -up-|> Multiplicador
+MultiplicadorX3 -up-|> Multiplicador
 
 @enduml
