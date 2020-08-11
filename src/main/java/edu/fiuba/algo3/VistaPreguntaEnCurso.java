@@ -21,49 +21,18 @@ import java.net.URL;
 public class VistaPreguntaEnCurso extends JFrame{
 
     public VistaPreguntaEnCurso(Pregunta pregunta){
-        setTitle("Vemos como funciona");
-        Button titulo = new Button("Titulo");
         /*
             Panel izquierdo, nombres y puntos
          */
-        Text j1Txt = new Text("Pepito");
-        Text puntosJ1txt = new Text("1000");
-        Text j2Txt = new Text("Jose");
-        Text puntosJ2txt = new Text("1000");
-
-        VBox panelIzquierdo = new VBox();
-        panelIzquierdo.getChildren().addAll(j1Txt, puntosJ1txt,
-                j2Txt, puntosJ2txt);
-        panelIzquierdo.setSpacing(30);
-        panelIzquierdo.setMargin(j1Txt, new Insets(20, 20, 20, 20));
-        panelIzquierdo.setMargin(puntosJ1txt, new Insets(20, 20, 20, 20));
-        panelIzquierdo.setMargin(j2Txt, new Insets(20, 20, 20, 20));
-        panelIzquierdo.setMargin(puntosJ2txt, new Insets(20, 20, 20, 20));
-
+        VBox panelIzquierdo = construirPanelIzquierdo();
         /*
             Panel central "ENUNCIADO"
          */
-        VBox panelCentral = new VBox();
-
-        panelCentral.setPrefSize(400,100);
-        Label enunciadoTxt = new Label("Quien fue el primer hombre que se comio una hamburguesa con queso?");
-        enunciadoTxt.setFont(Font.font("Arial", FontWeight.BOLD, 36));
-        enunciadoTxt.setMaxWidth(800);
-        enunciadoTxt.setWrapText(true);
-        enunciadoTxt.setAlignment(Pos.CENTER);
-        enunciadoTxt.getStyleClass().add("enunciado-text");
-        panelCentral.getChildren().addAll(enunciadoTxt);
-        panelCentral.setAlignment(Pos.CENTER);
-        panelCentral.getStyleClass().add("enunciado-style");
+        VBox panelCentral = construirPanelCentral();
         /*
             Panel derecho "Tiempo"
          */
-        VBox panelDerecho = new VBox();
-        panelDerecho.setSpacing(20);
-        Label tiempoLbl = new Label("Tiempo");
-        tiempoLbl.getStyleClass().add("otros-text");
-        panelDerecho.getChildren().addAll(tiempoLbl);
-        panelCentral.setAlignment(Pos.CENTER);
+        VBox panelDerecho = contruirPanelDerecho();
 
         /*
             Panel inferior
@@ -91,14 +60,16 @@ public class VistaPreguntaEnCurso extends JFrame{
         HBox panelSuperior = new HBox();
         panelSuperior.getChildren().addAll(panelIzquierdo, panelCentral, panelDerecho);
         panelSuperior.setSpacing(20);
+        panelSuperior.setAlignment(Pos.CENTER);
+        panelSuperior.setMinHeight(500);
 
         VBox principal = new VBox();
 
         principal.getChildren().addAll(panelSuperior, grillaDeBotones);
-        respuesta1.setPrefSize(300, 40);
-        respuesta2.setPrefSize(300, 40);
-        respuesta3.setPrefSize(300, 40);
-        respuesta4.setPrefSize(300, 40);
+        respuesta1.setPrefSize(400, 60);
+        respuesta2.setPrefSize(400, 60);
+        respuesta3.setPrefSize(400, 60);
+        respuesta4.setPrefSize(400, 60);
 
         principal.getStyleClass().add("fondo-general");
 
@@ -112,5 +83,69 @@ public class VistaPreguntaEnCurso extends JFrame{
         stage.setScene(escena);
         stage.setResizable(false);
         stage.show();
+    }
+
+
+    private VBox construirPanelIzquierdo(){
+
+        GridPane tablaDeInfo = new GridPane();
+        tablaDeInfo.setPadding(new Insets(10, 10, 10, 10));
+        tablaDeInfo.setVgap(10);
+        tablaDeInfo.setHgap(10);
+        tablaDeInfo.setAlignment(Pos.CENTER);
+
+        Text nombre = new Text("Nombre");
+        nombre.getStyleClass().add("otros-text");
+        Text puntos = new Text("Puntos");
+        puntos.getStyleClass().add("otros-text");
+        Text j1Txt = new Text("Pepito");
+        j1Txt.getStyleClass().add("otros-text");
+        Text puntosJ1txt = new Text("1000");
+        puntosJ1txt.getStyleClass().add("otros-text");
+        Text j2Txt = new Text("Jose");
+        j2Txt.getStyleClass().add("otros-text");
+        Text puntosJ2txt = new Text("1000");
+        puntosJ2txt.getStyleClass().add("otros-text");
+
+        tablaDeInfo.add(nombre, 0, 0);
+        tablaDeInfo.add(puntos, 1, 0);
+        tablaDeInfo.add(j1Txt, 0, 1);
+        tablaDeInfo.add(puntosJ1txt, 1, 1);
+        tablaDeInfo.add(j2Txt, 0,2);
+        tablaDeInfo.add(puntosJ2txt, 1, 2);
+
+        VBox panelIzquierdo = new VBox();
+        panelIzquierdo.getChildren().addAll(tablaDeInfo);
+        panelIzquierdo.setSpacing(30);
+        panelIzquierdo.setAlignment(Pos.CENTER);
+
+
+        return panelIzquierdo;
+    }
+
+    public VBox construirPanelCentral(){
+        VBox panelCentral = new VBox();
+
+        panelCentral.setPrefSize(400,100);
+        Label enunciadoTxt = new Label("Quien fue el primer hombre que se comio una hamburguesa con queso?");
+        enunciadoTxt.setFont(Font.font("Arial", FontWeight.BOLD, 36));
+        enunciadoTxt.setMaxWidth(800);
+        enunciadoTxt.setWrapText(true);
+        enunciadoTxt.setAlignment(Pos.CENTER);
+        enunciadoTxt.getStyleClass().add("enunciado-text");
+        panelCentral.getChildren().addAll(enunciadoTxt);
+        panelCentral.setAlignment(Pos.CENTER);
+        panelCentral.getStyleClass().add("enunciado-style");
+        return  panelCentral;
+    }
+
+    private VBox contruirPanelDerecho(){
+        VBox panelDerecho = new VBox();
+        panelDerecho.setSpacing(20);
+        Label tiempoLbl = new Label("Tiempo");
+        tiempoLbl.getStyleClass().add("otros-text");
+        panelDerecho.getChildren().addAll(tiempoLbl);
+        panelDerecho.setAlignment(Pos.CENTER);
+        return panelDerecho;
     }
 }
