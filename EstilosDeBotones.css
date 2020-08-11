@@ -1,0 +1,40 @@
+
+.button {
+    -fx-background-color: red;
+    -fx-border-radius: 10px;
+}
+
+.button2 {
+    -fx-background-color: #13ff00;
+    -fx-border-radius: 10px;
+}
+
+.button3 {
+    -fx-background-color: #ffed00;
+    -fx-border-radius: 10px;
+}
+
+.button4 {
+    -fx-background-color: #0822ff;
+    -fx-border-radius: 10px;
+}
+
+.button:hover {
+    -fx-background-color: #af666f; /* Green */
+    color: white;
+}
+
+.button2:hover {
+    -fx-background-color: #89ff70; /* Green */
+    color: white;
+}
+
+.button3:hover {
+    -fx-background-color: #f3ff6a; /* Green */
+    color: white;
+}
+
+.button4:hover {
+    -fx-background-color: #5e8fff; /* Green */
+    color: white;
+}
