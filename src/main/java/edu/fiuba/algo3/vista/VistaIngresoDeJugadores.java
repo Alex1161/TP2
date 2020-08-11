@@ -1,5 +1,8 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.Controlador;
+import edu.fiuba.algo3.vista.BotonParaJugar;
+import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -10,13 +13,15 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-public class Vista {
+public class VistaIngresoDeJugadores{
+    VBox ingresoJugadores;
+    BotonParaJugar unBoton;
 
     Stage ventana;
     Controlador controlador;
     Scene IngresoNombres, Juego;
 
-    public Vista(Stage stage, Controlador controlador){
+    public VistaIngresoDeJugadores(Stage stage, Controlador controlador){
         this.ventana = stage;
         this.controlador = controlador;
         stage.setTitle("algoHoot");
@@ -25,14 +30,19 @@ public class Vista {
     public void comienzoDelJuego(){
         BorderPane layoutInicial = new BorderPane();
 
-        Button botonComenzarJuego = new Button( "Jugar!");
+        StackPane layoutSiguiente = new StackPane();
+        Scene proximaEscena = new Scene(layoutSiguiente, 1024, 768);
+
+        this.unBoton = new BotonParaJugar(ventana, proximaEscena);
+
         Label textoInfo = new Label("Ingrese el nombre del primer jugador e ingrese 'ENTER' ");
+
         TextField solicitudNombre = new TextField();
         solicitudNombre.setPromptText("Ingrese Nombre De Jugador y presione: 'Enter' ");
         solicitudNombre.setPadding(new Insets(20));
 
 
-        VBox cuadro = new VBox(textoInfo,solicitudNombre,botonComenzarJuego);
+        VBox cuadro = new VBox(textoInfo,solicitudNombre, unBoton);
         cuadro.setSpacing(20);
         cuadro.setAlignment(Pos.CENTER);
         cuadro.setMaxWidth(400);
@@ -40,7 +50,6 @@ public class Vista {
         setFondoDePantalla(layoutInicial);
 
         layoutInicial.setCenter(cuadro);
-
 
         controlador.teclaEnter(solicitudNombre, textoInfo);
 
@@ -50,7 +59,7 @@ public class Vista {
         this.ventana.show();
     }
 
-    private void setFondoDePantalla(BorderPane miPanel){
+    private void setFondoDePantalla(Pane miPanel){
         Image fondoPantallaInicial = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenes/kahootEditar.png");
         BackgroundSize bSize = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false);
 
@@ -60,5 +69,6 @@ public class Vista {
                 BackgroundPosition.CENTER,
                 bSize)));
     }
-    //public String mostrarJugador();
+
+
 }
