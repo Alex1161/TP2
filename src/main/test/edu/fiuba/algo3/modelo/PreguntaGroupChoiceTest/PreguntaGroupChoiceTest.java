@@ -13,13 +13,57 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PreguntaGroupChoiceTest {
 
     @Test
-    public void test01PreguntaGroupChoiceJugadorUnoColocaLasRespuestasEnElGrupoCorrectoJugadorDosNoRecibenUnoYCeroPuntosRespectivamente(){
+    public void test01PreguntaGroupChoiceSeLePasaOpcionesCorrectasDevulveTrue(){
+        Opciones opcionesCorrectasGrupo1 = new Opciones();
+
+        opcionesCorrectasGrupo1.agregarOpcion("2");
+        opcionesCorrectasGrupo1.agregarOpcion("4");
+
+        Opciones opcionesPosibles = new Opciones();
+
+        opcionesPosibles.agregarOpcion("1");
+        opcionesPosibles.agregarOpcion("2");
+        opcionesPosibles.agregarOpcion("3");
+        opcionesPosibles.agregarOpcion("4");
+
+        String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
+        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+
+        assertTrue(preguntaGroupChoice.sonCorrectas(opcionesCorrectasGrupo1));
+    }
+
+    @Test
+    public void test02PreguntaGroupChoiceSeLePasaOpcionesIncorrectasDevulveFalse(){
+        Opciones opcionesCorrectasGrupo1 = new Opciones();
+
+        opcionesCorrectasGrupo1.agregarOpcion("2");
+        opcionesCorrectasGrupo1.agregarOpcion("4");
+
+        Opciones opcionesPosibles = new Opciones();
+
+        opcionesPosibles.agregarOpcion("1");
+        opcionesPosibles.agregarOpcion("2");
+        opcionesPosibles.agregarOpcion("3");
+        opcionesPosibles.agregarOpcion("4");
+
+        String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
+        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+
+        Opciones opcionesIncorrectas = new Opciones();
+        opcionesIncorrectas.agregarOpcion("3");
+        opcionesIncorrectas.agregarOpcion("2");
+        opcionesIncorrectas.agregarOpcion("1");
+
+        assertFalse(preguntaGroupChoice.sonCorrectas(opcionesIncorrectas));
+    }
+
+    @Test
+    public void test03PreguntaGroupChoiceJugadorUnoColocaLasRespuestasEnElGrupoCorrectoJugadorDosNoRecibenUnoYCeroPuntosRespectivamente(){
         Opciones opcionesCorrectasGrupo1 = new Opciones();
 
         opcionesCorrectasGrupo1.agregarOpcion("2");
@@ -57,7 +101,7 @@ public class PreguntaGroupChoiceTest {
     }
 
     @Test
-    public void test02PreguntaGroupChoiceJugadorDosColocaLasRespuestasEnElGrupoCorrectoJugadorUnoNoRecibenUnoYCeroPuntosRespectivamente(){
+    public void test04PreguntaGroupChoiceJugadorDosColocaLasRespuestasEnElGrupoCorrectoJugadorUnoNoRecibenUnoYCeroPuntosRespectivamente(){
         Opciones opcionesCorrectasGrupo1 = new Opciones();
 
         opcionesCorrectasGrupo1.agregarOpcion("2");
@@ -95,7 +139,7 @@ public class PreguntaGroupChoiceTest {
     }
 
     @Test
-    public void test03PreguntaGroupChoiceAmbosJugadoresColocanRespuestasEnElGrupoIncorrectoAmbosRecibenCeroPuntos(){
+    public void test05PreguntaGroupChoiceAmbosJugadoresColocanRespuestasEnElGrupoIncorrectoAmbosRecibenCeroPuntos(){
         Opciones opcionesCorrectasGrupo1 = new Opciones();
 
         opcionesCorrectasGrupo1.agregarOpcion("2");
@@ -133,7 +177,7 @@ public class PreguntaGroupChoiceTest {
     }
 
     @Test
-    public void test04PreguntaGroupChoiceRespuestaJugador1YJugador2RespondenCorrectamenteSumanPuntoPositivoAmbos(){
+    public void test06PreguntaGroupChoiceRespuestaJugador1YJugador2RespondenCorrectamenteSumanPuntoPositivoAmbos(){
         Opciones opcionesCorrectasGrupo1 = new Opciones();
 
         opcionesCorrectasGrupo1.agregarOpcion("2");
@@ -171,7 +215,7 @@ public class PreguntaGroupChoiceTest {
     }
 
     @Test
-    public void test06PreguntaGroupChoiceSeLeAgregaMultiplicadorX2LanzaException(){
+    public void test07PreguntaGroupChoiceSeLeAgregaMultiplicadorX2LanzaException(){
         Opciones opcionesCorrectasGrupo1 = new Opciones();
 
         opcionesCorrectasGrupo1.agregarOpcion("2");
@@ -195,7 +239,7 @@ public class PreguntaGroupChoiceTest {
     }
 
     @Test
-    public void test07PreguntaGroupChoiceSeLeAgregaMultiplicadorX3LanzaException(){
+    public void test08PreguntaGroupChoiceSeLeAgregaMultiplicadorX3LanzaException(){
         Opciones opcionesCorrectasGrupo1 = new Opciones();
 
         opcionesCorrectasGrupo1.agregarOpcion("2");
@@ -219,7 +263,7 @@ public class PreguntaGroupChoiceTest {
     }
 
     @Test
-    public void test08PreguntaGroupChoiceSeLeAgregaExclusividadAmbosRespondenBienTienenCeroPuntos(){
+    public void test09PreguntaGroupChoiceSeLeAgregaExclusividadAmbosRespondenBienTienenCeroPuntos(){
         Opciones opcionesCorrectasGrupo1 = new Opciones();
 
         opcionesCorrectasGrupo1.agregarOpcion("2");
@@ -259,7 +303,7 @@ public class PreguntaGroupChoiceTest {
     }
 
     @Test
-    public void test09PreguntaGroupChoiceSeLeAgregaExclusividadAmbosRespondenMalTienenCeroPuntos(){
+    public void test10PreguntaGroupChoiceSeLeAgregaExclusividadAmbosRespondenMalTienenCeroPuntos(){
         Opciones opcionesCorrectasGrupo1 = new Opciones();
 
         opcionesCorrectasGrupo1.agregarOpcion("2");
@@ -299,7 +343,7 @@ public class PreguntaGroupChoiceTest {
     }
 
     @Test
-    public void test09PreguntaGroupChoiceSeLeAgregaExclusividadJugadorUnoRespondeMalJugadorDosBienEsteRecibeDoblePuntaje(){
+    public void test11PreguntaGroupChoiceSeLeAgregaExclusividadJugadorUnoRespondeMalJugadorDosBienEsteRecibeDoblePuntaje(){
         Opciones opcionesCorrectasGrupo1 = new Opciones();
 
         opcionesCorrectasGrupo1.agregarOpcion("2");
@@ -339,7 +383,7 @@ public class PreguntaGroupChoiceTest {
     }
 
     @Test
-    public void test09PreguntaGroupChoiceSeLeAgregaDobleExclusividadJugadorUnoRespondeMalJugadorDosBienEsteRecibeCuadruplePuntaje(){
+    public void test12PreguntaGroupChoiceSeLeAgregaDobleExclusividadJugadorUnoRespondeMalJugadorDosBienEsteRecibeCuadruplePuntaje(){
         Opciones opcionesCorrectasGrupo1 = new Opciones();
 
         opcionesCorrectasGrupo1.agregarOpcion("2");
