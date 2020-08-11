@@ -1,46 +1,44 @@
 package edu.fiuba.algo3;
-import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 
-import javax.swing.JFrame;
-import java.io.File;
-import java.net.URL;
-import java.util.Observable;
-import java.util.Observer;
 
 
-public class VistaPreguntaEnCurso extends JFrame implements Observer {
+
+public class VistaPreguntaEnCurso{
+    //private static String URL_FONDO_PREGUNTA = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/fondoDegradadoNaranjaPrueba.png";
 
     VBox panelDerecho;
     Label tiempoRestanteTxt;
-    Scene escena;
+    VBox ventanaCompleta;
 
-    public VistaPreguntaEnCurso(Pregunta pregunta){
-        /*
-            Panel izquierdo, nombres y puntos
-         */
+    public VistaPreguntaEnCurso(/*Pregunta pregunta*/){
+        super();
+
         VBox panelIzquierdo = construirPanelIzquierdo();
-        /*
-            Panel central "ENUNCIADO"
-         */
-        VBox panelCentral = construirPanelCentral();
+
         /*
             Panel derecho "Tiempo"
          */
         panelDerecho = contruirPanelDerecho();
+
+
+
+        /*
+            Panel central "ENUNCIADO"
+         */
+        VBox panelCentral = construirPanelCentral();
+
+
 
         /*
             Panel inferior
@@ -73,9 +71,9 @@ public class VistaPreguntaEnCurso extends JFrame implements Observer {
         panelSuperior.setAlignment(Pos.CENTER);
         panelSuperior.setMinHeight(500);
         VistaGrillaRespuestas grillaDeBotones = new VistaGrillaRespuestas();
-        VBox principal = new VBox();
+        ventanaCompleta = new VBox();
 
-        principal.getChildren().addAll(panelSuperior, grillaDeBotones.obtenerGrilla());
+        ventanaCompleta.getChildren().addAll(panelSuperior, grillaDeBotones.obtenerGrilla());
         /*
         respuesta1.setPrefSize(400, 60);
         respuesta2.setPrefSize(400, 60);
@@ -84,18 +82,24 @@ public class VistaPreguntaEnCurso extends JFrame implements Observer {
          */
 
 
-        principal.getStyleClass().add("fondo-general");
+        ventanaCompleta.getStyleClass().add("fondo-general");
 
-        File f = new File("EstilosDeBotones.css");
 
-        escena = new Scene(principal);
-        //escena.getStylesheets().clear();
-        escena.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
-        Stage stage = new Stage();
-        stage.setScene(escena);
-        stage.setResizable(false);
-        stage.show();
+        /*Habbría que ver la forma de tener una única función que pueda servir para cambiar el fondo de pantalla a medida que cambian las preguntas, como el hkahoot(?)*/
+        //Image fondoPantallaInicial = new Image(URL_FONDO_PREGUNTA);
+        BackgroundSize bSize =
+                new BackgroundSize(600,
+                        800,
+                        false,
+                        false,
+                        true, false);
+        //this.setBackground(new Background(new BackgroundImage(fondoPantallaInicial,
+                //BackgroundRepeat.NO_REPEAT,
+                //BackgroundRepeat.NO_REPEAT,
+               // BackgroundPosition.CENTER,
+               // bSize)));
+
     }
 
 
@@ -166,9 +170,8 @@ public class VistaPreguntaEnCurso extends JFrame implements Observer {
         return panelDerecho;
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
-        tiempoRestanteTxt.setText("0");
-
+    public VBox obtenerVista(){
+        return ventanaCompleta;
     }
+
 }

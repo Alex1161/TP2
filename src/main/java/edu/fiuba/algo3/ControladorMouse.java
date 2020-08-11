@@ -12,7 +12,4 @@ public class ControladorMouse extends MouseAdapter {
         this.vistaVentana = vista;
     }
 
-    public void mousePressed(MouseEvent event){
-        vistaVentana.update(new Observable(), "");
-    }
 }

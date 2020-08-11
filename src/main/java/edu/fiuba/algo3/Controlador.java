@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.vista.VistaIngresoDeJugadores;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -9,11 +10,11 @@ import javafx.stage.Stage;
 
 public class Controlador {
     private TextField areaEnvioTf;
-    Vista ventana;
+    VistaIngresoDeJugadores ventana;
     Panel panel;
 
     public void comienzo(Stage stage){
-        this.ventana = new Vista(stage, this);
+        this.ventana = new VistaIngresoDeJugadores(stage, this);
         this.panel = new Panel();
         this.ventana.comienzoDelJuego();
     }

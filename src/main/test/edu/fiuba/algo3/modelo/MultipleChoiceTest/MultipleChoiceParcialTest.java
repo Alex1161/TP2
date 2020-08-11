@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.MultipleChoiceTest;
 
 import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
-import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
@@ -14,88 +13,12 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
-public class MultipleChoiceClasicoTest {
-
+public class MultipleChoiceParcialTest {
     @Test
-    public void test01PreguntaMultipleChoiceClasicoSeCreaYSePasaOpcionesCorrectasEnDiferenteOrdenDaTrue(){
-
-        Opciones opcionesPosibles = new Opciones();
-
-        opcionesPosibles.agregarOpcion("1");
-        opcionesPosibles.agregarOpcion("2");
-        opcionesPosibles.agregarOpcion("3");
-        opcionesPosibles.agregarOpcion("4");
-
-        Opciones opcionesCorrectas = new Opciones();
-
-        opcionesCorrectas.agregarOpcion("2");
-        opcionesCorrectas.agregarOpcion("4");
-
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("Mútiplo de dos: ", opcionesCorrectas, opcionesPosibles);
-
-        Opciones opcion = new Opciones();
-
-        opcion.agregarOpcion("4");
-        opcion.agregarOpcion("2");
-
-        assertTrue(preguntaMultipleChoice.sonCorrectas(opcion));
-    }
-
-    @Test
-    public void test02PreguntaMultipleChoiceClasicoSeCreaYSePasaOpcionesCorrectasEnMismoOrdenDaTrue(){
-
-        Opciones opcionesPosibles = new Opciones();
-
-        opcionesPosibles.agregarOpcion("1");
-        opcionesPosibles.agregarOpcion("2");
-        opcionesPosibles.agregarOpcion("3");
-        opcionesPosibles.agregarOpcion("4");
-
-        Opciones opcionesCorrectas = new Opciones();
-
-        opcionesCorrectas.agregarOpcion("2");
-        opcionesCorrectas.agregarOpcion("4");
-
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("Mútiplo de dos: ", opcionesCorrectas, opcionesPosibles);
-
-        Opciones opcion = new Opciones();
-
-        opcion.agregarOpcion("2");
-        opcion.agregarOpcion("4");
-
-        assertTrue(preguntaMultipleChoice.sonCorrectas(opcion));
-    }
-
-    @Test
-    public void test03PreguntaMultipleChoiceClasicoSeCreaYSePasaOpcionesIncorrectasDaFalse(){
-
-        Opciones opcionesPosibles = new Opciones();
-
-        opcionesPosibles.agregarOpcion("1");
-        opcionesPosibles.agregarOpcion("2");
-        opcionesPosibles.agregarOpcion("3");
-        opcionesPosibles.agregarOpcion("4");
-
-        Opciones opcionesCorrectas = new Opciones();
-
-        opcionesCorrectas.agregarOpcion("2");
-        opcionesCorrectas.agregarOpcion("4");
-
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("Mútiplo de dos: ", opcionesCorrectas, opcionesPosibles);
-
-        Opciones opcion = new Opciones();
-
-        opcion.agregarOpcion("1");
-        opcion.agregarOpcion("4");
-
-        assertFalse(preguntaMultipleChoice.sonCorrectas(opcion));
-    }
-
-    @Test
-    public void test04PreguntaMultipleChoiceClasicoUnJugadorRespondeMalOtroBienEsteRecibeUnPuntoPositivo(){
+    public void test01PreguntaMultipleChoiceParcialJugadorRespondeDosBienUnaMalRecibeCeroPuntos(){
 
         Opciones opcionesCorrectas = new Opciones();
 
@@ -109,31 +32,56 @@ public class MultipleChoiceClasicoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
-        Jugador jugador2 = new Jugador("juanito");
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        respuestaJugador1.agregarOpcion("si en verde");
+        respuestaJugador1.agregarOpcion("si");
+        respuestaJugador1.agregarOpcion("no");
+
+        List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
+        listaDeRespuestas.add(respuestaJugador1);
+
+        preguntaMultipleChoice.calificar((listaDeRespuestas));
+
+        assertEquals( 0, jugador1.puntajeValorNumerico());
+    }
+
+    @Test
+    public void test02PreguntaMultipleChoiceParcialJugadorRespondeDosBienRecibeDosPuntos(){
+
+        Opciones opcionesCorrectas = new Opciones();
+
+        opcionesCorrectas.agregarOpcion("si");
+        opcionesCorrectas.agregarOpcion("si en verde");
+
+        Opciones opcionesPosibles = new Opciones();
+
+        opcionesPosibles.agregarOpcion("si");
+        opcionesPosibles.agregarOpcion("si en verde");
+        opcionesPosibles.agregarOpcion("no");
+        opcionesPosibles.agregarOpcion("no en verde");
+
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+
+        Jugador jugador1 = new Jugador("pedrito");
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
         respuestaJugador1.agregarOpcion("si");
         respuestaJugador1.agregarOpcion("si en verde");
 
-        Respuesta respuestaJugador2 = new Respuesta(jugador2);
-        respuestaJugador2.agregarOpcion("no");
-        respuestaJugador2.agregarOpcion("no en verde");
-
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
-        listaDeRespuestas.add(respuestaJugador2);
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.puntajeValorNumerico());
-        assertEquals( 0,jugador2.puntajeValorNumerico());
+        assertEquals( 2,jugador1.puntajeValorNumerico());
     }
 
     @Test
-    public void test05PreguntaMultipleChoiceClasicoAmbosJugadoresContestanMalRecibenCeroPuntos(){
+    public void test03PreguntaMultipleChoiceParcialJugadorContestaUnaBienRecibeUnPunto(){
 
         Opciones opcionesCorrectas = new Opciones();
 
@@ -147,7 +95,37 @@ public class MultipleChoiceClasicoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+
+        Jugador jugador1 = new Jugador("pedrito");
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        respuestaJugador1.agregarOpcion("si");
+
+        List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
+        listaDeRespuestas.add(respuestaJugador1);
+
+        preguntaMultipleChoice.calificar((listaDeRespuestas));
+
+        assertEquals( 1, jugador1.puntajeValorNumerico());
+    }
+
+    @Test
+    public void test04PreguntaMultipleChoiceParcialAmbosJugadoresTienenUnaOpcionIncorrectaAmbosRecibenCeroPuntos(){
+
+        Opciones opcionesCorrectas = new Opciones();
+
+        opcionesCorrectas.agregarOpcion("si");
+        opcionesCorrectas.agregarOpcion("si en verde");
+
+        Opciones opcionesPosibles = new Opciones();
+
+        opcionesPosibles.agregarOpcion("si");
+        opcionesPosibles.agregarOpcion("si en verde");
+        opcionesPosibles.agregarOpcion("no");
+        opcionesPosibles.agregarOpcion("no en verde");
+
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -158,45 +136,7 @@ public class MultipleChoiceClasicoTest {
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
         respuestaJugador2.agregarOpcion("no");
-        respuestaJugador2.agregarOpcion("no en verde");
-
-        List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
-        listaDeRespuestas.add(respuestaJugador1);
-        listaDeRespuestas.add(respuestaJugador2);
-
-        preguntaMultipleChoice.calificar((listaDeRespuestas));
-
-        assertEquals( 0,jugador1.puntajeValorNumerico());
-        assertEquals( 0,jugador2.puntajeValorNumerico());
-    }
-
-    @Test
-    public void Test06PreguntaMultipleChoiceClasicoAmbosJugadoresContestanBienYSeLesAsignaUnPunto(){
-
-        Opciones opcionesCorrectas = new Opciones();
-
-        opcionesCorrectas.agregarOpcion("si");
-        opcionesCorrectas.agregarOpcion("si en verde");
-
-        Opciones opcionesPosibles = new Opciones();
-
-        opcionesPosibles.agregarOpcion("si");
-        opcionesPosibles.agregarOpcion("si en verde");
-        opcionesPosibles.agregarOpcion("no");
-        opcionesPosibles.agregarOpcion("no en verde");
-
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
-
-        Jugador jugador1 = new Jugador("pedrito");
-        Jugador jugador2 = new Jugador("juanito");
-
-        Respuesta respuestaJugador1 = new Respuesta(jugador1);
-        respuestaJugador1.agregarOpcion("si");
-        respuestaJugador1.agregarOpcion("si en verde");
-
-        Respuesta respuestaJugador2 = new Respuesta(jugador2);
         respuestaJugador2.agregarOpcion("si en verde");
-        respuestaJugador2.agregarOpcion("si");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -204,49 +144,30 @@ public class MultipleChoiceClasicoTest {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 1,jugador1.puntajeValorNumerico());
-        assertEquals( 1,jugador2.puntajeValorNumerico());
+        assertEquals(0, jugador1.puntajeValorNumerico());
+        assertEquals(0, jugador2.puntajeValorNumerico());
     }
 
     @Test
-    public void Test07PreguntaMultipleChoiceClasicoSeAgregaMultiplicadorX2LanzaExcepcion(){
+    public void test05PreguntaMultipleChoiceParcialSeAgregaMultiplicadorLanzaException(){
 
         Opciones opcionesCorrectas = new Opciones();
 
-        opcionesCorrectas.agregarOpcion("si");
-        opcionesCorrectas.agregarOpcion("si en verde");
+        opcionesCorrectas.agregarOpcion("perro");
+        opcionesCorrectas.agregarOpcion("gato");
+        opcionesCorrectas.agregarOpcion("loro");
+        opcionesCorrectas.agregarOpcion("oso");
 
         Opciones opcionesPosibles = new Opciones();
 
-        opcionesPosibles.agregarOpcion("si");
-        opcionesPosibles.agregarOpcion("si en verde");
-        opcionesPosibles.agregarOpcion("no");
-        opcionesPosibles.agregarOpcion("no en verde");
+        opcionesPosibles.agregarOpcion("perro");
+        opcionesPosibles.agregarOpcion("gato");
+        opcionesPosibles.agregarOpcion("loro");
+        opcionesPosibles.agregarOpcion("oso");
+        opcionesPosibles.agregarOpcion("lapiz");
+        opcionesPosibles.agregarOpcion("computadora");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
-
-        assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
-                () -> {
-                    preguntaMultipleChoice.agregarComodin(new MultiplicadorX2());
-                });
-    }
-
-    @Test
-    public void Test08PreguntaMultipleChoiceClasicoSeAgregaMultiplicadorX3LanzaExcepcion(){
-
-        Opciones opcionesCorrectas = new Opciones();
-
-        opcionesCorrectas.agregarOpcion("si");
-        opcionesCorrectas.agregarOpcion("si en verde");
-
-        Opciones opcionesPosibles = new Opciones();
-
-        opcionesPosibles.agregarOpcion("si");
-        opcionesPosibles.agregarOpcion("si en verde");
-        opcionesPosibles.agregarOpcion("no");
-        opcionesPosibles.agregarOpcion("no en verde");
-
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("mamiferos", opcionesCorrectas, opcionesPosibles);
 
         assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
                 () -> {
@@ -255,7 +176,7 @@ public class MultipleChoiceClasicoTest {
     }
 
     @Test
-    public void Test09PreguntaMultipleChoiceClasicoSeAgregaExclusividadUnoContestaMalElOtroBienEsteRecibeDoblePuntaje(){
+    public void test06PreguntaMultipleChoiceParcialSeAgregaExclusividadUnoRespondeMalOtroBienEsteRecibeDoblePuntaje(){
 
         Opciones opcionesCorrectas = new Opciones();
 
@@ -269,7 +190,7 @@ public class MultipleChoiceClasicoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         preguntaMultipleChoice.agregarComodin(new Exclusividad());
 
@@ -282,7 +203,7 @@ public class MultipleChoiceClasicoTest {
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
         respuestaJugador2.agregarOpcion("no");
-        respuestaJugador2.agregarOpcion("no en verde");
+        respuestaJugador2.agregarOpcion("si en verde");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -290,12 +211,12 @@ public class MultipleChoiceClasicoTest {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 2,jugador1.puntajeValorNumerico());
-        assertEquals( 0,jugador2.puntajeValorNumerico());
+        assertEquals(4, jugador1.puntajeValorNumerico());
+        assertEquals(0, jugador2.puntajeValorNumerico());
     }
 
     @Test
-    public void Test10PreguntaMultipleChoiceClasicoSeAgregaExclusividadUnoContestaMalElOtroTambienAmbosRecibenCeroPuntos(){
+    public void test07PreguntaMultipleChoiceParcialSeAgregaExclusividadUnoRespondeMalOtroTambienAmbosRecibenCeroPuntos(){
 
         Opciones opcionesCorrectas = new Opciones();
 
@@ -309,7 +230,7 @@ public class MultipleChoiceClasicoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         preguntaMultipleChoice.agregarComodin(new Exclusividad());
 
@@ -318,11 +239,10 @@ public class MultipleChoiceClasicoTest {
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
         respuestaJugador1.agregarOpcion("no");
-        respuestaJugador1.agregarOpcion("si en verde");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
         respuestaJugador2.agregarOpcion("no");
-        respuestaJugador2.agregarOpcion("no en verde");
+        respuestaJugador2.agregarOpcion("si en verde");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -330,12 +250,12 @@ public class MultipleChoiceClasicoTest {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 0,jugador1.puntajeValorNumerico());
-        assertEquals( 0,jugador2.puntajeValorNumerico());
+        assertEquals(0, jugador1.puntajeValorNumerico());
+        assertEquals(0, jugador2.puntajeValorNumerico());
     }
 
     @Test
-    public void Test11PreguntaMultipleChoiceClasicoSeAgregaExclusividadUnoContestaBienElOtroTambienAmbosRecibenCeroPuntos(){
+    public void test08PreguntaMultipleChoiceParcialSeAgregaExclusividadUnoRespondeBienOtroTambienAmbosRecibenCeroPuntos(){
 
         Opciones opcionesCorrectas = new Opciones();
 
@@ -349,7 +269,7 @@ public class MultipleChoiceClasicoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         preguntaMultipleChoice.agregarComodin(new Exclusividad());
 
@@ -358,11 +278,10 @@ public class MultipleChoiceClasicoTest {
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
         respuestaJugador1.agregarOpcion("si");
-        respuestaJugador1.agregarOpcion("si en verde");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
-        respuestaJugador2.agregarOpcion("si en verde");
         respuestaJugador2.agregarOpcion("si");
+        respuestaJugador2.agregarOpcion("si en verde");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -370,12 +289,12 @@ public class MultipleChoiceClasicoTest {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 0,jugador1.puntajeValorNumerico());
-        assertEquals( 0,jugador2.puntajeValorNumerico());
+        assertEquals(0, jugador1.puntajeValorNumerico());
+        assertEquals(0, jugador2.puntajeValorNumerico());
     }
 
     @Test
-    public void Test12PreguntaMultipleChoiceClasicoSeAgregaDobleExclusividadUnoContestaMalElOtroBienEsteRecibeCuadruplePuntaje(){
+    public void test09PreguntaMultipleChoiceParcialSeDobleAgregaExclusividadUnoRespondeMalOtroBienEsteRecibeCuadruplePuntaje(){
 
         Opciones opcionesCorrectas = new Opciones();
 
@@ -389,7 +308,7 @@ public class MultipleChoiceClasicoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         preguntaMultipleChoice.agregarComodin(new Exclusividad());
         preguntaMultipleChoice.agregarComodin(new Exclusividad());
@@ -402,8 +321,8 @@ public class MultipleChoiceClasicoTest {
         respuestaJugador1.agregarOpcion("si en verde");
 
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
+        respuestaJugador2.agregarOpcion("no en verde");
         respuestaJugador2.agregarOpcion("si en verde");
-        respuestaJugador2.agregarOpcion("no");
 
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
@@ -411,8 +330,7 @@ public class MultipleChoiceClasicoTest {
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
-        assertEquals( 4,jugador1.puntajeValorNumerico());
-        assertEquals( 0,jugador2.puntajeValorNumerico());
+        assertEquals(8, jugador1.puntajeValorNumerico());
+        assertEquals(0, jugador2.puntajeValorNumerico());
     }
-
 }

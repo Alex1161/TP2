@@ -1,23 +1,32 @@
 package edu.fiuba.algo3.modelo.Comodin;
 
+import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Puntaje.Puntos;
+import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
-public class Multiplicador {
+import java.util.List;
+
+public abstract class Multiplicador extends Comodin {
     private int factor;
 
     public Multiplicador(int factor){
         this.factor = factor;
     }
 
+    @Override
     public Puntaje aplicar(Puntaje puntaje){
-        Puntaje puntosMultiplicados = new Puntos();
 
-        for (int j = 0; j < factor; j++){
-            puntosMultiplicados = puntosMultiplicados.agregar(puntaje);
-        }
-
-        return puntosMultiplicados;
+        return puntaje.multiplicarPor(factor);
     }
 
+    @Override
+    public void validar(Penalidad penalidad) {
+        penalidad.validarMultiplicador();
+    }
+
+    @Override
+    public void aplicar(List<Respuesta> respuestas) {
+
+    }
 }
