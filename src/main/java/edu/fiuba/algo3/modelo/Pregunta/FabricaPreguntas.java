@@ -1,11 +1,14 @@
 package edu.fiuba.algo3.modelo.Pregunta;
 
+import edu.fiuba.algo3.modelo.Penalidad.ConPenalidad;
+import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
+
+
 import edu.fiuba.algo3.modelo.Calificador.*;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 
 public class FabricaPreguntas {
-
-    public Pregunta crearPregunta(String tipo, String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles){
+        public Pregunta crearPregunta(String tipo, String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles){
         FabricaPreguntas fabrica=new FabricaPreguntas();
         switch (tipo){
             case "VoFPenalizado":
@@ -27,99 +30,141 @@ public class FabricaPreguntas {
                 throw new IllegalStateException("Unexpected value: " + tipo);
         }
     }
-    public static  Pregunta preguntaVoFClasico(String enunciado, String opcionCorrecta){
-        Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta(opcionCorrecta);
-        pregunta.asignarOpcionPosible("Verdadero");
-        pregunta.asignarOpcionPosible("Falso");
-        Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
-        pregunta.asignarCalificador(calificador);
-        return pregunta;
+  public static Pregunta preguntaVoFClasico(String enunciado,Opciones opcionCorrecta){
+        Opciones opcionesPosibles = new Opciones();
+        opcionesPosibles.agregarOpcion("Verdadero");
+        opcionesPosibles.agregarOpcion("Falso");
+
+        Opciones opcionesCorrectas = new Opciones();
+        opcionesCorrectas.agregarOpciones(opcionCorrecta);
+
+        Calificador calificadorSinOrdenNoPenalizado = new ComparadorSinOrden(new CalificadorNoPenalizado());
+
+        Pregunta preguntaVoFClasico = new Pregunta(enunciado);
+        preguntaVoFClasico.asignarOpcionesPosibles(opcionesPosibles);
+        preguntaVoFClasico.asignarOpcionesCorrectas(opcionesCorrectas);
+        preguntaVoFClasico.asignarCalificador(calificadorSinOrdenNoPenalizado);
+        preguntaVoFClasico.setPenalidad(new SinPenalidad());
+
+        return preguntaVoFClasico;
+
     }
-    public static Pregunta preguntaVoFClasico(String enunciado, Opciones opcionCorrecta){
-        Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta(opcionCorrecta);
-        pregunta.asignarOpcionPosible("Verdadero");
-        pregunta.asignarOpcionPosible("Falso");
-        Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
-        pregunta.asignarCalificador(calificador);
-        return pregunta;
+
+    public static Pregunta preguntaVoFPenalizado(String enunciado, Opciones opcionCorrecta){
+        Opciones opcionesPosibles = new Opciones();
+        opcionesPosibles.agregarOpcion("Verdadero");
+        opcionesPosibles.agregarOpcion("Falso");
+
+        Opciones opcionesCorrectas = new Opciones();
+        opcionesCorrectas.agregarOpciones(opcionCorrecta);
+
+        Calificador calificadorSinOrdenPenalizado = new ComparadorSinOrden(new CalificadorPenalizado());
+
+        Pregunta preguntaVoFPenalizado = new Pregunta(enunciado);
+        preguntaVoFPenalizado.asignarOpcionesPosibles(opcionesPosibles);
+        preguntaVoFPenalizado.asignarOpcionesCorrectas(opcionesCorrectas);
+        preguntaVoFPenalizado.asignarCalificador(calificadorSinOrdenPenalizado);
+        preguntaVoFPenalizado.setPenalidad(new ConPenalidad());
+
+        return preguntaVoFPenalizado;
+    }
+
+    public static Pregunta preguntaVoFClasico(String enunciado, String opcionCorrecta){
+        Opciones opcionesPosibles = new Opciones();
+        opcionesPosibles.agregarOpcion("Verdadero");
+        opcionesPosibles.agregarOpcion("Falso");
+
+        Opciones opcionesCorrectas = new Opciones();
+        opcionesCorrectas.agregarOpcion(opcionCorrecta);
+
+        Calificador calificadorSinOrdenNoPenalizado = new ComparadorSinOrden(new CalificadorNoPenalizado());
+
+        Pregunta preguntaVoFClasico = new Pregunta(enunciado);
+        preguntaVoFClasico.asignarOpcionesPosibles(opcionesPosibles);
+        preguntaVoFClasico.asignarOpcionesCorrectas(opcionesCorrectas);
+        preguntaVoFClasico.asignarCalificador(calificadorSinOrdenNoPenalizado);
+        preguntaVoFClasico.setPenalidad(new SinPenalidad());
+
+        return preguntaVoFClasico;
+
     }
 
     public static Pregunta preguntaVoFPenalizado(String enunciado, String opcionCorrecta){
-        Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta(opcionCorrecta);
-        pregunta.asignarOpcionPosible("Verdadero");
-        pregunta.asignarOpcionPosible("Falso");
-        Calificador calificador = new ComparadorConOrden(new AsignadorPenalizado());
-        pregunta.asignarCalificador(calificador);
-        pregunta.conPenalidad();
-        return pregunta;
-    }
-    public static Pregunta preguntaVoFPenalizado(String enunciado, Opciones opcionCorrecta){
-        Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta(opcionCorrecta);
-        pregunta.asignarOpcionPosible("Verdadero");
-        pregunta.asignarOpcionPosible("Falso");
-        Calificador calificador = new ComparadorConOrden(new AsignadorPenalizado());
-        pregunta.asignarCalificador(calificador);
-        pregunta.conPenalidad();
-        return pregunta;
+        Opciones opcionesPosibles = new Opciones();
+        opcionesPosibles.agregarOpcion("Verdadero");
+        opcionesPosibles.agregarOpcion("Falso");
+
+        Opciones opcionesCorrectas = new Opciones();
+        opcionesCorrectas.agregarOpcion(opcionCorrecta);
+
+        Calificador calificadorSinOrdenPenalizado = new ComparadorSinOrden(new CalificadorPenalizado());
+
+        Pregunta preguntaVoFPenalizado = new Pregunta(enunciado);
+        preguntaVoFPenalizado.asignarOpcionesPosibles(opcionesPosibles);
+        preguntaVoFPenalizado.asignarOpcionesCorrectas(opcionesCorrectas);
+        preguntaVoFPenalizado.asignarCalificador(calificadorSinOrdenPenalizado);
+        preguntaVoFPenalizado.setPenalidad(new ConPenalidad());
+
+        return preguntaVoFPenalizado;
     }
 
     public static Pregunta preguntaMultipleChoiceClasico(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
-        Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
-        pregunta.asignarOpcionPosible(opcionesPosibles);
+        Calificador calificador = new ComparadorSinOrden((new CalificadorNoPenalizado()));
 
-        Calificador calificador = new ComparadorSinOrden((new AsignadorClasico()));
+        Pregunta pregunta = new Pregunta(enunciado);
+        pregunta.asignarOpcionesCorrectas(opcionesCorrectas);
+        pregunta.asignarOpcionesPosibles(opcionesPosibles);
         pregunta.asignarCalificador(calificador);
+        pregunta.setPenalidad(new SinPenalidad());
 
         return pregunta;
     }
-    public static Pregunta preguntaOrderedChoice(String enunciado, Opciones opcionesPosibles) {
+
+    public static Pregunta preguntaOrderedChoice(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
+        Calificador calificador = new ComparadorConOrden(new CalificadorNoPenalizado());
+
         Pregunta pregunta = new Pregunta(enunciado);
-
-        for (String opcion : opcionesPosibles.obtenerOpciones()) {
-            pregunta.asignarOpcionPosible(opcion);
-            pregunta.asignarOpcionCorrecta(opcion);
-        }
-
-        Calificador calificador = new ComparadorConOrden(new AsignadorClasico());
+        pregunta.asignarOpcionesPosibles(opcionesPosibles);
+        pregunta.asignarOpcionesCorrectas(opcionesCorrectas);
         pregunta.asignarCalificador(calificador);
+        pregunta.setPenalidad(new SinPenalidad());
 
         return pregunta;
     }
 
     public static Pregunta preguntaMultipleChoicePenalizado(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
+        Calificador calificador = (new CalificadorPenalizado());
+
         Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
-        pregunta.asignarOpcionPosible(opcionesPosibles);
-        Calificador calificador = (new AsignadorPenalizado());
+        pregunta.asignarOpcionesCorrectas(opcionesCorrectas);
+        pregunta.asignarOpcionesPosibles(opcionesPosibles);
         pregunta.asignarCalificador(calificador);
-        pregunta.conPenalidad();
+        pregunta.setPenalidad(new ConPenalidad());
 
         return pregunta;
     }
 
     public static Pregunta preguntaMultipleChoiceParcial(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
+        Calificador calificador =new ComparadorParcial (new CalificadorNoPenalizado());
 
         Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
-        pregunta.asignarOpcionPosible(opcionesPosibles);
-        Calificador calificador =new ComparadorParcial (new AsignadorClasico());
-
+        pregunta.asignarOpcionesCorrectas(opcionesCorrectas);
+        pregunta.asignarOpcionesPosibles(opcionesPosibles);
         pregunta.asignarCalificador(calificador);
+        pregunta.setPenalidad(new SinPenalidad());
 
         return pregunta;
     }
 
     public static Pregunta preguntaGroupChoice(String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles) {
+        Calificador calificador = new ComparadorSinOrden(new CalificadorNoPenalizado());
+
         Pregunta pregunta = new Pregunta(enunciado);
-        pregunta.asignarOpcionPosible(opcionesPosibles);
-        pregunta.asignarOpcionCorrecta(opcionesCorrectas);
-        Calificador calificador = new ComparadorSinOrden(new AsignadorClasico());
+        pregunta.asignarOpcionesPosibles(opcionesPosibles);
+        pregunta.asignarOpcionesCorrectas(opcionesCorrectas);
         pregunta.asignarCalificador(calificador);
+        pregunta.setPenalidad(new SinPenalidad());
+
         return pregunta;
     }
 }

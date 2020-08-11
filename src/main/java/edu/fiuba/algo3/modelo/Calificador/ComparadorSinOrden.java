@@ -13,10 +13,15 @@ public class ComparadorSinOrden extends Calificador{
 
     @Override
     public Puntaje calificar(Opciones correctas, Opciones elegidas) {
-        if (correctas.compararSinOrden(elegidas)){
+        if ( sonCorrectas( correctas, elegidas) ){
             return new PuntoPositivo();
         }else{
             return siguienteCalificador.calificar(correctas, elegidas);
         }
+    }
+
+    @Override
+    public boolean sonCorrectas(Opciones correctas, Opciones elegidas) {
+        return correctas.compararSinOrden(elegidas);
     }
 }

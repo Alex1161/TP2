@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Puntaje;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Puntos implements Puntaje {
+public class Puntos extends Puntaje {
 
     List<Puntaje> listaDePuntos = new ArrayList<Puntaje>();
 
@@ -13,12 +13,17 @@ public class Puntos implements Puntaje {
         return this;
     }
 
-    public int valor(){
+    public int valorNumerico(){
         int valor = 0;
         for(Puntaje puntaje: listaDePuntos) {
-            valor += puntaje.valor();
+            valor += puntaje.valorNumerico();
         }
         return valor;
+    }
+
+    @Override
+    public Puntaje vs(Puntaje puntajeOponente) {
+        return new PuntoNulo();
     }
 
 }

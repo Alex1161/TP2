@@ -19,10 +19,12 @@ public class Panel {
     }
 
 
-    public boolean todoListo() {
+    /*public boolean todoListo() {
         if (jugador2 != null) {
             return true;
         }
         return false;
     }
+
+     */
 }
