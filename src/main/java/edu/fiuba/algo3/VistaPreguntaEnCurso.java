@@ -1,9 +1,11 @@
 package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -16,9 +18,15 @@ import javafx.stage.Stage;
 import javax.swing.JFrame;
 import java.io.File;
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 
 
-public class VistaPreguntaEnCurso extends JFrame{
+public class VistaPreguntaEnCurso extends JFrame implements Observer {
+
+    VBox panelDerecho;
+    Label tiempoRestanteTxt;
+    Scene escena;
 
     public VistaPreguntaEnCurso(Pregunta pregunta){
         /*
@@ -32,11 +40,11 @@ public class VistaPreguntaEnCurso extends JFrame{
         /*
             Panel derecho "Tiempo"
          */
-        VBox panelDerecho = contruirPanelDerecho();
+        panelDerecho = contruirPanelDerecho();
 
         /*
             Panel inferior
-         */
+
         Button respuesta1 = new Button("Respuesta 1");
         respuesta1.getStyleClass().add(".button");
         Button respuesta2 = new Button("Respuesta 2");
@@ -56,26 +64,31 @@ public class VistaPreguntaEnCurso extends JFrame{
         grillaDeBotones.add(respuesta3, 1, 0);
         grillaDeBotones.add(respuesta4, 1, 1);
 
+         */
+
         TextField opciones = new TextField("opciones");
         HBox panelSuperior = new HBox();
         panelSuperior.getChildren().addAll(panelIzquierdo, panelCentral, panelDerecho);
         panelSuperior.setSpacing(20);
         panelSuperior.setAlignment(Pos.CENTER);
         panelSuperior.setMinHeight(500);
-
+        VistaGrillaRespuestas grillaDeBotones = new VistaGrillaRespuestas();
         VBox principal = new VBox();
 
-        principal.getChildren().addAll(panelSuperior, grillaDeBotones);
+        principal.getChildren().addAll(panelSuperior, grillaDeBotones.obtenerGrilla());
+        /*
         respuesta1.setPrefSize(400, 60);
         respuesta2.setPrefSize(400, 60);
         respuesta3.setPrefSize(400, 60);
         respuesta4.setPrefSize(400, 60);
+         */
+
 
         principal.getStyleClass().add("fondo-general");
 
         File f = new File("EstilosDeBotones.css");
 
-        Scene escena = new Scene(principal);
+        escena = new Scene(principal);
         //escena.getStylesheets().clear();
         escena.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
@@ -141,11 +154,21 @@ public class VistaPreguntaEnCurso extends JFrame{
 
     private VBox contruirPanelDerecho(){
         VBox panelDerecho = new VBox();
+        int tiempoRestante = 60;
         panelDerecho.setSpacing(20);
         Label tiempoLbl = new Label("Tiempo");
+        tiempoRestanteTxt = new Label(String.valueOf(tiempoRestante));
+
         tiempoLbl.getStyleClass().add("otros-text");
-        panelDerecho.getChildren().addAll(tiempoLbl);
+        tiempoRestanteTxt.getStyleClass().add("otros-text");
+        panelDerecho.getChildren().addAll(tiempoLbl, tiempoRestanteTxt);
         panelDerecho.setAlignment(Pos.CENTER);
         return panelDerecho;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        tiempoRestanteTxt.setText("0");
+
     }
 }
