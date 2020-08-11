@@ -25,7 +25,7 @@ public class FabricaPreguntas {
             case "GroupChoice":
                 return FabricaPreguntas.preguntaGroupChoice(enunciado,opcionesCorrectas,opcionesPosibles);
             case "OrderChoice":
-                return FabricaPreguntas.preguntaOrderedChoice(enunciado,opcionesCorrectas);
+                return FabricaPreguntas.preguntaOrderedChoice(enunciado,opcionesCorrectas,opcionesCorrectas);
             default:
                 throw new IllegalStateException("Unexpected value: " + tipo);
         }
