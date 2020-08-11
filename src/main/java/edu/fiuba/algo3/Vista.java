@@ -52,7 +52,12 @@ public class Vista {
 
     private void setFondoDePantalla(BorderPane miPanel){
         Image fondoPantallaInicial = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenes/kahootEditar.png");
-        BackgroundSize bSize = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false);
+        BackgroundSize bSize =
+                new BackgroundSize(BackgroundSize.AUTO,
+                        BackgroundSize.AUTO,
+                        false,
+                        false,
+                        true, false);
 
         miPanel.setBackground(new Background(new BackgroundImage(fondoPantallaInicial,
                 BackgroundRepeat.NO_REPEAT,
