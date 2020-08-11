@@ -2,26 +2,23 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 
-import javax.swing.JFrame;
-import java.io.File;
-import java.net.URL;
 
 
-public class VistaPreguntaEnCurso extends JFrame{
+public class VistaPreguntaEnCurso extends BorderPane{
+    private static String URL_FONDO_PREGUNTA = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/fondoDegradadoNaranjaPrueba.png";
 
-    public VistaPreguntaEnCurso(Pregunta pregunta){
-        setTitle("Vemos como funciona");
+    public VistaPreguntaEnCurso(/*Pregunta pregunta*/){
+        super();
         Button titulo = new Button("Titulo");
         /*
             Panel izquierdo, nombres y puntos
@@ -40,18 +37,21 @@ public class VistaPreguntaEnCurso extends JFrame{
         panelIzquierdo.setMargin(j2Txt, new Insets(20, 20, 20, 20));
         panelIzquierdo.setMargin(puntosJ2txt, new Insets(20, 20, 20, 20));
 
+        this.setLeft(panelIzquierdo);
         /*
             Panel central "ENUNCIADO"
          */
         VBox panelCentral = new VBox();
 
-        panelCentral.setPrefSize(400,100);
+        //panelCentral.setPrefSize(400,100);
         Label enunciadoTxt = new Label("Quien fue el primer hombre que se comio una hamburguesa con queso?");
         enunciadoTxt.setFont(Font.font("Arial", FontWeight.BOLD, 36));
-        enunciadoTxt.setMaxWidth(800);
+        enunciadoTxt.setMaxWidth(600);
         enunciadoTxt.setWrapText(true);
         panelCentral.getChildren().addAll(enunciadoTxt);
+        panelCentral.setAlignment(Pos.CENTER);
 
+        this.setCenter(panelCentral);
         /*
             Panel derecho "Tiempo"
          */
@@ -59,7 +59,9 @@ public class VistaPreguntaEnCurso extends JFrame{
         panelDerecho.setSpacing(20);
         Label tiempoLbl = new Label("Tiempo");
         panelDerecho.getChildren().addAll(tiempoLbl);
+        panelDerecho.setAlignment(Pos.TOP_RIGHT);
 
+        this.setRight(panelDerecho);
         /*
             Panel inferior
          */
@@ -90,14 +92,21 @@ public class VistaPreguntaEnCurso extends JFrame{
 
         principal.getChildren().addAll(panelSuperior, grillaDeBotones);
 
-        File f = new File("EstilosDeBotones.css");
+        this.setBottom(principal);
 
-        Scene escena = new Scene(principal);
-        escena.getStylesheets().clear();
-        escena.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
-        Stage stage = new Stage();
-        stage.setScene(escena);
-        stage.setResizable(false);
-        stage.show();
+        /*Habbría que ver la forma de tener una única función que pueda servir para cambiar el fondo de pantalla a medida que cambian las preguntas, como el hkahoot(?)*/
+        Image fondoPantallaInicial = new Image(URL_FONDO_PREGUNTA);
+        BackgroundSize bSize =
+                new BackgroundSize(600,
+                        800,
+                        false,
+                        false,
+                        true, false);
+        this.setBackground(new Background(new BackgroundImage(fondoPantallaInicial,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                bSize)));
+
     }
 }
