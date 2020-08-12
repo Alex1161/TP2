@@ -16,7 +16,6 @@ public abstract class Comodin {
 
     @Override
     public boolean equals(Object obj) {
-        //Se fija si son de la misma clase
         return this.getClass().equals(obj.getClass());
     }
 }

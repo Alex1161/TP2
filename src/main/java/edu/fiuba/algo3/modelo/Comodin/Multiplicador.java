@@ -16,7 +16,6 @@ public abstract class Multiplicador extends Comodin {
 
     @Override
     public Puntaje aplicar(Puntaje puntaje){
-
         return puntaje.multiplicarPor(factor);
     }
 

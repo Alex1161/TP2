@@ -152,14 +152,16 @@ public class OrderedChoiceTest {
 
         Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
+        Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
+
         assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
                 () -> {
-                    preguntaOrderedChoice.agregarComodin(new MultiplicadorX2());
+                    preguntaOrderedChoice.agregarComodin(new MultiplicadorX2(), respuesta);
                 });
 
         assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
                 () -> {
-                    preguntaOrderedChoice.agregarComodin(new MultiplicadorX3());
+                    preguntaOrderedChoice.agregarComodin(new MultiplicadorX3(), respuesta);
                 });
     }
 
@@ -179,8 +181,6 @@ public class OrderedChoiceTest {
         opcionesCorrectas.agregarOpcion("4");
 
         Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
-
-        preguntaOrderedChoice.agregarComodin(new Exclusividad());
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -202,6 +202,8 @@ public class OrderedChoiceTest {
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaOrderedChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
 
         preguntaOrderedChoice.calificar((listaDeRespuestas));
 
@@ -226,8 +228,6 @@ public class OrderedChoiceTest {
 
         Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
-        preguntaOrderedChoice.agregarComodin(new Exclusividad());
-
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
 
@@ -248,6 +248,8 @@ public class OrderedChoiceTest {
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaOrderedChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
 
         preguntaOrderedChoice.calificar((listaDeRespuestas));
 
@@ -272,8 +274,6 @@ public class OrderedChoiceTest {
 
         Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
-        preguntaOrderedChoice.agregarComodin(new Exclusividad());
-
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
 
@@ -294,6 +294,8 @@ public class OrderedChoiceTest {
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaOrderedChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
 
         preguntaOrderedChoice.calificar((listaDeRespuestas));
 
@@ -318,9 +320,6 @@ public class OrderedChoiceTest {
 
         Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
-        preguntaOrderedChoice.agregarComodin(new Exclusividad());
-        preguntaOrderedChoice.agregarComodin(new Exclusividad());
-
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
 
@@ -341,6 +340,9 @@ public class OrderedChoiceTest {
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaOrderedChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
+        preguntaOrderedChoice.agregarComodin(new Exclusividad(), respuestaJugador2);
 
         preguntaOrderedChoice.calificar((listaDeRespuestas));
 

@@ -225,9 +225,11 @@ public class MultipleChoiceClasicoTest {
 
         Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
+        Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
+
         assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
                 () -> {
-                    preguntaMultipleChoice.agregarComodin(new MultiplicadorX2());
+                    preguntaMultipleChoice.agregarComodin(new MultiplicadorX2(), respuesta);
                 });
     }
 
@@ -248,9 +250,11 @@ public class MultipleChoiceClasicoTest {
 
         Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
+        Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
+
         assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
                 () -> {
-                    preguntaMultipleChoice.agregarComodin(new MultiplicadorX3());
+                    preguntaMultipleChoice.agregarComodin(new MultiplicadorX3(), respuesta);
                 });
     }
 
@@ -271,8 +275,6 @@ public class MultipleChoiceClasicoTest {
 
         Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
-        preguntaMultipleChoice.agregarComodin(new Exclusividad());
-
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
 
@@ -287,6 +289,8 @@ public class MultipleChoiceClasicoTest {
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaMultipleChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
@@ -311,8 +315,6 @@ public class MultipleChoiceClasicoTest {
 
         Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
-        preguntaMultipleChoice.agregarComodin(new Exclusividad());
-
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
 
@@ -327,6 +329,8 @@ public class MultipleChoiceClasicoTest {
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaMultipleChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
@@ -351,8 +355,6 @@ public class MultipleChoiceClasicoTest {
 
         Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
-        preguntaMultipleChoice.agregarComodin(new Exclusividad());
-
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
 
@@ -367,6 +369,8 @@ public class MultipleChoiceClasicoTest {
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaMultipleChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 
@@ -391,9 +395,6 @@ public class MultipleChoiceClasicoTest {
 
         Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceClasico("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
-        preguntaMultipleChoice.agregarComodin(new Exclusividad());
-        preguntaMultipleChoice.agregarComodin(new Exclusividad());
-
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
 
@@ -408,6 +409,9 @@ public class MultipleChoiceClasicoTest {
         List<Respuesta> listaDeRespuestas = new ArrayList<Respuesta>();
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
+
+        preguntaMultipleChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
+        preguntaMultipleChoice.agregarComodin(new Exclusividad(), respuestaJugador2);
 
         preguntaMultipleChoice.calificar((listaDeRespuestas));
 

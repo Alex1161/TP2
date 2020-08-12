@@ -18,7 +18,7 @@ public class Pregunta {
     private Opciones opcionesCorrectas, opcionesPosibles;
     private Calificador calificador;
     private Penalidad penalidad;
-    private List<Comodin> exclusividades = new LinkedList<Comodin>();
+    private List<Comodin> comodines = new LinkedList<Comodin>();
 
     public Pregunta(String enunciado){
         this.enunciado = enunciado;
@@ -45,8 +45,8 @@ public class Pregunta {
             resp.agregarPuntajeObtenido(calificador.calificar(opcionesCorrectas, resp.obtenerOpciones()));
         }
 
-        for (Comodin exclusividad : exclusividades){
-            exclusividad.aplicar(respuestas);
+        for (Comodin comodin : comodines){
+            comodin.aplicar(respuestas);
         }
 
         for (Respuesta resp: respuestas){
@@ -58,14 +58,10 @@ public class Pregunta {
         return calificador.sonCorrectas(opcionesCorrectas, opciones);
     }
 
-    public void agregarComodin(Multiplicador multiplicador, Respuesta respuesta){
-        penalidad.validar(multiplicador);
-        respuesta.agregarComodin(multiplicador);
-    }
-
-    public void agregarComodin(Comodin comodin) {
+    public void agregarComodin(Comodin comodin, Respuesta respuesta){
         penalidad.validar(comodin);
-        exclusividades.add(comodin);
+        respuesta.agregarComodin(comodin);
+        comodines.add(comodin);
     }
 
     public void setPenalidad(Penalidad penalidad) {

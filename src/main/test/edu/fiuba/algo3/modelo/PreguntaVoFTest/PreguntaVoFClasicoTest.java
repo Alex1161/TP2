@@ -134,7 +134,7 @@ public class PreguntaVoFClasicoTest {
         respuesta2.agregarOpcion("Falso");
 
         List<Respuesta> respuestas= new ArrayList<>();
-        pregunta.agregarComodin(new Exclusividad());
+        pregunta.agregarComodin(new Exclusividad(), respuesta1);
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
 
@@ -156,7 +156,7 @@ public class PreguntaVoFClasicoTest {
         respuesta2.agregarOpcion("Falso");
 
         List<Respuesta> respuestas= new ArrayList<>();
-        pregunta.agregarComodin(new Exclusividad());
+        pregunta.agregarComodin(new Exclusividad(), respuesta2);
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
 
@@ -178,7 +178,7 @@ public class PreguntaVoFClasicoTest {
         respuesta2.agregarOpcion("Verdadero");
 
         List<Respuesta> respuestas= new ArrayList<>();
-        pregunta.agregarComodin(new Exclusividad());
+        pregunta.agregarComodin(new Exclusividad(), respuesta1);
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
 
@@ -200,8 +200,8 @@ public class PreguntaVoFClasicoTest {
         respuesta2.agregarOpcion("Verdadero");
 
         List<Respuesta> respuestas= new ArrayList<>();
-        pregunta.agregarComodin(new Exclusividad());
-        pregunta.agregarComodin(new Exclusividad());
+        pregunta.agregarComodin(new Exclusividad(), respuesta1);
+        pregunta.agregarComodin(new Exclusividad(), respuesta2);
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
 
@@ -223,8 +223,8 @@ public class PreguntaVoFClasicoTest {
         respuesta2.agregarOpcion("Falso");
 
         List<Respuesta> respuestas= new ArrayList<>();
-        pregunta.agregarComodin(new Exclusividad());
-        pregunta.agregarComodin(new Exclusividad());
+        pregunta.agregarComodin(new Exclusividad(), respuesta1);
+        pregunta.agregarComodin(new Exclusividad(), respuesta2);
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
 

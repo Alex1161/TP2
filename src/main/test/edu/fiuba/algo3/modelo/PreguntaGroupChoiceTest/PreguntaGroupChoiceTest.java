@@ -294,7 +294,7 @@ public class PreguntaGroupChoiceTest {
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
 
-        preguntaGroupChoice.agregarComodin(new Exclusividad());
+        preguntaGroupChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
 
         preguntaGroupChoice.calificar((listaDeRespuestas));
 
@@ -334,7 +334,7 @@ public class PreguntaGroupChoiceTest {
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
 
-        preguntaGroupChoice.agregarComodin(new Exclusividad());
+        preguntaGroupChoice.agregarComodin(new Exclusividad(), respuestaJugador2);
 
         preguntaGroupChoice.calificar((listaDeRespuestas));
 
@@ -374,7 +374,7 @@ public class PreguntaGroupChoiceTest {
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
 
-        preguntaGroupChoice.agregarComodin(new Exclusividad());
+        preguntaGroupChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
 
         preguntaGroupChoice.calificar((listaDeRespuestas));
 
@@ -414,8 +414,8 @@ public class PreguntaGroupChoiceTest {
         listaDeRespuestas.add(respuestaJugador1);
         listaDeRespuestas.add(respuestaJugador2);
 
-        preguntaGroupChoice.agregarComodin(new Exclusividad());
-        preguntaGroupChoice.agregarComodin(new Exclusividad());
+        preguntaGroupChoice.agregarComodin(new Exclusividad(), respuestaJugador1);
+        preguntaGroupChoice.agregarComodin(new Exclusividad(), respuestaJugador2);
 
         preguntaGroupChoice.calificar((listaDeRespuestas));
 

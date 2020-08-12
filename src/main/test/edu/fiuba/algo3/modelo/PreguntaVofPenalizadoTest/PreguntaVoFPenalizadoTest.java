@@ -171,9 +171,11 @@ public class PreguntaVoFPenalizadoTest {
     public void test10PreguntaVoFPenalizadoSeAgregaExclusividadLanzaException(){
         Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
 
+        Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
+
         assertThrows(ExclusividadPreguntaConPenalidadNoPermitidoException.class,
                 () -> {
-                    pregunta.agregarComodin(new Exclusividad());
+                    pregunta.agregarComodin(new Exclusividad(), respuesta);
                 });
     }
 

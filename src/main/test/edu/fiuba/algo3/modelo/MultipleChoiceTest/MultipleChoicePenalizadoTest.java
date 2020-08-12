@@ -218,9 +218,11 @@ public class MultipleChoicePenalizadoTest {
 
         Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
+        Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
+
         assertThrows(ExclusividadPreguntaConPenalidadNoPermitidoException.class,
                 () -> {
-                    preguntaMultipleChoice.agregarComodin(new Exclusividad());
+                    preguntaMultipleChoice.agregarComodin(new Exclusividad(), respuesta);
                 });
     }
 }
