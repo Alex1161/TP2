@@ -2,9 +2,7 @@ package edu.fiuba.algo3.modelo.Pregunta;
 
 import edu.fiuba.algo3.modelo.Calificador.Calificador;
 import edu.fiuba.algo3.modelo.Comodin.Comodin;
-import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Penalidad.ConPenalidad;
 import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
 import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
@@ -24,7 +22,6 @@ public class Pregunta {
         this.enunciado = enunciado;
         opcionesCorrectas = new Opciones();
         opcionesPosibles = new Opciones();
-        penalidad = new SinPenalidad();
     }
 
     public void asignarOpcionesCorrectas(Opciones opciones){
@@ -39,10 +36,14 @@ public class Pregunta {
         this.calificador = calificador;
     }
 
+    public void setPenalidad(Penalidad penalidad) {
+        this.penalidad = penalidad;
+    }
+
     public void calificar(List<Respuesta> respuestas){
 
         for (Respuesta resp: respuestas){
-            resp.agregarPuntajeObtenido(calificador.calificar(opcionesCorrectas, resp.obtenerOpciones()));
+            resp.setPuntajeObtenido(calificador.calificar(opcionesCorrectas, resp.obtenerOpciones()));
         }
 
         for (Comodin comodin : comodines){
@@ -60,12 +61,8 @@ public class Pregunta {
 
     public void agregarComodin(Comodin comodin, Respuesta respuesta){
         penalidad.validar(comodin);
-        respuesta.agregarComodin(comodin);
+        respuesta.setComodin(comodin);
         comodines.add(comodin);
-    }
-
-    public void setPenalidad(Penalidad penalidad) {
-        this.penalidad = penalidad;
     }
 
 }

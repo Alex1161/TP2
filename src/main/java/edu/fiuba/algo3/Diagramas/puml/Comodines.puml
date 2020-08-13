@@ -5,31 +5,28 @@ skinparam classAttributeIconSize 0
 'Clases
 Class Opciones{
     -opciones: Collection<String>
-    +agregarOpcion(opcion: String): void
-    +obtenerOpciones(): Collection<String>
     +compararConOrden(opciones: Opciones): boolean
     +compararSinOrden(opciones: Opciones): boolean
+    +contiene(opciones: Opciones): boolean
     +esta(opcion: String): boolean
 }
 
 Abstract Class Pregunta{
     -enunciado: String
-    -tipoPenalidad: Penalidad
+    -penalidad: Penalidad
     -calificador: Calificador
-    +esCorrecta(Opcion: String): boolean
+    +sonCorrectas(Opciones: Opciones): boolean
     +calificar(Respuestas: List<Respuesta>): void
-    +asignarComodin(comodin: Comodin): void
+    +agregarComodin(comodin: Comodin, respuesta: Respuesta): void
 }
 
 Class Respuesta{
     -opcionesElegidas: Opciones
     -puntajeObtenido: Puntaje
-    +{static}Respuesta(jugador: Jugador)
-    +{static}Respuesta(jugador: Jugador, multiplicador: Multiplicador)
-    +agregarOpcion(opcion: String): void
-    +agregarPuntajeObtenido(puntaje:Puntaje):void
-    +aplicarComodin(): void
+    +aplicarComodin(comodin: Comodin): void
     +aplicarPuntaje(): void
+    +vs(respuesta: Respuesta): void
+    +calificacionValorNumerico(): int
 }
 
 Class Jugador{
@@ -47,16 +44,28 @@ Interface Puntaje{
 
 Abstract Multiplicador{
     -factor: int
-    +{static}Multiplicador(factor: int)
-    -aplicar(puntaje: Puntaje): Puntaje
+    +aplicar(puntaje: Puntaje): Puntaje
+    +aplicar(respuesta: List<Respuesta>): void
+    +validar(penalidad: Penalidad): void
 }
 
-Interface Comodin{
-    -aplicar(puntaje: Puntaje): Puntaje
+Abstract Class Comodin{
+    +{abstract}aplicar(puntaje: Puntaje): Puntaje
+    +{abstract}aplicar(respuesta: List<Respuesta>): void
+    +{abstract}validar(penalidad: Penalidad): void
+    +equals(obj: Object): boolean
+}
+
+Class ComodinVacio{
+    +aplicar(puntaje: Puntaje): Puntaje
+    +aplicar(respuesta: List<Respuesta>): void
+    +validar(penalidad: Penalidad): void
 }
 
 Class Exclusividad{
-    -aplicar(puntaje: Puntaje): Puntaje
+    +aplicar(puntaje: Puntaje): Puntaje
+    +aplicar(respuesta: List<Respuesta>): void
+    +validar(penalidad: Penalidad): void
 }
 
 Class MultiplicadorX2{
@@ -70,9 +79,9 @@ Class MultiplicadorX3{
 'Relaciones
 Respuesta o-- Jugador
 Pregunta "1" *-left- "2" Opciones
-Pregunta "1" *-- "2" Comodin
+Pregunta "1" o-- "1..2" Comodin
 Respuesta *-up- Opciones
-Respuesta *-- Comodin
+Respuesta o-- Comodin
 
 Jugador *-- Puntaje
 
@@ -81,5 +90,6 @@ Multiplicador -up-|> Comodin
 Exclusividad -up-|> Comodin
 MultiplicadorX2 -up-|> Multiplicador
 MultiplicadorX3 -up-|> Multiplicador
+ComodinVacio -left-|> Comodin
 
 @enduml

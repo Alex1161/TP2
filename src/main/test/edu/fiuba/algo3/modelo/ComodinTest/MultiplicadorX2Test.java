@@ -8,7 +8,6 @@ import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
 import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
-import edu.fiuba.algo3.modelo.Puntaje.Puntos;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import org.junit.jupiter.api.Test;
 
@@ -66,8 +65,8 @@ public class MultiplicadorX2Test {
         Respuesta respuesta1 = new Respuesta(new Jugador("Carlos"));
         Respuesta respuesta2 = new Respuesta(new Jugador("Luis"));
 
-        respuesta1.agregarPuntajeObtenido(new PuntoPositivo());
-        respuesta2.agregarPuntajeObtenido(new PuntoPositivo());
+        respuesta1.setPuntajeObtenido(new PuntoPositivo());
+        respuesta2.setPuntajeObtenido(new PuntoPositivo());
 
         List<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(respuesta1);

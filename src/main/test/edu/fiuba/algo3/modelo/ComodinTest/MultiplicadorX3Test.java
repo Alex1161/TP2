@@ -66,8 +66,8 @@ public class MultiplicadorX3Test {
         Respuesta respuesta1 = new Respuesta(new Jugador("Carlos"));
         Respuesta respuesta2 = new Respuesta(new Jugador("Luis"));
 
-        respuesta1.agregarPuntajeObtenido(new PuntoPositivo());
-        respuesta2.agregarPuntajeObtenido(new PuntoPositivo());
+        respuesta1.setPuntajeObtenido(new PuntoPositivo());
+        respuesta2.setPuntajeObtenido(new PuntoPositivo());
 
         List<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(respuesta1);

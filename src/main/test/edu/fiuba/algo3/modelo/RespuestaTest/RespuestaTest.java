@@ -28,7 +28,7 @@ public class RespuestaTest {
     public void test02creoRespuestaYasignoPuntajePositivo(){
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
-        respuesta.agregarPuntajeObtenido(new PuntoPositivo());
+        respuesta.setPuntajeObtenido(new PuntoPositivo());
         respuesta.aplicarPuntaje();
         assertEquals(1,jugador1.puntajeValorNumerico());
     }
@@ -37,7 +37,7 @@ public class RespuestaTest {
     public void test03creoRespuestaYasignoPuntajeNegativo(){
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
-        respuesta.agregarPuntajeObtenido(new PuntoNegativo());
+        respuesta.setPuntajeObtenido(new PuntoNegativo());
         respuesta.aplicarPuntaje();
         assertEquals(-1,jugador1.puntajeValorNumerico());
     }
@@ -47,8 +47,8 @@ public class RespuestaTest {
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
         Multiplicador multiplicador = new MultiplicadorX2();
-        respuesta.agregarPuntajeObtenido(new PuntoPositivo());
-        respuesta.cambiarMultiplicador(multiplicador);
+        respuesta.setPuntajeObtenido(new PuntoPositivo());
+        respuesta.setComodin(multiplicador);
         respuesta.aplicarPuntaje();
         assertEquals(2,jugador1.puntajeValorNumerico());
     }
@@ -58,8 +58,8 @@ public class RespuestaTest {
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
         Multiplicador multiplicador = new MultiplicadorX3();
-        respuesta.agregarPuntajeObtenido(new PuntoPositivo());
-        respuesta.cambiarMultiplicador(multiplicador);
+        respuesta.setPuntajeObtenido(new PuntoPositivo());
+        respuesta.setComodin(multiplicador);
         respuesta.aplicarPuntaje();
         assertEquals(3,jugador1.puntajeValorNumerico());
     }
@@ -69,8 +69,8 @@ public class RespuestaTest {
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
         Multiplicador multiplicador = new MultiplicadorX3();
-        respuesta.agregarPuntajeObtenido(new PuntoNegativo());
-        respuesta.cambiarMultiplicador(multiplicador);
+        respuesta.setPuntajeObtenido(new PuntoNegativo());
+        respuesta.setComodin(multiplicador);
         respuesta.aplicarPuntaje();
         assertEquals(-3,jugador1.puntajeValorNumerico());
     }
@@ -80,8 +80,8 @@ public class RespuestaTest {
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
         Multiplicador multiplicador = new MultiplicadorX2();
-        respuesta.agregarPuntajeObtenido(new PuntoNegativo());
-        respuesta.cambiarMultiplicador(multiplicador);
+        respuesta.setPuntajeObtenido(new PuntoNegativo());
+        respuesta.setComodin(multiplicador);
         respuesta.aplicarPuntaje();
         assertEquals(-2,jugador1.puntajeValorNumerico());
     }
@@ -91,8 +91,8 @@ public class RespuestaTest {
         Jugador jugador1= new Jugador("carl");
         Respuesta respuesta= new Respuesta(jugador1);
         Multiplicador multiplicador = new MultiplicadorX2();
-        respuesta.agregarPuntajeObtenido(new PuntoNulo());
-        respuesta.cambiarMultiplicador(multiplicador);
+        respuesta.setPuntajeObtenido(new PuntoNulo());
+        respuesta.setComodin(multiplicador);
         respuesta.aplicarPuntaje();
         assertEquals(0,jugador1.puntajeValorNumerico());
     }

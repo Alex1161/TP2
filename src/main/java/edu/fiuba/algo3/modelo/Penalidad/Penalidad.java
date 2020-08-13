@@ -5,8 +5,6 @@ import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
 public abstract class Penalidad {
-    //penalizable
-    public abstract void agregarComodin(Multiplicador multiplicador, Respuesta respuesta);
 
     public void validar(Comodin comodin){
         comodin.validar(this);

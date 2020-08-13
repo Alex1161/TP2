@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.ComodinTest;
 
 import edu.fiuba.algo3.modelo.Comodin.ComodinVacio;
 import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Penalidad.ConPenalidad;
 import edu.fiuba.algo3.modelo.Penalidad.ExclusividadPreguntaConPenalidadNoPermitidoException;
 import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
@@ -45,10 +46,10 @@ public class ExclusividadTest {
 
     @Test
     public void test04ExclusividadAplicarConUnaRespuestaConCalificacionCeroYOtraConCalificacionUnoEstaSeLeDuplicaElPuntaje(){
-        Respuesta respuesta1 = new Respuesta();
-        respuesta1.agregarPuntajeObtenido(new PuntoPositivo());
-        Respuesta respuesta2 = new Respuesta();
-        respuesta2.agregarPuntajeObtenido(new PuntoNulo());
+        Respuesta respuesta1 = new Respuesta(new Jugador("Carlos"));
+        respuesta1.setPuntajeObtenido(new PuntoPositivo());
+        Respuesta respuesta2 = new Respuesta(new Jugador("Luis"));
+        respuesta2.setPuntajeObtenido(new PuntoNulo());
 
         List<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(respuesta1);
@@ -64,10 +65,10 @@ public class ExclusividadTest {
 
     @Test
     public void test05ExclusividadAplicarConRespuestasConCalificacionDiferenteDeCeroAmbasRecibenCeroPuntos(){
-        Respuesta respuesta1 = new Respuesta();
-        respuesta1.agregarPuntajeObtenido(new PuntoPositivo());
-        Respuesta respuesta2 = new Respuesta();
-        respuesta2.agregarPuntajeObtenido(new PuntoPositivo());
+        Respuesta respuesta1 = new Respuesta(new Jugador("Carlos"));
+        respuesta1.setPuntajeObtenido(new PuntoPositivo());
+        Respuesta respuesta2 = new Respuesta(new Jugador("Luis"));
+        respuesta2.setPuntajeObtenido(new PuntoPositivo());
 
         List<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(respuesta1);
@@ -83,10 +84,10 @@ public class ExclusividadTest {
 
     @Test
     public void test06ExclusividadAplicarConRespuestasConCalificacionCeroAmbasRecibenCeroPuntos(){
-        Respuesta respuesta1 = new Respuesta();
-        respuesta1.agregarPuntajeObtenido(new PuntoNulo());
-        Respuesta respuesta2 = new Respuesta();
-        respuesta2.agregarPuntajeObtenido(new PuntoNulo());
+        Respuesta respuesta1 = new Respuesta(new Jugador("Carlos"));
+        respuesta1.setPuntajeObtenido(new PuntoNulo());
+        Respuesta respuesta2 = new Respuesta(new Jugador("Luis"));
+        respuesta2.setPuntajeObtenido(new PuntoNulo());
 
         List<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(respuesta1);
