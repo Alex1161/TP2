@@ -1,11 +1,14 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.Controlador;
+//import edu.fiuba.algo3.Controlador;
+import edu.fiuba.algo3.VistaInfoJugadores;
 import edu.fiuba.algo3.VistaPreguntaEnCurso;
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.vista.BotonParaJugar;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,31 +25,22 @@ public class VistaIngresoDeJugadores{
     private static final int ANCHO = 800;
     private static final int ALTO = 600;
 
-    VBox ingresoJugadores;
+    BorderPane layoutInicial;
     BotonParaJugar unBoton;
-    VistaPreguntaEnCurso vistaPregunta;
-
+    HandlerBotonParaJugar handlerBotonParaJugar;
+    Scene proximaVistaEscena;
+    Jugador j1;
+    Jugador j2;
     Stage ventana;
-    Controlador controlador;
-    Scene IngresoNombres, Juego;
 
-    public VistaIngresoDeJugadores(Stage stage, Controlador controlador){
+    public VistaIngresoDeJugadores(Stage stage, Scene unaProximaVistaEscena, VistaInfoJugadores unaVistaIngresoJugadores, Jugador unJugador1, Jugador unJugador2){
         this.ventana = stage;
-        this.controlador = controlador;
-        stage.setTitle("AlgoHoot");
-    }
+        this.proximaVistaEscena = unaProximaVistaEscena;
+        this.j1 = unJugador1;
+        this.j2 = unJugador2;
 
-    public void comienzoDelJuego(){
-        BorderPane layoutInicial = new BorderPane();
+        this.layoutInicial = new BorderPane();
 
-        vistaPregunta = new VistaPreguntaEnCurso();
-
-        Scene proximaEscena = new Scene(vistaPregunta.obtenerVista(), ANCHO, ALTO);
-        File f = new File("EstilosDeBotones.css");
-        proximaEscena.getStylesheets().clear();
-        proximaEscena.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
-
-        this.unBoton = new BotonParaJugar(ventana, proximaEscena);
 
         Label textoInfo = new Label("Ingrese el nombre del primer jugador e ingrese 'ENTER' ");
 
@@ -59,6 +53,8 @@ public class VistaIngresoDeJugadores{
         solicitudNombre2.setPromptText("Ingrese Nombre De Jugador2");
         solicitudNombre2.setPadding(new Insets(10));
 
+        this.unBoton = new BotonParaJugar(ventana, this.proximaVistaEscena,unaVistaIngresoJugadores, j1, j2, solicitudNombre1, solicitudNombre2);
+
         VBox cuadro = new VBox(solicitudNombre1, solicitudNombre2, unBoton );
         cuadro.setSpacing(20);
         cuadro.setAlignment(Pos.CENTER);
@@ -67,13 +63,6 @@ public class VistaIngresoDeJugadores{
         setFondoDePantalla(layoutInicial, URL_FONDO);
 
         layoutInicial.setCenter(cuadro);
-
-        controlador.teclaEnter(solicitudNombre1, textoInfo);
-
-        IngresoNombres = new Scene(layoutInicial, ANCHO, ALTO);
-
-        this.ventana.setScene(IngresoNombres);
-        this.ventana.show();
     }
 
     private void setFondoDePantalla(BorderPane miPanel, String src){
@@ -93,4 +82,7 @@ public class VistaIngresoDeJugadores{
     }
 
 
+    public BorderPane getVista() {
+        return layoutInicial;
+    }
 }
