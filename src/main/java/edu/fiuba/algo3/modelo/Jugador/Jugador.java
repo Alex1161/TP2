@@ -21,8 +21,21 @@ public class Jugador {
         comodines.add(new Exclusividad());
     }
 
+    public Jugador() {
+        this.nombre = "";
+        this.puntaje = new Puntos();
+        comodines.add(new MultiplicadorX2());
+        comodines.add(new MultiplicadorX3());
+        comodines.add(new Exclusividad());
+        comodines.add(new Exclusividad());
+    }
+
     public void agregarPuntaje(Puntaje puntaje){
         this.puntaje = puntaje;
+    }
+
+    public void setNombre(String unNombre){
+        this.nombre = unNombre;
     }
 
     public int puntajeValorNumerico() {
@@ -38,5 +51,8 @@ public class Jugador {
 
     }
 
+    public String getNombre() {
+        return this.nombre;
+    }
 }
 

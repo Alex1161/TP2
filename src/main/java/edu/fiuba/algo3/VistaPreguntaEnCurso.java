@@ -1,4 +1,5 @@
 package edu.fiuba.algo3;
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.vista.VistaTemporizador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,7 +17,6 @@ import javafx.scene.text.Text;
 
 
 public class VistaPreguntaEnCurso{
-    //private static String URL_FONDO_PREGUNTA = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/fondoDegradadoNaranjaPrueba.png";
     VistaEnunciado vistaEnunciado;
     VistaGrillaRespuestas vistaGrillaRespuestas;
     VistaInfoJugadores vistaInfoJugadores;
@@ -27,10 +27,14 @@ public class VistaPreguntaEnCurso{
     HBox panelSuperior;
     VBox ventanaCompleta;
 
-    public VistaPreguntaEnCurso(/*Pregunta pregunta*/){
-        super();
+    Jugador jugador1;
+    Jugador jugador2;
 
-        vistaInfoJugadores = new VistaInfoJugadores();
+    public VistaPreguntaEnCurso(Jugador unJugador1, Jugador unJugador2){
+        jugador1 = unJugador1;
+        jugador2 = unJugador2;
+
+        vistaInfoJugadores = new VistaInfoJugadores(jugador1, jugador2);
 
         panelIzquierdo = vistaInfoJugadores.obtenerPanelInfoJugadores();
 
@@ -54,20 +58,14 @@ public class VistaPreguntaEnCurso{
         ventanaCompleta.getChildren().addAll(panelSuperior, vistaGrillaRespuestas.obtenerGrilla());
         ventanaCompleta.getStyleClass().add("fondo-general");
 
-
-
-        /*
-        BackgroundSize bSize =
-                new BackgroundSize(600,
-                        800,
-                        false,
-                        false,
-                        true, false);*/
-
     }
 
     public VBox obtenerVista(){
         return ventanaCompleta;
+    }
+
+    public VistaInfoJugadores obtenerVistaInfoJugadores(){
+        return this.vistaInfoJugadores;
     }
 
 }
