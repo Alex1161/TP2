@@ -13,7 +13,6 @@ Class Opciones{
 
 Abstract Class Pregunta{
     -enunciado: String
-    -penalidad: Penalidad
     -calificador: Calificador
     +sonCorrectas(Opciones: Opciones): boolean
     +calificar(Respuestas: List<Respuesta>): void
@@ -76,12 +75,33 @@ Class MultiplicadorX3{
     -aplicar(puntaje: Puntaje): Puntaje
 }
 
+Abstract Class Penalidad{
+    +validar(comodin: Comodin): void
+    +{abstract}validarExclusividad(): void
+    +{abstract}validarMultiplicador(): void
+}
+
+Class ConPenalidad{
+    +validarExclusividad(): void
+    +validarMultiplicador(): void
+}
+
+Class SinPenalidad{
+    +validarExclusividad(): void
+    +validarMultiplicador(): void
+}
+
 'Relaciones
 Respuesta o-- Jugador
-Pregunta "1" *-left- "2" Opciones
-Pregunta "1" o-- "1..2" Comodin
 Respuesta *-up- Opciones
 Respuesta o-- Comodin
+
+Pregunta "1" *-left- "2" Opciones
+Pregunta "1" o-- "1..2" Comodin
+Pregunta o-right- Penalidad
+
+ConPenalidad --|> Penalidad
+SinPenalidad --|> Penalidad
 
 Jugador *-- Puntaje
 
