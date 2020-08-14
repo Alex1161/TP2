@@ -1,11 +1,73 @@
 package edu.fiuba.algo3.modelo.Pregunta;
 
-import edu.fiuba.algo3.modelo.Calificador.*;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Penalidad.ConPenalidad;
 import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
 
+
+import edu.fiuba.algo3.modelo.Calificador.*;
+import edu.fiuba.algo3.modelo.Opciones.Opciones;
+
 public class FabricaPreguntas {
+        public Pregunta crearPregunta(String tipo, String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles){
+        FabricaPreguntas fabrica=new FabricaPreguntas();
+        switch (tipo){
+            case "VoFPenalizado":
+                return fabrica.preguntaVoFPenalizado(enunciado,opcionesCorrectas);
+
+            case "VoFClasico":
+                return fabrica.preguntaVoFClasico(enunciado,opcionesCorrectas);
+            case "MultipleChoiceClasico":
+                return  fabrica.preguntaMultipleChoiceClasico(enunciado, opcionesCorrectas, opcionesPosibles);
+            case "MultipleChoicePenalizado":
+                return fabrica.preguntaMultipleChoicePenalizado(enunciado,opcionesCorrectas,opcionesPosibles);
+            case "MultipleChoiceParcial":
+                return  FabricaPreguntas.preguntaMultipleChoiceParcial(enunciado,opcionesCorrectas,opcionesPosibles);
+            case "GroupChoice":
+                return FabricaPreguntas.preguntaGroupChoice(enunciado,opcionesCorrectas,opcionesPosibles);
+            case "OrderChoice":
+                return FabricaPreguntas.preguntaOrderedChoice(enunciado,opcionesCorrectas,opcionesCorrectas);
+            default:
+                throw new IllegalStateException("Unexpected value: " + tipo);
+        }
+    }
+  public static Pregunta preguntaVoFClasico(String enunciado,Opciones opcionCorrecta){
+        Opciones opcionesPosibles = new Opciones();
+        opcionesPosibles.agregarOpcion("Verdadero");
+        opcionesPosibles.agregarOpcion("Falso");
+
+        Opciones opcionesCorrectas = new Opciones();
+        opcionesCorrectas.agregarOpciones(opcionCorrecta);
+
+        Calificador calificadorSinOrdenNoPenalizado = new ComparadorSinOrden(new CalificadorNoPenalizado());
+
+        Pregunta preguntaVoFClasico = new Pregunta(enunciado);
+        preguntaVoFClasico.asignarOpcionesPosibles(opcionesPosibles);
+        preguntaVoFClasico.asignarOpcionesCorrectas(opcionesCorrectas);
+        preguntaVoFClasico.asignarCalificador(calificadorSinOrdenNoPenalizado);
+        preguntaVoFClasico.setPenalidad(new SinPenalidad());
+
+        return preguntaVoFClasico;
+
+    }
+
+    public static Pregunta preguntaVoFPenalizado(String enunciado, Opciones opcionCorrecta){
+        Opciones opcionesPosibles = new Opciones();
+        opcionesPosibles.agregarOpcion("Verdadero");
+        opcionesPosibles.agregarOpcion("Falso");
+
+        Opciones opcionesCorrectas = new Opciones();
+        opcionesCorrectas.agregarOpciones(opcionCorrecta);
+
+        Calificador calificadorSinOrdenPenalizado = new ComparadorSinOrden(new CalificadorPenalizado());
+
+        Pregunta preguntaVoFPenalizado = new Pregunta(enunciado);
+        preguntaVoFPenalizado.asignarOpcionesPosibles(opcionesPosibles);
+        preguntaVoFPenalizado.asignarOpcionesCorrectas(opcionesCorrectas);
+        preguntaVoFPenalizado.asignarCalificador(calificadorSinOrdenPenalizado);
+        preguntaVoFPenalizado.setPenalidad(new ConPenalidad());
+
+        return preguntaVoFPenalizado;
+    }
 
     public static Pregunta preguntaVoFClasico(String enunciado, String opcionCorrecta){
         Opciones opcionesPosibles = new Opciones();
@@ -24,6 +86,7 @@ public class FabricaPreguntas {
         preguntaVoFClasico.setPenalidad(new SinPenalidad());
 
         return preguntaVoFClasico;
+
     }
 
     public static Pregunta preguntaVoFPenalizado(String enunciado, String opcionCorrecta){
