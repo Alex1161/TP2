@@ -53,9 +53,11 @@ public class VistaIngresoDeJugadores{
         solicitudNombre2.setPromptText("Ingrese Nombre De Jugador2");
         solicitudNombre2.setPadding(new Insets(10));
 
-        this.unBoton = new BotonParaJugar(ventana, this.proximaVistaEscena,unaVistaIngresoJugadores, j1, j2, solicitudNombre1, solicitudNombre2);
+        VBox cuadro = new VBox(solicitudNombre1, solicitudNombre2);
 
-        VBox cuadro = new VBox(solicitudNombre1, solicitudNombre2, unBoton );
+        this.unBoton = new BotonParaJugar(ventana, this.proximaVistaEscena, unaVistaIngresoJugadores, j1, j2, solicitudNombre1, solicitudNombre2,cuadro);
+        cuadro.getChildren().addAll(unBoton);
+
         cuadro.setSpacing(20);
         cuadro.setAlignment(Pos.CENTER);
         cuadro.setMaxWidth(400);

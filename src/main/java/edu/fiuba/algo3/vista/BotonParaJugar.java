@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 
@@ -17,10 +18,10 @@ public class BotonParaJugar extends Button {
     //private HandlerBotonParaJugar manejadorBoton;
 
 
-    public BotonParaJugar(Stage ventana, Scene proximaEscena, VistaInfoJugadores unaVistaIngresoJugadores, Jugador j1, Jugador j2, TextField campoJug1, TextField campoJug2){
+    public BotonParaJugar(Stage ventana, Scene proximaEscena, VistaInfoJugadores unaVistaIngresoJugadores, Jugador j1, Jugador j2, TextField campoJug1, TextField campoJug2, VBox cuadro){
         super();
         setText(DESCRIPCION);
-        setOnMouseClicked(new HandlerBotonParaJugar(ventana, proximaEscena,unaVistaIngresoJugadores, j1, j2, campoJug1, campoJug2));
+        setOnMouseClicked(new HandlerBotonParaJugar(ventana, proximaEscena,unaVistaIngresoJugadores, j1, j2, campoJug1, campoJug2,cuadro));
     }
 
 }
