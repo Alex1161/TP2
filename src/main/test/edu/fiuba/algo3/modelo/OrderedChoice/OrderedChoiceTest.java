@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
+import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 
@@ -34,7 +34,7 @@ public class OrderedChoiceTest {
         opcionesCorrectas.agregarOpcion("3");
         opcionesCorrectas.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaOrderedChoice = CreadorDePreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
         Opciones opcion = new Opciones();
 
@@ -61,7 +61,7 @@ public class OrderedChoiceTest {
         opcionesCorrectas.agregarOpcion("3");
         opcionesCorrectas.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaOrderedChoice = CreadorDePreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -105,7 +105,7 @@ public class OrderedChoiceTest {
         opcionesCorrectas.agregarOpcion("3");
         opcionesCorrectas.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaOrderedChoice = CreadorDePreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -150,7 +150,7 @@ public class OrderedChoiceTest {
         opcionesCorrectas.agregarOpcion("3");
         opcionesCorrectas.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaOrderedChoice = CreadorDePreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
         Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
 
@@ -180,7 +180,7 @@ public class OrderedChoiceTest {
         opcionesCorrectas.agregarOpcion("3");
         opcionesCorrectas.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaOrderedChoice = CreadorDePreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -226,7 +226,7 @@ public class OrderedChoiceTest {
         opcionesCorrectas.agregarOpcion("3");
         opcionesCorrectas.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaOrderedChoice = CreadorDePreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -272,7 +272,7 @@ public class OrderedChoiceTest {
         opcionesCorrectas.agregarOpcion("3");
         opcionesCorrectas.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaOrderedChoice = CreadorDePreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -318,7 +318,7 @@ public class OrderedChoiceTest {
         opcionesCorrectas.agregarOpcion("3");
         opcionesCorrectas.agregarOpcion("4");
 
-        Pregunta preguntaOrderedChoice = FabricaPreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaOrderedChoice = CreadorDePreguntas.preguntaOrderedChoice("Ordenar de menor a mayor ", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");

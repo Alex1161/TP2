@@ -7,9 +7,9 @@ import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
 import edu.fiuba.algo3.modelo.Calificador.*;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 
-public class FabricaPreguntas {
+public class CreadorDePreguntas {
         public Pregunta crearPregunta(String tipo, String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles){
-        FabricaPreguntas fabrica=new FabricaPreguntas();
+        CreadorDePreguntas fabrica=new CreadorDePreguntas();
         switch (tipo){
             case "VoFPenalizado":
                 return fabrica.preguntaVoFPenalizado(enunciado,opcionesCorrectas);
@@ -21,11 +21,11 @@ public class FabricaPreguntas {
             case "MultipleChoicePenalizado":
                 return fabrica.preguntaMultipleChoicePenalizado(enunciado,opcionesCorrectas,opcionesPosibles);
             case "MultipleChoiceParcial":
-                return  FabricaPreguntas.preguntaMultipleChoiceParcial(enunciado,opcionesCorrectas,opcionesPosibles);
+                return  CreadorDePreguntas.preguntaMultipleChoiceParcial(enunciado,opcionesCorrectas,opcionesPosibles);
             case "GroupChoice":
-                return FabricaPreguntas.preguntaGroupChoice(enunciado,opcionesCorrectas,opcionesPosibles);
+                return CreadorDePreguntas.preguntaGroupChoice(enunciado,opcionesCorrectas,opcionesPosibles);
             case "OrderChoice":
-                return FabricaPreguntas.preguntaOrderedChoice(enunciado,opcionesCorrectas,opcionesCorrectas);
+                return CreadorDePreguntas.preguntaOrderedChoice(enunciado,opcionesCorrectas,opcionesCorrectas);
             default:
                 throw new IllegalStateException("Unexpected value: " + tipo);
         }

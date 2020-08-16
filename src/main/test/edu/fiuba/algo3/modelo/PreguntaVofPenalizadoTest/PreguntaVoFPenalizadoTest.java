@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Penalidad.ExclusividadPreguntaConPenalidadNoPermitidoException;
-import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
+import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test01PreguntaVoFPenalizadaConOpcionCorrectaVerdaderoSeLePasaOpcionVerdaderoDaTrue(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("4 + 2 = 6","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("4 + 2 = 6","Verdadero");
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
@@ -31,7 +31,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test02PreguntaVoFPenalizadaConOpcionCorrectaVerdaderoSeLePasaOpcionFalsoDaFalse(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
@@ -41,7 +41,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test03PreguntaVoFPenalizadaConOpcionCorrectaFalsoSeLePasaOpcionFalsoDaTrue(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
@@ -51,7 +51,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test04PreguntaVoFPenalizadaConOpcionCorrectaFalsoSeLePasaOpcionVerdaderoDaFalse(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
@@ -61,7 +61,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void Test05PreguntaVoFPenalizadoJugadorUnoContestaMalJugadorDosBienRecibenMenosUnoYUnoPuntosRespectivamente(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -81,7 +81,7 @@ public class PreguntaVoFPenalizadoTest {
     }
     @Test
     public void test06PreguntaVoFPenalizadoJugadorUnoContestaBienJugadorDosMalRecibenUnoYMenosUnoPuntosRespectivamente(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -102,7 +102,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test07PreguntaVoFPenalizadoSeAgregaMultiplicadorX2YSeVeReflejadoEnLosPuntajes(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -124,7 +124,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test08PreguntaVoFPenalizadoSeAgregaMultiplicadorx3YSeVeReflejadoEnLosPuntajes(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -146,7 +146,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test09PreguntaVoFPenalizadoSeAgregaMultiplicadorx2YX3SeVeReflejadoEnLosPuntajes(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -169,7 +169,7 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test10PreguntaVoFPenalizadoSeAgregaExclusividadLanzaException(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
 
         Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
 

@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
+import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
@@ -32,7 +32,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         assertTrue(preguntaGroupChoice.sonCorrectas(opcionesCorrectasGrupo1));
     }
@@ -52,7 +52,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         Opciones opcionesIncorrectas = new Opciones();
         opcionesIncorrectas.agregarOpcion("3");
@@ -77,7 +77,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("Diego");
         Jugador jugador2 = new Jugador("Luis");
@@ -115,7 +115,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("Diego");
         Jugador jugador2 = new Jugador("Luis");
@@ -153,7 +153,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("Diego");
         Jugador jugador2 = new Jugador("Luis");
@@ -191,7 +191,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("Diego");
         Jugador jugador2 = new Jugador("Luis");
@@ -229,7 +229,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
                 () -> {
@@ -253,7 +253,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
                 () -> {
@@ -277,7 +277,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("Diego");
         Jugador jugador2 = new Jugador("Luis");
@@ -317,7 +317,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("Diego");
         Jugador jugador2 = new Jugador("Luis");
@@ -357,7 +357,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("Diego");
         Jugador jugador2 = new Jugador("Luis");
@@ -397,7 +397,7 @@ public class PreguntaGroupChoiceTest {
         opcionesPosibles.agregarOpcion("4");
 
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
-        Pregunta preguntaGroupChoice = FabricaPreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("Diego");
         Jugador jugador2 = new Jugador("Luis");

@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
+import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
@@ -20,7 +20,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test01PreguntaVoFClasicoConOpcionCorrectaVerdaderoSeLePasaUnaOpcionVerdaderoDaTrue(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
@@ -30,7 +30,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test02PreguntaVoFClasicoConOpcionCorrectaVerdaderoSeLePasaUnaOpcionFalsoDaFalse(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
@@ -40,7 +40,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test03PreguntaVoFClasicoConOpcionCorrectaFalsoSeLePasaUnaOpcionFalsoDaTrue(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 1 = 4","Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 1 = 4","Falso");
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
@@ -50,7 +50,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test04PreguntaVoFClasicoConOpcionCorrectaFalsoSeLePasaUnaOpcionVerdaderoDaFalse(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("Enunciado","Falso");
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
@@ -60,7 +60,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test05PreguntaVoFClasicoJugadorUnoContestaMalJugadorDosBienRecibenCeroYUnoPuntosRespectivamente(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 3","Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 3","Falso");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -81,7 +81,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test06PreguntaVoFClasicoJugadorUnoContestaBienJugadorDosMalRecibenUnoYCeroPuntosRespectivamente(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("Enunciado","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("Enunciado","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -102,7 +102,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test07PreguntaVoFClasicoSeAgregaMultiplicadorX2LanzaException(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
 
         assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
                 () -> {
@@ -113,7 +113,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test08PreguntaVoFClasicoSeAgregaMultiplicadorX3LanzaException(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
 
             assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
                     () -> {
@@ -124,7 +124,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test09PreguntaVoFSeAgregaExclusividadUnoRespondeMalElOtroBienEsteRecibePutajeDoble(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -146,7 +146,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test10PreguntaVoFSeAgregaExclusividadUnoRespondeMalElOtroTambienAmbosTienenCeroDePuntaje(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -168,7 +168,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test11PreguntaVoFSeAgregaExclusividadUnoRespondeBienElOtroTambienAmbosTienenCeroDePuntaje(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -190,7 +190,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test12PreguntaVoFSeAgregaDosExclusividadUnoRespondeBienElOtroTambienAmbosTienenCeroDePuntaje(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -213,7 +213,7 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test13PreguntaVoFSeAgregaDosExclusividadUnoRespondeBienElOtroMalElPrimeroRecibeCuatroPuntos(){
-        Pregunta pregunta = FabricaPreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 

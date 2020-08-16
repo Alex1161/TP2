@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
+import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
@@ -32,7 +32,7 @@ public class MultipleChoiceParcialTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
 
@@ -64,7 +64,7 @@ public class MultipleChoiceParcialTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
 
@@ -95,7 +95,7 @@ public class MultipleChoiceParcialTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
 
@@ -125,7 +125,7 @@ public class MultipleChoiceParcialTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -167,7 +167,7 @@ public class MultipleChoiceParcialTest {
         opcionesPosibles.agregarOpcion("lapiz");
         opcionesPosibles.agregarOpcion("computadora");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("mamiferos", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceParcial("mamiferos", opcionesCorrectas, opcionesPosibles);
 
         Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
 
@@ -192,7 +192,7 @@ public class MultipleChoiceParcialTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -232,7 +232,7 @@ public class MultipleChoiceParcialTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -271,7 +271,7 @@ public class MultipleChoiceParcialTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -310,7 +310,7 @@ public class MultipleChoiceParcialTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceParcial("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");

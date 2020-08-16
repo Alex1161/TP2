@@ -1,14 +1,12 @@
 package edu.fiuba.algo3.modelo.MultipleChoiceTest;
 
 import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
-import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Penalidad.ExclusividadPreguntaConPenalidadNoPermitidoException;
-import edu.fiuba.algo3.modelo.Pregunta.FabricaPreguntas;
-import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
+import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import org.junit.jupiter.api.Test;
@@ -36,7 +34,7 @@ public class MultipleChoicePenalizadoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -75,7 +73,7 @@ public class MultipleChoicePenalizadoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -112,7 +110,7 @@ public class MultipleChoicePenalizadoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
 
@@ -143,7 +141,7 @@ public class MultipleChoicePenalizadoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
 
@@ -175,7 +173,7 @@ public class MultipleChoicePenalizadoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Jugador jugador1 = new Jugador("pedrito");
         Jugador jugador2 = new Jugador("juanito");
@@ -216,7 +214,7 @@ public class MultipleChoicePenalizadoTest {
         opcionesPosibles.agregarOpcion("no");
         opcionesPosibles.agregarOpcion("no en verde");
 
-        Pregunta preguntaMultipleChoice = FabricaPreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoicePenalizado("¿Hoy se sale?", opcionesCorrectas, opcionesPosibles);
 
         Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
 

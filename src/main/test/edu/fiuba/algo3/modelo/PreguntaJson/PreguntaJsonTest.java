@@ -15,10 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PreguntaJsonTest {
     @Test
     public void prueboPreguntaFactory(){
-        Opciones o=new Opciones();
-        o.agregarOpcion("Falso");
-        FabricaPreguntas preguntaFabrica= new FabricaPreguntas();
-        Pregunta pregunta= preguntaFabrica.crearPregunta("VoFPenalizado","enunciado",o,new Opciones());
+        Opciones opcionCorrecta = new Opciones();
+        Opciones opcionesPosibles = new Opciones();
+
+        opcionCorrecta.agregarOpcion("Falso");
+        CreadorDePreguntas preguntaFabrica = new CreadorDePreguntas();
+        Pregunta pregunta= preguntaFabrica.crearPregunta("VoFPenalizado","enunciado", opcionCorrecta, opcionesPosibles);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1 = new Respuesta(jugador1);
@@ -29,9 +31,13 @@ public class PreguntaJsonTest {
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);
+
+
         assertEquals(-1, jugador1.puntajeValorNumerico());
         assertEquals(1, jugador2.puntajeValorNumerico());
-        pregunta= preguntaFabrica.crearPregunta("VoFClasico","enunciado",o,new Opciones());
+
+
+        pregunta = preguntaFabrica.crearPregunta("VoFClasico", "enunciado", opcionCorrecta, new Opciones());
         jugador1 = new Jugador("carlos");
         jugador2 = new Jugador("juan");
         respuesta1 = new Respuesta(jugador1);
@@ -42,6 +48,8 @@ public class PreguntaJsonTest {
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);
+
+
         assertEquals(0, jugador1.puntajeValorNumerico());
         assertEquals(1, jugador2.puntajeValorNumerico());
 
@@ -49,13 +57,13 @@ public class PreguntaJsonTest {
     }
     @Test
     public void pruebaDePreguntaJson() throws IOException {
-        JsonFabrica fabrica =new JsonFabrica();
-        Pregunta pregunta= fabrica.recuperar();
+        FachadaCreadorDePreguntas fabrica = new FachadaCreadorDePreguntas();
+        Pregunta pregunta = fabrica.recuperarPregunta("Pregunta.json");
     }
     @Test
-    public void prueboPreguntaJson()throws IOException {
-        JsonFabrica fabrica=new JsonFabrica();
-        Pregunta pregunta = fabrica.recuperar();
+    public void prueboPreguntaJson() throws IOException{
+        FachadaCreadorDePreguntas fabrica = new FachadaCreadorDePreguntas();
+        Pregunta pregunta = fabrica.recuperarPregunta("Pregunta.json");
 
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
@@ -72,14 +80,14 @@ public class PreguntaJsonTest {
     }
     @Test
     public void pruebaDePreguntasJson() throws IOException {
-        JsonFabrica fabrica= new JsonFabrica();
-        List<Pregunta>  preguntas= fabrica.recuperarPreguntas();
+        FachadaCreadorDePreguntas fabrica= new FachadaCreadorDePreguntas();
+        List<Pregunta>  preguntas = fabrica.recuperarPreguntas("Preguntas.json");
     }
 
     @Test
-    public void prueboPreguntasJson()throws IOException {
-        JsonFabrica fabrica=new JsonFabrica();
-        List<Pregunta>  preguntas = fabrica.recuperarPreguntas();
+    public void prueboPreguntasJson() throws IOException {
+        FachadaCreadorDePreguntas fabrica=new FachadaCreadorDePreguntas();
+        List<Pregunta>  preguntas = fabrica.recuperarPreguntas("Preguntas.json");
         Pregunta pregunta = preguntas.get(0);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
@@ -140,7 +148,7 @@ public class PreguntaJsonTest {
         assertEquals(2, jugador1.puntajeValorNumerico());
         assertEquals(-2, jugador2.puntajeValorNumerico());
 
-        pregunta=preguntas.get(4);
+        pregunta = preguntas.get(4);
         jugador1 = new Jugador("carlos");
         jugador2 = new Jugador("juan");
         respuesta1 = new Respuesta(jugador1);
