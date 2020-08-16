@@ -1,5 +1,7 @@
 package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.vista.ActionListenerCronometro;
+import edu.fiuba.algo3.vista.HandlerCronometro;
 import edu.fiuba.algo3.vista.VistaTemporizador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -39,6 +41,8 @@ public class VistaPreguntaEnCurso{
         panelIzquierdo = vistaInfoJugadores.obtenerPanelInfoJugadores();
 
         vistaTemporizador = new VistaTemporizador();
+        Cronometro cronometro = new Cronometro(new ActionListenerCronometro(vistaTemporizador));
+        cronometro.start();
 
         panelDerecho = vistaTemporizador.obtenerPanelTemporizador();
 
@@ -52,7 +56,7 @@ public class VistaPreguntaEnCurso{
         panelSuperior.setAlignment(Pos.CENTER);
         panelSuperior.setMinHeight(500);
 
-        vistaGrillaRespuestas = new VistaGrillaRespuestas();
+        vistaGrillaRespuestas = new VistaGrillaRespuestas(vistaTemporizador);
 
         ventanaCompleta = new VBox();
         ventanaCompleta.getChildren().addAll(panelSuperior, vistaGrillaRespuestas.obtenerGrilla());

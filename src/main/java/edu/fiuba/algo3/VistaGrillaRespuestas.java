@@ -1,5 +1,9 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.vista.BotonParaJugar;
+import edu.fiuba.algo3.vista.BotonProbarCambio;
+import edu.fiuba.algo3.vista.HandlerCronometro;
+import edu.fiuba.algo3.vista.VistaTemporizador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -8,9 +12,11 @@ import javafx.scene.layout.GridPane;
 public class VistaGrillaRespuestas{
 
     GridPane grillaRespuestas;
+    VistaTemporizador vistaT;
 
-    public VistaGrillaRespuestas(){
-        Button respuesta1 = new Button("Respuesta 1");
+    public VistaGrillaRespuestas(VistaTemporizador vistaT){
+        Button respuesta1 = new BotonProbarCambio();
+        respuesta1.setOnAction(new HandlerCronometro(vistaT));
         respuesta1.getStyleClass().add(".button");
         Button respuesta2 = new Button("Respuesta 2");
         respuesta2.getStyleClass().add("button2");
