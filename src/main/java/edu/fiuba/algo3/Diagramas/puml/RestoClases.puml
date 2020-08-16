@@ -15,14 +15,15 @@ Class Opciones{
 Abstract Class Pregunta{
     -enunciado: String
     -calificador: Calificador
+    -comodines: Collection<Comodin>
 
     +{abstract}{static}Pregunta(enunciado: String)
-    +conPenalidad(): void
+    +setPenalidad(unaPenalidad : Penalidad): void
     +asignarOpcionesCorrectas(opcionesCorrectas: Opciones): void
     +asignarOpcionesPosibles(opcionesPosibles: Opciones): void
     +sonCorrectas(opciones: Opciones): boolean
     +calificar(Respuestas: List<Respuesta>): void
-    +agregarMultiplicador(multiplicador: Multiplicador, respuesta: Respuseta): void
+    +agregarComodin(unComodin: Comodin, respuesta: Respuesta): void
 }
 
 Interface Penalidad{

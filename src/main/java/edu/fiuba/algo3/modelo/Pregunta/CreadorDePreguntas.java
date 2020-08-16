@@ -9,17 +9,15 @@ import edu.fiuba.algo3.modelo.Opciones.Opciones;
 
 public class CreadorDePreguntas {
         public Pregunta crearPregunta(String tipo, String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles){
-        CreadorDePreguntas fabrica=new CreadorDePreguntas();
         switch (tipo){
             case "VoFPenalizado":
-                return fabrica.preguntaVoFPenalizado(enunciado,opcionesCorrectas);
-
+                return CreadorDePreguntas.preguntaVoFPenalizado(enunciado,opcionesCorrectas);
             case "VoFClasico":
-                return fabrica.preguntaVoFClasico(enunciado,opcionesCorrectas);
+                return CreadorDePreguntas.preguntaVoFClasico(enunciado,opcionesCorrectas);
             case "MultipleChoiceClasico":
-                return  fabrica.preguntaMultipleChoiceClasico(enunciado, opcionesCorrectas, opcionesPosibles);
+                return  CreadorDePreguntas.preguntaMultipleChoiceClasico(enunciado, opcionesCorrectas, opcionesPosibles);
             case "MultipleChoicePenalizado":
-                return fabrica.preguntaMultipleChoicePenalizado(enunciado,opcionesCorrectas,opcionesPosibles);
+                return CreadorDePreguntas.preguntaMultipleChoicePenalizado(enunciado,opcionesCorrectas,opcionesPosibles);
             case "MultipleChoiceParcial":
                 return  CreadorDePreguntas.preguntaMultipleChoiceParcial(enunciado,opcionesCorrectas,opcionesPosibles);
             case "GroupChoice":

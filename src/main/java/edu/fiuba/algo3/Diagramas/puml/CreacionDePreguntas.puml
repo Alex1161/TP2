@@ -1,0 +1,35 @@
+@startuml
+
+
+class CreadorDePreguntas{
+    +crearPregunta(nombreTipoDePregunta : String, enunciado: String, oCorrectas: Opciones, oPosibles: Opciones): Pregunta
+
+}
+
+class FachadaCreadorDePreguntas{
+    +recuperarPregunta(src_Pregunta : String) : Pregunta
+    +recuperarPreguntas(src_Preguntas : String) : List<Pregunta>
+}
+
+Abstract Class Pregunta{
+    -enunciado: String
+    -opcionesCorrectas: Opciones
+    -opcionesPosibles: Opciones
+    -calificador: Calificador
+    -comodines: Collection<Comodin>
+
+    +{abstract}{static}Pregunta(enunciado: String)
+    +setPenalidad(unaPenalidad : Penalidad): void
+    +asignarOpcionesCorrectas(opcionesCorrectas: Opciones): void
+    +asignarOpcionesPosibles(opcionesPosibles: Opciones): void
+    +sonCorrectas(opciones: Opciones): boolean
+    +calificar(Respuestas: List<Respuesta>): void
+    +agregarComodin(unComodin: Comodin, respuesta: Respuesta): void
+}
+
+FachadaCreadorDePreguntas ..> CreadorDePreguntas
+CreadorDePreguntas ..> Pregunta
+
+
+
+@enduml
