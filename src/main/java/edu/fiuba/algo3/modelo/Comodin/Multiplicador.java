@@ -8,16 +8,9 @@ import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import java.util.List;
 
 public abstract class Multiplicador extends Comodin {
-    private int factor;
-
-    public Multiplicador(int factor){
-        this.factor = factor;
-    }
 
     @Override
-    public Puntaje aplicar(Puntaje puntaje){
-        return puntaje.multiplicarPor(factor);
-    }
+    public abstract Puntaje aplicar(Puntaje puntaje);
 
     @Override
     public void validar(Penalidad penalidad) {
