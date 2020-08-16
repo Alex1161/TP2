@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.PreguntaJson;
+package edu.fiuba.algo3.modelo.LectorDePreguntasTest;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PreguntaJsonTest {
+public class LectorDePreguntasTest {
     @Test
     public void prueboPreguntaFactory(){
         Opciones opcionCorrecta = new Opciones();
@@ -57,12 +57,12 @@ public class PreguntaJsonTest {
     }
     @Test
     public void pruebaDePreguntaJson() throws IOException {
-        FachadaCreadorDePreguntas fabrica = new FachadaCreadorDePreguntas();
+        LectorDePreguntas fabrica = new LectorDePreguntas();
         Pregunta pregunta = fabrica.recuperarPregunta("Pregunta.json");
     }
     @Test
     public void prueboPreguntaJson() throws IOException{
-        FachadaCreadorDePreguntas fabrica = new FachadaCreadorDePreguntas();
+        LectorDePreguntas fabrica = new LectorDePreguntas();
         Pregunta pregunta = fabrica.recuperarPregunta("Pregunta.json");
 
         Jugador jugador1 = new Jugador("carlos");
@@ -80,13 +80,13 @@ public class PreguntaJsonTest {
     }
     @Test
     public void pruebaDePreguntasJson() throws IOException {
-        FachadaCreadorDePreguntas fabrica= new FachadaCreadorDePreguntas();
+        LectorDePreguntas fabrica= new LectorDePreguntas();
         List<Pregunta>  preguntas = fabrica.recuperarPreguntas("Preguntas.json");
     }
 
     @Test
     public void prueboPreguntasJson() throws IOException {
-        FachadaCreadorDePreguntas fabrica=new FachadaCreadorDePreguntas();
+        LectorDePreguntas fabrica=new LectorDePreguntas();
         List<Pregunta>  preguntas = fabrica.recuperarPreguntas("Preguntas.json");
         Pregunta pregunta = preguntas.get(0);
         Jugador jugador1 = new Jugador("carlos");
