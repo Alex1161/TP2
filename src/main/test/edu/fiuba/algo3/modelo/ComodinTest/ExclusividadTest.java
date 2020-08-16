@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Comodin.ComodinVacio;
 import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Penalidad.ConPenalidad;
-import edu.fiuba.algo3.modelo.Penalidad.ExclusividadPreguntaConPenalidadNoPermitidoException;
+import edu.fiuba.algo3.modelo.Penalidad.ExclusividadNoPermitida;
 import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoNulo;
@@ -38,7 +38,7 @@ public class ExclusividadTest {
         Exclusividad exclusividad = new Exclusividad();
         Penalidad conPenalidad = new ConPenalidad();
 
-        assertThrows(ExclusividadPreguntaConPenalidadNoPermitidoException.class,
+        assertThrows(ExclusividadNoPermitida.class,
                 ()->{
                     exclusividad.validar(conPenalidad);
                 });

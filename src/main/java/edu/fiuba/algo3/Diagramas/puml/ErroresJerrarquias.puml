@@ -1,0 +1,19 @@
+@startuml
+rectangle RunTimeException
+rectangle ErrorDeJugador
+rectangle ErrorDePregunta
+rectangle ErrorDePenalidad
+rectangle TipoDePreguntaInvalida
+rectangle MultiplicadorNoPermitido
+rectangle ExclusividadNoPermitida
+rectangle ComodinYaUsado
+
+
+RunTimeException <|-- ErrorDeJugador
+RunTimeException <|-- ErrorDePregunta
+RunTimeException <|-- ErrorDePenalidad
+ErrorDeJugador <|-- TipoDePreguntaInvalida
+ErrorDePenalidad <|--MultiplicadorNoPermitido
+ErrorDePenalidad <|--ExclusividadNoPermitida
+ErrorDePregunta <|-- TipoDePreguntaInvalida
+@enduml

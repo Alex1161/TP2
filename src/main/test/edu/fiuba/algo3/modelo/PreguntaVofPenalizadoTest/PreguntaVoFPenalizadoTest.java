@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Penalidad.ExclusividadPreguntaConPenalidadNoPermitidoException;
+import edu.fiuba.algo3.modelo.Penalidad.ExclusividadNoPermitida;
 import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
@@ -173,7 +173,7 @@ public class PreguntaVoFPenalizadoTest {
 
         Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
 
-        assertThrows(ExclusividadPreguntaConPenalidadNoPermitidoException.class,
+        assertThrows(ExclusividadNoPermitida.class,
                 () -> {
                     pregunta.agregarComodin(new Exclusividad(), respuesta);
                 });

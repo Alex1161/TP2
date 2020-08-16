@@ -25,7 +25,7 @@ public class CreadorDePreguntas {
             case "OrderChoice":
                 return CreadorDePreguntas.preguntaOrderedChoice(enunciado,opcionesCorrectas,opcionesCorrectas);
             default:
-                throw new TipoDePreguntaInvalidaException();
+                throw new TipoDePreguntaInvalida();
         }
     }
   public static Pregunta preguntaVoFClasico(String enunciado,Opciones opcionCorrecta){

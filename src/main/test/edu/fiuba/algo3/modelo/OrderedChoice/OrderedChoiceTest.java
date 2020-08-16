@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
-import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
+import edu.fiuba.algo3.modelo.Penalidad.MultiplicadorNoPermitido;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
@@ -154,12 +154,12 @@ public class OrderedChoiceTest {
 
         Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
 
-        assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
+        assertThrows(MultiplicadorNoPermitido.class,
                 () -> {
                     preguntaOrderedChoice.agregarComodin(new MultiplicadorX2(), respuesta);
                 });
 
-        assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
+        assertThrows(MultiplicadorNoPermitido.class,
                 () -> {
                     preguntaOrderedChoice.agregarComodin(new MultiplicadorX3(), respuesta);
                 });

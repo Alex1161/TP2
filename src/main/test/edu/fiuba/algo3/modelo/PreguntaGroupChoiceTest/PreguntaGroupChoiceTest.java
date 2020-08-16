@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
-import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
+import edu.fiuba.algo3.modelo.Penalidad.MultiplicadorNoPermitido;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import org.junit.jupiter.api.Test;
@@ -231,7 +231,7 @@ public class PreguntaGroupChoiceTest {
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
         Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
-        assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
+        assertThrows(MultiplicadorNoPermitido.class,
                 () -> {
                     Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
                     preguntaGroupChoice.agregarComodin(new MultiplicadorX2(), respuesta);
@@ -255,7 +255,7 @@ public class PreguntaGroupChoiceTest {
         String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
         Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
 
-        assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
+        assertThrows(MultiplicadorNoPermitido.class,
                 () -> {
                     Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
                     preguntaGroupChoice.agregarComodin(new MultiplicadorX3(), respuesta);

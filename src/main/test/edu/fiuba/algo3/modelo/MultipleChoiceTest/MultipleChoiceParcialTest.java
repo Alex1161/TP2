@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
-import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
+import edu.fiuba.algo3.modelo.Penalidad.MultiplicadorNoPermitido;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import org.junit.jupiter.api.Test;
@@ -171,7 +171,7 @@ public class MultipleChoiceParcialTest {
 
         Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
 
-        assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
+        assertThrows(MultiplicadorNoPermitido.class,
                 () -> {
                     preguntaMultipleChoice.agregarComodin(new MultiplicadorX3(), respuesta);
                 });

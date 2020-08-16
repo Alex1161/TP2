@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
 import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
-import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
+import edu.fiuba.algo3.modelo.Penalidad.MultiplicadorNoPermitido;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
@@ -38,7 +38,7 @@ public class MultiplicadorX3Test {
         MultiplicadorX3 multiplicadorX3 = new MultiplicadorX3();
         Penalidad sinPenalidad = new SinPenalidad();
 
-        assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
+        assertThrows(MultiplicadorNoPermitido.class,
                 ()->{
                     multiplicadorX3.validar(sinPenalidad);
                 });
