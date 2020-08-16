@@ -42,8 +42,7 @@ Interface Puntaje{
 }
 
 Abstract Multiplicador{
-    -factor: int
-    +aplicar(puntaje: Puntaje): Puntaje
+    +{abstract}aplicar(puntaje: Puntaje): Puntaje
     +aplicar(respuesta: List<Respuesta>): void
     +validar(penalidad: Penalidad): void
 }
