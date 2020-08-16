@@ -60,7 +60,13 @@
 }
 
 .otros-text{
-    -fx-font-size: 16px;
+     -fx-font-size: 16px;
+     -fx-font-weight: bold;
+     -fx-text-fill: black;
+ }
+
+.tiempo-text{
+    -fx-font-size: 32px;
     -fx-font-weight: bold;
     -fx-text-fill: black;
 }
