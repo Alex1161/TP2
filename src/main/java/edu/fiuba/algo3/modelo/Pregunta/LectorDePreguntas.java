@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FachadaCreadorDePreguntas {
+public class LectorDePreguntas {
 
     private Pregunta _recuperarPregunta(JsonObject jsonObjectPregunta) {
 
@@ -40,7 +40,7 @@ public class FachadaCreadorDePreguntas {
         List<Pregunta> preguntas = new ArrayList<>();
         JsonArray arrayPreguntas = jsonObjectPreguntas.getAsJsonArray("Preguntas");
         for (JsonElement jsonPregunta : arrayPreguntas) {
-            FachadaCreadorDePreguntas fabrica = new FachadaCreadorDePreguntas();
+            LectorDePreguntas fabrica = new LectorDePreguntas();
             Pregunta pregunta = fabrica._recuperarPregunta(jsonPregunta.getAsJsonObject());
             preguntas.add(pregunta);
         }
