@@ -12,7 +12,7 @@ rectangle ComodinYaUsado
 RunTimeException <|-- ErrorDeJugador
 RunTimeException <|-- ErrorDePregunta
 RunTimeException <|-- ErrorDePenalidad
-ErrorDeJugador <|-- TipoDePreguntaInvalida
+ErrorDeJugador <|-- ComodinYaUsado
 ErrorDePenalidad <|--MultiplicadorNoPermitido
 ErrorDePenalidad <|--ExclusividadNoPermitida
 ErrorDePregunta <|-- TipoDePreguntaInvalida
