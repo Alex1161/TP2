@@ -16,6 +16,26 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PreguntaGroupChoiceTest {
+    @Test
+    public void test00VerifivoTipoYEnunciado() {
+        Opciones opcionesCorrectasGrupo1 = new Opciones();
+
+        opcionesCorrectasGrupo1.agregarOpcion("2");
+        opcionesCorrectasGrupo1.agregarOpcion("4");
+
+        Opciones opcionesPosibles = new Opciones();
+
+        opcionesPosibles.agregarOpcion("1");
+        opcionesPosibles.agregarOpcion("2");
+        opcionesPosibles.agregarOpcion("3");
+        opcionesPosibles.agregarOpcion("4");
+
+        String enunciado = "Poner en el grupo 1 los numeros pares y en el grupo 2 los impares";
+        Pregunta preguntaGroupChoice = CreadorDePreguntas.preguntaGroupChoice(enunciado, opcionesCorrectasGrupo1, opcionesPosibles);
+
+        assertEquals("GroupChoice", preguntaGroupChoice.getTipo());
+
+    }
 
     @Test
     public void test01PreguntaGroupChoiceSeLePasaOpcionesCorrectasDevulveTrue(){

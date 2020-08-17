@@ -49,6 +49,8 @@ public class CreadorDePreguntas {
         preguntaVoFClasico.asignarCalificador(calificadorSinOrdenNoPenalizado);
         preguntaVoFClasico.setPenalidad(new SinPenalidad());
 
+        preguntaVoFClasico.asignarTipo("VoFClasico");
+
         return preguntaVoFClasico;
 
     }
@@ -69,6 +71,9 @@ public class CreadorDePreguntas {
         preguntaVoFPenalizado.asignarCalificador(calificadorSinOrdenPenalizado);
         preguntaVoFPenalizado.setPenalidad(new ConPenalidad());
 
+
+        preguntaVoFPenalizado.asignarTipo("VoFPenalizado");
+
         return preguntaVoFPenalizado;
     }
 
@@ -87,6 +92,9 @@ public class CreadorDePreguntas {
         preguntaVoFClasico.asignarOpcionesCorrectas(opcionesCorrectas);
         preguntaVoFClasico.asignarCalificador(calificadorSinOrdenNoPenalizado);
         preguntaVoFClasico.setPenalidad(new SinPenalidad());
+
+
+        preguntaVoFClasico.asignarTipo("VoFClasico");
 
         return preguntaVoFClasico;
 
@@ -108,6 +116,8 @@ public class CreadorDePreguntas {
         preguntaVoFPenalizado.asignarCalificador(calificadorSinOrdenPenalizado);
         preguntaVoFPenalizado.setPenalidad(new ConPenalidad());
 
+        preguntaVoFPenalizado.asignarTipo("VoFPenalizado");
+
         return preguntaVoFPenalizado;
     }
 
@@ -119,6 +129,8 @@ public class CreadorDePreguntas {
         pregunta.asignarOpcionesPosibles(opcionesPosibles);
         pregunta.asignarCalificador(calificador);
         pregunta.setPenalidad(new SinPenalidad());
+
+        pregunta.asignarTipo("MultipleChoiceClasico");
 
         return pregunta;
     }
@@ -132,6 +144,8 @@ public class CreadorDePreguntas {
         pregunta.asignarCalificador(calificador);
         pregunta.setPenalidad(new SinPenalidad());
 
+        pregunta.asignarTipo("OrderChoice");
+
         return pregunta;
     }
 
@@ -143,6 +157,8 @@ public class CreadorDePreguntas {
         pregunta.asignarOpcionesPosibles(opcionesPosibles);
         pregunta.asignarCalificador(calificador);
         pregunta.setPenalidad(new ConPenalidad());
+
+        pregunta.asignarTipo("MultipleChoicePenalizado");
 
         return pregunta;
     }
@@ -156,6 +172,8 @@ public class CreadorDePreguntas {
         pregunta.asignarCalificador(calificador);
         pregunta.setPenalidad(new SinPenalidad());
 
+        pregunta.asignarTipo("MultipleChoiceParcial");
+
         return pregunta;
     }
 
@@ -167,6 +185,8 @@ public class CreadorDePreguntas {
         pregunta.asignarOpcionesCorrectas(opcionesCorrectas);
         pregunta.asignarCalificador(calificador);
         pregunta.setPenalidad(new SinPenalidad());
+
+        pregunta.asignarTipo("GroupChoice");
 
         return pregunta;
     }

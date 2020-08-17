@@ -17,6 +17,13 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PreguntaVoFClasicoTest {
+    @Test
+    public void test00VerifivoTipoYEnunciado() {
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("4 + 2 = 6","Verdadero");
+
+        assertEquals("VoFClasico", pregunta.getTipo());
+
+    }
 
     @Test
     public void Test01PreguntaVoFClasicoConOpcionCorrectaVerdaderoSeLePasaUnaOpcionVerdaderoDaTrue(){
