@@ -12,6 +12,7 @@ import java.util.List;
 
 public class Pregunta {
 
+    private String tipo;
     private String enunciado;
     private Opciones opcionesCorrectas, opcionesPosibles;
     private Calificador calificador;
@@ -70,6 +71,12 @@ public class Pregunta {
 
     public String getEnunciado(){
         return enunciado;
+    }
+    public void asignarTipo(String tipo){
+        this.tipo=tipo;
+    }
+    public String getTipo(){
+        return tipo;
     }
 
 }

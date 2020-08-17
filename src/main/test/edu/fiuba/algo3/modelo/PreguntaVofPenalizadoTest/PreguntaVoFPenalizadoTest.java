@@ -18,6 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaVoFPenalizadoTest {
+    @Test
+    public void test00VerifivoTipoYEnunciado() {
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("4 + 2 = 6","Verdadero");
+
+        assertEquals("VoFPenalizado", pregunta.getTipo());
+
+}
 
     @Test
     public void test01PreguntaVoFPenalizadaConOpcionCorrectaVerdaderoSeLePasaOpcionVerdaderoDaTrue(){

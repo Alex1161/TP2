@@ -18,8 +18,28 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class MultipleChoiceClasicoTest {
-
     @Test
+    public void test00VerifivoTipoYEnunciado() {
+
+        Opciones opcionesPosibles = new Opciones();
+
+        opcionesPosibles.agregarOpcion("1");
+        opcionesPosibles.agregarOpcion("2");
+        opcionesPosibles.agregarOpcion("3");
+        opcionesPosibles.agregarOpcion("4");
+
+        Opciones opcionesCorrectas = new Opciones();
+
+        opcionesCorrectas.agregarOpcion("2");
+        opcionesCorrectas.agregarOpcion("4");
+
+        Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceClasico("Mútiplo de dos: ", opcionesCorrectas, opcionesPosibles);
+
+        assertEquals("Mútiplo de dos: ", preguntaMultipleChoice.getEnunciado());
+
+        assertEquals("MultipleChoiceClasico", preguntaMultipleChoice.getTipo());
+    }
+        @Test
     public void test01PreguntaMultipleChoiceClasicoSeCreaYSePasaOpcionesCorrectasEnDiferenteOrdenDaTrue(){
 
         Opciones opcionesPosibles = new Opciones();
@@ -35,6 +55,7 @@ public class MultipleChoiceClasicoTest {
         opcionesCorrectas.agregarOpcion("4");
 
         Pregunta preguntaMultipleChoice = CreadorDePreguntas.preguntaMultipleChoiceClasico("Mútiplo de dos: ", opcionesCorrectas, opcionesPosibles);
+
 
         Opciones opcion = new Opciones();
 
