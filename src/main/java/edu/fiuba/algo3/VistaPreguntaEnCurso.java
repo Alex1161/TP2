@@ -1,14 +1,10 @@
 package edu.fiuba.algo3;
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.vista.ActionListenerCronometro;
 import edu.fiuba.algo3.vista.VistaTemporizador;
 import javafx.geometry.Pos;
 
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-import java.util.List;
 
 
 public class VistaPreguntaEnCurso{
@@ -22,14 +18,14 @@ public class VistaPreguntaEnCurso{
     HBox panelSuperior;
     VBox ventanaCompleta;
 
-    Jugador jugador1;
-    Jugador jugador2;
+    Juego juego;
 
-    public VistaPreguntaEnCurso(Stage stage, Jugador unJugador1, Jugador unJugador2, Pregunta preguntaActual){
-        jugador1 = unJugador1;
-        jugador2 = unJugador2;
+    public VistaPreguntaEnCurso(Stage stage, Juego juego){
 
-        vistaInfoJugadores = new VistaInfoJugadores(jugador1, jugador2);
+        this.juego = juego;
+
+        vistaInfoJugadores = new VistaInfoJugadores(juego.obtenerJugador1(),
+                juego.obtenerJugador2());
 
         panelIzquierdo = vistaInfoJugadores.obtenerPanelInfoJugadores();
 
@@ -39,7 +35,7 @@ public class VistaPreguntaEnCurso{
 
         panelDerecho = vistaTemporizador.obtenerPanelTemporizador();
 
-        vistaEnunciado = new VistaEnunciado(preguntaActual);
+        vistaEnunciado = new VistaEnunciado(juego.siguientePregunta());
 
         panelCentral = vistaEnunciado.obtenerPanelEnunciado();
 
@@ -49,7 +45,7 @@ public class VistaPreguntaEnCurso{
         panelSuperior.setAlignment(Pos.CENTER);
         panelSuperior.setMinHeight(500);
 
-        vistaVoF = new VistaVoF(stage,vistaTemporizador,preguntaActual,vistaInfoJugadores,jugador1);
+        //vistaVoF = new VistaVoF(stage,vistaTemporizador,preguntaActual,vistaInfoJugadores,jugador1);
 
         ventanaCompleta = new VBox();
         ventanaCompleta.getChildren().addAll(panelSuperior, vistaVoF.obtenerGrilla());

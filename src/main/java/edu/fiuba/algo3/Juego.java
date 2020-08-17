@@ -10,14 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Panel {
+public class Juego {
     private final CreadorDePreguntas fachadaCreadorPregunta;
     Jugador jugador1;
     Jugador jugador2;
     private static String ARCHIVOJSON = "Preguntas.json";
     LectorDePreguntas lectorJson = new LectorDePreguntas();
 
-    public Panel(Jugador jugador1, Jugador jugador2){
+    public Juego(Jugador jugador1, Jugador jugador2){
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
@@ -34,4 +34,18 @@ public class Panel {
         return lectorJson.recuperarPreguntas(ARCHIVOJSON);
     }
 
+    public Jugador obtenerJugador1(){
+        return jugador1;
+    }
+
+    public Jugador obtenerJugador2(){
+        return jugador2;
+    }
+
+    public Pregunta siguientePregunta(){
+        return new Pregunta("CAMBIAR ESTO" +
+                "ESTA HARDCODEADO DENTRO DE LA CLASE" +
+                "'JUEGO'");
+
+    }
 }
