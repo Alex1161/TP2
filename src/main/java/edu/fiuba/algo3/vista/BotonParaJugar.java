@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.VistaInfoJugadores;
+import edu.fiuba.algo3.VistaPuntajeJugador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonParaJugar;
 import javafx.scene.Scene;
@@ -14,10 +15,10 @@ public class BotonParaJugar extends Button {
     //private HandlerBotonParaJugar manejadorBoton;
 
 
-    public BotonParaJugar(Stage ventana, Scene proximaEscena, VistaInfoJugadores unaVistaIngresoJugadores, Jugador j1, Jugador j2, TextField campoJug1, TextField campoJug2, VBox cuadro){
+    public BotonParaJugar(Stage ventana, Scene proximaEscena, VistaPuntajeJugador vistaPuntaje, Jugador j1, Jugador j2, TextField campoJug1, TextField campoJug2, VBox cuadro){
         super();
         setText(DESCRIPCION);
-        setOnMouseClicked(new HandlerBotonParaJugar(ventana, proximaEscena,unaVistaIngresoJugadores, j1, j2, campoJug1, campoJug2,cuadro));
+        setOnMouseClicked(new HandlerBotonParaJugar(ventana, proximaEscena,  vistaPuntaje, j1, j2, campoJug1, campoJug2,cuadro));
     }
 
 }

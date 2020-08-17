@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 //import edu.fiuba.algo3.Controlador;
 import edu.fiuba.algo3.VistaInfoJugadores;
+import edu.fiuba.algo3.VistaPuntajeJugador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonParaJugar;
 import javafx.geometry.Insets;
@@ -27,7 +28,7 @@ public class VistaIngresoDeJugadores{
     Jugador j2;
     Stage ventana;
 
-    public VistaIngresoDeJugadores(Stage stage, Scene unaProximaVistaEscena, VistaInfoJugadores unaVistaIngresoJugadores, Jugador unJugador1, Jugador unJugador2){
+    public VistaIngresoDeJugadores(Stage stage, Scene unaProximaVistaEscena, VistaPuntajeJugador vistaNueva,Jugador unJugador1, Jugador unJugador2){
         this.ventana = stage;
         this.proximaVistaEscena = unaProximaVistaEscena;
         this.j1 = unJugador1;
@@ -49,7 +50,7 @@ public class VistaIngresoDeJugadores{
 
         VBox cuadro = new VBox(solicitudNombre1, solicitudNombre2);
 
-        this.unBoton = new BotonParaJugar(ventana, this.proximaVistaEscena, unaVistaIngresoJugadores, j1, j2, solicitudNombre1, solicitudNombre2,cuadro);
+        this.unBoton = new BotonParaJugar(ventana, this.proximaVistaEscena,  vistaNueva, j1, j2, solicitudNombre1, solicitudNombre2,cuadro);
         cuadro.getChildren().addAll(unBoton);
 
         cuadro.setSpacing(20);

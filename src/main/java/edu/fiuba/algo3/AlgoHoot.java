@@ -50,7 +50,10 @@ public class AlgoHoot extends Application {
         escenaPreguntaEnCurso.getStylesheets().clear();
         escenaPreguntaEnCurso.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
-        VistaIngresoDeJugadores ingresoDeJugadores = new VistaIngresoDeJugadores(stage, escenaPreguntaEnCurso, preguntaEnCurso.obtenerVistaInfoJugadores(), jugador1, jugador2);
+        VistaPuntajeJugador puntajes = new VistaPuntajeJugador(jugador1,jugador2);
+        Scene escenaPuntaje = new Scene(puntajes.obtenerPanel(),ANCHO,ALTO);
+
+        VistaIngresoDeJugadores ingresoDeJugadores = new VistaIngresoDeJugadores(stage, escenaPuntaje,puntajes, jugador1, jugador2);
         Scene escenaDeBienvenida = new Scene(ingresoDeJugadores.getVista(), ANCHO, ALTO);
 
         stage.setScene(escenaDeBienvenida);
