@@ -2,5 +2,5 @@
   "tipoDePregunta":"VoFPenalizado",
   "enunciado":"Los Perros Vuelan",
   "opcionesCorrectas": ["Falso"],
-  "opcionesPosibles": ["Verdadero"]
+  "opcionesPosibles": ["Verdadero","Falso"]
 }

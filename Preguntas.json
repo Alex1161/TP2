@@ -1,10 +1,11 @@
 {
-  "Preguntas":[{
-  "tipoDePregunta":"VoFClasico",
-  "enunciado":"Los Perros Vuelan",
-  "opcionesCorrectas": ["Falso"],
-  "opcionesPosibles": ["Verdadero","Falso"]
-  },
+  "Preguntas": [
+    {
+      "tipoDePregunta":"VoFClasico",
+      "enunciado":"Los Perros Vuelan",
+      "opcionesCorrectas": ["Falso"],
+      "opcionesPosibles": ["Verdadero","Falso"]
+    },
     {
       "tipoDePregunta":"VoFPenalizado",
       "enunciado":"Los Perros Vuelan",
@@ -28,7 +29,8 @@
       "enunciado":"selecciones a todos los animales",
       "opcionesCorrectas": ["Perro","Gato"],
       "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
-    }]
+    }
+  ]
 }
 
 	

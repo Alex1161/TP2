@@ -17,11 +17,14 @@ public class LectorDePreguntasTest {
     @Test
     public void prueboPreguntaFactory(){
         Opciones opcionCorrecta = new Opciones();
-        Opciones opcionesPosibles = new Opciones();
-
         opcionCorrecta.agregarOpcion("Falso");
+
+        Opciones opcionesPosibles = new Opciones();
+        opcionesPosibles.agregarOpcion("Verdadero");
+        opcionesPosibles.agregarOpcion("Falso");
+
         CreadorDePreguntas preguntaFabrica = new CreadorDePreguntas();
-        Pregunta pregunta= preguntaFabrica.crearPregunta("VoFPenalizado","enunciado", opcionCorrecta, opcionesPosibles);
+        Pregunta pregunta= preguntaFabrica.crearPregunta("VoFPenalizado","2 + 2 = 3", opcionCorrecta, opcionesPosibles);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
         Respuesta respuesta1 = new Respuesta(jugador1);
@@ -38,7 +41,7 @@ public class LectorDePreguntasTest {
         assertEquals(1, jugador2.puntajeValorNumerico());
 
 
-        pregunta = preguntaFabrica.crearPregunta("VoFClasico", "enunciado", opcionCorrecta, new Opciones());
+        pregunta = preguntaFabrica.crearPregunta("VoFClasico", "enunciado", opcionCorrecta, opcionesPosibles);
         jugador1 = new Jugador("carlos");
         jugador2 = new Jugador("juan");
         respuesta1 = new Respuesta(jugador1);
@@ -61,6 +64,7 @@ public class LectorDePreguntasTest {
         LectorDePreguntas fabrica = new LectorDePreguntas();
         Pregunta pregunta = fabrica.recuperarPregunta("Pregunta.json");
     }
+
     @Test
     public void prueboPreguntaJson() throws IOException{
         LectorDePreguntas fabrica = new LectorDePreguntas();

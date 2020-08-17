@@ -7,6 +7,7 @@ rectangle TipoDePreguntaInvalida
 rectangle MultiplicadorNoPermitido
 rectangle ExclusividadNoPermitida
 rectangle ComodinYaUsado
+rectangle OpcionesCorrectasNoEstanEnOpcionesPosibles
 
 
 RunTimeException <|-- ErrorDeJugador
@@ -16,4 +17,5 @@ ErrorDeJugador <|-- ComodinYaUsado
 ErrorDePenalidad <|--MultiplicadorNoPermitido
 ErrorDePenalidad <|--ExclusividadNoPermitida
 ErrorDePregunta <|-- TipoDePreguntaInvalida
+ErrorDePregunta <|-- OpcionesCorrectasNoEstanEnOpcionesPosibles
 @enduml

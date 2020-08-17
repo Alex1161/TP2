@@ -8,7 +8,11 @@ import edu.fiuba.algo3.modelo.Calificador.*;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 
 public class CreadorDePreguntas {
-        public Pregunta crearPregunta(String tipo, String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles){
+    public Pregunta crearPregunta(String tipo, String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles){
+        if ( !opcionesPosibles.contiene(opcionesCorrectas)){
+            throw new OpcionesCorrectasNoEstanEnOpcionesPosibles();
+        }
+
         switch (tipo){
             case "VoFPenalizado":
                 return CreadorDePreguntas.preguntaVoFPenalizado(enunciado,opcionesCorrectas);
@@ -28,7 +32,8 @@ public class CreadorDePreguntas {
                 throw new TipoDePreguntaInvalida();
         }
     }
-  public static Pregunta preguntaVoFClasico(String enunciado,Opciones opcionCorrecta){
+
+    public static Pregunta preguntaVoFClasico(String enunciado,Opciones opcionCorrecta){
         Opciones opcionesPosibles = new Opciones();
         opcionesPosibles.agregarOpcion("Verdadero");
         opcionesPosibles.agregarOpcion("Falso");

@@ -64,8 +64,4 @@ public class LectorDePreguntas {
         return _recuperarPreguntas(jsonObject);
     }
 
-
-
-
-
 }

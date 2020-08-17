@@ -23,8 +23,8 @@ public class Panel {
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
     }
 
-    public Jugador ganadorKahoot(){
-        if (jugador1.puntajeValorNumerico()>jugador2.puntajeValorNumerico()){
+    public Jugador ganadorAlgohoot(){
+        if (jugador1.puntajeValorNumerico() > jugador2.puntajeValorNumerico()){
             return jugador1;
         }
         else return jugador2;
