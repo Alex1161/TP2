@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.Panel;
 import edu.fiuba.algo3.VistaInfoJugadores;
+import edu.fiuba.algo3.VistaPuntajeJugador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
@@ -18,7 +19,11 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
+import static edu.fiuba.algo3.AlgoHoot.ALTO;
+import static edu.fiuba.algo3.AlgoHoot.ANCHO;
+
 public class HandlerBotonVerdaderoFalso implements EventHandler {
+    private VistaPuntajeJugador vistaPuntajeParcial;
     private Stage ventana;
     private Scene escenaProxima;
     private VistaInfoJugadores vistaInfoJugadores;
@@ -27,10 +32,10 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
     private List<Respuesta> listaRespuestas;
     private Panel panelJuego = Panel.getInstancia();
 
-    public HandlerBotonVerdaderoFalso(Button boton, Stage unaVentana, VistaInfoJugadores unaVistaInfoJugadores){
+    public HandlerBotonVerdaderoFalso(Button boton, Stage unaVentana, VistaPuntajeJugador unaVistaPuntajeParcial){
         this.ventana = unaVentana;
         //this.escenaProxima = unaEscenaProxima;
-        this.vistaInfoJugadores = unaVistaInfoJugadores;
+        this.vistaPuntajeParcial = unaVistaPuntajeParcial;
 
         this.boton = boton;
 
@@ -42,7 +47,8 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
         listaRespuestas = new ArrayList<Respuesta>();
         listaRespuestas.add(respuestaJugador1);
         panelJuego.preguntaActual().calificar(listaRespuestas);
-        vistaInfoJugadores.actualizar();
+        vistaPuntajeParcial.actualizar();
+        escenaProxima = new Scene(vistaPuntajeParcial.obtenerPanel(), ANCHO, ALTO);
         ventana.setScene(escenaProxima);
 
 

@@ -6,7 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-
+/* Debería implementarse a partir de aquí una vista para mostrar los botones de los multiplicadores y exclusividades.
+ Además del Nombre Del Jugador Que Actualemente Le Toca.
 public class VistaInfoJugadores {
 
     GridPane tablaDeInfo;
@@ -74,4 +75,6 @@ public class VistaInfoJugadores {
     }
 
 }
+
+ */
 

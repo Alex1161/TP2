@@ -20,8 +20,8 @@ import java.util.TimerTask;
 public class AlgoHoot extends Application {
 
     private static final String NOMBRE_JUEGO = "AlgoHoot" ;
-    private static final int ANCHO = 1024;
-    private static final int ALTO = 768;
+    public static final int ANCHO = 1024;
+    public static final int ALTO = 768;
 
     @Override
     public void start(Stage stage) {
@@ -32,13 +32,6 @@ public class AlgoHoot extends Application {
         }catch (IOException e){
             e.getMessage();
         }
-
-        /*try{
-            listaPreguntas = panelJuego.cargarPreguntas();
-        }catch (IOException e){
-            e.getMessage();
-        }
-         */
 
         stage.setTitle(NOMBRE_JUEGO);
 
@@ -58,6 +51,7 @@ public class AlgoHoot extends Application {
         stage.setScene(escenaDeBienvenida);
 
         stage.show();
+
 
     }
 

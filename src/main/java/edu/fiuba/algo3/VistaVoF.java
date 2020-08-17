@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonVerdaderoFalso;
 import edu.fiuba.algo3.vista.eventos.HandlerCronometro;
 import edu.fiuba.algo3.vista.VistaTemporizador;
+import edu.fiuba.algo3.VistaPuntajeJugador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -19,7 +20,7 @@ public class VistaVoF {
     private static String VERDADERO = "Verdadero";
     private static String FALSO = "Falso";
 
-    public VistaVoF(Stage stage, VistaTemporizador vistaT, VistaInfoJugadores unaVistaInfoJugadores){
+    public VistaVoF(Stage stage, VistaTemporizador vistaT, VistaPuntajeJugador unaVistaPuntajeParcial){
         //Button respuesta1 = new BotonProbarCambio();
         //respuesta1.setOnAction(new HandlerCronometro(vistaT));
         //respuesta1.getStyleClass().add(".button");
@@ -28,10 +29,10 @@ public class VistaVoF {
         Button boton2 = new Button(FALSO);
         boton2.getStyleClass().add("button3");
 
-        HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso(boton1,stage,unaVistaInfoJugadores);
+        HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso(boton1,stage,unaVistaPuntajeParcial);
         boton1.setOnAction(botonVoF);
 
-        HandlerBotonVerdaderoFalso botonVoF2 = new HandlerBotonVerdaderoFalso(boton2,stage,unaVistaInfoJugadores);
+        HandlerBotonVerdaderoFalso botonVoF2 = new HandlerBotonVerdaderoFalso(boton2,stage, unaVistaPuntajeParcial);
         boton2.setOnAction(botonVoF2);
 
 
