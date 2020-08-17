@@ -19,6 +19,8 @@ public class Opciones {
         return elementos;
     }
 
+    public int cantidadDeOpciones(){return this.elementos().size();}
+
     public boolean esta(String opcion) {
         return elementos.contains(opcion);
     }

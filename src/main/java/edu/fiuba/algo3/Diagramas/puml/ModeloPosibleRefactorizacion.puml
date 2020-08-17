@@ -10,6 +10,7 @@ Class Opciones{
     +compararConOrden(opciones: Opciones): boolean
     +compararSinOrden(opciones: Opciones): boolean
     +esta(opcion: String): boolean
+    +obtenerCantidaDeOpciones(): int
 }
 
 Abstract Class Pregunta{
@@ -23,6 +24,7 @@ Abstract Class Pregunta{
     +asignarOpcionesPosibles(opcionesPosibles: Opciones): void
     +esCorrecta(Opcion: String): boolean
     +calificar(Respuestas: List<Respuesta>): void
+    +obtenerOpciones():Opciones
 }
 
 Class Respuesta{

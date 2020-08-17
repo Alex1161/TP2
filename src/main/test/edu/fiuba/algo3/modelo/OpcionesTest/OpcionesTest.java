@@ -2,8 +2,8 @@ package edu.fiuba.algo3.modelo.OpcionesTest;
 
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class OpcionesTest {
 
@@ -85,6 +85,16 @@ public class OpcionesTest {
         opciones2.agregarOpcion("1");
 
         assertTrue(opciones1.compararConOrden(opciones2));
+    }
+    @Test
+    public void test06PreguntoCantidadDeOpciones(){
+        Opciones opciones1 = new Opciones();
+        opciones1.agregarOpcion("3");
+        opciones1.agregarOpcion("2");
+        opciones1.agregarOpcion("1");
+
+
+        assertEquals(3,opciones1.cantidadDeOpciones());
     }
 
 }
