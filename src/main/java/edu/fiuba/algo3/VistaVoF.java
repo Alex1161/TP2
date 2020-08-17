@@ -19,20 +19,20 @@ public class VistaVoF {
     private static String VERDADERO = "Verdadero";
     private static String FALSO = "Falso";
 
-    public VistaVoF(Stage stage, VistaTemporizador vistaT, Pregunta preguntaActual, VistaInfoJugadores unaVistaInfoJugadores, Jugador jugador){
+    public VistaVoF(Stage stage, VistaTemporizador vistaT, Pregunta preguntaActual, VistaInfoJugadores unaVistaInfoJugadores,Panel unPanelDeJuego, Jugador jugador){
         //Button respuesta1 = new BotonProbarCambio();
         //respuesta1.setOnAction(new HandlerCronometro(vistaT));
         //respuesta1.getStyleClass().add(".button");
-        Button boton1 = new Button(VERDADERO);
-        boton1.getStyleClass().add("button2");
-        Button boton2 = new Button(FALSO);
-        boton2.getStyleClass().add("button3");
+        Button botonVerdadero = new Button(VERDADERO);
+        botonVerdadero.getStyleClass().add("button2");
+        Button botonFalso = new Button(FALSO);
+        botonFalso.getStyleClass().add("button3");
 
-        HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso(boton1,stage,unaVistaInfoJugadores,jugador,preguntaActual);
-        boton1.setOnAction(botonVoF);
+        HandlerBotonVerdaderoFalso handlerBotonVerdadero = new HandlerBotonVerdaderoFalso(botonVerdadero, stage, unaVistaInfoJugadores, unPanelDeJuego, jugador, preguntaActual);
+        botonVerdadero.setOnAction(handlerBotonVerdadero);
 
-        HandlerBotonVerdaderoFalso botonVoF2 = new HandlerBotonVerdaderoFalso(boton2,stage,unaVistaInfoJugadores,jugador,preguntaActual);
-        boton2.setOnAction(botonVoF2);
+        HandlerBotonVerdaderoFalso handlerBotonFalso = new HandlerBotonVerdaderoFalso(botonFalso, stage, unaVistaInfoJugadores, unPanelDeJuego, jugador, preguntaActual);
+        botonFalso.setOnAction(handlerBotonFalso);
 
 
         grillaRespuestas = new GridPane();
@@ -40,11 +40,11 @@ public class VistaVoF {
         grillaRespuestas.setVgap(5);
         grillaRespuestas.setHgap(5);
         grillaRespuestas.setAlignment(Pos.CENTER);
-        grillaRespuestas.add(boton1, 0, 1);
-        grillaRespuestas.add(boton2, 0, 0);
+        grillaRespuestas.add(botonVerdadero, 0, 1);
+        grillaRespuestas.add(botonFalso, 0, 0);
 
-        boton1.setPrefSize(400, 60);
-        boton2.setPrefSize(400, 60);
+        botonVerdadero.setPrefSize(400, 60);
+        botonFalso.setPrefSize(400, 60);
 
     }
 

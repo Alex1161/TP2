@@ -65,7 +65,6 @@ public class VistaInfoJugadores {
         this.puntosJ1txt.setText(String.valueOf(jugador1.puntajeValorNumerico()));
         this.j2Txt.setText(jugador2.getNombre());
         this.puntosJ2txt.setText(String.valueOf(jugador2.puntajeValorNumerico()));
-
         this.dibujar();
     }
 

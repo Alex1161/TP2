@@ -22,14 +22,9 @@ public class VistaPreguntaEnCurso{
     HBox panelSuperior;
     VBox ventanaCompleta;
 
-    Jugador jugador1;
-    Jugador jugador2;
+    public VistaPreguntaEnCurso(Stage stage, Panel unPanelJuego, Pregunta preguntaActual, Jugador jugadorActual){
 
-    public VistaPreguntaEnCurso(Stage stage, Jugador unJugador1, Jugador unJugador2, Pregunta preguntaActual){
-        jugador1 = unJugador1;
-        jugador2 = unJugador2;
-
-        vistaInfoJugadores = new VistaInfoJugadores(jugador1, jugador2);
+        vistaInfoJugadores = new VistaInfoJugadores(unPanelJuego.getJugador1(), unPanelJuego.getJugador2());
 
         panelIzquierdo = vistaInfoJugadores.obtenerPanelInfoJugadores();
 
@@ -49,9 +44,11 @@ public class VistaPreguntaEnCurso{
         panelSuperior.setAlignment(Pos.CENTER);
         panelSuperior.setMinHeight(500);
 
-        vistaVoF = new VistaVoF(stage,vistaTemporizador,preguntaActual,vistaInfoJugadores,jugador1);
+        vistaVoF = new VistaVoF(stage, vistaTemporizador, preguntaActual, vistaInfoJugadores, unPanelJuego, jugadorActual);
 
         ventanaCompleta = new VBox();
+
+        //obtener Vista
         ventanaCompleta.getChildren().addAll(panelSuperior, vistaVoF.obtenerGrilla());
         ventanaCompleta.getStyleClass().add("fondo-general");
 

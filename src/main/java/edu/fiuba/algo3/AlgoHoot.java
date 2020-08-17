@@ -21,9 +21,12 @@ public class AlgoHoot extends Application {
 
     private Jugador jugador1;
     private Jugador jugador2;
+    private Panel panelJuego;
     private static final String NOMBRE_JUEGO = "AlgoHoot" ;
-    private static final int ANCHO = 1024;
-    private static final int ALTO = 768;
+
+
+    public static final int ANCHO = 1024;
+    public static final int ALTO = 768;
 
 
     @Override
@@ -31,19 +34,19 @@ public class AlgoHoot extends Application {
 
         jugador1 = new Jugador();
         jugador2 = new Jugador();
-        List<Pregunta> listaPreguntas = null;
-
-        Panel panelJuego = new Panel(jugador1,jugador2);
+        panelJuego = new Panel(jugador1, jugador2);
 
         try{
-            listaPreguntas = panelJuego.cargarPreguntas();
+            panelJuego.cargarPreguntas();
         }catch (IOException e){
             e.getMessage();
         }
 
         stage.setTitle(NOMBRE_JUEGO);
 
-        VistaPreguntaEnCurso preguntaEnCurso = new VistaPreguntaEnCurso(stage,jugador1, jugador2,listaPreguntas.get(0));
+
+
+        VistaPreguntaEnCurso preguntaEnCurso = new VistaPreguntaEnCurso(stage, panelJuego, panelJuego.comenzarPregunta(), jugador1);
         Scene escenaPreguntaEnCurso = new Scene(preguntaEnCurso.obtenerVista(), ANCHO, ALTO);
 
         File f = new File("EstilosDeBotones.css");
