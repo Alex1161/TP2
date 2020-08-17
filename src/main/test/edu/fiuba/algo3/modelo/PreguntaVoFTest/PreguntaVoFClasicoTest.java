@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
-import edu.fiuba.algo3.modelo.Pregunta.MultiplicadorPreguntaSinPenalidadNoPermitidoException;
+import edu.fiuba.algo3.modelo.Penalidad.MultiplicadorNoPermitido;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import org.junit.jupiter.api.Test;
@@ -104,7 +104,7 @@ public class PreguntaVoFClasicoTest {
     public void Test07PreguntaVoFClasicoSeAgregaMultiplicadorX2LanzaException(){
         Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
 
-        assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
+        assertThrows(MultiplicadorNoPermitido.class,
                 () -> {
                     Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
                     pregunta.agregarComodin(new MultiplicadorX2(), respuesta);
@@ -115,7 +115,7 @@ public class PreguntaVoFClasicoTest {
     public void Test08PreguntaVoFClasicoSeAgregaMultiplicadorX3LanzaException(){
         Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
 
-            assertThrows(MultiplicadorPreguntaSinPenalidadNoPermitidoException.class,
+            assertThrows(MultiplicadorNoPermitido.class,
                     () -> {
                         Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
                         pregunta.agregarComodin(new MultiplicadorX3(), respuesta);

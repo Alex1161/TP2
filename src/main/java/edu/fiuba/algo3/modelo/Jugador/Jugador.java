@@ -42,11 +42,11 @@ public class Jugador {
         return puntaje.valorNumerico();
     }
 
-    public void sacarComodin(Comodin comodin) throws ComodinYaUsadoException{
+    public void sacarComodin(Comodin comodin) throws ComodinYaUsado {
         boolean fueSacado = comodines.remove(comodin);
 
         if ( !fueSacado ){
-            throw new ComodinYaUsadoException();
+            throw new ComodinYaUsado();
         }
 
     }

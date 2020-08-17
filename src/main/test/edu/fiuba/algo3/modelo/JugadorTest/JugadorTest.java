@@ -3,9 +3,8 @@ package edu.fiuba.algo3.modelo.JugadorTest;
 import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
-import edu.fiuba.algo3.modelo.Jugador.ComodinYaUsadoException;
+import edu.fiuba.algo3.modelo.Jugador.ComodinYaUsado;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Jugador.MultiplicadorYaUsadoException;
 import edu.fiuba.algo3.modelo.Puntaje.*;
 import org.junit.jupiter.api.Test;
 
@@ -63,7 +62,7 @@ public class JugadorTest {
         Jugador jugador = new Jugador("carlos");
         jugador.sacarComodin(new MultiplicadorX2());
 
-        assertThrows(ComodinYaUsadoException.class,
+        assertThrows(ComodinYaUsado.class,
                 () -> {
                     jugador.sacarComodin(new MultiplicadorX2());
                 });
@@ -74,7 +73,7 @@ public class JugadorTest {
         Jugador jugador = new Jugador("carlos");
         jugador.sacarComodin(new MultiplicadorX3());
 
-        assertThrows(ComodinYaUsadoException.class,
+        assertThrows(ComodinYaUsado.class,
                 () -> {
                     jugador.sacarComodin(new MultiplicadorX3());
                 });
@@ -86,7 +85,7 @@ public class JugadorTest {
         jugador.sacarComodin(new Exclusividad());
         jugador.sacarComodin(new Exclusividad());
 
-        assertThrows(ComodinYaUsadoException.class,
+        assertThrows(ComodinYaUsado.class,
                 () -> {
                     jugador.sacarComodin(new Exclusividad());
                 });
