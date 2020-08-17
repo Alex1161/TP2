@@ -25,7 +25,6 @@ public class AlgoHoot extends Application {
     private static final int ANCHO = 1024;
     private static final int ALTO = 768;
 
-
     @Override
     public void start(Stage stage) {
 

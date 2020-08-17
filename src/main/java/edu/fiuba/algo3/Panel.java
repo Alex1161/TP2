@@ -11,11 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Panel {
+    private static Panel instancia = new Panel();
     private final CreadorDePreguntas fachadaCreadorPregunta;
     Jugador jugador1;
     Jugador jugador2;
     private static String ARCHIVOJSON = "Preguntas.json";
     LectorDePreguntas lectorJson = new LectorDePreguntas();
+
+    private Panel(){
+        this.fachadaCreadorPregunta = new CreadorDePreguntas();
+    }
+
+    public static Panel getInstancia(){
+        return instancia;
+    }
 
     public Panel(Jugador jugador1, Jugador jugador2){
         this.jugador1 = jugador1;
