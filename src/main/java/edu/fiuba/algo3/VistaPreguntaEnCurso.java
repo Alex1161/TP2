@@ -1,26 +1,19 @@
 package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.vista.ActionListenerCronometro;
-import edu.fiuba.algo3.vista.HandlerCronometro;
 import edu.fiuba.algo3.vista.VistaTemporizador;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
-
-
+import java.util.List;
 
 
 public class VistaPreguntaEnCurso{
     VistaEnunciado vistaEnunciado;
-    VistaGrillaRespuestas vistaGrillaRespuestas;
+    VistaVoF vistaVoF;
     VistaInfoJugadores vistaInfoJugadores;
     VistaTemporizador vistaTemporizador;
     VBox panelDerecho;
@@ -32,7 +25,7 @@ public class VistaPreguntaEnCurso{
     Jugador jugador1;
     Jugador jugador2;
 
-    public VistaPreguntaEnCurso(Jugador unJugador1, Jugador unJugador2){
+    public VistaPreguntaEnCurso(Stage stage, Jugador unJugador1, Jugador unJugador2, Pregunta preguntaActual){
         jugador1 = unJugador1;
         jugador2 = unJugador2;
 
@@ -46,7 +39,7 @@ public class VistaPreguntaEnCurso{
 
         panelDerecho = vistaTemporizador.obtenerPanelTemporizador();
 
-        vistaEnunciado = new VistaEnunciado();
+        vistaEnunciado = new VistaEnunciado(preguntaActual);
 
         panelCentral = vistaEnunciado.obtenerPanelEnunciado();
 
@@ -56,10 +49,10 @@ public class VistaPreguntaEnCurso{
         panelSuperior.setAlignment(Pos.CENTER);
         panelSuperior.setMinHeight(500);
 
-        vistaGrillaRespuestas = new VistaGrillaRespuestas(vistaTemporizador);
+        vistaVoF = new VistaVoF(stage,vistaTemporizador,preguntaActual,vistaInfoJugadores,jugador1);
 
         ventanaCompleta = new VBox();
-        ventanaCompleta.getChildren().addAll(panelSuperior, vistaGrillaRespuestas.obtenerGrilla());
+        ventanaCompleta.getChildren().addAll(panelSuperior, vistaVoF.obtenerGrilla());
         ventanaCompleta.getStyleClass().add("fondo-general");
 
     }

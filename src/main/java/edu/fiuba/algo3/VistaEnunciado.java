@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -10,11 +11,11 @@ public class VistaEnunciado {
 
     VBox panelEnunciado;
 
-    public VistaEnunciado(){
+    public VistaEnunciado(Pregunta preguntaActual){
         panelEnunciado = new VBox();
 
         panelEnunciado.setPrefSize(400,100);
-        Label enunciadoTxt = new Label("Quien fue el primer hombre que se comio una hamburguesa con queso?");
+        Label enunciadoTxt = new Label(preguntaActual.getEnunciado());
         enunciadoTxt.setFont(Font.font("Arial", FontWeight.BOLD, 36));
         enunciadoTxt.setMaxWidth(800);
         enunciadoTxt.setWrapText(true);

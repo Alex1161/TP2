@@ -68,4 +68,8 @@ public class Pregunta {
         return opcionesPosibles;
     }
 
+    public String getEnunciado(){
+        return enunciado;
+    }
+
 }

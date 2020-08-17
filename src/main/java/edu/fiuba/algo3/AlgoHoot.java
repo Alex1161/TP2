@@ -1,6 +1,7 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.vista.VistaIngresoDeJugadores;
 import edu.fiuba.algo3.vista.VistaTemporizador;
 import javafx.application.Application;
@@ -10,6 +11,8 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,10 +31,19 @@ public class AlgoHoot extends Application {
 
         jugador1 = new Jugador();
         jugador2 = new Jugador();
+        List<Pregunta> listaPreguntas = null;
+
+        Panel panelJuego = new Panel(jugador1,jugador2);
+
+        try{
+            listaPreguntas = panelJuego.cargarPreguntas();
+        }catch (IOException e){
+            e.getMessage();
+        }
 
         stage.setTitle(NOMBRE_JUEGO);
 
-        VistaPreguntaEnCurso preguntaEnCurso = new VistaPreguntaEnCurso(jugador1, jugador2);
+        VistaPreguntaEnCurso preguntaEnCurso = new VistaPreguntaEnCurso(stage,jugador1, jugador2,listaPreguntas.get(0));
         Scene escenaPreguntaEnCurso = new Scene(preguntaEnCurso.obtenerVista(), ANCHO, ALTO);
 
         File f = new File("EstilosDeBotones.css");

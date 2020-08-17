@@ -2,22 +2,16 @@ package edu.fiuba.algo3.vista;
 
 //import edu.fiuba.algo3.Controlador;
 import edu.fiuba.algo3.VistaInfoJugadores;
-import edu.fiuba.algo3.VistaPreguntaEnCurso;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.vista.BotonParaJugar;
-import javafx.application.Application;
+import edu.fiuba.algo3.vista.eventos.HandlerBotonParaJugar;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-import java.io.File;
 
 public class VistaIngresoDeJugadores{
 

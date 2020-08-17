@@ -2,16 +2,12 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.VistaInfoJugadores;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
-import javafx.scene.Node;
+import edu.fiuba.algo3.vista.eventos.HandlerBotonParaJugar;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.TextField;
 
 public class BotonParaJugar extends Button {
     private static String DESCRIPCION = "Comenzar Juego";
