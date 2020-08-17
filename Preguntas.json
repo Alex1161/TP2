@@ -15,19 +15,19 @@
       "tipoDePregunta":"MultipleChoiceClasico",
       "enunciado":"selecciones a todos los animales",
       "opcionesCorrectas": ["Perro","Gato"],
-      "opcionesPosibles": ["Tomate","Pera"]
+      "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
     },
     {
       "tipoDePregunta":"MultipleChoicePenalizado",
       "enunciado":"selecciones a todos los animales",
       "opcionesCorrectas": ["Perro","Gato"],
-      "opcionesPosibles": ["Tomate","Pera"]
+      "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
     },
     {
       "tipoDePregunta":"MultipleChoiceParcial",
       "enunciado":"selecciones a todos los animales",
       "opcionesCorrectas": ["Perro","Gato"],
-      "opcionesPosibles": ["Tomate","Pera"]
+      "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
     }]
 }
 

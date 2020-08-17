@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LectorDePreguntasTest {
     @Test
@@ -85,7 +86,7 @@ public class LectorDePreguntasTest {
     }
 
     @Test
-    public void prueboPreguntasJson() throws IOException {
+    public void prueboLectorDePreguntas() throws IOException {
         LectorDePreguntas fabrica=new LectorDePreguntas();
         List<Pregunta>  preguntas = fabrica.recuperarPreguntas("Preguntas.json");
         Pregunta pregunta = preguntas.get(0);
@@ -163,7 +164,50 @@ public class LectorDePreguntasTest {
         pregunta.calificar(respuestas);
         assertEquals(2, jugador1.puntajeValorNumerico());
         assertEquals(0, jugador2.puntajeValorNumerico());
+    }
 
+    @Test
+    public void prueboLectorDePreguntasYSuContenido() throws IOException {
+        String Verdadero="Verdadero";
+        String Falso= "Falso";
+        String Tomate="Tomate";
+        String Pera= "Pera";
+        String Perro="Perro";
+        String Gato="Gato";
+
+        LectorDePreguntas fabrica=new LectorDePreguntas();
+        List<Pregunta>  preguntas = fabrica.recuperarPreguntas("Preguntas.json");
+        Pregunta pregunta = preguntas.get(0);
+
+        assertTrue(pregunta.obtenerOpciones().esta(Verdadero));
+        assertTrue(pregunta.obtenerOpciones().esta(Falso));
+
+        pregunta = preguntas.get(1);
+
+        assertTrue(pregunta.obtenerOpciones().esta(Verdadero));
+        assertTrue(pregunta.obtenerOpciones().esta(Falso));
+
+        pregunta = preguntas.get(2);
+
+        assertTrue(pregunta.obtenerOpciones().esta(Pera));
+        assertTrue(pregunta.obtenerOpciones().esta(Perro));
+        assertTrue(pregunta.obtenerOpciones().esta(Tomate));
+        assertTrue(pregunta.obtenerOpciones().esta(Gato));
+
+        pregunta = preguntas.get(3);
+
+        assertTrue(pregunta.obtenerOpciones().esta(Pera));
+        assertTrue(pregunta.obtenerOpciones().esta(Perro));
+        assertTrue(pregunta.obtenerOpciones().esta(Tomate));
+        assertTrue(pregunta.obtenerOpciones().esta(Gato));
+
+
+        pregunta = preguntas.get(4);
+
+        assertTrue(pregunta.obtenerOpciones().esta(Pera));
+        assertTrue(pregunta.obtenerOpciones().esta(Perro));
+        assertTrue(pregunta.obtenerOpciones().esta(Tomate));
+        assertTrue(pregunta.obtenerOpciones().esta(Gato));
 
     }
 }
