@@ -1,0 +1,95 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+'Clases
+Class Opciones{
+    -opciones: Collection<String>
+    +compararConOrden(opciones: Opciones): boolean
+    +compararSinOrden(opciones: Opciones): boolean
+    +contiene(opciones: Opciones): boolean
+    +esta(opcion: String): boolean
+}
+Class Pregunta{
+    -enunciado: String
+    -tipo: String
+    +asignarTipo(tipo: String):void
+    +setPenalidad(penalidad: Penalidad):void
+    +calificar(Respuestas: List<Respuesta>): void
+    +agregarComodin(comodin: Comodin, respuesta: Respuesta): void
+}
+
+Class Respuesta{
+    -opcionesElegidas: Opciones
+    -puntajeObtenido: Puntaje
+    +puntaje():Puntaje
+    +setPuntajeObtenido(puntaje: Ppntaje):void
+    +agregarOpcion(opcion: String):void
+    +aplicarComodin(comodin: Comodin): void
+    +aplicarPuntaje(): void
+    +vs(respuesta: Respuesta): void
+    +calificacionValorNumerico(): int
+}
+
+Class Jugador{
+    -nombre: String
+    +{Static}Jugador(nombre: String)
+    +agregarPuntaje(puntaje: Puntaje): void
+    +puntajeValorNumerico(): int
+    +sacarComodin(comodin : Comodin):void
+}
+
+abstract Puntaje{
+    +{abstract}agregar(puntaje: Puntaje): IPunteable
+    +{abstract}valor(): int
+    +multiplicarPor(factor: int):Puntaje
+}
+
+
+
+Abstract Class Comodin{
+    +{abstract}aplicar(puntaje: Puntaje): Puntaje
+    +{abstract}aplicar(respuesta: List<Respuesta>): void
+    +{abstract}validar(penalidad: Penalidad): void
+    +equals(obj: Object): boolean
+}
+
+
+Abstract Class Penalidad{
+    +validar(comodin: Comodin): void
+    +{abstract}validarExclusividad(): void
+    +{abstract}validarMultiplicador(): void
+}
+
+Class ConPenalidad{
+    +validarExclusividad(): void
+    +validarMultiplicador(): void
+}
+
+Class SinPenalidad{
+    +validarExclusividad(): void
+    +validarMultiplicador(): void
+}
+Abstract Calificador{
+    +{static}Calificador(calificador: Calificador)
+    +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
+}
+'Relaciones
+Respuesta o-- Jugador
+Respuesta *-up- Opciones
+Respuesta o-right- Comodin
+
+Pregunta "1" *-left- "2" Opciones
+Pregunta "1" o-- "1..2" Comodin
+Pregunta o-- Penalidad
+Pregunta o-up- Calificador
+
+
+
+ConPenalidad -up-|> Penalidad
+SinPenalidad -up-|> Penalidad
+
+Jugador *-right- Puntaje
+
+Jugador "1" *-up- "4" Comodin
+
+@enduml

@@ -3,8 +3,9 @@ hide circle
 skinparam classAttributeIconSize 0
 
 'Clases
-Interface IPunteable{
+abstract Puntaje{
     +{abstract}agregar(puntaje: IPunteable): IPunteable
+    +multiplicarPor(int factor): Puntaje
     +{abstract}valor(puntaje: Puntaje): int
 }
 
@@ -34,7 +35,7 @@ Class PuntoPositivo{
 PuntoNegativo -up-|> Punto
 PuntoNulo -up-|> Punto
 PuntoPositivo -up-|> Punto
-Puntos .up.|> IPunteable
-Puntos o-up- "*" IPunteable
-Punto .up.|> IPunteable
+Puntos .up.|> Puntaje
+Puntos o-up- "*" Puntaje
+Punto .right.|> Puntaje
 @enduml

@@ -59,8 +59,8 @@ public class ExclusividadTest {
 
         exclusividad.aplicar(respuestas);
 
-        assertEquals(2, respuesta1.calificacionValorNumerico());
-        assertEquals(0, respuesta2.calificacionValorNumerico());
+        assertEquals(2, respuesta1.puntaje().valorNumerico());
+        assertEquals(0, respuesta2.puntaje().valorNumerico());
     }
 
     @Test
@@ -78,8 +78,8 @@ public class ExclusividadTest {
 
         exclusividad.aplicar(respuestas);
 
-        assertEquals(0, respuesta1.calificacionValorNumerico());
-        assertEquals(0, respuesta2.calificacionValorNumerico());
+        assertEquals(0, respuesta1.puntaje().valorNumerico());
+        assertEquals(0, respuesta2.puntaje().valorNumerico());
     }
 
     @Test
@@ -97,8 +97,8 @@ public class ExclusividadTest {
 
         exclusividad.aplicar(respuestas);
 
-        assertEquals(0, respuesta1.calificacionValorNumerico());
-        assertEquals(0, respuesta2.calificacionValorNumerico());
+        assertEquals(0, respuesta1.puntaje().valorNumerico());
+        assertEquals(0, respuesta2.puntaje().valorNumerico());
     }
 
     @Test

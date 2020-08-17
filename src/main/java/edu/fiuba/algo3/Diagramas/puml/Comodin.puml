@@ -1,0 +1,50 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+'Clases
+
+Abstract Multiplicador{
+    +{abstract}aplicar(puntaje: Puntaje): Puntaje
+    +aplicar(respuesta: List<Respuesta>): void
+    +validar(penalidad: Penalidad): void
+}
+
+Abstract Class Comodin{
+    +{abstract}aplicar(puntaje: Puntaje): Puntaje
+    +{abstract}aplicar(respuesta: List<Respuesta>): void
+    +{abstract}validar(penalidad: Penalidad): void
+    +equals(obj: Object): boolean
+}
+
+Class ComodinVacio{
+    +aplicar(puntaje: Puntaje): Puntaje
+    +aplicar(respuesta: List<Respuesta>): void
+    +validar(penalidad: Penalidad): void
+}
+
+Class Exclusividad{
+    +aplicar(puntaje: Puntaje): Puntaje
+    +aplicar(respuesta: List<Respuesta>): void
+    +validar(penalidad: Penalidad): void
+}
+
+Class MultiplicadorX2{
+    -aplicar(puntaje: Puntaje): Puntaje
+}
+
+Class MultiplicadorX3{
+    -aplicar(puntaje: Puntaje): Puntaje
+}
+
+
+
+'Relaciones
+
+Multiplicador -up-|> Comodin
+Exclusividad -up-|> Comodin
+MultiplicadorX2 -up-|> Multiplicador
+MultiplicadorX3 -up-|> Multiplicador
+ComodinVacio -right-|> Comodin
+
+@enduml
