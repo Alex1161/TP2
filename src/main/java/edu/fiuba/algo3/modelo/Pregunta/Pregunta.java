@@ -64,5 +64,8 @@ public class Pregunta {
         respuesta.setComodin(comodin);
         comodines.add(comodin);
     }
+    public Opciones obtenerOpciones(){
+        return opcionesPosibles;
+    }
 
 }
