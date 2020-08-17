@@ -16,6 +16,7 @@ public class Panel {
     private List<Jugador> listaJugadores = new ArrayList<Jugador>();
     private static String ARCHIVOJSON = "Preguntas.json";
     LectorDePreguntas lectorJson = new LectorDePreguntas();
+    List<Pregunta> listaPreguntas = new ArrayList<>();
 
 
     private Panel(){
@@ -40,8 +41,8 @@ public class Panel {
     }
      */
 
-    public List<Pregunta> cargarPreguntas() throws IOException {
-        return lectorJson.recuperarPreguntas(ARCHIVOJSON);
+    public void cargarPreguntas() throws IOException {
+        listaPreguntas = lectorJson.recuperarPreguntas(ARCHIVOJSON);
     }
 
 
@@ -55,7 +56,8 @@ public class Panel {
     }
 
     public Pregunta preguntaActual() {
-        return CreadorDePreguntas.preguntaVoFClasico("2+2= 12392193","Falso");
+        return listaPreguntas.get(0);
+        //return CreadorDePreguntas.preguntaVoFClasico("2+2= 12392193","Falso");
     }
 
     public Jugador jugadorActual() {

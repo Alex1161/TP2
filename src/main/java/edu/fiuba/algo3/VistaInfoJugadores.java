@@ -49,12 +49,14 @@ public class VistaInfoJugadores {
     }
 
     public void dibujar(){
+        tablaDeInfo = new GridPane();
         tablaDeInfo.add(nombre, 0, 0);
         tablaDeInfo.add(puntos, 1, 0);
         tablaDeInfo.add(j1Txt, 0, 1);
         tablaDeInfo.add(puntosJ1txt, 1, 1);
         tablaDeInfo.add(j2Txt, 0, 2);
         tablaDeInfo.add(puntosJ2txt, 1, 2);
+        panel.getChildren().removeAll();
         panel.getChildren().addAll(tablaDeInfo);
     }
 
@@ -64,7 +66,7 @@ public class VistaInfoJugadores {
         this.j2Txt.setText(panelJuego.obtenerJugador(1).getNombre());
         this.puntosJ2txt.setText(String.valueOf(panelJuego.obtenerJugador(1).puntajeValorNumerico()));
 
-        //this.dibujar();
+        this.dibujar();
     }
 
     public VBox obtenerPanelInfoJugadores() {
