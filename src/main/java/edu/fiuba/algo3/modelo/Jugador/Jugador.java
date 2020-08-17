@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Jugador {
     private String nombre;
-    private Puntaje puntaje  ;
+    private Puntaje puntaje;
     private List<Comodin> comodines = new LinkedList<Comodin>();
 
     public Jugador(String nombre) {
@@ -31,7 +31,8 @@ public class Jugador {
     }
 
     public void agregarPuntaje(Puntaje puntaje){
-        this.puntaje = puntaje;
+        //this.puntaje = puntaje.agregar(puntaje);
+        this.puntaje.agregar(puntaje);
     }
 
     public void setNombre(String unNombre){

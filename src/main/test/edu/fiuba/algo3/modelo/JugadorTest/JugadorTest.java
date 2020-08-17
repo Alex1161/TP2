@@ -47,7 +47,7 @@ public class JugadorTest {
 
     @Test
     public void test04JugadorSeLeAgregaPuntosDeValorNumericoDosPuntajeValorNumericoEsDos(){
-        Puntaje puntaje= new Puntos();
+        Puntaje puntaje = new Puntos();
         puntaje.agregar(new PuntoPositivo());
         puntaje.agregar(new PuntoPositivo());
         Jugador jugador = new Jugador("carlos");
