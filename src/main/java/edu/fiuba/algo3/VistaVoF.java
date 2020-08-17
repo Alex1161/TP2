@@ -19,7 +19,7 @@ public class VistaVoF {
     private static String VERDADERO = "Verdadero";
     private static String FALSO = "Falso";
 
-    public VistaVoF(Stage stage, VistaTemporizador vistaT, Pregunta preguntaActual, VistaInfoJugadores unaVistaInfoJugadores, Jugador jugador){
+    public VistaVoF(Stage stage, VistaTemporizador vistaT, VistaInfoJugadores unaVistaInfoJugadores){
         //Button respuesta1 = new BotonProbarCambio();
         //respuesta1.setOnAction(new HandlerCronometro(vistaT));
         //respuesta1.getStyleClass().add(".button");
@@ -28,10 +28,10 @@ public class VistaVoF {
         Button boton2 = new Button(FALSO);
         boton2.getStyleClass().add("button3");
 
-        HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso(boton1,stage,unaVistaInfoJugadores,jugador,preguntaActual);
+        HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso(boton1,stage,unaVistaInfoJugadores);
         boton1.setOnAction(botonVoF);
 
-        HandlerBotonVerdaderoFalso botonVoF2 = new HandlerBotonVerdaderoFalso(boton2,stage,unaVistaInfoJugadores,jugador,preguntaActual);
+        HandlerBotonVerdaderoFalso botonVoF2 = new HandlerBotonVerdaderoFalso(boton2,stage,unaVistaInfoJugadores);
         boton2.setOnAction(botonVoF2);
 
 

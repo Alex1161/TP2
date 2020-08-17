@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.vista.eventos;
 
+import edu.fiuba.algo3.Panel;
 import edu.fiuba.algo3.VistaInfoJugadores;
+import edu.fiuba.algo3.VistaPreguntaEnCurso;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.vista.VistaIngresoDeJugadores;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -11,23 +14,21 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 
+import java.io.File;
+
 public class HandlerBotonParaJugar implements EventHandler {
 
     private Stage ventana;
     private Scene escenaProxima;
-    private VistaInfoJugadores vistaInfoJugadores;
-    private Jugador jugador1;
-    private  Jugador jugador2;
+    //private VistaInfoJugadores vistaInfoJugadores;
+    private Panel paneljuego;
     private  TextField campoJugador1;
     private TextField campoJugador2;
     VBox cuadro;
 
-    public HandlerBotonParaJugar(Stage unaVentana, Scene unaEscenaProxima, VistaInfoJugadores unaVistaInfoJugadores, Jugador unJugador1, Jugador unJugador2, TextField nombreJug1, TextField nombreJug2, VBox cuadro){
+    public HandlerBotonParaJugar(Stage unaVentana, TextField nombreJug1, TextField nombreJug2, VBox cuadro){
         this.ventana = unaVentana;
-        this.escenaProxima = unaEscenaProxima;
-        this.jugador1 = unJugador1;
-        this.jugador2 = unJugador2;
-        this.vistaInfoJugadores = unaVistaInfoJugadores;
+        paneljuego = Panel.getInstancia();
         this.campoJugador1 = nombreJug1;
         this.campoJugador2 = nombreJug2;
         this.cuadro = cuadro;
@@ -42,10 +43,20 @@ public class HandlerBotonParaJugar implements EventHandler {
             cuadro.getChildren().addAll(textoInfoError);
 
         }else {
-            jugador1.setNombre(campoJugador1.getText());
-            jugador2.setNombre(campoJugador2.getText());
-            vistaInfoJugadores.actualizar();
-            ventana.setScene(escenaProxima);
+            File f = new File("EstilosDeBotones.css");
+
+            Jugador jugador1 = new Jugador(campoJugador1.getText());
+            Jugador jugador2 = new Jugador(campoJugador2.getText());
+            paneljuego.agregarJugador(jugador1);
+            paneljuego.agregarJugador(jugador2);
+
+            VistaPreguntaEnCurso preguntaEnCurso = new VistaPreguntaEnCurso(ventana);
+            Scene escenaPregunta = new Scene(preguntaEnCurso.obtenerVista(), 1024, 768);
+
+            escenaPregunta.getStylesheets().clear();
+            escenaPregunta.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+
+            ventana.setScene(escenaPregunta);
         }
 
     }

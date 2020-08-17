@@ -13,10 +13,10 @@ import java.util.List;
 public class Panel {
     private static Panel instancia = new Panel();
     private final CreadorDePreguntas fachadaCreadorPregunta;
-    Jugador jugador1;
-    Jugador jugador2;
+    private List<Jugador> listaJugadores = new ArrayList<Jugador>();
     private static String ARCHIVOJSON = "Preguntas.json";
     LectorDePreguntas lectorJson = new LectorDePreguntas();
+
 
     private Panel(){
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
@@ -26,7 +26,7 @@ public class Panel {
         return instancia;
     }
 
-    public Panel(Jugador jugador1, Jugador jugador2){
+    /*public Panel(Jugador jugador1, Jugador jugador2){
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
@@ -38,9 +38,27 @@ public class Panel {
         }
         else return jugador2;
     }
+     */
 
     public List<Pregunta> cargarPreguntas() throws IOException {
         return lectorJson.recuperarPreguntas(ARCHIVOJSON);
     }
 
+
+    public void agregarJugador(Jugador jugador) {
+        listaJugadores.add(jugador);
+
+    }
+
+    public Jugador obtenerJugador(int i) {
+        return listaJugadores.get(i);
+    }
+
+    public Pregunta preguntaActual() {
+        return CreadorDePreguntas.preguntaVoFClasico("2+2= 12392193","Falso");
+    }
+
+    public Jugador jugadorActual() {
+        return listaJugadores.get(0);
+    }
 }

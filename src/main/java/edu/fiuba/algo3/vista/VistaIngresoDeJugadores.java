@@ -23,15 +23,11 @@ public class VistaIngresoDeJugadores{
     BotonParaJugar unBoton;
     HandlerBotonParaJugar handlerBotonParaJugar;
     Scene proximaVistaEscena;
-    Jugador j1;
-    Jugador j2;
     Stage ventana;
 
-    public VistaIngresoDeJugadores(Stage stage, Scene unaProximaVistaEscena, VistaInfoJugadores unaVistaIngresoJugadores, Jugador unJugador1, Jugador unJugador2){
+    public VistaIngresoDeJugadores(Stage stage){
         this.ventana = stage;
-        this.proximaVistaEscena = unaProximaVistaEscena;
-        this.j1 = unJugador1;
-        this.j2 = unJugador2;
+        //this.proximaVistaEscena = unaProximaVistaEscena;
 
         this.layoutInicial = new BorderPane();
 
@@ -49,7 +45,7 @@ public class VistaIngresoDeJugadores{
 
         VBox cuadro = new VBox(solicitudNombre1, solicitudNombre2);
 
-        this.unBoton = new BotonParaJugar(ventana, this.proximaVistaEscena, unaVistaIngresoJugadores, j1, j2, solicitudNombre1, solicitudNombre2,cuadro);
+        this.unBoton = new BotonParaJugar(ventana, solicitudNombre1, solicitudNombre2,cuadro);
         cuadro.getChildren().addAll(unBoton);
 
         cuadro.setSpacing(20);

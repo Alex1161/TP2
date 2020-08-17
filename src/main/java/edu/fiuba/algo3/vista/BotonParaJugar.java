@@ -14,10 +14,10 @@ public class BotonParaJugar extends Button {
     //private HandlerBotonParaJugar manejadorBoton;
 
 
-    public BotonParaJugar(Stage ventana, Scene proximaEscena, VistaInfoJugadores unaVistaIngresoJugadores, Jugador j1, Jugador j2, TextField campoJug1, TextField campoJug2, VBox cuadro){
+    public BotonParaJugar(Stage ventana, TextField campoJug1, TextField campoJug2, VBox cuadro){
         super();
         setText(DESCRIPCION);
-        setOnMouseClicked(new HandlerBotonParaJugar(ventana, proximaEscena,unaVistaIngresoJugadores, j1, j2, campoJug1, campoJug2,cuadro));
+        setOnMouseClicked(new HandlerBotonParaJugar(ventana, campoJug1, campoJug2,cuadro));
     }
 
 }

@@ -10,19 +10,16 @@ import javafx.scene.text.Text;
 public class VistaInfoJugadores {
 
     GridPane tablaDeInfo;
-    VBox panelIzquierdo;
+    VBox panel;
     Text j1Txt;
     Text j2Txt;
     Text nombre;
     Text puntos;
     Text puntosJ1txt;
     Text puntosJ2txt;
-    Jugador jugador1, jugador2;
+    Panel panelJuego = Panel.getInstancia();
 
-    public VistaInfoJugadores(Jugador jugador1, Jugador jugador2) {
-
-        this.jugador1 = jugador1;
-        this.jugador2 = jugador2;
+    public VistaInfoJugadores() {
 
         this.tablaDeInfo = new GridPane();
         tablaDeInfo.setPadding(new Insets(10, 10, 10, 10));
@@ -36,17 +33,18 @@ public class VistaInfoJugadores {
         puntos.getStyleClass().add("otros-text");
         this.j1Txt = new Text("Pepito");
         j1Txt.getStyleClass().add("otros-text");
-        this.puntosJ1txt = new Text(String.valueOf(jugador1.puntajeValorNumerico()));
+        this.puntosJ1txt = new Text(String.valueOf(panelJuego.obtenerJugador(0).puntajeValorNumerico()));
         puntosJ1txt.getStyleClass().add("otros-text");
         this.j2Txt = new Text("Jose");
         j2Txt.getStyleClass().add("otros-text");
-        this.puntosJ2txt = new Text(String.valueOf(jugador2.puntajeValorNumerico()));
+        this.puntosJ2txt = new Text(String.valueOf(panelJuego.obtenerJugador(1).puntajeValorNumerico()));
         puntosJ2txt.getStyleClass().add("otros-text");
 
 
-        this.panelIzquierdo = new VBox();
-        panelIzquierdo.setSpacing(30);
-        panelIzquierdo.setAlignment(Pos.CENTER);
+        this.panel = new VBox();
+        panel.setSpacing(30);
+        panel.setAlignment(Pos.CENTER);
+        dibujar();
 
     }
 
@@ -57,20 +55,20 @@ public class VistaInfoJugadores {
         tablaDeInfo.add(puntosJ1txt, 1, 1);
         tablaDeInfo.add(j2Txt, 0, 2);
         tablaDeInfo.add(puntosJ2txt, 1, 2);
-        panelIzquierdo.getChildren().addAll(tablaDeInfo);
+        panel.getChildren().addAll(tablaDeInfo);
     }
 
     public void actualizar(){
-        this.j1Txt.setText(jugador1.getNombre());
-        this.puntosJ1txt.setText(String.valueOf(jugador1.puntajeValorNumerico()));
-        this.j2Txt.setText(jugador2.getNombre());
-        this.puntosJ2txt.setText(String.valueOf(jugador2.puntajeValorNumerico()));
+        this.j1Txt.setText(panelJuego.obtenerJugador(0).getNombre());
+        this.puntosJ1txt.setText(String.valueOf(panelJuego.obtenerJugador(0).puntajeValorNumerico()));
+        this.j2Txt.setText(panelJuego.obtenerJugador(1).getNombre());
+        this.puntosJ2txt.setText(String.valueOf(panelJuego.obtenerJugador(1).puntajeValorNumerico()));
 
-        this.dibujar();
+        //this.dibujar();
     }
 
     public VBox obtenerPanelInfoJugadores() {
-        return panelIzquierdo;
+        return panel;
     }
 
 }

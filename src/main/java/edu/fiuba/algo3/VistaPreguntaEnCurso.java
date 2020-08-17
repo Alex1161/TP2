@@ -22,14 +22,12 @@ public class VistaPreguntaEnCurso{
     HBox panelSuperior;
     VBox ventanaCompleta;
 
-    Jugador jugador1;
-    Jugador jugador2;
+    Panel paneljuego = Panel.getInstancia();
 
-    public VistaPreguntaEnCurso(Stage stage, Jugador unJugador1, Jugador unJugador2, Pregunta preguntaActual){
-        jugador1 = unJugador1;
-        jugador2 = unJugador2;
+    public VistaPreguntaEnCurso(Stage stage){
 
-        vistaInfoJugadores = new VistaInfoJugadores(jugador1, jugador2);
+
+        vistaInfoJugadores = new VistaInfoJugadores();
 
         panelIzquierdo = vistaInfoJugadores.obtenerPanelInfoJugadores();
 
@@ -39,7 +37,7 @@ public class VistaPreguntaEnCurso{
 
         panelDerecho = vistaTemporizador.obtenerPanelTemporizador();
 
-        vistaEnunciado = new VistaEnunciado(preguntaActual);
+        vistaEnunciado = new VistaEnunciado();
 
         panelCentral = vistaEnunciado.obtenerPanelEnunciado();
 
@@ -49,7 +47,8 @@ public class VistaPreguntaEnCurso{
         panelSuperior.setAlignment(Pos.CENTER);
         panelSuperior.setMinHeight(500);
 
-        vistaVoF = new VistaVoF(stage,vistaTemporizador,preguntaActual,vistaInfoJugadores,jugador1);
+
+        vistaVoF = new VistaVoF(stage,vistaTemporizador,vistaInfoJugadores);
 
         ventanaCompleta = new VBox();
         ventanaCompleta.getChildren().addAll(panelSuperior, vistaVoF.obtenerGrilla());
