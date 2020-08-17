@@ -74,8 +74,8 @@ public class MultiplicadorX2Test {
 
         multiplicadorX2.aplicar(respuestas);
 
-        assertEquals(1, respuesta1.calificacionValorNumerico());
-        assertEquals(1, respuesta2.calificacionValorNumerico());
+        assertEquals(1, respuesta1.puntaje().valorNumerico());
+        assertEquals(1, respuesta2.puntaje().valorNumerico());
     }
 
 }

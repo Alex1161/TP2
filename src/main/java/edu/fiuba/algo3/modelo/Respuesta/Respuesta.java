@@ -16,7 +16,7 @@ public class Respuesta {
         this.jugador = jugador;
     }
 
-    private Puntaje puntaje() {
+    public Puntaje puntaje() {
         return puntajeObtenido;
     }
 
@@ -52,10 +52,6 @@ public class Respuesta {
 
     public void aplicarComodin(Comodin comodin) {
         puntajeObtenido = comodin.aplicar(puntajeObtenido);
-    }
-
-    public int calificacionValorNumerico() {
-        return puntajeObtenido.valorNumerico();
     }
 
 }

@@ -2,6 +2,8 @@
 
 Package "Calificador"
 
+Package "Penalidad"
+
 Package "Puntaje"
 
 Package "Opciones"
@@ -17,6 +19,7 @@ Package "Jugador"
 Package "Multiplicador"
 
 Pregunta -right-> Calificador
+Pregunta -down-> Penalidad
 Pregunta -left-> Opciones
 Respuesta -up-> Opciones
 Respuesta --> Jugador

@@ -6,8 +6,9 @@ class CreadorDePreguntas{
 
 }
 
-class FachadaCreadorDePreguntas{
-    +recuperarPregunta(src_Pregunta : String) : Pregunta
+class LectorDePreguntas{
+    -recuperarPreguntas(jsonObjectPreguntas: JsonObject) : List<Pregunta>
+    -recuperarPregunta(jsonObjectPregunta: JsonObject) : Pregunta
     +recuperarPreguntas(src_Preguntas : String) : List<Pregunta>
 }
 
@@ -17,17 +18,20 @@ Abstract Class Pregunta{
     -opcionesPosibles: Opciones
     -calificador: Calificador
     -comodines: Collection<Comodin>
+    -tipo: String
 
     +{abstract}{static}Pregunta(enunciado: String)
     +setPenalidad(unaPenalidad : Penalidad): void
     +asignarOpcionesCorrectas(opcionesCorrectas: Opciones): void
     +asignarOpcionesPosibles(opcionesPosibles: Opciones): void
+    +asignarCalificador(calificador Calificador): void
+    +asignarTipo(tipo: String): void
     +sonCorrectas(opciones: Opciones): boolean
     +calificar(Respuestas: List<Respuesta>): void
-    +agregarComodin(unComodin: Comodin, respuesta: Respuesta): void
+
 }
 
-FachadaCreadorDePreguntas ..> CreadorDePreguntas
+LectorDePreguntas..> CreadorDePreguntas
 CreadorDePreguntas ..> Pregunta
 
 
