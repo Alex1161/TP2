@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vista.eventos;
 
+import edu.fiuba.algo3.vista.VistaTemporizador;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 

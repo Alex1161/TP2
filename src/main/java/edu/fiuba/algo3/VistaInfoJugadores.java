@@ -36,11 +36,11 @@ public class VistaInfoJugadores {
         puntos.getStyleClass().add("otros-text");
         this.j1Txt = new Text("Pepito");
         j1Txt.getStyleClass().add("otros-text");
-        this.puntosJ1txt = new Text("1000");
+        this.puntosJ1txt = new Text(String.valueOf(jugador1.puntajeValorNumerico()));
         puntosJ1txt.getStyleClass().add("otros-text");
         this.j2Txt = new Text("Jose");
         j2Txt.getStyleClass().add("otros-text");
-        this.puntosJ2txt = new Text("1000");
+        this.puntosJ2txt = new Text(String.valueOf(jugador2.puntajeValorNumerico()));
         puntosJ2txt.getStyleClass().add("otros-text");
 
 
@@ -61,12 +61,10 @@ public class VistaInfoJugadores {
     }
 
     public void actualizar(){
-        this.nombre.setText("Nombre");
-        this.puntos.setText("Puntos");
         this.j1Txt.setText(jugador1.getNombre());
-        this.puntosJ1txt.setText("1000");
+        this.puntosJ1txt.setText(String.valueOf(jugador1.puntajeValorNumerico()));
         this.j2Txt.setText(jugador2.getNombre());
-        this.puntosJ2txt.setText("1000");
+        this.puntosJ2txt.setText(String.valueOf(jugador2.puntajeValorNumerico()));
 
         this.dibujar();
     }

@@ -3,31 +3,31 @@
   "tipoDePregunta":"VoFClasico",
   "enunciado":"Los Perros Vuelan",
   "opcionesCorrectas": ["Falso"],
-  "opcionesPosibles": ["Verdadero"]
+  "opcionesPosibles": ["Verdadero","Falso"]
   },
     {
       "tipoDePregunta":"VoFPenalizado",
       "enunciado":"Los Perros Vuelan",
       "opcionesCorrectas": ["Falso"],
-      "opcionesPosibles": ["Verdadero"]
+      "opcionesPosibles": ["Verdadero","Falso"]
     },
     {
       "tipoDePregunta":"MultipleChoiceClasico",
       "enunciado":"selecciones a todos los animales",
       "opcionesCorrectas": ["Perro","Gato"],
-      "opcionesPosibles": ["Tomate","Pera"]
+      "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
     },
     {
       "tipoDePregunta":"MultipleChoicePenalizado",
       "enunciado":"selecciones a todos los animales",
       "opcionesCorrectas": ["Perro","Gato"],
-      "opcionesPosibles": ["Tomate","Pera"]
+      "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
     },
     {
       "tipoDePregunta":"MultipleChoiceParcial",
       "enunciado":"selecciones a todos los animales",
       "opcionesCorrectas": ["Perro","Gato"],
-      "opcionesPosibles": ["Tomate","Pera"]
+      "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
     }]
 }
 

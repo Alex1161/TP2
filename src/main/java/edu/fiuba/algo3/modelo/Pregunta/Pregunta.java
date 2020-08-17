@@ -65,4 +65,8 @@ public class Pregunta {
         comodines.add(comodin);
     }
 
+    public String getEnunciado(){
+        return enunciado;
+    }
+
 }
