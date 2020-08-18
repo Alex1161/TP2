@@ -35,7 +35,7 @@ public class VistaTemporizador {
         tiempoLbl.getStyleClass().add("tiempo-text");
         tiempoRestanteTxt.getStyleClass().add("tiempo-text");
 
-        timer = new Timer(250, new ActionListener(){
+        timer = new Timer(125, new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 actualizar();
@@ -50,7 +50,7 @@ public class VistaTemporizador {
         contenedorTemporizador.getStyleClass().add("otros-text");
         contenedorTemporizador.getChildren().addAll(tiempoLbl, panel);
         contenedorTemporizador.setAlignment(Pos.CENTER);
-
+        iniciarTempo();
     }
 
     public VBox obtenerPanelTemporizador(){

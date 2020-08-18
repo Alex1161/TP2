@@ -56,7 +56,7 @@ public class Panel {
     }
 
     public Pregunta preguntaActual() {
-        return listaPreguntas.get(0);
+        return listaPreguntas.get(3);
         //return CreadorDePreguntas.preguntaVoFClasico("2+2= 12392193","Falso");
     }
 

@@ -2,6 +2,7 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.vista.ActionListenerCronometro;
+import edu.fiuba.algo3.vista.VistaOpciones;
 import edu.fiuba.algo3.vista.VistaTemporizador;
 import javafx.geometry.Pos;
 
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class VistaPreguntaEnCurso{
     VistaEnunciado vistaEnunciado;
-    VistaVoF vistaVoF;
+    VistaOpciones vistaVoF;
     VistaInfoJugadores vistaInfoJugadores;
     VistaTemporizador vistaTemporizador;
     VBox panelDerecho;
@@ -48,7 +49,7 @@ public class VistaPreguntaEnCurso{
         panelSuperior.setMinHeight(500);
 
 
-        vistaVoF = new VistaVoF(stage,vistaTemporizador,vistaInfoJugadores);
+        vistaVoF = new VistaOpciones(stage,vistaTemporizador,vistaInfoJugadores);
 
         ventanaCompleta = new VBox();
         ventanaCompleta.getChildren().addAll(panelSuperior, vistaVoF.obtenerGrilla());

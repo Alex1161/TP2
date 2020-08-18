@@ -44,8 +44,6 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
         panelJuego.preguntaActual().calificar(listaRespuestas);
         vistaInfoJugadores.actualizar();
         ventana.setScene(escenaProxima);
-
-
     }
 
 }

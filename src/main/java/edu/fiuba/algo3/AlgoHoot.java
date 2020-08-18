@@ -25,8 +25,8 @@ public class AlgoHoot extends Application {
 
     @Override
     public void start(Stage stage) {
-
         Panel panelJuego = Panel.getInstancia();
+
         try{
             panelJuego.cargarPreguntas();
         }catch (IOException e){
@@ -58,12 +58,10 @@ public class AlgoHoot extends Application {
         stage.setScene(escenaDeBienvenida);
 
         stage.show();
-
     }
 
     public static void main(String[] args) {
         launch();
     }
-
 
 }
