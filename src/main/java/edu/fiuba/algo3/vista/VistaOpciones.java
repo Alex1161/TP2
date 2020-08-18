@@ -1,15 +1,11 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.Panel;
-import edu.fiuba.algo3.VistaInfoJugadores;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonVerdaderoFalso;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
-
-import java.util.List;
 
 public class VistaOpciones {
 

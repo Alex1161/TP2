@@ -55,5 +55,9 @@ public class Jugador {
     public String getNombre() {
         return this.nombre;
     }
+
+    public List<Comodin> obtenerComodines() {
+        return comodines;
+    }
 }
 
