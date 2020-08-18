@@ -16,7 +16,6 @@ public class VistaPreguntaEnCurso{
     VistaPuntajeJugador vistaPuntajeParcial;
     VistaEnunciado vistaEnunciado;
     VistaVoF vistaVoF;
-    VistaInfoJugadores vistaInfoJugadores;
     VistaTemporizador vistaTemporizador;
 
     VBox panelDerecho;
@@ -61,10 +60,6 @@ public class VistaPreguntaEnCurso{
 
     public VBox obtenerVista(){
         return ventanaCompleta;
-    }
-
-    public VistaInfoJugadores obtenerVistaInfoJugadores(){
-        return this.vistaInfoJugadores;
     }
 
     public void actualizar(){

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.Panel;
-import edu.fiuba.algo3.VistaInfoJugadores;
+//import edu.fiuba.algo3.VistaInfoJugadores;
 import edu.fiuba.algo3.VistaPuntajeJugador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
@@ -26,7 +26,7 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
     private VistaPuntajeJugador vistaPuntajeParcial;
     private Stage ventana;
     private Scene escenaProxima;
-    private VistaInfoJugadores vistaInfoJugadores;
+    //private VistaInfoJugadores vistaInfoJugadores;
     private Respuesta respuestaJugador1;
     private Button boton;
     private List<Respuesta> listaRespuestas;
