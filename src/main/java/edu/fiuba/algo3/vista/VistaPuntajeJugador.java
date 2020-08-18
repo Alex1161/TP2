@@ -23,9 +23,10 @@ public class VistaPuntajeJugador {
     private static String ENCABEZADO_PUNTOS = "Puntos";
 
 
-    public VistaPuntajeJugador(Jugador jugador1, Jugador jugador2){
-        this.jugador1 = jugador1;
-        this.jugador2 = jugador2;
+    public VistaPuntajeJugador(){
+
+        jugador1 = Panel.getInstancia().obtenerJugador(0);
+        jugador2 = Panel.getInstancia().obtenerJugador(1);
 
         this.tablaDeInfo = new GridPane();
         tablaDeInfo.setPadding(new Insets(10, 10, 10, 10));

@@ -17,10 +17,11 @@ public class Panel {
     private static String ARCHIVOJSON = "Preguntas.json";
     LectorDePreguntas lectorJson = new LectorDePreguntas();
     List<Pregunta> listaPreguntas = new ArrayList<>();
-    int iterador = 0;
+    int iterador;
 
     private Panel(){
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
+        iterador = 1;
     }
 
     public static Panel getInstancia(){
@@ -73,6 +74,14 @@ public class Panel {
             iterador = 1;
         }else{
             iterador = 0;
+        }
+    }
+
+    public boolean tieneSiguienteJugador(){
+        if(iterador == 1){
+            return false;
+        }else{
+            return true;
         }
     }
 }

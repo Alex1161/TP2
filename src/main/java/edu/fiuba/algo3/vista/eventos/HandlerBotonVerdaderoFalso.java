@@ -59,7 +59,7 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
         listaRespuestas = new ArrayList<Respuesta>();
         listaRespuestas.add(respuestaJugador1);
         panelJuego.preguntaActual().calificar(listaRespuestas);
-        controlador.iniciarTurno();
+        controlador.siguienteTurno();
         //vistaInfoJugadores.actualizar();
         //ventana.setScene(escenaProxima);
 
