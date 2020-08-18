@@ -30,7 +30,8 @@ public class VistaOpciones {
     }
 
     public void generarBotones(){
-        if(Panel.getInstancia().preguntaActual().getTipo() == "MultipleChoiceClasico"){
+        if(Panel.getInstancia().preguntaActual().getTipo() == "MultipleChoiceClasico"
+        || Panel.getInstancia().preguntaActual().getTipo() == "MultipleChoiceParcial"){
             crearBotonesChoise();
         }else{
             crearBotonesNormales();

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.VistaPuntajeJugador;
 
+import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -17,10 +18,13 @@ public class ControladorPrincipal {
 
        Stage ventana = StagePrincipal.getInstance();
        Panel panel = Panel.getInstancia();
+       List<Respuesta> respuestas;
+       Respuesta respuestaActual;
+       File f;
 
-       ControladorPrincipal(){
+    ControladorPrincipal(){
            Scene escenaDeJuego = new Scene((new VistaPreguntaEnCurso()).obtenerVista(), 1200, 680);
-           File f = new File("EstilosDeBotones.css");
+           f = new File("EstilosDeBotones.css");
            escenaDeJuego.getStylesheets().clear();
            escenaDeJuego.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
            ventana.setScene(escenaDeJuego);
@@ -30,7 +34,6 @@ public class ControladorPrincipal {
 
        public void iniciarVistaPregunta(){
            Scene escenaDeJuego = new Scene((new VistaPreguntaEnCurso()).obtenerVista(), 1200, 680);
-           File f = new File("EstilosDeBotones.css");
            escenaDeJuego.getStylesheets().clear();
            escenaDeJuego.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
            ventana.setScene(escenaDeJuego);
@@ -55,7 +58,6 @@ public class ControladorPrincipal {
 
        public void mostrarVistaPuntajes(){
            Scene escenaDeJuego = new Scene((new edu.fiuba.algo3.VistaPuntajeJugador()).obtenerPanel(), 1200, 680);
-           File f = new File("EstilosDeBotones.css");
            escenaDeJuego.getStylesheets().clear();
            escenaDeJuego.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
@@ -68,5 +70,17 @@ public class ControladorPrincipal {
                Panel.getInstancia().cambiarPregunta();
                iniciarTurno();
            }
+    }
+
+    public void agregarOpcion(String opcion){
+           respuestaActual.agregarOpcion(opcion);
+    }
+
+    public void agregarRespuesta(){
+           respuestas.add(respuestaActual);
+    }
+
+    public void calificarRespuestas(){
+           panel.preguntaActual().calificar(respuestas);
     }
 }
