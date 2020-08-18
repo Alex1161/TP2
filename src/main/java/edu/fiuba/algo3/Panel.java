@@ -17,7 +17,7 @@ public class Panel {
     private static String ARCHIVOJSON = "Preguntas.json";
     LectorDePreguntas lectorJson = new LectorDePreguntas();
     List<Pregunta> listaPreguntas = new ArrayList<>();
-
+    int iterador = 0;
 
     private Panel(){
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
@@ -56,11 +56,23 @@ public class Panel {
     }
 
     public Pregunta preguntaActual() {
-        return listaPreguntas.get(4);
+        return listaPreguntas.get(0);
         //return CreadorDePreguntas.preguntaVoFClasico("2+2= 12392193","Falso");
     }
 
+    public List<Jugador> obtenerJugadores(){
+        return this.listaJugadores;
+    }
+
     public Jugador jugadorActual() {
-        return listaJugadores.get(0);
+        return listaJugadores.get(iterador);
+    }
+
+    public void cambiarJugador() {
+        if (  iterador == 0){
+            iterador = 1;
+        }else{
+            iterador = 0;
+        }
     }
 }

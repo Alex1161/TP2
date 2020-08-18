@@ -56,7 +56,8 @@ public class HandlerBotonParaJugar implements EventHandler {
 
             escenaPregunta.getStylesheets().clear();
             escenaPregunta.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));*/
-            ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
+            ControladorPrincipal controladorPrincipal = ControladorPrincipal.getInstancia();
+            controladorPrincipal.iniciarTurno();
             //ventana.setScene(escenaPregunta);
         }
 
