@@ -53,7 +53,7 @@ public class VistaPuntajeJugador{
         j1Txt.getStyleClass().add("otros-text");
         this.puntosJ1txt = new Text(String.valueOf(jugador1.puntajeValorNumerico()));
         puntosJ1txt.getStyleClass().add("otros-text");
-        this.j2Txt = new Text(jugador1.getNombre());
+        this.j2Txt = new Text(jugador2.getNombre());
         j2Txt.getStyleClass().add("otros-text");
         this.puntosJ2txt = new Text(String.valueOf(jugador2.puntajeValorNumerico()));
         puntosJ2txt.getStyleClass().add("otros-text");
