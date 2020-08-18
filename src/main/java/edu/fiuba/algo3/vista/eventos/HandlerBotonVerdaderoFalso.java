@@ -35,6 +35,11 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
         this.boton = boton;
 
     }
+
+    public HandlerBotonVerdaderoFalso(){
+
+    }
+
     @Override
     public void handle(Event event) {
         respuestaJugador1 = new Respuesta(panelJuego.jugadorActual());

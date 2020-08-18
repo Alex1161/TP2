@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
+import edu.fiuba.algo3.ControladorPrincipal;
 import edu.fiuba.algo3.Panel;
 import edu.fiuba.algo3.VistaInfoJugadores;
 import edu.fiuba.algo3.VistaPreguntaEnCurso;
@@ -18,16 +19,17 @@ import java.io.File;
 
 public class HandlerBotonParaJugar implements EventHandler {
 
-    private Stage ventana;
+    /*private Stage ventana;
     private Scene escenaProxima;
-    //private VistaInfoJugadores vistaInfoJugadores;
+    private VistaInfoJugadores vistaInfoJugadores;
+    ;*/
     private Panel paneljuego;
     private  TextField campoJugador1;
     private TextField campoJugador2;
     VBox cuadro;
 
     public HandlerBotonParaJugar(Stage unaVentana, TextField nombreJug1, TextField nombreJug2, VBox cuadro){
-        this.ventana = unaVentana;
+        //this.ventana = unaVentana;
         paneljuego = Panel.getInstancia();
         this.campoJugador1 = nombreJug1;
         this.campoJugador2 = nombreJug2;
@@ -43,20 +45,19 @@ public class HandlerBotonParaJugar implements EventHandler {
             cuadro.getChildren().addAll(textoInfoError);
 
         }else {
-            File f = new File("EstilosDeBotones.css");
-
             Jugador jugador1 = new Jugador(campoJugador1.getText());
             Jugador jugador2 = new Jugador(campoJugador2.getText());
             paneljuego.agregarJugador(jugador1);
             paneljuego.agregarJugador(jugador2);
-
+            /*
+            File f = new File("EstilosDeBotones.css");
             VistaPreguntaEnCurso preguntaEnCurso = new VistaPreguntaEnCurso(ventana);
             Scene escenaPregunta = new Scene(preguntaEnCurso.obtenerVista(), 1024, 768);
 
             escenaPregunta.getStylesheets().clear();
-            escenaPregunta.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
-
-            ventana.setScene(escenaPregunta);
+            escenaPregunta.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));*/
+            ControladorPrincipal controladorPrincipal = new ControladorPrincipal();
+            //ventana.setScene(escenaPregunta);
         }
 
     }

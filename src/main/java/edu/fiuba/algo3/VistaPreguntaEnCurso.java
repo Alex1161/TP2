@@ -17,13 +17,44 @@ public class VistaPreguntaEnCurso{
     VistaOpciones vistaVoF;
     VistaInfoJugadores vistaInfoJugadores;
     VistaTemporizador vistaTemporizador;
+
     VBox panelDerecho;
     VBox panelIzquierdo;
     VBox panelCentral;
     HBox panelSuperior;
     VBox ventanaCompleta;
 
-    Panel paneljuego = Panel.getInstancia();
+    public VistaPreguntaEnCurso(){
+
+
+        vistaInfoJugadores = new VistaInfoJugadores();
+
+        panelIzquierdo = vistaInfoJugadores.obtenerPanelInfoJugadores();
+
+        vistaTemporizador = new VistaTemporizador();
+        Cronometro cronometro = new Cronometro(new ActionListenerCronometro(vistaTemporizador));
+        cronometro.start();
+
+        panelDerecho = vistaTemporizador.obtenerPanelTemporizador();
+
+        vistaEnunciado = new VistaEnunciado();
+
+        panelCentral = vistaEnunciado.obtenerPanelEnunciado();
+
+        panelSuperior = new HBox();
+        panelSuperior.getChildren().addAll(panelIzquierdo, panelCentral, panelDerecho);
+        panelSuperior.setSpacing(20);
+        panelSuperior.setAlignment(Pos.CENTER);
+        panelSuperior.setMinHeight(500);
+
+
+        vistaVoF = new VistaOpciones();
+
+        ventanaCompleta = new VBox();
+        ventanaCompleta.getChildren().addAll(panelSuperior, vistaVoF.obtenerGrilla());
+        ventanaCompleta.getStyleClass().add("fondo-general");
+
+    }
 
     public VistaPreguntaEnCurso(Stage stage){
 
@@ -49,7 +80,7 @@ public class VistaPreguntaEnCurso{
         panelSuperior.setMinHeight(500);
 
 
-        vistaVoF = new VistaOpciones(stage,vistaTemporizador,vistaInfoJugadores);
+        vistaVoF = new VistaOpciones();
 
         ventanaCompleta = new VBox();
         ventanaCompleta.getChildren().addAll(panelSuperior, vistaVoF.obtenerGrilla());
@@ -61,8 +92,6 @@ public class VistaPreguntaEnCurso{
         return ventanaCompleta;
     }
 
-    public VistaInfoJugadores obtenerVistaInfoJugadores(){
-        return this.vistaInfoJugadores;
-    }
+
 
 }

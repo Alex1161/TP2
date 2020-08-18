@@ -26,6 +26,7 @@ public class VistaIngresoDeJugadores{
     Stage ventana;
 
     public VistaIngresoDeJugadores(Stage stage){
+
         this.ventana = stage;
         //this.proximaVistaEscena = unaProximaVistaEscena;
 
