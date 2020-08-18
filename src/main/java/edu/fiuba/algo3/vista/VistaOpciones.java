@@ -31,7 +31,7 @@ public class VistaOpciones {
             btn.getStyleClass().add("button"+(i+1));
             HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso(opcion);
             btn.setOnAction(botonVoF);
-            grillaRespuestas.add(btn, 0, i);
+            grillaRespuestas.add(btn, 1, i);
             i++;
         }
 

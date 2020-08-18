@@ -62,4 +62,10 @@ public class ControladorPrincipal {
            ventana.setScene(escenaDeJuego);
        }
 
+    public void iniciarSiguientePregunta() {
+           if(Panel.getInstancia().tieneSiguientePregunta()){
+               Panel.getInstancia().cambiarPregunta();
+               iniciarTurno();
+           }
+    }
 }
