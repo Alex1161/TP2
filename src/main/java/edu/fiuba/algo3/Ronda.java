@@ -6,6 +6,10 @@ public class Ronda {
 
     private Pregunta pregunta;
 
+    public Ronda(Pregunta pregunta) {
+        this.pregunta = pregunta;
+    }
+
     public void preguntaAsociada(Pregunta preguntaRonda){
         pregunta = preguntaRonda;
     }

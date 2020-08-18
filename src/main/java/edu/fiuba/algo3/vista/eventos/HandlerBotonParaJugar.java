@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HandlerBotonParaJugar implements EventHandler {
 
@@ -46,8 +48,11 @@ public class HandlerBotonParaJugar implements EventHandler {
         }else {
             Jugador jugador1 = new Jugador(campoJugador1.getText());
             Jugador jugador2 = new Jugador(campoJugador2.getText());
-            paneljuego.agregarJugador(jugador1);
-            paneljuego.agregarJugador(jugador2);
+            List<Jugador> jugadores = new ArrayList<Jugador>();
+            jugadores.add(jugador1);
+            jugadores.add(jugador2);
+
+            paneljuego.agregarJugadores(jugadores);
 
             ControladorPrincipal controladorPrincipal = ControladorPrincipal.getInstancia();
             controladorPrincipal.iniciarTurno();

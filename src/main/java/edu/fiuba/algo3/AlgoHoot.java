@@ -27,11 +27,7 @@ public class AlgoHoot extends Application {
         stage.setTitle(NOMBRE_JUEGO);
         Panel panelJuego = Panel.getInstancia();
 
-        try{
-            panelJuego.cargarPreguntas();
-        }catch (IOException e){
-            e.getMessage();
-        }
+
 
 
         //escenaPreguntaEnCurso.getStylesheets().clear();

@@ -35,8 +35,6 @@ public class VistaAccionesJugador {
     public VistaAccionesJugador() {
         this.jugadorActual = panelJuego.jugadorActual();
 
-
-
         this.encabezadoNombre = new Text(ENCABEZADO_NOMBRE);
         this.encabezadoNombre.setFont(new Font(25));
 
