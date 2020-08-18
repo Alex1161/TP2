@@ -10,13 +10,14 @@ import javafx.scene.text.FontWeight;
 public class VistaEnunciado {
 
     VBox panelEnunciado;
+    Label enunciadoTxt;
     Panel panelJuego = Panel.getInstancia();
 
     public VistaEnunciado(){
         panelEnunciado = new VBox();
 
         panelEnunciado.setPrefSize(400,100);
-        Label enunciadoTxt = new Label(panelJuego.preguntaActual().getEnunciado());
+        enunciadoTxt = new Label(panelJuego.preguntaActual().getEnunciado());
         enunciadoTxt.setFont(Font.font("Arial", FontWeight.BOLD, 36));
         enunciadoTxt.setMaxWidth(800);
         enunciadoTxt.setWrapText(true);
@@ -30,5 +31,9 @@ public class VistaEnunciado {
 
     public VBox obtenerPanelEnunciado(){
         return panelEnunciado;
+    }
+
+    public void actualizar(){
+        enunciadoTxt.setText(panelJuego.preguntaActual().getEnunciado());
     }
 }
