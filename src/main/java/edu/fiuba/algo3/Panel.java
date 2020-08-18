@@ -18,10 +18,12 @@ public class Panel {
     LectorDePreguntas lectorJson = new LectorDePreguntas();
     List<Pregunta> listaPreguntas = new ArrayList<>();
     int iterador;
+    int iteradorPregunta;
 
     private Panel(){
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
         iterador = 1;
+        iteradorPregunta = 0;
     }
 
     public static Panel getInstancia(){
@@ -57,7 +59,7 @@ public class Panel {
     }
 
     public Pregunta preguntaActual() {
-        return listaPreguntas.get(0);
+        return listaPreguntas.get(iteradorPregunta);
         //return CreadorDePreguntas.preguntaVoFClasico("2+2= 12392193","Falso");
     }
 
@@ -84,4 +86,21 @@ public class Panel {
             return true;
         }
     }
+
+    public void cambiarPregunta(){
+        if(iteradorPregunta + 1 >= listaPreguntas.size()){
+            iteradorPregunta = 0;
+        }else{
+            iteradorPregunta ++;
+        }
+    }
+
+    public boolean tieneSiguientePregunta(){
+        if ((iteradorPregunta + 1) >= listaPreguntas.size()){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
 }
