@@ -150,8 +150,8 @@ public class LectorDePreguntasTest {
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);
-        assertEquals(0, jugador1.puntajeValorNumerico());
-        assertEquals(1, jugador2.puntajeValorNumerico());
+        assertEquals(-2, jugador1.puntajeValorNumerico());
+        assertEquals(2, jugador2.puntajeValorNumerico());
 
         pregunta = preguntas.get(4);
         jugador1 = new Jugador("carlos");

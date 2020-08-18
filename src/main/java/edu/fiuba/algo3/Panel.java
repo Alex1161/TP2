@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.LectorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
+import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
+import edu.fiuba.algo3.modelo.Respuestas.Respuestas;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,16 +15,16 @@ import java.util.List;
 public class Panel {
     private static Panel instancia = new Panel();
     private final CreadorDePreguntas fachadaCreadorPregunta;
-    private List<Jugador> listaJugadores = new ArrayList<Jugador>();
     private static String ARCHIVOJSON = "Preguntas.json";
     LectorDePreguntas lectorJson = new LectorDePreguntas();
     List<Pregunta> listaPreguntas = new ArrayList<>();
-    int iterador;
+
     int iteradorPregunta;
+    private Respuestas respuestas=new Respuestas();
 
     private Panel(){
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
-        iterador = 1;
+
         iteradorPregunta = 0;
     }
 
@@ -30,19 +32,12 @@ public class Panel {
         return instancia;
     }
 
-    /*public Panel(Jugador jugador1, Jugador jugador2){
-        this.jugador1 = jugador1;
-        this.jugador2 = jugador2;
-        this.fachadaCreadorPregunta = new CreadorDePreguntas();
-    }
-
-     */
-
     public Jugador ganadorAlgohoot(){
-        if (listaJugadores.get(0).puntajeValorNumerico()> listaJugadores.get(1).puntajeValorNumerico()){
-            return listaJugadores.get(0);
+        List<Jugador> Jugadores=respuestas.obtenerJugadores();
+        if (Jugadores.get(0).puntajeValorNumerico()> Jugadores.get(1).puntajeValorNumerico()){
+            return Jugadores.get(0);
         }
-        else return listaJugadores.get(1);
+        else return Jugadores.get(1);
     }
 
 
@@ -52,41 +47,31 @@ public class Panel {
 
 
     public void agregarJugador(Jugador jugador) {
-        listaJugadores.add(jugador);
+        respuestas.agregarJugador(jugador);
 
     }
 
     public Jugador obtenerJugador(int i) {
-        return listaJugadores.get(i);
+        return respuestas.obtenerJugador(i);
     }
 
     public Pregunta preguntaActual() {
         return listaPreguntas.get(iteradorPregunta);
-        //return CreadorDePreguntas.preguntaVoFClasico("2+2= 12392193","Falso");
-    }
+   }
 
     public List<Jugador> obtenerJugadores(){
-        return this.listaJugadores;
+        return respuestas.obtenerJugadores();
     }
 
-    public Jugador jugadorActual() {
-        return listaJugadores.get(iterador);
-    }
 
     public void cambiarJugador() {
-        if (  iterador == 0){
-            iterador = 1;
-        }else{
-            iterador = 0;
-        }
+        respuestas.cambiarJugador();
+
     }
 
     public boolean tieneSiguienteJugador(){
-        if(iterador == 1){
-            return false;
-        }else{
-            return true;
-        }
+        return respuestas.tieneSiguienteJugador();
+
     }
 
     public void cambiarPregunta(){
@@ -104,6 +89,20 @@ public class Panel {
             return true;
         }
     }
+    public void agregarOpcion(String opcion){
+        respuestas.obtenerRespuestaActual().agregarOpcion(opcion);
+    }
 
+    public Jugador jugadorActual() {
+        return respuestas.obtenerJugadorActual();
+    }
 
+    public void calificar() {
+        this.preguntaActual().calificar(respuestas.obtenerRespuestas());
+        this.respuestas.limpiar();
+    }
+
+    public void quitarOpcion(String opcion) {
+        this.respuestas.obtenerRespuestaActual().quitarOpcion(opcion);
+    }
 }

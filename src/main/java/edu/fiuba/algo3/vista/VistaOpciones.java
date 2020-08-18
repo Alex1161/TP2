@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.Panel;
+import edu.fiuba.algo3.vista.eventos.HandlerBotonConfirmar;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonMultipleChoise;
 
 import edu.fiuba.algo3.vista.eventos.HandlerBotonVerdaderoFalso;
@@ -28,7 +29,7 @@ public class VistaOpciones {
     }
 
     public void generarBotones(){
-        if(Panel.getInstancia().preguntaActual().getTipo() == "MultipleChoiceClasico"){
+        if(Panel.getInstancia().preguntaActual().getTipo().contains("MultipleChoice")){
             crearBotonesChoise();
         }else{
             crearBotonesNormales();
@@ -49,8 +50,8 @@ public class VistaOpciones {
         }
         Button btn = new Button("CONFIRMAR");
         btn.getStyleClass().add("button"+(i+1));
-        HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso("CONFIRMAR");
-        btn.setOnAction(botonVoF);
+        HandlerBotonConfirmar botonConfirmar = new HandlerBotonConfirmar(btn);
+        btn.setOnAction(botonConfirmar);
         grillaRespuestas.add(btn, 2, 1);
     }
 

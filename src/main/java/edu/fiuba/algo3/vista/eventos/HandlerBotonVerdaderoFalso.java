@@ -25,8 +25,6 @@ import static edu.fiuba.algo3.AlgoHoot.ANCHO;
 
 public class HandlerBotonVerdaderoFalso implements EventHandler {
 
-    private Respuesta respuestaJugador1;
-    private List<Respuesta> listaRespuestas;
     private Panel panelJuego = Panel.getInstancia();
     private String opcion;
     private ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
@@ -38,16 +36,10 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
     @Override
     public void handle(Event event) {
 
-        respuestaJugador1 = new Respuesta(panelJuego.jugadorActual());
-        respuestaJugador1.agregarOpcion(opcion);
-        listaRespuestas = new ArrayList<Respuesta>();
-        /* Si hay jugador siguiente turno, sino calificar y siguiente pregunta!!!
-
-         */
-        listaRespuestas.add(respuestaJugador1);
-        panelJuego.preguntaActual().calificar(listaRespuestas);
+        panelJuego.agregarOpcion(opcion);
+        if (!panelJuego.tieneSiguienteJugador()){
+            panelJuego.calificar();
+        }
         controlador.siguienteTurno();
-
     }
-
 }

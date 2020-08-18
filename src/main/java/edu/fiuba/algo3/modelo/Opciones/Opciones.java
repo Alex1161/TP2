@@ -50,4 +50,7 @@ public class Opciones {
 
         return misOpciones.containsAll(opcionesAComparar);
     }
+    public void quitarOpcion(String opcion){
+        elementos.remove(opcion);
+    }
 }

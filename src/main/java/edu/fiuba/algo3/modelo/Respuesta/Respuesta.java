@@ -50,8 +50,13 @@ public class Respuesta {
         respuesta.setPuntajeObtenido(puntajeOponente);
     }
 
+    public void quitarOpcion(String opcion){opcionesElegidas.quitarOpcion(opcion); }
+
     public void aplicarComodin(Comodin comodin) {
         puntajeObtenido = comodin.aplicar(puntajeObtenido);
     }
 
+    public Jugador obtenerJugador() {
+        return jugador;
+    }
 }
