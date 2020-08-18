@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
+import edu.fiuba.algo3.ControladorPrincipal;
 import edu.fiuba.algo3.Panel;
 //import edu.fiuba.algo3.VistaInfoJugadores;
 import edu.fiuba.algo3.VistaPuntajeJugador;
@@ -23,34 +24,44 @@ import static edu.fiuba.algo3.AlgoHoot.ALTO;
 import static edu.fiuba.algo3.AlgoHoot.ANCHO;
 
 public class HandlerBotonVerdaderoFalso implements EventHandler {
-    private VistaPuntajeJugador vistaPuntajeParcial;
-    private Stage ventana;
-    private Scene escenaProxima;
-    //private VistaInfoJugadores vistaInfoJugadores;
+
     private Respuesta respuestaJugador1;
-    private Button boton;
     private List<Respuesta> listaRespuestas;
     private Panel panelJuego = Panel.getInstancia();
+    private String opcion;
+    private ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
 
+    /*
+    public HandlerBotonVerdaderoFalso(Button boton, Stage unaVentana, VistaInfoJugadores unaVistaInfoJugadores){
+        this.ventana = unaVentana;
+        //this.escenaProxima = unaEscenaProxima;
+        this.vistaInfoJugadores = unaVistaInfoJugadores;
+=======
     public HandlerBotonVerdaderoFalso(Button boton, Stage unaVentana, VistaPuntajeJugador unaVistaPuntajeParcial){
         this.ventana = unaVentana;
         //this.escenaProxima = unaEscenaProxima;
         this.vistaPuntajeParcial = unaVistaPuntajeParcial;
 
+>>>>>>> b5c79141dd7f4d506a70c9b36eb572a267e5545b
         this.boton = boton;
 
+    }*/
+
+    public HandlerBotonVerdaderoFalso(String opcion){
+        this.opcion = opcion;
     }
+
     @Override
     public void handle(Event event) {
+
         respuestaJugador1 = new Respuesta(panelJuego.jugadorActual());
-        respuestaJugador1.agregarOpcion(boton.getText());
+        respuestaJugador1.agregarOpcion(opcion);
         listaRespuestas = new ArrayList<Respuesta>();
         listaRespuestas.add(respuestaJugador1);
         panelJuego.preguntaActual().calificar(listaRespuestas);
-        vistaPuntajeParcial.actualizar();
-        escenaProxima = new Scene(vistaPuntajeParcial.obtenerPanel(), ANCHO, ALTO);
-        ventana.setScene(escenaProxima);
-
+        controlador.siguienteTurno();
+        //vistaInfoJugadores.actualizar();
+        //ventana.setScene(escenaProxima);
 
     }
 

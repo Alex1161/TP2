@@ -26,25 +26,24 @@ public class AlgoHoot extends Application {
     @Override
     public void start(Stage stage) {
 
+        stage = StagePrincipal.getInstance();
+        stage.setTitle(NOMBRE_JUEGO);
         Panel panelJuego = Panel.getInstancia();
+
         try{
             panelJuego.cargarPreguntas();
         }catch (IOException e){
             e.getMessage();
         }
 
-        stage.setTitle(NOMBRE_JUEGO);
 
-        //VistaPreguntaEnCurso preguntaEnCurso = new VistaPreguntaEnCurso(stage);
-        //Scene escenaPreguntaEnCurso = new Scene(preguntaEnCurso.obtenerVista(), ANCHO, ALTO);
-
-        File f = new File("EstilosDeBotones.css");
         //escenaPreguntaEnCurso.getStylesheets().clear();
         //escenaPreguntaEnCurso.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
         VistaIngresoDeJugadores ingresoDeJugadores = new VistaIngresoDeJugadores(stage);
         Scene escenaDeBienvenida = new Scene(ingresoDeJugadores.getVista(), ANCHO, ALTO);
 
+        File f = new File("EstilosDeBotones.css");
         escenaDeBienvenida.getStylesheets().clear();
         escenaDeBienvenida.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
@@ -52,12 +51,10 @@ public class AlgoHoot extends Application {
 
         stage.show();
 
-
     }
 
     public static void main(String[] args) {
         launch();
     }
-
 
 }

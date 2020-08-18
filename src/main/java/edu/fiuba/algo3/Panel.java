@@ -17,10 +17,13 @@ public class Panel {
     private static String ARCHIVOJSON = "Preguntas.json";
     LectorDePreguntas lectorJson = new LectorDePreguntas();
     List<Pregunta> listaPreguntas = new ArrayList<>();
-
+    int iterador;
+    int iteradorPregunta;
 
     private Panel(){
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
+        iterador = 1;
+        iteradorPregunta = 0;
     }
 
     public static Panel getInstancia(){
@@ -33,13 +36,15 @@ public class Panel {
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
     }
 
-    public Jugador ganadorAlgohoot(){
-        if (jugador1.puntajeValorNumerico() > jugador2.puntajeValorNumerico()){
-            return jugador1;
-        }
-        else return jugador2;
-    }
      */
+
+    public Jugador ganadorAlgohoot(){
+        if (listaJugadores.get(0).puntajeValorNumerico()> listaJugadores.get(1).puntajeValorNumerico()){
+            return listaJugadores.get(0);
+        }
+        else return listaJugadores.get(1);
+    }
+
 
     public void cargarPreguntas() throws IOException {
         listaPreguntas = lectorJson.recuperarPreguntas(ARCHIVOJSON);
@@ -56,11 +61,49 @@ public class Panel {
     }
 
     public Pregunta preguntaActual() {
-        return listaPreguntas.get(0);
+        return listaPreguntas.get(iteradorPregunta);
         //return CreadorDePreguntas.preguntaVoFClasico("2+2= 12392193","Falso");
     }
 
-    public Jugador jugadorActual() {
-        return listaJugadores.get(0);
+    public List<Jugador> obtenerJugadores(){
+        return this.listaJugadores;
     }
+
+    public Jugador jugadorActual() {
+        return listaJugadores.get(iterador);
+    }
+
+    public void cambiarJugador() {
+        if (  iterador == 0){
+            iterador = 1;
+        }else{
+            iterador = 0;
+        }
+    }
+
+    public boolean tieneSiguienteJugador(){
+        if(iterador == 1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public void cambiarPregunta(){
+        if(iteradorPregunta + 1 >= listaPreguntas.size()){
+            iteradorPregunta = 0;
+        }else{
+            iteradorPregunta ++;
+        }
+    }
+
+    public boolean tieneSiguientePregunta(){
+        if ((iteradorPregunta + 1) >= listaPreguntas.size()){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+
 }

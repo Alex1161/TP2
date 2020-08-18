@@ -6,8 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-/* Debería implementarse a partir de aquí una vista para mostrar los botones de los multiplicadores y exclusividades.
- Además del Nombre Del Jugador Que Actualemente Le Toca.
+
+
 public class VistaInfoJugadores {
 
     GridPane tablaDeInfo;
@@ -28,11 +28,12 @@ public class VistaInfoJugadores {
         tablaDeInfo.setHgap(10);
         tablaDeInfo.setAlignment(Pos.CENTER);
 
+
         this.nombre = new Text("Nombre");
         nombre.getStyleClass().add("otros-text");
         this.puntos = new Text("Puntos");
         puntos.getStyleClass().add("otros-text");
-        this.j1Txt = new Text("Pepito");
+        this.j1Txt = new Text("pepito");
         j1Txt.getStyleClass().add("otros-text");
         this.puntosJ1txt = new Text(String.valueOf(panelJuego.obtenerJugador(0).puntajeValorNumerico()));
         puntosJ1txt.getStyleClass().add("otros-text");
@@ -46,7 +47,7 @@ public class VistaInfoJugadores {
         panel.setSpacing(30);
         panel.setAlignment(Pos.CENTER);
         dibujar();
-
+        actualizar();
     }
 
     public void dibujar(){
@@ -76,5 +77,5 @@ public class VistaInfoJugadores {
 
 }
 
- */
+
 

@@ -1,15 +1,20 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.vista.eventos.HandlerBotonVerdaderoFalso;
+import edu.fiuba.algo3.vista.eventos.HandlerSiguientePregunta;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import javax.swing.*;
 
-public class VistaPuntajeJugador {
+public class VistaPuntajeJugador{
     GridPane tablaDeInfo;
     VBox panel;
     Text j1Txt;
@@ -19,13 +24,17 @@ public class VistaPuntajeJugador {
     Text puntosJ1txt;
     Text puntosJ2txt;
     Jugador jugador1, jugador2;
+
+    Button botonSiguientePregunta = new Button();
     private static String ENCABEZADO_NOMBRE = "Nombre";
     private static String ENCABEZADO_PUNTOS = "Puntos";
 
 
-    public VistaPuntajeJugador(Jugador jugador1, Jugador jugador2){
-        this.jugador1 = jugador1;
-        this.jugador2 = jugador2;
+    public VistaPuntajeJugador(){
+
+        botonSiguientePregunta.setText("Siguiente Pregunta");
+        jugador1 = Panel.getInstancia().obtenerJugador(0);
+        jugador2 = Panel.getInstancia().obtenerJugador(1);
 
         this.tablaDeInfo = new GridPane();
         tablaDeInfo.setPadding(new Insets(10, 10, 10, 10));
@@ -59,7 +68,10 @@ public class VistaPuntajeJugador {
         tablaDeInfo.add(puntosJ1txt, 1, 1);
         tablaDeInfo.add(j2Txt, 0, 2);
         tablaDeInfo.add(puntosJ2txt, 1, 2);
-        panel.getChildren().addAll(tablaDeInfo);
+        panel.getChildren().addAll(tablaDeInfo,botonSiguientePregunta);
+
+        HandlerSiguientePregunta siguiente = new HandlerSiguientePregunta();
+        botonSiguientePregunta.setOnAction(siguiente);
     }
 
     public void dibujarTablaDeInfo(){

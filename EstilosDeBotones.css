@@ -8,6 +8,24 @@
     -fx-text-fill: white;
 }
 
+.buttonPressed {
+    -fx-background-color: rgba(127, 57, 65, 0.45);
+    -fx-border-radius: 20px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.button1 {
+    -fx-background-color: #b21b3c;
+    -fx-border-radius: 20px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
 .button2 {
     -fx-background-color: #26890c;
     -fx-border-radius: 20px;
@@ -26,8 +44,26 @@
     -fx-font-color: white;
 }
 
-.my-button4 {
+.button4 {
     -fx-background-color: #1368ce;
+    -fx-border-radius: 20px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-color: white;
+}
+
+.button5 {
+    -fx-background-color: #ce0da4;
+    -fx-border-radius: 20px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-color: white;
+}
+
+.button6 {
+    -fx-background-color: #00ce8f;
     -fx-border-radius: 20px;
     -fx-font-family: "Times New Roman";
     -fx-font-size: 16px;
@@ -67,6 +103,12 @@
 
 .tiempo-text{
     -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+
+.ganadorAlgohoot{
+    -fx-font-size: 64px;
     -fx-font-weight: bold;
     -fx-text-fill: black;
 }

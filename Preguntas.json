@@ -19,10 +19,10 @@
       "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
     },
     {
-      "tipoDePregunta":"MultipleChoicePenalizado",
-      "enunciado":"selecciones a todos los animales",
-      "opcionesCorrectas": ["Perro","Gato"],
-      "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
+      "tipoDePregunta":"MultipleChoiceClasico",
+      "enunciado":"Colores que contengan A",
+      "opcionesCorrectas": ["Azul","Naranja"],
+      "opcionesPosibles": ["Rojo","Verde","Negro","Azul","Naranja"]
     },
     {
       "tipoDePregunta":"MultipleChoiceParcial",

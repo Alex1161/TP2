@@ -20,7 +20,9 @@ public class VistaVoF {
     private static String VERDADERO = "Verdadero";
     private static String FALSO = "Falso";
 
-    public VistaVoF(Stage stage, VistaTemporizador vistaT, VistaPuntajeJugador unaVistaPuntajeParcial){
+    /*
+     public VistaVoF(Stage stage, VistaTemporizador vistaT, VistaInfoJugadores unaVistaInfoJugadores){
+
         //Button respuesta1 = new BotonProbarCambio();
         //respuesta1.setOnAction(new HandlerCronometro(vistaT));
         //respuesta1.getStyleClass().add(".button");
@@ -48,7 +50,7 @@ public class VistaVoF {
         boton2.setPrefSize(400, 60);
 
     }
-
+    */
     public GridPane obtenerGrilla(){
         return grillaRespuestas;
     }

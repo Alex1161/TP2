@@ -2,6 +2,7 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.vista.ActionListenerCronometro;
+import edu.fiuba.algo3.vista.VistaOpciones;
 import edu.fiuba.algo3.vista.VistaTemporizador;
 import javafx.geometry.Pos;
 import edu.fiuba.algo3.VistaPuntajeJugador;
@@ -13,9 +14,10 @@ import java.util.List;
 
 
 public class VistaPreguntaEnCurso{
-    VistaPuntajeJugador vistaPuntajeParcial;
     VistaEnunciado vistaEnunciado;
-    VistaVoF vistaVoF;
+    VistaOpciones vistaVoF;
+    VistaInfoJugadores vistaInfoJugadores;
+
     VistaTemporizador vistaTemporizador;
 
     VBox panelDerecho;
@@ -24,14 +26,12 @@ public class VistaPreguntaEnCurso{
     HBox panelSuperior;
     VBox ventanaCompleta;
 
-    Panel paneljuego = Panel.getInstancia();
-
-    public VistaPreguntaEnCurso(Stage stage){
+    public VistaPreguntaEnCurso(){
 
 
-        //vistaInfoJugadores = new VistaInfoJugadores();
+        vistaInfoJugadores = new VistaInfoJugadores();
 
-        //panelIzquierdo = vistaInfoJugadores.obtenerPanelInfoJugadores();
+        panelIzquierdo = vistaInfoJugadores.obtenerPanelInfoJugadores();
 
         vistaTemporizador = new VistaTemporizador();
         Cronometro cronometro = new Cronometro(new ActionListenerCronometro(vistaTemporizador));
@@ -44,13 +44,13 @@ public class VistaPreguntaEnCurso{
         panelCentral = vistaEnunciado.obtenerPanelEnunciado();
 
         panelSuperior = new HBox();
-        panelSuperior.getChildren().addAll(/*panelIzquierdo*/ panelCentral, panelDerecho);
+        panelSuperior.getChildren().addAll(panelIzquierdo, panelCentral, panelDerecho);
         panelSuperior.setSpacing(20);
         panelSuperior.setAlignment(Pos.CENTER);
         panelSuperior.setMinHeight(500);
 
-        vistaPuntajeParcial = new VistaPuntajeJugador(Panel.getInstancia().obtenerJugador(0),Panel.getInstancia().obtenerJugador(1));
-        vistaVoF = new VistaVoF(stage, vistaTemporizador, vistaPuntajeParcial);
+
+        vistaVoF = new VistaOpciones();
 
         ventanaCompleta = new VBox();
         ventanaCompleta.getChildren().addAll(panelSuperior, vistaVoF.obtenerGrilla());
@@ -62,7 +62,5 @@ public class VistaPreguntaEnCurso{
         return ventanaCompleta;
     }
 
-    public void actualizar(){
-    }
 
 }
