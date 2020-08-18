@@ -1,22 +1,17 @@
 package edu.fiuba.algo3;
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.vista.ActionListenerCronometro;
 import edu.fiuba.algo3.vista.VistaOpciones;
 import edu.fiuba.algo3.vista.VistaTemporizador;
 import javafx.geometry.Pos;
-import edu.fiuba.algo3.VistaPuntajeJugador;
 
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-import java.util.List;
 
 
 public class VistaPreguntaEnCurso{
     VistaEnunciado vistaEnunciado;
     VistaOpciones vistaVoF;
-    VistaInfoJugadores vistaInfoJugadores;
+    VistaAccionesJugador vistaAccionesJugador;
 
     VistaTemporizador vistaTemporizador;
 
@@ -29,9 +24,9 @@ public class VistaPreguntaEnCurso{
     public VistaPreguntaEnCurso(){
 
 
-        vistaInfoJugadores = new VistaInfoJugadores();
+        vistaAccionesJugador = new VistaAccionesJugador();
 
-        panelIzquierdo = vistaInfoJugadores.obtenerPanelInfoJugadores();
+        panelIzquierdo = vistaAccionesJugador.obtenerPanelInfoJugadores();
 
         vistaTemporizador = new VistaTemporizador();
         Cronometro cronometro = new Cronometro(new ActionListenerCronometro(vistaTemporizador));
