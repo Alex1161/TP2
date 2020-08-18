@@ -17,7 +17,7 @@ public class HandlerBotonMultipleChoise implements EventHandler {
 
     @Override
     public void handle(Event event) {
-        btn.getStyleClass().add("buttonPressed");
+        //btn.getStyleClass().add("buttonPressed");
         btn.setOnAction(new HandlerBotonMultipleChoiseDesSeleccionar(btn));
         btn.setText("Seleccionado");
     }

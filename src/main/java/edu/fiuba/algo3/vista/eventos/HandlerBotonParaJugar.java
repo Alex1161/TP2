@@ -48,16 +48,9 @@ public class HandlerBotonParaJugar implements EventHandler {
             Jugador jugador2 = new Jugador(campoJugador2.getText());
             paneljuego.agregarJugador(jugador1);
             paneljuego.agregarJugador(jugador2);
-            /*
-            File f = new File("EstilosDeBotones.css");
-            VistaPreguntaEnCurso preguntaEnCurso = new VistaPreguntaEnCurso(ventana);
-            Scene escenaPregunta = new Scene(preguntaEnCurso.obtenerVista(), 1024, 768);
 
-            escenaPregunta.getStylesheets().clear();
-            escenaPregunta.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));*/
             ControladorPrincipal controladorPrincipal = ControladorPrincipal.getInstancia();
             controladorPrincipal.iniciarTurno();
-            //ventana.setScene(escenaPregunta);
         }
 
     }

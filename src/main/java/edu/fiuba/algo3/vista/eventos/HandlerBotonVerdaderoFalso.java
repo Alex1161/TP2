@@ -31,22 +31,6 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
     private String opcion;
     private ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
 
-    /*
-    public HandlerBotonVerdaderoFalso(Button boton, Stage unaVentana, VistaInfoJugadores unaVistaInfoJugadores){
-        this.ventana = unaVentana;
-        //this.escenaProxima = unaEscenaProxima;
-        this.vistaInfoJugadores = unaVistaInfoJugadores;
-=======
-    public HandlerBotonVerdaderoFalso(Button boton, Stage unaVentana, VistaPuntajeJugador unaVistaPuntajeParcial){
-        this.ventana = unaVentana;
-        //this.escenaProxima = unaEscenaProxima;
-        this.vistaPuntajeParcial = unaVistaPuntajeParcial;
-
->>>>>>> b5c79141dd7f4d506a70c9b36eb572a267e5545b
-        this.boton = boton;
-
-    }*/
-
     public HandlerBotonVerdaderoFalso(String opcion){
         this.opcion = opcion;
     }
@@ -57,11 +41,12 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
         respuestaJugador1 = new Respuesta(panelJuego.jugadorActual());
         respuestaJugador1.agregarOpcion(opcion);
         listaRespuestas = new ArrayList<Respuesta>();
+        /* Si hay jugador siguiente turno, sino calificar y siguiente pregunta!!!
+
+         */
         listaRespuestas.add(respuestaJugador1);
         panelJuego.preguntaActual().calificar(listaRespuestas);
         controlador.siguienteTurno();
-        //vistaInfoJugadores.actualizar();
-        //ventana.setScene(escenaProxima);
 
     }
 
