@@ -11,6 +11,7 @@ public class VistaEnunciado {
 
     VBox panelEnunciado;
     Label enunciadoTxt;
+    Label tipoTxt;
     Panel panelJuego = Panel.getInstancia();
 
     public VistaEnunciado(){
@@ -23,7 +24,16 @@ public class VistaEnunciado {
         enunciadoTxt.setWrapText(true);
         enunciadoTxt.setAlignment(Pos.CENTER);
         enunciadoTxt.getStyleClass().add("enunciado-text");
-        panelEnunciado.getChildren().addAll(enunciadoTxt);
+
+        tipoTxt = new Label(panelJuego.preguntaActual().getTipo());
+        tipoTxt.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        tipoTxt.setMaxWidth(800);
+        tipoTxt.setWrapText(true);
+        tipoTxt.setAlignment(Pos.TOP_CENTER);
+        tipoTxt.getStyleClass().add("enunciado-text");
+
+        panelEnunciado.getChildren().addAll(tipoTxt,enunciadoTxt);
+
         panelEnunciado.setAlignment(Pos.CENTER);
         panelEnunciado.getStyleClass().add("enunciado-style");
 
