@@ -19,7 +19,7 @@
       "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
     },
     {
-      "tipoDePregunta":"MultipleChoiceClasico",
+      "tipoDePregunta":"MultipleChoicePenalizado",
       "enunciado":"Colores que contengan A",
       "opcionesCorrectas": ["Azul","Naranja"],
       "opcionesPosibles": ["Rojo","Verde","Negro","Azul","Naranja"]

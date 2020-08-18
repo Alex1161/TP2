@@ -37,8 +37,8 @@ public class ControladorPrincipal {
        }
 
        public void iniciarTurno(){
-               iniciarVistaPregunta();
                Panel.getInstancia().cambiarJugador();
+               iniciarVistaPregunta();
        }
 
        public void siguienteTurno(){

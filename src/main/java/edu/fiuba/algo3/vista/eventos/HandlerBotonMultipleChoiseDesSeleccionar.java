@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
+import edu.fiuba.algo3.Panel;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonMultipleChoise;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -7,18 +8,20 @@ import javafx.scene.control.Button;
 
 
 public class HandlerBotonMultipleChoiseDesSeleccionar implements EventHandler{
-
+    private Panel panelJuego = Panel.getInstancia();
     Button btn;
-    String texto;
-    public HandlerBotonMultipleChoiseDesSeleccionar(Button btn) {
+    String opcion;
+    public HandlerBotonMultipleChoiseDesSeleccionar(Button btn,String opcion) {
         this.btn = btn;
-        this.texto = btn.getText();
+        this.opcion= opcion;
+
     }
 
 
     @Override
     public void handle(Event event) {
-        btn.setText(texto);
-        btn.setOnAction(new HandlerBotonMultipleChoise(texto, btn));
+        btn.setText(opcion);
+        btn.setOnAction(new HandlerBotonMultipleChoise(opcion, btn));
+        panelJuego.quitarOpcion(opcion);
     }
 }
