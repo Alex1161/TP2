@@ -36,13 +36,15 @@ public class Panel {
         this.fachadaCreadorPregunta = new CreadorDePreguntas();
     }
 
-    public Jugador ganadorAlgohoot(){
-        if (jugador1.puntajeValorNumerico() > jugador2.puntajeValorNumerico()){
-            return jugador1;
-        }
-        else return jugador2;
-    }
      */
+
+    public Jugador ganadorAlgohoot(){
+        if (listaJugadores.get(0).puntajeValorNumerico()> listaJugadores.get(1).puntajeValorNumerico()){
+            return listaJugadores.get(0);
+        }
+        else return listaJugadores.get(1);
+    }
+
 
     public void cargarPreguntas() throws IOException {
         listaPreguntas = lectorJson.recuperarPreguntas(ARCHIVOJSON);

@@ -98,6 +98,12 @@
     -fx-text-fill: black;
 }
 
+.ganadorAlgohoot{
+    -fx-font-size: 64px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+
 .enunciado-style {
     -fx-background-color: #7e4fb9;
     -fx-border-radius: 40px;
