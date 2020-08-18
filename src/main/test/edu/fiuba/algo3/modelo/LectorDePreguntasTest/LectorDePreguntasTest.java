@@ -142,16 +142,16 @@ public class LectorDePreguntasTest {
         jugador2 = new Jugador("juan");
         respuesta1 = new Respuesta(jugador1);
         respuesta2 = new Respuesta(jugador2);
-        respuesta1.agregarOpcion("Perro");
-        respuesta1.agregarOpcion("Gato");
-        respuesta2.agregarOpcion("Tomate");
-        respuesta2.agregarOpcion("Pera");
+        respuesta1.agregarOpcion("Rojo");
+        respuesta1.agregarOpcion("Verde");
+        respuesta2.agregarOpcion("Azul");
+        respuesta2.agregarOpcion("Naranja");
         respuestas = new ArrayList<>();
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
         pregunta.calificar(respuestas);
-        assertEquals(2, jugador1.puntajeValorNumerico());
-        assertEquals(-2, jugador2.puntajeValorNumerico());
+        assertEquals(0, jugador1.puntajeValorNumerico());
+        assertEquals(1, jugador2.puntajeValorNumerico());
 
         pregunta = preguntas.get(4);
         jugador1 = new Jugador("carlos");
@@ -200,11 +200,11 @@ public class LectorDePreguntasTest {
 
         pregunta = preguntas.get(3);
 
-        assertTrue(pregunta.obtenerOpciones().esta(Pera));
-        assertTrue(pregunta.obtenerOpciones().esta(Perro));
-        assertTrue(pregunta.obtenerOpciones().esta(Tomate));
-        assertTrue(pregunta.obtenerOpciones().esta(Gato));
-
+        assertTrue(pregunta.obtenerOpciones().esta("Rojo"));
+        assertTrue(pregunta.obtenerOpciones().esta("Verde"));
+        assertTrue(pregunta.obtenerOpciones().esta("Negro"));
+        assertTrue(pregunta.obtenerOpciones().esta("Azul"));
+        assertTrue(pregunta.obtenerOpciones().esta("Naranja"));
 
         pregunta = preguntas.get(4);
 
@@ -212,6 +212,7 @@ public class LectorDePreguntasTest {
         assertTrue(pregunta.obtenerOpciones().esta(Perro));
         assertTrue(pregunta.obtenerOpciones().esta(Tomate));
         assertTrue(pregunta.obtenerOpciones().esta(Gato));
+
 
     }
 }
