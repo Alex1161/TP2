@@ -8,6 +8,15 @@
     -fx-text-fill: white;
 }
 
+.buttonPressed {
+    -fx-background-color: rgba(127, 57, 65, 0.45);
+    -fx-border-radius: 20px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
 .button1 {
     -fx-background-color: #b21b3c;
     -fx-border-radius: 20px;
