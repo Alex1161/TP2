@@ -30,7 +30,7 @@ public class VistaOpciones {
         for (String opcion: panel.preguntaActual().obtenerOpciones().obtenerOpciones()
              ) {
             Button btn = new Button(opcion);
-            btn.getStyleClass().add("button2");
+            btn.getStyleClass().add("button"+(i+1));
             HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso(btn,stage,unaVistaInfoJugadores);
             btn.setOnAction(botonVoF);
             grillaRespuestas.add(btn, 0, i);

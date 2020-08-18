@@ -1,5 +1,5 @@
 package edu.fiuba.algo3;
 
 public class ControladorPrincipal {
-        //vistaPrincipal
+       //Scene escena;
 }
