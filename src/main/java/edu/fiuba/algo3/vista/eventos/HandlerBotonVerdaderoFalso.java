@@ -2,7 +2,8 @@ package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.ControladorPrincipal;
 import edu.fiuba.algo3.Panel;
-import edu.fiuba.algo3.VistaInfoJugadores;
+//import edu.fiuba.algo3.VistaInfoJugadores;
+import edu.fiuba.algo3.VistaPuntajeJugador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
@@ -19,6 +20,9 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
+import static edu.fiuba.algo3.AlgoHoot.ALTO;
+import static edu.fiuba.algo3.AlgoHoot.ANCHO;
+
 public class HandlerBotonVerdaderoFalso implements EventHandler {
 
     private Respuesta respuestaJugador1;
@@ -32,6 +36,13 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
         this.ventana = unaVentana;
         //this.escenaProxima = unaEscenaProxima;
         this.vistaInfoJugadores = unaVistaInfoJugadores;
+=======
+    public HandlerBotonVerdaderoFalso(Button boton, Stage unaVentana, VistaPuntajeJugador unaVistaPuntajeParcial){
+        this.ventana = unaVentana;
+        //this.escenaProxima = unaEscenaProxima;
+        this.vistaPuntajeParcial = unaVistaPuntajeParcial;
+
+>>>>>>> b5c79141dd7f4d506a70c9b36eb572a267e5545b
         this.boton = boton;
 
     }*/
@@ -51,6 +62,7 @@ public class HandlerBotonVerdaderoFalso implements EventHandler {
         controlador.iniciarTurno();
         //vistaInfoJugadores.actualizar();
         //ventana.setScene(escenaProxima);
+
     }
 
 }

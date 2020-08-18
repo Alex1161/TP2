@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 //import edu.fiuba.algo3.Controlador;
-import edu.fiuba.algo3.VistaInfoJugadores;
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.vista.botones.BotonParaJugar;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonParaJugar;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

@@ -14,6 +14,7 @@ public class ControladorPrincipal {
     private static ControladorPrincipal instancia = new ControladorPrincipal();
 
        Stage ventana = StagePrincipal.getInstance();
+       Panel panel = Panel.getInstancia();
 
        ControladorPrincipal(){
            Scene escenaDeJuego = new Scene((new VistaPreguntaEnCurso()).obtenerVista(), 1200, 680);
@@ -40,7 +41,17 @@ public class ControladorPrincipal {
                Panel.getInstancia().cambiarJugador();
        }
 
-        public static ControladorPrincipal getInstancia(){
+       public void siguienteTurno(){
+           /*if (panel.haySiguienteJugador()){
+               iniciarTurno();
+           }else{
+               //mostrarVentanaDePuntaje();
+           }*/
+       }
+
+       public static ControladorPrincipal getInstancia(){
            return instancia;
-        }
+       }
+
+
 }

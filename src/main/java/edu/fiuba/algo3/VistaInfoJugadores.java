@@ -7,6 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+
 public class VistaInfoJugadores {
 
     GridPane tablaDeInfo;
@@ -75,4 +76,6 @@ public class VistaInfoJugadores {
     }
 
 }
+
+
 

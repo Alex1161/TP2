@@ -2,7 +2,6 @@ package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.ControladorPrincipal;
 import edu.fiuba.algo3.Panel;
-import edu.fiuba.algo3.VistaInfoJugadores;
 import edu.fiuba.algo3.VistaPreguntaEnCurso;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.vista.VistaIngresoDeJugadores;
