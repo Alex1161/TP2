@@ -45,7 +45,7 @@ public class VistaAccionesJugador {
 
         /*for( Comodin comodinDisponible: jugadorActual.obtenerComodines()){
             Button botonActual = new Button("Activar" + comodinDisponible.getNombre());
-            
+
         }
 
          */

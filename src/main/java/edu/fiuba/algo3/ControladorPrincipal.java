@@ -62,10 +62,17 @@ public class ControladorPrincipal {
            ventana.setScene(escenaDeJuego);
        }
 
+
     public void iniciarSiguientePregunta() {
            if(Panel.getInstancia().tieneSiguientePregunta()){
                Panel.getInstancia().cambiarPregunta();
                iniciarTurno();
+           }else{
+               Scene escenaDeJuego = new Scene(new VistaGanadorAlgohoot().obtenerVista(), 1200, 680);
+               File f = new File("EstilosDeBotones.css");
+               escenaDeJuego.getStylesheets().clear();
+               escenaDeJuego.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+               ventana.setScene(escenaDeJuego);
            }
     }
 }
