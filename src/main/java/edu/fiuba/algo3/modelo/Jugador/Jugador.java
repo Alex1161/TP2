@@ -35,10 +35,6 @@ public class Jugador {
         this.puntaje.agregar(puntaje);
     }
 
-    public void setNombre(String unNombre){
-        this.nombre = unNombre;
-    }
-
     public int puntajeValorNumerico() {
         return puntaje.valorNumerico();
     }

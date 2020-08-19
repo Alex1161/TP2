@@ -18,4 +18,6 @@ public abstract class Comodin {
     public boolean equals(Object obj) {
         return this.getClass().equals(obj.getClass());
     }
+
+    public abstract String obtenerNombre();
 }

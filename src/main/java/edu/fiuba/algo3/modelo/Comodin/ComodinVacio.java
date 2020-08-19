@@ -21,4 +21,9 @@ public class ComodinVacio extends Comodin {
     public Puntaje aplicar(Puntaje puntaje) {
         return puntaje;
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "";
+    }
 }

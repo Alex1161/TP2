@@ -49,8 +49,8 @@ public class VistaOpciones {
 
         }
         Button btn = new Button("CONFIRMAR");
-        btn.getStyleClass().add("button"+(i+1));
-        HandlerBotonConfirmar botonConfirmar = new HandlerBotonConfirmar(btn);
+        btn.getStyleClass().add("botonConfirmarSeleccion");
+        HandlerBotonConfirmar botonConfirmar = new HandlerBotonConfirmar();
         btn.setOnAction(botonConfirmar);
         grillaRespuestas.add(btn, 2, 1);
     }

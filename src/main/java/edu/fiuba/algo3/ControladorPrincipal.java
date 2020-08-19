@@ -1,15 +1,11 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.VistaPuntajeJugador;
-
+import edu.fiuba.algo3.vista.VistaGanadorAlgohoot;
+import edu.fiuba.algo3.vista.VistaPreguntaEnCurso;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.util.List;
 
 public class ControladorPrincipal {
 

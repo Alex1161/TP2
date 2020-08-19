@@ -2,19 +2,14 @@ package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.ControladorPrincipal;
 import edu.fiuba.algo3.Panel;
-import edu.fiuba.algo3.VistaPreguntaEnCurso;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.vista.VistaIngresoDeJugadores;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-
-import java.io.File;
 
 public class HandlerBotonParaJugar implements EventHandler {
 

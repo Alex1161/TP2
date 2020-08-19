@@ -1,18 +1,13 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.vista.eventos.HandlerBotonVerdaderoFalso;
 import edu.fiuba.algo3.vista.eventos.HandlerSiguientePregunta;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-
-import javax.swing.*;
 
 public class VistaPuntajeJugador{
     GridPane tablaDeInfo;
@@ -71,26 +66,9 @@ public class VistaPuntajeJugador{
         panel.getChildren().addAll(tablaDeInfo,botonSiguientePregunta);
 
         HandlerSiguientePregunta siguiente = new HandlerSiguientePregunta();
+
+        botonSiguientePregunta.getStyleClass().add("botonConfirmarSeleccion");
         botonSiguientePregunta.setOnAction(siguiente);
-    }
-
-    public void dibujarTablaDeInfo(){
-        tablaDeInfo.add(nombre, 0, 0);
-        tablaDeInfo.add(puntos, 1, 0);
-        tablaDeInfo.add(j1Txt, 0, 1);
-        tablaDeInfo.add(puntosJ1txt, 1, 1);
-        tablaDeInfo.add(j2Txt, 0, 2);
-        tablaDeInfo.add(puntosJ2txt, 1, 2);
-    }
-
-    public void actualizar(){
-        this.j1Txt.setText(jugador1.getNombre());
-        this.puntosJ1txt.setText(String.valueOf(jugador1.puntajeValorNumerico()));
-        this.j2Txt.setText(jugador2.getNombre());
-        this.puntosJ2txt.setText(String.valueOf(jugador2.puntajeValorNumerico()));
-        //this.panel.getChildren().remove(tablaDeInfo);
-        //this.dibujarTablaDeInfo();
-        //this.panel.getChildren().addAll(tablaDeInfo);
     }
 
     public VBox obtenerPanel() {

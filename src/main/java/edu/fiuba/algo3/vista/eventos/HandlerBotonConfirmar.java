@@ -12,10 +12,10 @@ public class HandlerBotonConfirmar implements EventHandler {
     private Button btn;
     private ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
 
-    public HandlerBotonConfirmar(Button btn) {
-        this.btn = btn;
+    public HandlerBotonConfirmar() {
 
     }
+
     @Override
     public void handle(Event event) {
         if (!panelJuego.tieneSiguienteJugador()){

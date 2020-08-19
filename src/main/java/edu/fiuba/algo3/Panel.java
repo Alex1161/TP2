@@ -1,11 +1,8 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
-import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.LectorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
-import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import edu.fiuba.algo3.modelo.Respuestas.Respuestas;
 
 import java.io.IOException;
@@ -14,7 +11,6 @@ import java.util.List;
 
 public class Panel {
     private static Panel instancia = new Panel();
-    private final CreadorDePreguntas fachadaCreadorPregunta;
     private static String ARCHIVOJSON = "Preguntas.json";
     LectorDePreguntas lectorJson = new LectorDePreguntas();
     List<Pregunta> listaPreguntas = new ArrayList<>();
@@ -23,7 +19,7 @@ public class Panel {
     private Respuestas respuestas=new Respuestas();
 
     private Panel(){
-        this.fachadaCreadorPregunta = new CreadorDePreguntas();
+
 
         iteradorPregunta = 0;
     }

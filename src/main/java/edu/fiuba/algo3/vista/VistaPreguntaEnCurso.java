@@ -1,11 +1,9 @@
-package edu.fiuba.algo3;
-import edu.fiuba.algo3.vista.ActionListenerCronometro;
-import edu.fiuba.algo3.vista.VistaOpciones;
-import edu.fiuba.algo3.vista.VistaTemporizador;
+package edu.fiuba.algo3.vista;
+import edu.fiuba.algo3.Cronometro;
+import edu.fiuba.algo3.vista.*;
 import javafx.geometry.Pos;
 
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
 
 public class VistaPreguntaEnCurso{

@@ -1,5 +1,6 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.Panel;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -41,9 +42,5 @@ public class VistaEnunciado {
 
     public VBox obtenerPanelEnunciado(){
         return panelEnunciado;
-    }
-
-    public void actualizar(){
-        enunciadoTxt.setText(panelJuego.preguntaActual().getEnunciado());
     }
 }
