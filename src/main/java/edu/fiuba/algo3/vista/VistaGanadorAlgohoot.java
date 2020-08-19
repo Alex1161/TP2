@@ -1,5 +1,6 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.Panel;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -13,8 +14,8 @@ public class VistaGanadorAlgohoot extends VBox{
     Label labelGanador = new Label();
 
     private static final String URL_FONDO = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/ganador.jpg";
-    private static final int ANCHO = 800;
-    private static final int ALTO = 600;
+    private static final int ANCHO = 1024;
+    private static final int ALTO = 768;
     Jugador jugadorGanador;
 
     public VistaGanadorAlgohoot(){
@@ -33,11 +34,11 @@ public class VistaGanadorAlgohoot extends VBox{
     private void setFondoDePantalla(VBox miPanel, String src){
         Image fondoPantallaInicial = new Image(src);
         BackgroundSize bSize =
-                new BackgroundSize(ANCHO,
-                        ALTO,
-                        false,
-                        false,
-                        true, false);
+                new BackgroundSize(0.95,
+                        0.95,
+                        true,
+                        true,
+                        false, false);
 
         miPanel.setBackground((new Background(new BackgroundImage(fondoPantallaInicial,
                 BackgroundRepeat.NO_REPEAT,

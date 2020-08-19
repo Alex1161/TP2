@@ -17,6 +17,36 @@
     -fx-text-fill: white;
 }
 
+.botonPrimario{
+    -fx-background-color: #1368ce;
+    -fx-border-radius: 20px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+
+}
+
+.botonPrimario:hover{
+    -fx-background-color: #0542b9; /* Green */
+    color: white;
+}
+
+.botonPrimarioGrande{
+    -fx-background-color: #0542b9;
+    -fx-border-radius: 35px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.botonPrimarioGrande:hover{
+    -fx-background-color: #1368ce;
+    color: white;
+}
+
+
 .button1 {
     -fx-background-color: #b21b3c;
     -fx-border-radius: 20px;
@@ -71,7 +101,7 @@
     -fx-font-color: white;
 }
 
-.button:hover {
+.button1:hover {
     -fx-background-color: #c60929; /* Green */
     color: white;
 }
@@ -120,4 +150,18 @@
 
 .fondo-general {
     -fx-background-color: rgba(194, 194, 194, 0.35);
+}
+
+.botonConfirmarSeleccion{
+    -fx-background-color: #26890c;
+    -fx-border-radius: 35px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-color: white;
+}
+
+.botonConfirmarSeleccion:hover{
+    -fx-background-color: #106b03;
+    color: white;
 }

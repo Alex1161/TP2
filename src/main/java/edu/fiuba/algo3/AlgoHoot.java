@@ -1,13 +1,9 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.vista.VistaIngresoDeJugadores;
-import edu.fiuba.algo3.vista.VistaTemporizador;
 import javafx.application.Application;
 import javafx.scene.Scene;
 
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -32,10 +28,6 @@ public class AlgoHoot extends Application {
         }catch (IOException e){
             e.getMessage();
         }
-
-
-        //escenaPreguntaEnCurso.getStylesheets().clear();
-        //escenaPreguntaEnCurso.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
         VistaIngresoDeJugadores ingresoDeJugadores = new VistaIngresoDeJugadores(stage);
         Scene escenaDeBienvenida = new Scene(ingresoDeJugadores.getVista(), ANCHO, ALTO);

@@ -7,6 +7,12 @@ import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import java.util.List;
 
 public class Exclusividad extends Comodin {
+    public static String NOMBRE_EXCLUSIVIDAD = "Exclusividad";
+
+    public String obtenerNombre(){
+        return NOMBRE_EXCLUSIVIDAD;
+    }
+
     @Override
     public void validar(Penalidad penalidad) {
         penalidad.validarExclusividad();

@@ -46,6 +46,7 @@ public class VistaIngresoDeJugadores{
         VBox cuadro = new VBox(solicitudNombre1, solicitudNombre2);
 
         this.unBoton = new BotonParaJugar(ventana, solicitudNombre1, solicitudNombre2,cuadro);
+        this.unBoton.getStyleClass().add("botonPrimarioGrande");
         cuadro.getChildren().addAll(unBoton);
 
         cuadro.setSpacing(20);
@@ -60,11 +61,11 @@ public class VistaIngresoDeJugadores{
     private void setFondoDePantalla(BorderPane miPanel, String src){
         Image fondoPantallaInicial = new Image(src);
         BackgroundSize bSize =
-                new BackgroundSize(ANCHO,
-                        ALTO,
-                        false,
-                        false,
-                        true, false);
+                new BackgroundSize(1.0,
+                        1.0,
+                        true,
+                        true,
+                        false, false);
 
         miPanel.setBackground(new Background(new BackgroundImage(fondoPantallaInicial,
                 BackgroundRepeat.NO_REPEAT,
