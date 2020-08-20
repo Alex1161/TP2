@@ -2,6 +2,7 @@ package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.vista.VistaIngresoDeJugadores;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
@@ -42,8 +43,17 @@ public class AlgoHoot extends Application {
 
     }
 
+
     public static void main(String[] args) {
         launch();
     }
+
+
+    public void restart(Stage stage) {
+        Panel panelJuego = Panel.getInstancia();
+        panelJuego.limpiar();
+        start(stage);
+    }
+
 
 }

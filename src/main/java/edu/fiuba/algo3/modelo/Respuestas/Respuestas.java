@@ -6,7 +6,8 @@ import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Respuestas {
+public class
+Respuestas {
     private List<Respuesta> respuestas=new ArrayList<>();
     private List<Jugador> jugadores=new ArrayList<>();
     private int iterador = 1;;
@@ -19,6 +20,7 @@ public class Respuestas {
     public List<Respuesta> obtenerRespuestas() {
         return respuestas;
     }
+
     public void limpiar(){
         respuestas=new ArrayList<>();
         for (Jugador jugador: jugadores){
@@ -56,5 +58,9 @@ public class Respuestas {
 
     public Jugador obtenerJugadorActual() {
         return obtenerRespuestaActual().obtenerJugador();
+    }
+
+    public void reiniciar(){
+        jugadores.removeAll(jugadores);
     }
 }
