@@ -2,6 +2,8 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.Panel;
 import edu.fiuba.algo3.modelo.Comodin.Comodin;
+import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
+import edu.fiuba.algo3.modelo.Comodin.Multiplicador;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonAccionarComodin;
@@ -41,15 +43,30 @@ public class VistaAccionesJugador {
 
         this.panelAccionesDiponiblesJugador.getChildren().addAll(encabezadoNombre, nombreJugadorActual);
 
-        for( Comodin comodinDisponible: jugadorActual.obtenerComodines()){
-            Button botonActual = new Button("Activar" + comodinDisponible.obtenerNombre());
-            botonActual.getStyleClass().add("botonPrimario");
-            HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(jugadorActual, botonActual, comodinDisponible);
-            botonActual.setOnAction(manejadorAccionComodin);
-            this.panelAccionesDiponiblesJugador.getChildren().add(botonActual);
-        }
+        if (panelJuego.preguntaActual().getTipo() == "VoFPenalizado" || panelJuego.preguntaActual().getTipo() == "MultipleChoicePenalizado")
+            for (Comodin comodinDisponible : jugadorActual.obtenerComodines()) {
+                if (comodinDisponible instanceof Multiplicador) {
+                    Button botonActual = new Button("Activar" + comodinDisponible.obtenerNombre());
+                    botonActual.getStyleClass().add("botonPrimario");
+                    HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(jugadorActual, botonActual, comodinDisponible);
+                    botonActual.setOnAction(manejadorAccionComodin);
+                    this.panelAccionesDiponiblesJugador.getChildren().add(botonActual);
+                }
+            }
+        else {
+            for (Comodin comodinDisponible : jugadorActual.obtenerComodines()) {
+                if (comodinDisponible instanceof Exclusividad) {
+                    Button botonActual = new Button("Activar" + comodinDisponible.obtenerNombre());
+                    botonActual.getStyleClass().add("botonPrimario");
+                    HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(jugadorActual, botonActual, comodinDisponible);
+                    botonActual.setOnAction(manejadorAccionComodin);
+                    this.panelAccionesDiponiblesJugador.getChildren().add(botonActual);
 
-        //dibujar();
+                }
+            }
+
+            //dibujar();
+        }
     }
 
     public void dibujar(){
