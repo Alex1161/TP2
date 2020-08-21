@@ -1,12 +1,6 @@
 {
   "Preguntas": [
     {
-      "tipoDePregunta":"GroupChoice",
-      "enunciado":"Pares(G1) e Impares(G2)",
-      "opcionesCorrectas": ["2","4","6"],
-      "opcionesPosibles": ["1","5","2","4","6"]
-    },
-    {
       "tipoDePregunta":"VoFClasico",
       "enunciado":"Los Perros Vuelan",
       "opcionesCorrectas": ["Falso"],
@@ -35,6 +29,12 @@
       "enunciado":"selecciones a todos los animales",
       "opcionesCorrectas": ["Perro","Gato"],
       "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
+    },
+    {
+      "tipoDePregunta":"GroupChoice",
+      "enunciado":"Pares(G1) e Impares(G2)",
+      "opcionesCorrectas": ["2","4","6"],
+      "opcionesPosibles": ["1","5","2","4","6"]
     }
   ]
 }

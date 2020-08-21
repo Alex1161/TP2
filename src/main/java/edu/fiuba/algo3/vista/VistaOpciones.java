@@ -36,7 +36,7 @@ public class VistaOpciones {
         if(Panel.getInstancia().preguntaActual().getTipo().contains("MultipleChoice")){
             crearBotonesChoise();
         }
-        if(Panel.getInstancia().preguntaActual().getTipo().contains("GroupChoice")){
+        else if(Panel.getInstancia().preguntaActual().getTipo().contains("GroupChoice")){
             crearBotonesGroupChoice();
         }
         else{
