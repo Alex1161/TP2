@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Comodin.Comodin;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta.LectorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
@@ -48,7 +49,6 @@ public class Panel {
 
     public void agregarJugador(Jugador jugador) {
         respuestas.agregarJugador(jugador);
-
 
     }
 
@@ -108,13 +108,12 @@ public class Panel {
     }
 
     public void limpiar(){
-        instancia = new Panel();
-        ARCHIVOJSON = "Preguntas.json";
-
-        lectorJson = new LectorDePreguntas();
-        listaPreguntas = new ArrayList<>();
-
         respuestas=new Respuestas();
         iteradorPregunta = 0;
+    }
+
+    public void aplicarComodin(Comodin comodinActual) {
+        preguntaActual().agregarComodin(comodinActual,respuestas.obtenerRespuestaActual());
+        respuestas.obtenerRespuestaActual().quitarComodinAlJugador(comodinActual);
     }
 }
