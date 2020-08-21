@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Comodin.Comodin;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta.LectorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
@@ -13,7 +14,7 @@ import java.util.List;
 public class Panel {
 
     private static Panel instancia = new Panel();
-    private static String ARCHIVOJSON = "prueba.json";
+    private static String ARCHIVOJSON = "Preguntas.json";
 
     LectorDePreguntas lectorJson = new LectorDePreguntas();
     List<Pregunta> listaPreguntas = new ArrayList<>();
@@ -109,12 +110,17 @@ public class Panel {
 
     public void limpiar(){
         instancia = new Panel();
-        ARCHIVOJSON = "prueba.json";
+        ARCHIVOJSON = "Preguntas.json";
 
         lectorJson = new LectorDePreguntas();
         listaPreguntas = new ArrayList<>();
 
         respuestas=new Respuestas();
         iteradorPregunta = 0;
+    }
+
+    public void aplicarComodin(Comodin comodinActual) {
+        preguntaActual().agregarComodin(comodinActual,respuestas.obtenerRespuestaActual());
+        respuestas.obtenerRespuestaActual().quitarComodinAlJugador(comodinActual);
     }
 }

@@ -59,4 +59,8 @@ public class Respuesta {
     public Jugador obtenerJugador() {
         return jugador;
     }
+
+    public void quitarComodinAlJugador(Comodin comodin) {
+        jugador.sacarComodin(comodin);
+    }
 }

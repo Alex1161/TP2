@@ -41,6 +41,7 @@ public class VistaAccionesJugador {
         this.panelAccionesDiponiblesJugador.setAlignment(Pos.CENTER);
         this.panelAccionesDiponiblesJugador.setSpacing(10);
 
+
         this.panelAccionesDiponiblesJugador.getChildren().addAll(encabezadoNombre, nombreJugadorActual);
 
         if (panelJuego.preguntaActual().getTipo() == "VoFPenalizado" || panelJuego.preguntaActual().getTipo() == "MultipleChoicePenalizado")
@@ -48,7 +49,7 @@ public class VistaAccionesJugador {
                 if (comodinDisponible instanceof Multiplicador) {
                     Button botonActual = new Button("Activar" + comodinDisponible.obtenerNombre());
                     botonActual.getStyleClass().add("botonPrimario");
-                    HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(jugadorActual, botonActual, comodinDisponible);
+                    HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(botonActual, comodinDisponible,panelAccionesDiponiblesJugador);
                     botonActual.setOnAction(manejadorAccionComodin);
                     this.panelAccionesDiponiblesJugador.getChildren().add(botonActual);
                 }
@@ -58,7 +59,7 @@ public class VistaAccionesJugador {
                 if (comodinDisponible instanceof Exclusividad) {
                     Button botonActual = new Button("Activar" + comodinDisponible.obtenerNombre());
                     botonActual.getStyleClass().add("botonPrimario");
-                    HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(jugadorActual, botonActual, comodinDisponible);
+                    HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(botonActual, comodinDisponible,panelAccionesDiponiblesJugador);
                     botonActual.setOnAction(manejadorAccionComodin);
                     this.panelAccionesDiponiblesJugador.getChildren().add(botonActual);
 
