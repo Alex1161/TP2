@@ -50,7 +50,6 @@ public class Panel {
     public void agregarJugador(Jugador jugador) {
         respuestas.agregarJugador(jugador);
 
-
     }
 
     public Jugador obtenerJugador(int i) {
@@ -109,12 +108,6 @@ public class Panel {
     }
 
     public void limpiar(){
-        instancia = new Panel();
-        ARCHIVOJSON = "Preguntas.json";
-
-        lectorJson = new LectorDePreguntas();
-        listaPreguntas = new ArrayList<>();
-
         respuestas=new Respuestas();
         iteradorPregunta = 0;
     }
