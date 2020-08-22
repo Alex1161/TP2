@@ -27,7 +27,7 @@ public class CreadorDePreguntas {
             case "GroupChoice":
                 return CreadorDePreguntas.preguntaGroupChoice(enunciado,opcionesCorrectas,opcionesPosibles);
             case "OrderChoice":
-                return CreadorDePreguntas.preguntaOrderedChoice(enunciado,opcionesCorrectas,opcionesCorrectas);
+                return CreadorDePreguntas.preguntaOrderedChoice(enunciado,opcionesCorrectas,opcionesPosibles);
             default:
                 throw new TipoDePreguntaInvalida();
         }

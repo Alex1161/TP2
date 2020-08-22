@@ -34,11 +34,14 @@ public class VistaOpciones {
     }
 
     public void generarBotones(){
+
         if(Panel.getInstancia().preguntaActual().getTipo().contains("MultipleChoice")){
             crearBotonesChoise();
         }
         else if(Panel.getInstancia().preguntaActual().getTipo().contains("GroupChoice")){
             crearBotonesGroupChoice();
+        } else if(Panel.getInstancia().preguntaActual().getTipo().contains("OrderChoice")){
+            crearBotonesOrdered();
         }
         else{
             crearBotonesNormales();
@@ -111,7 +114,7 @@ public class VistaOpciones {
 
         Button btn = new Button("CONFIRMAR");
         btn.getStyleClass().add("botonConfirmarSeleccion");
-        HandlerBotonConfirmarGroup botonConfirmar = new HandlerBotonConfirmarGroup(grillaRespuestas,grupo1);
+        HandlerBotonConfirmarGroup botonConfirmar = new HandlerBotonConfirmarGroup(grillaRespuestas,grupo1,5);
         btn.setOnAction(botonConfirmar);
         grillaRespuestas.add(btn, 8, 4);
 
@@ -120,6 +123,49 @@ public class VistaOpciones {
 
         grillaRespuestas.add(nombreGrupo2, 5,1);
         grillaRespuestas.add(grupo2, 6,1);
+
+        /*En el Handler de Confirmar Order Choice.
+        for (Node unBoton : grupo1.getChildren()) {
+            Button botonActual = (Button) unBoton;
+            String respuestaPosible = botonActual.getText();
+            System.out.println(respuestaPosible);
+        }
+         */
+    }
+    private void crearBotonesOrdered(){
+        HBox grupoOrdenado = new HBox();
+        int i = 0;
+        for (String opcion: panel.preguntaActual().obtenerOpciones().obtenerOpciones()
+        ) {
+            Button btn = new Button(opcion);
+            btn.getStyleClass().add("button"+(i+1));
+            btn.setOnAction(new HandlerBotonOrderedChoiceClick(btn,grupoOrdenado,grillaRespuestas));
+            grillaRespuestas.add(btn, i, 1);
+            i++;
+        }
+
+        Label nombreGrupoOrdenado = new Label("Grupo Ordenado");
+
+        grupoOrdenado.setPadding(new Insets(10,10,10,10));
+
+        Label grupoAORdenar = new Label("Grupo Sin Ordenar");
+
+
+
+        grupoOrdenado.setPrefHeight(100);
+        grupoOrdenado.setPrefWidth(200);
+        setFondoDePantalla(grupoOrdenado, SRC_GRUPO_1);
+
+
+        Button btn = new Button("CONFIRMAR");
+        btn.getStyleClass().add("botonConfirmarSeleccion");
+        HandlerBotonConfirmarGroup botonConfirmar = new HandlerBotonConfirmarGroup(grillaRespuestas,grupoOrdenado,3);
+        btn.setOnAction(botonConfirmar);
+        grillaRespuestas.add(btn, 8, 4);
+
+        grillaRespuestas.add(nombreGrupoOrdenado,5,0);
+        grillaRespuestas.add(grupoOrdenado, 6,0);
+
 
         /*En el Handler de Confirmar Order Choice.
         for (Node unBoton : grupo1.getChildren()) {

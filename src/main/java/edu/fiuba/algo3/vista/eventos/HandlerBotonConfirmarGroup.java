@@ -28,15 +28,16 @@ public class HandlerBotonConfirmarGroup implements EventHandler {
     private ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
     GridPane opcionesSinResponder;
     HBox grupo1;
-
-    public HandlerBotonConfirmarGroup(GridPane grillaRespuestas, HBox grupo1) {
+    int elementosOptimos;
+    public HandlerBotonConfirmarGroup(GridPane grillaRespuestas, HBox grupo1,int elementosOptimos) {
     opcionesSinResponder=grillaRespuestas;
     this.grupo1=grupo1;
+    this.elementosOptimos=elementosOptimos;
     }
 
     @Override
     public void handle(Event event) {
-        if(opcionesSinResponder.getChildren().size()==5){
+        if(opcionesSinResponder.getChildren().size()==elementosOptimos){
             for (Node unBoton: grupo1.getChildren()) {
                 Button botonActual = (Button) unBoton;
                 panelJuego.agregarOpcion(botonActual.getText());
