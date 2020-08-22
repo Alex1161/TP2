@@ -12,6 +12,7 @@ public class PanelTest {
     @Test
     public void test01CreoPanelYVerificoSuContenido(){
         Panel panelJuego = Panel.getInstancia();
+        panelJuego.limpiar();
         try{
             panelJuego.cargarPreguntas();
         }catch (IOException e){
@@ -39,10 +40,34 @@ public class PanelTest {
         assertTrue(panelJuego.tieneSiguientePregunta()==true);
         panelJuego.cambiarPregunta();
         assertTrue(panelJuego.preguntaActual().getTipo()=="GroupChoice");
-        assertTrue(panelJuego.jugadorActual()==jugador2);
+
+        assertTrue(panelJuego.ganadorAlgohoot().getNombre()=="Empate");
+    }
+    @Test
+    public void test02PrueboDosPreguntasConPanel() {
+        //Primer Pregunta es VoF
+        String Falso="Falso";
+        String Verdadero="Verdadero";
+        Panel panelJuego = Panel.getInstancia();
+        panelJuego.limpiar();
+        try {
+            panelJuego.cargarPreguntas();
+        } catch (IOException e) {
+            e.getMessage();
+        }
+        Jugador jugador1 = new Jugador("Diego");
+        Jugador jugador2 = new Jugador("Luis");
+        panelJuego.agregarJugador(jugador1);
+        panelJuego.agregarJugador(jugador2);
         panelJuego.cambiarJugador();
         assertTrue(panelJuego.jugadorActual()==jugador1);
-        assertTrue(panelJuego.tieneSiguienteJugador()==true);
-        assertTrue(panelJuego.ganadorAlgohoot().getNombre()=="Empate");
+        panelJuego.agregarOpcion(Verdadero);
+        panelJuego.cambiarJugador();
+        panelJuego.agregarOpcion(Falso);
+        panelJuego.calificar();
+        assertTrue(jugador1.puntajeValorNumerico()==0);
+        assertTrue(jugador2.puntajeValorNumerico()==1);
+        assertTrue(panelJuego.ganadorAlgohoot()==jugador2);
+
     }
 }

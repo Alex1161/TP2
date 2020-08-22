@@ -60,7 +60,4 @@ Respuestas {
         return obtenerRespuestaActual().obtenerJugador();
     }
 
-    public void reiniciar(){
-        jugadores.removeAll(jugadores);
-    }
 }
