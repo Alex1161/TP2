@@ -10,15 +10,17 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
+import java.util.Collection;
 import java.util.List;
 
 public class VistaOpciones {
 
 
     private final String SRC_GRUPO_1 = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/fondoDegradadoNaranjaPrueba.png";
+    private final Collection<String> opciones;
 
     private Panel panel = Panel.getInstancia();
-    
+
     GridPane grillaRespuestas;
 
     public VistaOpciones(){
@@ -27,6 +29,7 @@ public class VistaOpciones {
         grillaRespuestas.setVgap(5);
         grillaRespuestas.setHgap(5);
         grillaRespuestas.setAlignment(Pos.CENTER);
+        opciones = panel.obtenerOpciones();
         generarBotones();
     }
 
@@ -35,14 +38,14 @@ public class VistaOpciones {
     }
 
     public void generarBotones(){
-
-        if(Panel.getInstancia().preguntaActual().getTipo().contains("MultipleChoice")){
+        String tipoPregunta = panel.tipoPreguntaActual();
+        if(tipoPregunta.contains("MultipleChoice")){
             crearBotonesChoice();
         }
-        else if(Panel.getInstancia().preguntaActual().getTipo().contains("GroupChoice")){
+        else if(tipoPregunta.contains("GroupChoice")){
             crearBotonesGroupChoice();
         }
-        else if(Panel.getInstancia().preguntaActual().getTipo().contains("OrderChoice")){
+        else if(tipoPregunta.contains("OrderChoice")){
             crearBotonesOrdered();
         }
         else{
@@ -52,7 +55,7 @@ public class VistaOpciones {
 
     private void crearBotonesChoice() {
         int i = 0;
-        for (String opcion: panel.preguntaActual().obtenerOpciones().obtenerOpciones() ) {
+        for (String opcion : opciones) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
             HandlerBotonMultipleChoise botonVoF = new HandlerBotonMultipleChoise(opcion, btn);
@@ -70,8 +73,7 @@ public class VistaOpciones {
 
     private void crearBotonesNormales() {
         int i = 0;
-        for (String opcion: panel.preguntaActual().obtenerOpciones().obtenerOpciones()
-        ) {
+        for (String opcion : opciones) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
             HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso(opcion);
@@ -86,8 +88,7 @@ public class VistaOpciones {
         HBox grupo2 = new HBox();
 
         int i = 0;
-        for (String opcion: panel.preguntaActual().obtenerOpciones().obtenerOpciones()
-        ) {
+        for (String opcion: opciones) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
             btn.setOnAction(new HandlerBotonGroupChoiceClick(btn,grupo1,grupo2));
@@ -125,19 +126,12 @@ public class VistaOpciones {
         grillaRespuestas.add(nombreGrupo2, 5,1);
         grillaRespuestas.add(grupo2, 6,1);
 
-        /*En el Handler de Confirmar Order Choice.
-        for (Node unBoton : grupo1.getChildren()) {
-            Button botonActual = (Button) unBoton;
-            String respuestaPosible = botonActual.getText();
-            System.out.println(respuestaPosible);
-        }
-         */
     }
+
     private void crearBotonesOrdered(){
         HBox grupoOrdenado = new HBox();
         int i = 0;
-        for (String opcion: panel.preguntaActual().obtenerOpciones().obtenerOpciones()
-        ) {
+        for (String opcion : opciones) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
             btn.setOnAction(new HandlerBotonOrderedChoiceClick(btn,grupoOrdenado,grillaRespuestas));
@@ -167,14 +161,6 @@ public class VistaOpciones {
         grillaRespuestas.add(nombreGrupoOrdenado,5,0);
         grillaRespuestas.add(grupoOrdenado, 6,0);
 
-
-        /*En el Handler de Confirmar Order Choice.
-        for (Node unBoton : grupo1.getChildren()) {
-            Button botonActual = (Button) unBoton;
-            String respuestaPosible = botonActual.getText();
-            System.out.println(respuestaPosible);
-        }
-         */
     }
 
     private void setFondoDePantalla(Pane miPanel, String src){

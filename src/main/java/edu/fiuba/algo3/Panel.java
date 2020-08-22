@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Respuestas.Respuestas;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
@@ -115,5 +116,13 @@ public class Panel {
     public void aplicarComodin(Comodin comodinActual) {
         respuestas.obtenerRespuestaActual().quitarComodinAlJugador(comodinActual);
         preguntaActual().agregarComodin(comodinActual,respuestas.obtenerRespuestaActual());
+    }
+
+    public Collection<String> obtenerOpciones() {
+        return preguntaActual().obtenerOpciones().obtenerOpciones();
+    }
+
+    public String tipoPreguntaActual() {
+        return preguntaActual().getTipo();
     }
 }

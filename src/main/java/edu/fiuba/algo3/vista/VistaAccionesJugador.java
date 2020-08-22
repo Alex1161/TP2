@@ -27,7 +27,7 @@ public class VistaAccionesJugador {
 
     public VistaAccionesJugador() {
         this.jugadorActual = panelJuego.jugadorActual();
-        String tipoPregunta = panelJuego.preguntaActual().getTipo();
+        String tipoPregunta = panelJuego.tipoPreguntaActual();
 
         this.encabezadoNombre = new Text(ENCABEZADO_NOMBRE);
         this.encabezadoNombre.setFont(new Font(25));
