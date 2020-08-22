@@ -8,7 +8,7 @@ import java.util.TimerTask;
 
 public class Cronometro {
     Timer timer=new Timer();
-    int tiempoPorTurnoEnMilisegundos=30000;
+    int tiempoPorTurnoEnMilisegundos=3000;
     public Cronometro() {
 
         TimerTask cambiarTurno=new TimerTaskPasarTurno(timer);
