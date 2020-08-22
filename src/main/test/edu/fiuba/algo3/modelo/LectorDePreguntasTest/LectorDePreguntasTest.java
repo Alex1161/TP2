@@ -153,6 +153,20 @@ public class LectorDePreguntasTest {
         assertEquals(-2, jugador1.puntajeValorNumerico());
         assertEquals(2, jugador2.puntajeValorNumerico());
 
+        pregunta = preguntas.get(5);
+        jugador1 = new Jugador("carlos");
+        jugador2 = new Jugador("juan");
+        respuesta1 = new Respuesta(jugador1);
+        respuesta2 = new Respuesta(jugador2);
+        respuesta1.agregarOpcion("4");
+        respuesta1.agregarOpcion("2");
+        respuesta1.agregarOpcion("6");
+        respuestas = new ArrayList<>();
+        respuestas.add(respuesta1);
+        respuestas.add(respuesta2);
+        pregunta.calificar(respuestas);
+        assertEquals(1, jugador1.puntajeValorNumerico());
+        assertEquals(0, jugador2.puntajeValorNumerico());
         pregunta = preguntas.get(4);
         jugador1 = new Jugador("carlos");
         jugador2 = new Jugador("juan");
@@ -168,6 +182,7 @@ public class LectorDePreguntasTest {
         pregunta.calificar(respuestas);
         assertEquals(2, jugador1.puntajeValorNumerico());
         assertEquals(0, jugador2.puntajeValorNumerico());
+
     }
 
     @Test

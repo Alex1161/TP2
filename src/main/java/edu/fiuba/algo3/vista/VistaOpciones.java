@@ -78,32 +78,27 @@ public class VistaOpciones {
     }
 
     private void crearBotonesGroupChoice(){
+        HBox grupo1 = new HBox();
+        HBox grupo2 = new HBox();
+
         int i = 0;
         for (String opcion: panel.preguntaActual().obtenerOpciones().obtenerOpciones()
         ) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
-            btn.setOnDragDetected(new HandlerBotonGroupChoice(btn));
-            btn.setOnDragDone(new HandlerBotonGroupChoiceDone(grillaRespuestas, btn));
+            btn.setOnAction(new HandlerBotonGroupChoiceClick(btn,grupo1,grupo2));
             grillaRespuestas.add(btn, 0, i);
             i++;
         }
 
         Label nombreGrupo1 = new Label("G1");
-        FlowPane grupo1 = new FlowPane();
+
         grupo1.setPadding(new Insets(10,10,10,10));
 
         Label nombreGrupo2 = new Label("G2");
-        FlowPane grupo2 = new FlowPane();
+
         grupo2.setPadding(new Insets(10,10,10,10));
 
-
-
-        grupo1.setOnDragOver(new HandlerBotonGroupChoiceGrupoOver(grupo1));
-        grupo1.setOnDragDropped(new HandlerBotonGroupChoiceGrupoDropped(grupo1));
-
-        grupo2.setOnDragOver(new HandlerBotonGroupChoiceGrupoOver(grupo2));
-        grupo2.setOnDragDropped(new HandlerBotonGroupChoiceGrupoDropped(grupo2));
 
         grupo1.setPrefHeight(100);
         grupo1.setPrefWidth(200);
@@ -116,9 +111,9 @@ public class VistaOpciones {
 
         Button btn = new Button("CONFIRMAR");
         btn.getStyleClass().add("botonConfirmarSeleccion");
-        HandlerBotonConfirmar botonConfirmar = new HandlerBotonConfirmar();
+        HandlerBotonConfirmarGroup botonConfirmar = new HandlerBotonConfirmarGroup(grillaRespuestas,grupo1);
         btn.setOnAction(botonConfirmar);
-        grillaRespuestas.add(btn, 12, 4);
+        grillaRespuestas.add(btn, 8, 4);
 
         grillaRespuestas.add(nombreGrupo1,5,0);
         grillaRespuestas.add(grupo1, 6,0);

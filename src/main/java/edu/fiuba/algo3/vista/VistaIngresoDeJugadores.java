@@ -20,8 +20,6 @@ public class VistaIngresoDeJugadores{
 
     BorderPane layoutInicial;
     BotonParaJugar unBoton;
-    HandlerBotonParaJugar handlerBotonParaJugar;
-    Scene proximaVistaEscena;
     Stage ventana;
 
     public VistaIngresoDeJugadores(Stage stage){

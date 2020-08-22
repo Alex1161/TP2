@@ -41,6 +41,7 @@ public class ControladorPrincipal {
            if (panel.tieneSiguienteJugador()){
                iniciarTurno();
            }else{
+               panel.calificar();
                mostrarVistaPuntajes();
            }
        }

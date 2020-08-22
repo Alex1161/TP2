@@ -18,9 +18,7 @@ public class HandlerBotonConfirmar implements EventHandler {
 
     @Override
     public void handle(Event event) {
-        if (!panelJuego.tieneSiguienteJugador()){
-            panelJuego.calificar();
-        }
+
         controlador.siguienteTurno();
     }
 }
