@@ -113,7 +113,7 @@ public class Panel {
     }
 
     public void aplicarComodin(Comodin comodinActual) {
-        preguntaActual().agregarComodin(comodinActual,respuestas.obtenerRespuestaActual());
         respuestas.obtenerRespuestaActual().quitarComodinAlJugador(comodinActual);
+        preguntaActual().agregarComodin(comodinActual,respuestas.obtenerRespuestaActual());
     }
 }

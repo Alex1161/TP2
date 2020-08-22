@@ -10,7 +10,6 @@ import javafx.scene.layout.VBox;
 
 public class HandlerBotonAccionarComodin implements EventHandler<ActionEvent> {
 
-    private Jugador jugadorActual;
     private Button botonComodin;
     private Comodin comodinActual;
     VBox panelRelacionado;
@@ -18,16 +17,15 @@ public class HandlerBotonAccionarComodin implements EventHandler<ActionEvent> {
     public HandlerBotonAccionarComodin(Button unBotonComodin, Comodin unComodinActual, VBox panelAccionesDiponiblesJugador) {
         this.botonComodin = unBotonComodin;
         this.comodinActual = unComodinActual;
-        panelRelacionado=panelAccionesDiponiblesJugador;
+        panelRelacionado = panelAccionesDiponiblesJugador;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
         Panel panelJuego = Panel.getInstancia();
-        panelJuego.aplicarComodin(comodinActual);
-        botonComodin.setText(botonComodin.getText()+":Selecionado");
+        panelJuego.aplicarComodin(comodinActual);   //Facil de refactorizar
+        botonComodin.setText(botonComodin.getText()+": Selecionado");
         panelRelacionado.setDisable(true);
-        //Agregar al handler, De que forma le aplica el comodin a la pregunta.
     }
 
 }

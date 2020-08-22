@@ -27,6 +27,7 @@ public class VistaAccionesJugador {
 
     public VistaAccionesJugador() {
         this.jugadorActual = panelJuego.jugadorActual();
+        String tipoPregunta = panelJuego.preguntaActual().getTipo();
 
         this.encabezadoNombre = new Text(ENCABEZADO_NOMBRE);
         this.encabezadoNombre.setFont(new Font(25));
@@ -38,20 +39,19 @@ public class VistaAccionesJugador {
         this.panelAccionesDiponiblesJugador.setAlignment(Pos.CENTER);
         this.panelAccionesDiponiblesJugador.setSpacing(10);
 
-
         this.panelAccionesDiponiblesJugador.getChildren().addAll(encabezadoNombre, nombreJugadorActual);
 
-        if ( panelJuego.preguntaActual().getTipo().contains("Penalizado") )
+        if ( tipoPregunta.contains("Penalizado") ) {
             for (Comodin comodinDisponible : jugadorActual.obtenerComodines()) {
                 if (comodinDisponible instanceof Multiplicador) {
                     Button botonActual = new Button("Activar" + comodinDisponible.obtenerNombre());
                     botonActual.getStyleClass().add("botonPrimario");
-                    HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(botonActual, comodinDisponible,panelAccionesDiponiblesJugador);
+                    HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(botonActual, comodinDisponible, panelAccionesDiponiblesJugador);
                     botonActual.setOnAction(manejadorAccionComodin);
                     this.panelAccionesDiponiblesJugador.getChildren().add(botonActual);
                 }
             }
-        else {
+        }else{
             for (Comodin comodinDisponible : jugadorActual.obtenerComodines()) {
                 if (comodinDisponible instanceof Exclusividad) {
                     Button botonActual = new Button("Activar" + comodinDisponible.obtenerNombre());
@@ -62,15 +62,7 @@ public class VistaAccionesJugador {
 
                 }
             }
-
-            //dibujar();
         }
-    }
-
-    public void dibujar(){
-
-        //this.panelAccionesDiponiblesJugador.getChildren().removeAll();
-        //this.panelAccionesDiponiblesJugador.getChildren().addAll(encabezadoNombre, nombreJugadorActual, botonMultiplicadorX2, botonMultiplicadorX3, botonExclusividad);
     }
 
     public VBox obtenerPanelInfoJugadores() {
