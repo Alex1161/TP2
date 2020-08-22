@@ -17,6 +17,7 @@ public class ControladorPrincipal {
     ControladorPrincipal(){}
 
     public void iniciarVistaPregunta(){
+        cronometro=new Cronometro();
         Scene escenaDeJuego = new Scene((new VistaPreguntaEnCurso()).obtenerVista(), 1200, 680);
         File f = new File("EstilosDeBotones.css");
         escenaDeJuego.getStylesheets().clear();
@@ -26,13 +27,12 @@ public class ControladorPrincipal {
 
     public void iniciarTurno(){
         Panel.getInstancia().cambiarJugador();
-        cronometro=new Cronometro();
         iniciarVistaPregunta();
-
     }
 
     public void siguienteTurno(){
         if (panel.tieneSiguienteJugador()){
+            cronometro=new Cronometro();
             iniciarTurno();
         }else{
             panel.calificar();
