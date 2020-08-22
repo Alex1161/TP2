@@ -14,10 +14,9 @@ public class ControladorPrincipal {
     Stage ventana = StagePrincipal.getInstance();
     Panel panel = Panel.getInstancia();
     Cronometro cronometro;
-    ControladorPrincipal(){}
+    ControladorPrincipal(){   }
 
     public void iniciarVistaPregunta(){
-        cronometro=new Cronometro();
         Scene escenaDeJuego = new Scene((new VistaPreguntaEnCurso()).obtenerVista(), 1200, 680);
         File f = new File("EstilosDeBotones.css");
         escenaDeJuego.getStylesheets().clear();
@@ -27,17 +26,18 @@ public class ControladorPrincipal {
 
     public void iniciarTurno(){
         Panel.getInstancia().cambiarJugador();
+        cronometro=new Cronometro();
         iniciarVistaPregunta();
     }
 
     public void siguienteTurno(){
+        cronometro.parar();
         if (panel.tieneSiguienteJugador()){
-            cronometro=new Cronometro();
-            iniciarTurno();
+          iniciarTurno();
         }else{
             panel.calificar();
             mostrarVistaPuntajes();
-        }
+        }                 
     }
 
     public static ControladorPrincipal getInstancia(){
@@ -55,6 +55,7 @@ public class ControladorPrincipal {
 
 
     public void iniciarSiguientePregunta() {
+
         if(Panel.getInstancia().tieneSiguientePregunta()){
             Panel.getInstancia().cambiarPregunta();
             iniciarTurno();
