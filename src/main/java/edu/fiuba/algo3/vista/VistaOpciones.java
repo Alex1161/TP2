@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
-import java.util.concurrent.Flow;
+import java.util.List;
 
 public class VistaOpciones {
 
@@ -18,10 +18,10 @@ public class VistaOpciones {
     private final String SRC_GRUPO_1 = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/fondoDegradadoNaranjaPrueba.png";
 
     private Panel panel = Panel.getInstancia();
+    
     GridPane grillaRespuestas;
 
     public VistaOpciones(){
-
         grillaRespuestas = new GridPane();
         grillaRespuestas.setPadding(new Insets(5, 5, 5, 5));
         grillaRespuestas.setVgap(5);
@@ -29,6 +29,7 @@ public class VistaOpciones {
         grillaRespuestas.setAlignment(Pos.CENTER);
         generarBotones();
     }
+
     public GridPane obtenerGrilla(){
         return grillaRespuestas;
     }
@@ -36,11 +37,12 @@ public class VistaOpciones {
     public void generarBotones(){
 
         if(Panel.getInstancia().preguntaActual().getTipo().contains("MultipleChoice")){
-            crearBotonesChoise();
+            crearBotonesChoice();
         }
         else if(Panel.getInstancia().preguntaActual().getTipo().contains("GroupChoice")){
             crearBotonesGroupChoice();
-        } else if(Panel.getInstancia().preguntaActual().getTipo().contains("OrderChoice")){
+        }
+        else if(Panel.getInstancia().preguntaActual().getTipo().contains("OrderChoice")){
             crearBotonesOrdered();
         }
         else{
@@ -48,10 +50,9 @@ public class VistaOpciones {
         }
     }
 
-    private void crearBotonesChoise() {
+    private void crearBotonesChoice() {
         int i = 0;
-        for (String opcion: panel.preguntaActual().obtenerOpciones().obtenerOpciones()
-        ) {
+        for (String opcion: panel.preguntaActual().obtenerOpciones().obtenerOpciones() ) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
             HandlerBotonMultipleChoise botonVoF = new HandlerBotonMultipleChoise(opcion, btn);

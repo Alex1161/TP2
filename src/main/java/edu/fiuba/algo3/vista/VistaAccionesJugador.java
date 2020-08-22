@@ -56,10 +56,9 @@ public class VistaAccionesJugador {
                 if (comodinDisponible instanceof Exclusividad) {
                     Button botonActual = new Button("Activar" + comodinDisponible.obtenerNombre());
                     botonActual.getStyleClass().add("botonPrimario");
-                    HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(botonActual, comodinDisponible,panelAccionesDiponiblesJugador);
+                    HandlerBotonAccionarComodin manejadorAccionComodin = new HandlerBotonAccionarComodin(botonActual, comodinDisponible, panelAccionesDiponiblesJugador);
                     botonActual.setOnAction(manejadorAccionComodin);
                     this.panelAccionesDiponiblesJugador.getChildren().add(botonActual);
-
                 }
             }
         }
