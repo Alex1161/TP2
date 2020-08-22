@@ -25,8 +25,10 @@ public class HandlerBotonGroupChoiceGrupoDropped implements EventHandler<DragEve
     public void handle(DragEvent event) {
         /* if there is a string data on dragboard, read it and use it */
         Dragboard db = event.getDragboard();
+        String nombreOpcion = "";
         boolean success = false;
         if (db.hasString()) {
+            nombreOpcion = db.getString();
             //grupo.setText(db.getString());
             success = true;
         }
@@ -36,12 +38,11 @@ public class HandlerBotonGroupChoiceGrupoDropped implements EventHandler<DragEve
         Button botonAgregado = new Button();
         botonAgregado.setOnDragDone(new HandlerBotonGroupChoiceDone(unGrupo, botonAgregado));
         botonAgregado.setOnDragDetected(new HandlerBotonGroupChoice(botonAgregado));
+        botonAgregado.setText(nombreOpcion);
 
         unGrupo.getChildren().add(botonAgregado);
 
         event.setDropCompleted(success);
-
-
 
         event.consume();
     }

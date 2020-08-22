@@ -6,6 +6,7 @@ import edu.fiuba.algo3.vista.eventos.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
@@ -84,12 +85,19 @@ public class VistaOpciones {
             btn.getStyleClass().add("button"+(i+1));
             btn.setOnDragDetected(new HandlerBotonGroupChoice(btn));
             btn.setOnDragDone(new HandlerBotonGroupChoiceDone(grillaRespuestas, btn));
-            grillaRespuestas.add(btn, i, 0);
+            grillaRespuestas.add(btn, 0, i);
             i++;
         }
 
+        Label nombreGrupo1 = new Label("G1");
         FlowPane grupo1 = new FlowPane();
+        grupo1.setPadding(new Insets(10,10,10,10));
+
+        Label nombreGrupo2 = new Label("G2");
         FlowPane grupo2 = new FlowPane();
+        grupo2.setPadding(new Insets(10,10,10,10));
+
+
 
         grupo1.setOnDragOver(new HandlerBotonGroupChoiceGrupoOver(grupo1));
         grupo1.setOnDragDropped(new HandlerBotonGroupChoiceGrupoDropped(grupo1));
@@ -110,10 +118,21 @@ public class VistaOpciones {
         btn.getStyleClass().add("botonConfirmarSeleccion");
         HandlerBotonConfirmar botonConfirmar = new HandlerBotonConfirmar();
         btn.setOnAction(botonConfirmar);
-        grillaRespuestas.add(btn, 10, 4);
+        grillaRespuestas.add(btn, 12, 4);
 
-        grillaRespuestas.add(grupo1, 6,6);
-        grillaRespuestas.add(grupo2, 8,8);
+        grillaRespuestas.add(nombreGrupo1,5,0);
+        grillaRespuestas.add(grupo1, 6,0);
+
+        grillaRespuestas.add(nombreGrupo2, 5,1);
+        grillaRespuestas.add(grupo2, 6,1);
+
+        /*En el Handler de Confirmar Order Choice.
+        for (Node unBoton : grupo1.getChildren()) {
+            Button botonActual = (Button) unBoton;
+            String respuestaPosible = botonActual.getText();
+            System.out.println(respuestaPosible);
+        }
+         */
     }
 
     private void setFondoDePantalla(Pane miPanel, String src){
