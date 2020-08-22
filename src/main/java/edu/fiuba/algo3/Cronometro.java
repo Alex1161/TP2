@@ -1,25 +1,22 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.vista.ActionListenerCronometro;
+import edu.fiuba.algo3.vista.eventos.TimerTaskPasarTurno;
 
-import javax.swing.*;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class Cronometro {
+    Timer timer=new Timer();
+    int tiempoPorTurnoEnMilisegundos=30000;
+    public Cronometro() {
 
-    Timer timer;
+        TimerTask cambiarTurno=new TimerTaskPasarTurno(timer);
+        timer.schedule(cambiarTurno,tiempoPorTurnoEnMilisegundos);
 
-    ActionListenerCronometro handlerCronometro;
-
-    public Cronometro(ActionListenerCronometro ALCronometro) {
-        this.handlerCronometro = ALCronometro;
-        timer = new Timer(5000,handlerCronometro);
+    }
+    public int obtenerTiempoEnMilisegundos(){
+        return tiempoPorTurnoEnMilisegundos;
     }
 
-    public void start(){
-        timer.start();
-    }
-
-    public void stop(){
-        timer.stop();
-    }
 }

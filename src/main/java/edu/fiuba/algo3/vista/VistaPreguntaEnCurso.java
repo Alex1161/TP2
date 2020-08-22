@@ -26,8 +26,8 @@ public class VistaPreguntaEnCurso{
         panelIzquierdo = vistaAccionesJugador.obtenerPanelInfoJugadores();
 
         vistaTemporizador = new VistaTemporizador();
-        Cronometro cronometro = new Cronometro(new ActionListenerCronometro(vistaTemporizador));
-        cronometro.start();
+
+
 
         panelDerecho = vistaTemporizador.obtenerPanelTemporizador();
 

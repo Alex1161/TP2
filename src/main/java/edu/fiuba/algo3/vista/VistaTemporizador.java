@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.ControladorPrincipal;
 import edu.fiuba.algo3.Panel;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -24,11 +25,10 @@ public class VistaTemporizador {
     Image imagenBack;
     ImageView imageView;
     int contador = 0;
-
     public VistaTemporizador(){
         contenedorTemporizador = new VBox();
         tiempoLbl = new Label("Tiempo");
-        tiempoRestante = 60;
+        tiempoRestante =ControladorPrincipal.getInstancia().obtenerTiempoEnMilisegundos()/1000;
         contenedorTemporizador.setSpacing(20);
         tiempoRestanteTxt = new Text(String.valueOf(tiempoRestante));
 
