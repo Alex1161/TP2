@@ -22,14 +22,11 @@ public class VistaAccionesJugador {
     Text nombreJugadorActual;
 
     Jugador jugadorActual;
-    Pregunta preguntaActual;
     Panel panelJuego = Panel.getInstancia();
 
 
     public VistaAccionesJugador() {
         this.jugadorActual = panelJuego.jugadorActual();
-        //preguntaActual = this.panelJuego.preguntaActual();
-
 
         this.encabezadoNombre = new Text(ENCABEZADO_NOMBRE);
         this.encabezadoNombre.setFont(new Font(25));
@@ -44,7 +41,7 @@ public class VistaAccionesJugador {
 
         this.panelAccionesDiponiblesJugador.getChildren().addAll(encabezadoNombre, nombreJugadorActual);
 
-        if (panelJuego.preguntaActual().getTipo() == "VoFPenalizado" || panelJuego.preguntaActual().getTipo() == "MultipleChoicePenalizado")
+        if ( panelJuego.preguntaActual().getTipo().contains("Penalizado") )
             for (Comodin comodinDisponible : jugadorActual.obtenerComodines()) {
                 if (comodinDisponible instanceof Multiplicador) {
                     Button botonActual = new Button("Activar" + comodinDisponible.obtenerNombre());

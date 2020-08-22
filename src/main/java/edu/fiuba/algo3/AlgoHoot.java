@@ -2,7 +2,6 @@ package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.vista.VistaIngresoDeJugadores;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;

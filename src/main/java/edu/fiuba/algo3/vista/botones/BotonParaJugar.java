@@ -11,13 +11,11 @@ import javafx.stage.Stage;
 
 public class BotonParaJugar extends Button {
     private static String DESCRIPCION = "Comenzar Juego";
-    //private HandlerBotonParaJugar manejadorBoton;
-
 
     public BotonParaJugar(Stage ventana, TextField campoJug1, TextField campoJug2, VBox cuadro){
         super();
         setText(DESCRIPCION);
-        setOnMouseClicked(new HandlerBotonParaJugar(ventana, campoJug1, campoJug2,cuadro));
+        setOnMouseClicked(new HandlerBotonParaJugar(ventana, campoJug1, campoJug2, cuadro));
     }
 
 }

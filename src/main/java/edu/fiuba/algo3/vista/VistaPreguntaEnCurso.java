@@ -21,7 +21,6 @@ public class VistaPreguntaEnCurso{
 
     public VistaPreguntaEnCurso(){
 
-
         vistaAccionesJugador = new VistaAccionesJugador();
 
         panelIzquierdo = vistaAccionesJugador.obtenerPanelInfoJugadores();
@@ -41,7 +40,6 @@ public class VistaPreguntaEnCurso{
         panelSuperior.setSpacing(20);
         panelSuperior.setAlignment(Pos.CENTER);
         panelSuperior.setMinHeight(500);
-
 
         vistaVoF = new VistaOpciones();
 
