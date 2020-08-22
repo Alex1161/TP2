@@ -13,7 +13,7 @@ public class ControladorPrincipal {
 
     Stage ventana = StagePrincipal.getInstance();
     Panel panel = Panel.getInstancia();
-
+    Cronometro cronometro;
     ControladorPrincipal(){}
 
     public void iniciarVistaPregunta(){
@@ -26,7 +26,9 @@ public class ControladorPrincipal {
 
     public void iniciarTurno(){
         Panel.getInstancia().cambiarJugador();
+        cronometro=new Cronometro();
         iniciarVistaPregunta();
+
     }
 
     public void siguienteTurno(){
@@ -63,5 +65,9 @@ public class ControladorPrincipal {
             escenaDeJuego.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
             ventana.setScene(escenaDeJuego);
         }
+    }
+
+    public int obtenerTiempoEnMilisegundos() {
+        return cronometro.obtenerTiempoEnMilisegundos();
     }
 }
