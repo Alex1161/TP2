@@ -7,7 +7,6 @@ public class Puntos extends Puntaje {
 
     List<Puntaje> listaDePuntos = new ArrayList<Puntaje>();
 
-
     public Puntaje agregar(Puntaje puntaje){
         listaDePuntos.add(puntaje);
         return this;

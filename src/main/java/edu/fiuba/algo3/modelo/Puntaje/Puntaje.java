@@ -6,6 +6,8 @@ public abstract class Puntaje {
 
     public abstract int valorNumerico();
 
+    public abstract Puntaje vs(Puntaje puntajeOponente);
+
     public Puntaje multiplicarPor(int factor){
         Puntaje puntosMultiplicados = new Puntos();
 
@@ -15,6 +17,4 @@ public abstract class Puntaje {
 
         return puntosMultiplicados;
     }
-
-    public abstract Puntaje vs(Puntaje puntajeOponente);
 }

@@ -4,38 +4,45 @@ skinparam classAttributeIconSize 0
 
 'Clases
 abstract Puntaje{
-    +{abstract}agregar(puntaje: IPunteable): IPunteable
-    +multiplicarPor(int factor): Puntaje
-    +{abstract}valor(puntaje: Puntaje): int
+    +{abstract}agregar(puntaje: Puntaje): Puntaje
+    +{abstract}valorNumerico(puntaje: Puntaje): int
+    +{abstract}vs(puntajeOponente: Puntaje): Puntaje
+    +multiplicarPor(factor: int): Puntaje
 }
 
 Class Puntos{
-    +agregar(puntaje: IPunteable): IPunteable
-    +valor(): int
+    +agregar(puntaje: Puntaje): Puntaje
+    +valorNumerico(): int
+    +vs(puntajeOponente: Puntaje): Puntaje
 }
 
 Abstract Class Punto{
-    +agregar(puntaje: IPunteable): IPunteable
-    +valor(): int
+    +agregar(puntaje: Puntaje): Puntaje
+    +{abstract}valorNumerico(): int
+    +{abstract}vs(puntajeOponente: Puntaje): Puntaje
 }
 
 Class PuntoNulo{
-    +valor(): int
+    +valorNumerico(): int
+    +vs(puntajeOponente: Puntaje): Puntaje
+    +multiplicarPor(factor: int): Puntaje
 }
 
 Class PuntoNegativo{
-    +valor(): int
+    +valorNumerico(): int
+    +vs(puntajeOponente: Puntaje): Puntaje
 }
 
 Class PuntoPositivo{
-    +valor(): int
+    +valorNumerico(): int
+    +vs(puntajeOponente: Puntaje): Puntaje
 }
 
 'Relaciones
 PuntoNegativo -up-|> Punto
 PuntoNulo -up-|> Punto
 PuntoPositivo -up-|> Punto
-Puntos .up.|> Puntaje
+Puntos -up-|> Puntaje
 Puntos o-up- "*" Puntaje
-Punto .right.|> Puntaje
+Punto -right-|> Puntaje
 @enduml

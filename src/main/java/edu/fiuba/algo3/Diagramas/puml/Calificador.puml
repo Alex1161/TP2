@@ -5,38 +5,42 @@ skinparam classAttributeIconSize 0
 'Clases
 Abstract Calificador{
     +{static}Calificador(calificador: Calificador)
-    +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
+    +{abstract}calificar(correctas: Opciones, elegidas: Opciones): Puntaje
+    +{abstract}sonCorrectas(correctas: Opciones, elegidas: Opciones): boolean
 }
 
 Class ComparadorSinOrden{
     +{static}ComparadorConOrden(calificador: Calificador)
     +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
+    +sonCorrectas(correctas: Opciones, elegidas: Opciones): boolean
 }
 
 Class ComparadorConOrden{
     +{static}ComparadorSinOrden(calificador: Calificador)
     +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
+    +sonCorrectas(correctas: Opciones, elegidas: Opciones): boolean
 }
 
 Class ComparadorParcial{
     +{static}ComparadorParcial(calificador: Calificador)
     +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
+    +sonCorrectas(correctas: Opciones, elegidas: Opciones): boolean
 }
 
 Class AsignadorClasico{
     +{static}AsignadorClasico(calificador: Calificador)
     +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
+    +sonCorrectas(correctas: Opciones, elegidas: Opciones): boolean
 }
 
 Class AsignadorPenalizado{
     +{static}AsignadorPenalizado(calificador: Calificador)
     +calificar(correctas: Opciones, elegidas: Opciones): Puntaje
+    +sonCorrectas(correctas: Opciones, elegidas: Opciones): boolean
 }
 
 Class Opciones{
     -opciones: Collection<String>
-    +agregarOpcion(opcion: String): void
-    +obtenerOpciones(): Collection<String>
     +compararConOrden(opciones: Opciones): boolean
     +compararSinOrden(opciones: Opciones): boolean
     +esta(opcion: String): boolean
