@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.TipoDePreguntaInvalidaTest;
 
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
-import edu.fiuba.algo3.modelo.Pregunta.TipoDePreguntaInvalida;
+import edu.fiuba.algo3.modelo.Errores.TipoDePreguntaInvalida;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Penalidad;
 
+import edu.fiuba.algo3.modelo.Errores.ExclusividadNoPermitida;
+
 public class ConPenalidad extends Penalidad{
 
     @Override

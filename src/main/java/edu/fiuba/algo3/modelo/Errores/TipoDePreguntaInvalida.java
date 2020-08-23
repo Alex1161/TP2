@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Pregunta;
+package edu.fiuba.algo3.modelo.Errores;
 
 import edu.fiuba.algo3.modelo.Errores.ErrorDePregunta;
 

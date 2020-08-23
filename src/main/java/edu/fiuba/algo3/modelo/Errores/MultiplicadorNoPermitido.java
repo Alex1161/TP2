@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Penalidad;
+package edu.fiuba.algo3.modelo.Errores;
 
 import edu.fiuba.algo3.modelo.Errores.ErrorDePregunta;
 import edu.fiuba.algo3.modelo.Errores.ErrorDePrenalidad;

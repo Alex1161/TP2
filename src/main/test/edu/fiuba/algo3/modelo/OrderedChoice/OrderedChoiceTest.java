@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
 import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.CreadorDePreguntas;
-import edu.fiuba.algo3.modelo.Penalidad.MultiplicadorNoPermitido;
+import edu.fiuba.algo3.modelo.Errores.MultiplicadorNoPermitido;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
