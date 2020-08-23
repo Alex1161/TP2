@@ -11,6 +11,6 @@ public class HandlerSiguientePregunta implements EventHandler {
 
     @Override
     public void handle(Event event) {
-        ControladorPrincipal.getInstancia().iniciarSiguientePregunta();
+        ControladorPrincipal.getInstancia().iniciarTurno();
     }
 }

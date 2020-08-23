@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.vista.eventos.HandlerSiguientePregunta;
 import javafx.geometry.Insets;
@@ -8,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+
+import java.util.List;
 
 public class VistaPuntajeJugador{
 
@@ -31,8 +34,9 @@ public class VistaPuntajeJugador{
     public VistaPuntajeJugador(){
 
         botonSiguientePregunta.setText("Siguiente Pregunta");
-        jugador1 = Panel.getInstancia().obtenerJugador(0);
-        jugador2 = Panel.getInstancia().obtenerJugador(1);
+        List<Jugador> jugadores = Juego.getInstancia().getJugadores();
+        jugador1 = jugadores.get(0);
+        jugador2 = jugadores.get(1);
 
         this.tablaDeInfo = new GridPane();
         tablaDeInfo.setPadding(new Insets(10, 10, 10, 10));

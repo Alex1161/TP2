@@ -1,25 +1,27 @@
 package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.ControladorPrincipal;
-import edu.fiuba.algo3.Panel;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import javafx.scene.control.TextField;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HandlerBotonParaJugar implements EventHandler {
 
-    private Panel paneljuego;
+    private Juego paneljuego;
     private  TextField campoJugador1;
     private TextField campoJugador2;
     VBox cuadro;
 
     public HandlerBotonParaJugar(TextField nombreJug1, TextField nombreJug2, VBox cuadro){
-        paneljuego = Panel.getInstancia();
+        paneljuego = Juego.getInstancia();
         this.campoJugador1 = nombreJug1;
         this.campoJugador2 = nombreJug2;
         this.cuadro = cuadro;
@@ -36,8 +38,10 @@ public class HandlerBotonParaJugar implements EventHandler {
         }else {
             Jugador jugador1 = new Jugador(campoJugador1.getText());
             Jugador jugador2 = new Jugador(campoJugador2.getText());
-            paneljuego.agregarJugador(jugador1);
-            paneljuego.agregarJugador(jugador2);
+            List<Jugador> jugadores = new ArrayList<Jugador>();
+            jugadores.add(jugador1);
+            jugadores.add(jugador2);
+            paneljuego.setJugadores(jugadores);
 
             ControladorPrincipal controladorPrincipal = ControladorPrincipal.getInstancia();
             controladorPrincipal.iniciarTurno();

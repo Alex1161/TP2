@@ -1,11 +1,16 @@
 package edu.fiuba.algo3.modelo.Opciones;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Opciones {
     private Collection<String> elementos = new ArrayList<String>();
+
+    public Opciones(Collection<String> opcionesElegidas) {
+        elementos = opcionesElegidas;
+    }
+
+    public Opciones() {
+
+    }
 
     private Collection<String> elementos(){
         return elementos;

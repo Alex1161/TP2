@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.ControladorPrincipal;
-import edu.fiuba.algo3.Panel;
+import edu.fiuba.algo3.vista.ControladorOpciones;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -15,16 +15,18 @@ import javafx.stage.Stage;
 
 public class HandlerBotonConfirmarGroup implements EventHandler {
 
-    private Panel panelJuego = Panel.getInstancia();
-    private ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
+
+    private ControladorPrincipal controladorPrincipal = ControladorPrincipal.getInstancia();
     GridPane opcionesSinResponder;
     HBox grupo1;
     int elementosOptimos;
+    private ControladorOpciones controladorOpciones;
 
-    public HandlerBotonConfirmarGroup(GridPane grillaRespuestas, HBox grupo1,int elementosOptimos) {
-        opcionesSinResponder = grillaRespuestas;
-        this.grupo1 = grupo1;
-        this.elementosOptimos = elementosOptimos;
+    public HandlerBotonConfirmarGroup(GridPane grillaRespuestas, HBox grupo1, int elementosOptimos, ControladorOpciones controladorOpciones) {
+        opcionesSinResponder=grillaRespuestas;
+        this.grupo1=grupo1;
+        this.elementosOptimos=elementosOptimos;
+        this.controladorOpciones = controladorOpciones;
     }
 
     @Override
@@ -32,9 +34,9 @@ public class HandlerBotonConfirmarGroup implements EventHandler {
         if(opcionesSinResponder.getChildren().size() == elementosOptimos){
             for (Node unBoton: grupo1.getChildren()) {
                 Button botonActual = (Button) unBoton;
-                panelJuego.agregarOpcion(botonActual.getText());
+                controladorOpciones.agregarOpcion(botonActual.getText());
             }
-            controlador.siguienteTurno();
+            controladorOpciones.pasarOpcionesElegidas();
         }else{
             Stage dialog=new Stage();
 

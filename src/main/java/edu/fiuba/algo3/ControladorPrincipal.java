@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.VistaGanadorAlgohoot;
 import edu.fiuba.algo3.vista.VistaPreguntaEnCurso;
 import javafx.scene.Scene;
@@ -12,7 +13,7 @@ public class ControladorPrincipal {
     private static ControladorPrincipal instancia = new ControladorPrincipal();
 
     Stage ventana = StagePrincipal.getInstance();
-    Panel panel = Panel.getInstancia();
+    Juego panel = Juego.getInstancia();
     Cronometro cronometro;
     ControladorPrincipal(){   }
 
@@ -25,19 +26,13 @@ public class ControladorPrincipal {
     }
 
     public void iniciarTurno(){
-        Panel.getInstancia().cambiarJugador();
-        cronometro=new Cronometro();
+        cronometro = new Cronometro();
         iniciarVistaPregunta();
     }
 
-    public void siguienteTurno(){
+    public void actualizarTurno(){
         cronometro.parar();
-        if (panel.tieneSiguienteJugador()){
-          iniciarTurno();
-        }else{
-            panel.calificar();
-            mostrarVistaPuntajes();
-        }                 
+        iniciarTurno();
     }
 
     public static ControladorPrincipal getInstancia(){
@@ -45,6 +40,7 @@ public class ControladorPrincipal {
     }
 
     public void mostrarVistaPuntajes(){
+        cronometro.parar();
         Scene escenaDeJuego = new Scene((new edu.fiuba.algo3.VistaPuntajeJugador()).obtenerPanel(), 1200, 680);
         File f = new File("EstilosDeBotones.css");
         escenaDeJuego.getStylesheets().clear();
@@ -53,19 +49,13 @@ public class ControladorPrincipal {
         ventana.setScene(escenaDeJuego);
     }
 
-
-    public void iniciarSiguientePregunta() {
-
-        if(Panel.getInstancia().tieneSiguientePregunta()){
-            Panel.getInstancia().cambiarPregunta();
-            iniciarTurno();
-        }else{
-            Scene escenaDeJuego = new Scene(new VistaGanadorAlgohoot().obtenerVista(), 1200, 680);
-            File f = new File("EstilosDeBotones.css");
-            escenaDeJuego.getStylesheets().clear();
-            escenaDeJuego.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
-            ventana.setScene(escenaDeJuego);
-        }
+    public void vistaGanador() {
+        cronometro.parar();
+        Scene escenaDeJuego = new Scene(new VistaGanadorAlgohoot().obtenerVista(), 1200, 680);
+        File f = new File("EstilosDeBotones.css");
+        escenaDeJuego.getStylesheets().clear();
+        escenaDeJuego.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+        ventana.setScene(escenaDeJuego);
     }
 
     public int obtenerTiempoEnMilisegundos() {

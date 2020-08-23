@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.VistaIngresoDeJugadores;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -7,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 
 
 public class AlgoHoot extends Application {
@@ -21,13 +21,6 @@ public class AlgoHoot extends Application {
 
         stage = StagePrincipal.getInstance();
         stage.setTitle(NOMBRE_JUEGO);
-        Panel panelJuego = Panel.getInstancia();
-
-        try{
-            panelJuego.cargarPreguntas();
-        }catch (IOException e){
-            e.getMessage();
-        }
 
         VistaIngresoDeJugadores ingresoDeJugadores = new VistaIngresoDeJugadores();
         Scene escenaDeBienvenida = new Scene(ingresoDeJugadores.getVista(), ANCHO, ALTO);
@@ -49,7 +42,7 @@ public class AlgoHoot extends Application {
 
 
     public void restart(Stage stage) {
-        Panel panelJuego = Panel.getInstancia();
+        Juego panelJuego = Juego.getInstancia();
         panelJuego.limpiar();
         start(stage);
     }

@@ -1,28 +1,24 @@
 package edu.fiuba.algo3.vista.eventos;
 
-import edu.fiuba.algo3.ControladorPrincipal;
-import edu.fiuba.algo3.Panel;
+import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.vista.ControladorOpciones;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
 
 public class HandlerBotonVerdaderoFalso implements EventHandler {
-
-    private Panel panelJuego = Panel.getInstancia();
+    private ControladorOpciones controladorOpciones;
+    private Juego panelJuego = Juego.getInstancia();
     private String opcion;
-    private ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
 
-    public HandlerBotonVerdaderoFalso(String opcion){
+    public HandlerBotonVerdaderoFalso(String opcion, ControladorOpciones controladorOpciones){
         this.opcion = opcion;
+        this.controladorOpciones = controladorOpciones;
     }
 
     @Override
     public void handle(Event event) {
-
-        panelJuego.agregarOpcion(opcion);
-        if (!panelJuego.tieneSiguienteJugador()){
-            panelJuego.calificar();
-        }
-        controlador.siguienteTurno();
+        controladorOpciones.agregarOpcion(opcion);
+        controladorOpciones.enviarRespuestas();
     }
 }

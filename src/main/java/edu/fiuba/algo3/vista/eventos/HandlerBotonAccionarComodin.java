@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
-import edu.fiuba.algo3.Panel;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Comodin.Comodin;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,8 +21,8 @@ public class HandlerBotonAccionarComodin implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        Panel panelJuego = Panel.getInstancia();
-        panelJuego.aplicarComodin(comodinActual);   //Facil de refactorizar
+        Juego panelJuego = Juego.getInstancia();
+        panelJuego.aplicarComodin(comodinActual);
         botonComodin.setText(botonComodin.getText()+": Selecionado");
         panelRelacionado.setDisable(true);
     }
