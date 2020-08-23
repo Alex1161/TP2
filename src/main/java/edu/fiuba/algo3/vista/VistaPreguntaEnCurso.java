@@ -8,7 +8,6 @@ public class VistaPreguntaEnCurso{
     VistaEnunciado vistaEnunciado;
     VistaOpciones vistaVoF;
     VistaAccionesJugador vistaAccionesJugador;
-
     VistaTemporizador vistaTemporizador;
 
     VBox panelDerecho;
@@ -24,8 +23,6 @@ public class VistaPreguntaEnCurso{
         panelIzquierdo = vistaAccionesJugador.obtenerPanelInfoJugadores();
 
         vistaTemporizador = new VistaTemporizador();
-
-
 
         panelDerecho = vistaTemporizador.obtenerPanelTemporizador();
 

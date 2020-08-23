@@ -14,10 +14,6 @@ public class Opciones {
     }
 
     //Setters y Getters
-    private Collection<String> elementos(){
-        return elementos;
-    }
-
     public Collection<String> obtenerOpciones(){
         return elementos;
     }
@@ -28,33 +24,33 @@ public class Opciones {
 
     public int cantidadDeOpciones(){return this.elementos.size();}
 
+    //Acciones
+    public void agregarOpciones(Opciones opciones) {
+        elementos.addAll(opciones.obtenerOpciones());
+    }
+
     public boolean esta(String opcion) {
         return elementos.contains(opcion);
     }
 
+    public boolean contiene(Opciones opciones) {
+        Collection<String> misOpciones = new HashSet<String>(this.elementos);
+        Collection<String> opcionesAComparar = new HashSet<String>(opciones.obtenerOpciones());
+
+        return misOpciones.containsAll(opcionesAComparar);
+    }
 
     public boolean compararSinOrden(Opciones opciones) {
         Collection<String> misOpciones = new HashSet<String>(this.elementos);
-        Collection<String> opcionesAComparar = new HashSet<String>(opciones.elementos());
+        Collection<String> opcionesAComparar = new HashSet<String>(opciones.obtenerOpciones());
 
         return misOpciones.equals(opcionesAComparar);
     }
 
     public boolean compararConOrden(Opciones opciones) {
         Collection<String> misOpciones = new LinkedList<String>(this.elementos);
-        Collection<String> opcionesAComparar = new LinkedList<String>(opciones.elementos());
+        Collection<String> opcionesAComparar = new LinkedList<String>(opciones.obtenerOpciones());
 
         return misOpciones.equals(opcionesAComparar);
-    }
-
-    public void agregarOpciones(Opciones opciones) {
-        elementos.addAll(opciones.elementos());
-    }
-
-    public boolean contiene(Opciones opciones) {
-        Collection<String> misOpciones = new HashSet<String>(this.elementos);
-        Collection<String> opcionesAComparar = new HashSet<String>(opciones.elementos());
-
-        return misOpciones.containsAll(opcionesAComparar);
     }
 }

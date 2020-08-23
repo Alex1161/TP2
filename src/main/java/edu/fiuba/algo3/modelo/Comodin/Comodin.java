@@ -8,6 +8,8 @@ import java.util.List;
 
 public abstract class Comodin {
 
+    public abstract String obtenerNombre();
+
     public abstract void validar(Penalidad penalidad);
 
     public abstract void aplicar(List<Respuesta> respuestas);
@@ -18,6 +20,4 @@ public abstract class Comodin {
     public boolean equals(Object obj) {
         return this.getClass().equals(obj.getClass());
     }
-
-    public abstract String obtenerNombre();
 }

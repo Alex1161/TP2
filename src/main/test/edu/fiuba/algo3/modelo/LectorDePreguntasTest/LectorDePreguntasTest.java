@@ -83,6 +83,7 @@ public class LectorDePreguntasTest {
         assertEquals(-1, jugador1.puntajeValorNumerico());
         assertEquals(1, jugador2.puntajeValorNumerico());
     }
+
     @Test
     public void pruebaDePreguntasJson() throws IOException {
         LectorDePreguntas fabrica= new LectorDePreguntas();
@@ -91,7 +92,7 @@ public class LectorDePreguntasTest {
 
     @Test
     public void prueboLectorDePreguntas() throws IOException {
-        LectorDePreguntas fabrica=new LectorDePreguntas();
+        LectorDePreguntas fabrica = new LectorDePreguntas();
         List<Pregunta>  preguntas = fabrica.recuperarPreguntas("Preguntas.json");
         Pregunta pregunta = preguntas.get(0);
         Jugador jugador1 = new Jugador("carlos");
@@ -167,15 +168,16 @@ public class LectorDePreguntasTest {
         pregunta.calificar(respuestas);
         assertEquals(1, jugador1.puntajeValorNumerico());
         assertEquals(0, jugador2.puntajeValorNumerico());
+
         pregunta = preguntas.get(4);
         jugador1 = new Jugador("carlos");
         jugador2 = new Jugador("juan");
         respuesta1 = new Respuesta(jugador1);
         respuesta2 = new Respuesta(jugador2);
-        respuesta1.agregarOpcion("Perro");
-        respuesta1.agregarOpcion("Gato");
-        respuesta2.agregarOpcion("Tomate");
-        respuesta2.agregarOpcion("Pera");
+        respuesta1.agregarOpcion("3");
+        respuesta1.agregarOpcion("9");
+        respuesta2.agregarOpcion("3");
+        respuesta2.agregarOpcion("2");
         respuestas = new ArrayList<>();
         respuestas.add(respuesta1);
         respuestas.add(respuesta2);
@@ -190,12 +192,12 @@ public class LectorDePreguntasTest {
         String Verdadero="Verdadero";
         String Falso= "Falso";
         String Tomate="Tomate";
-        String Pera= "Pera";
+        String Pera="Pera";
         String Perro="Perro";
         String Gato="Gato";
 
         LectorDePreguntas fabrica=new LectorDePreguntas();
-        List<Pregunta>  preguntas = fabrica.recuperarPreguntas("Preguntas.json");
+        List<Pregunta> preguntas = fabrica.recuperarPreguntas("Preguntas.json");
         Pregunta pregunta = preguntas.get(0);
 
         assertTrue(pregunta.obtenerOpciones().esta(Verdadero));
@@ -223,10 +225,10 @@ public class LectorDePreguntasTest {
 
         pregunta = preguntas.get(4);
 
-        assertTrue(pregunta.obtenerOpciones().esta(Pera));
-        assertTrue(pregunta.obtenerOpciones().esta(Perro));
-        assertTrue(pregunta.obtenerOpciones().esta(Tomate));
-        assertTrue(pregunta.obtenerOpciones().esta(Gato));
+        assertTrue(pregunta.obtenerOpciones().esta("3"));
+        assertTrue(pregunta.obtenerOpciones().esta("9"));
+        assertTrue(pregunta.obtenerOpciones().esta("2"));
+        assertTrue(pregunta.obtenerOpciones().esta("5"));
 
 
     }

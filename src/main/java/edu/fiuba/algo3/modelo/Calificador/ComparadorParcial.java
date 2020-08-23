@@ -6,9 +6,9 @@ import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
 import edu.fiuba.algo3.modelo.Puntaje.Puntos;
 
 public class ComparadorParcial extends Calificador {
+
     public ComparadorParcial(Calificador unCalificador) {
         siguienteCalificador = unCalificador;
-
     }
 
     @Override

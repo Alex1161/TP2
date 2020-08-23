@@ -6,10 +6,6 @@ import edu.fiuba.algo3.modelo.Puntaje.PuntoNulo;
 
 public class CalificadorNoPenalizado extends Calificador {
 
-    public CalificadorNoPenalizado() {
-
-    }
-
     @Override
     public Puntaje calificar(Opciones correctas, Opciones elegidas) {
         return new PuntoNulo();
