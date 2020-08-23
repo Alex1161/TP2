@@ -13,8 +13,8 @@ public class HandlerBotonGroupChoiceClick implements EventHandler<ActionEvent> {
     HBox grupoActual;
     Button boton;
     public HandlerBotonGroupChoiceClick(Button btn, HBox grupo1, HBox grupo2) {
-        this.grupo1=grupo1;
-        this.grupo2=grupo2;
+        this.grupo1 = grupo1;
+        this.grupo2 = grupo2;
 
         boton=btn;
     }
@@ -29,13 +29,12 @@ public class HandlerBotonGroupChoiceClick implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        if (grupoActual==grupo1){
-            grupoActual=grupo2;
+        if (grupoActual == grupo1){
+            grupoActual = grupo2;
         }else{
-            grupoActual=grupo1;
+            grupoActual = grupo1;
         }
 
         grupoActual.getChildren().add(boton);
-
     }
 }

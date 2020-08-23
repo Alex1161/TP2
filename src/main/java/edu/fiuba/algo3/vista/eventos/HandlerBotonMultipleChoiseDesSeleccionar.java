@@ -15,7 +15,7 @@ public class HandlerBotonMultipleChoiseDesSeleccionar implements EventHandler{
 
     public HandlerBotonMultipleChoiseDesSeleccionar(Button btn,String opcion) {
         this.btn = btn;
-        this.opcion= opcion;
+        this.opcion = opcion;
 
     }
 

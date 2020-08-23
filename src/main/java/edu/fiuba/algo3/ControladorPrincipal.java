@@ -25,7 +25,7 @@ public class ControladorPrincipal {
     }
 
     public void iniciarTurno(){
-        cronometro=new Cronometro();
+        cronometro = new Cronometro();
         iniciarVistaPregunta();
     }
 
@@ -49,6 +49,7 @@ public class ControladorPrincipal {
     }
 
     public void vistaGanador() {
+        cronometro.parar();
         Scene escenaDeJuego = new Scene(new VistaGanadorAlgohoot().obtenerVista(), 1200, 680);
         File f = new File("EstilosDeBotones.css");
         escenaDeJuego.getStylesheets().clear();

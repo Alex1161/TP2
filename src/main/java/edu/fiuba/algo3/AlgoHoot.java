@@ -21,9 +21,8 @@ public class AlgoHoot extends Application {
 
         stage = StagePrincipal.getInstance();
         stage.setTitle(NOMBRE_JUEGO);
-        Juego panelJuego = Juego.getInstancia();
 
-        VistaIngresoDeJugadores ingresoDeJugadores = new VistaIngresoDeJugadores(stage);
+        VistaIngresoDeJugadores ingresoDeJugadores = new VistaIngresoDeJugadores();
         Scene escenaDeBienvenida = new Scene(ingresoDeJugadores.getVista(), ANCHO, ALTO);
 
         File f = new File("EstilosDeBotones.css");

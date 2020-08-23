@@ -15,9 +15,9 @@ public class HandlerBotonOrderedChoiceClick implements EventHandler<ActionEvent>
     Pane grupoActual;
     Button boton;
     public HandlerBotonOrderedChoiceClick(Button btn, HBox grupoOrdenado, GridPane grillaRespuestas) {
-        this.grupo1=grupoOrdenado;
-        this.grupo2=grillaRespuestas;
-        grupoActual=grillaRespuestas;
+        this.grupo1 = grupoOrdenado;
+        this.grupo2 = grillaRespuestas;
+        grupoActual = grillaRespuestas;
 
         boton=btn;
     }
@@ -33,14 +33,13 @@ public class HandlerBotonOrderedChoiceClick implements EventHandler<ActionEvent>
 
     @Override
     public void handle(ActionEvent event) {
-            if (grupoActual==grupo1){
-                grupoActual=grupo2;
+            if (grupoActual == grupo1){
+                grupoActual = grupo2;
             }else{
-                grupoActual=grupo1;
+                grupoActual = grupo1;
             }
-
             grupoActual.getChildren().add(boton);
-
-        }
     }
+
+}
 

@@ -1,6 +1,4 @@
 package edu.fiuba.algo3.vista;
-import edu.fiuba.algo3.Cronometro;
-import edu.fiuba.algo3.vista.*;
 import javafx.geometry.Pos;
 
 import javafx.scene.layout.*;

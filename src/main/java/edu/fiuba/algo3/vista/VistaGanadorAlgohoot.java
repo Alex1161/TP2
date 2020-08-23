@@ -10,18 +10,15 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
-
 public class VistaGanadorAlgohoot extends VBox{
 
     Juego panelJuego = Juego.getInstancia();
     Label labelGanador = new Label();
 
     private static final String URL_FONDO = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/ganador.jpg";
-    private static final int ANCHO = 1024;
-    private static final int ALTO = 768;
     Jugador jugadorGanador;
-    Button botonReiniciar =  new Button("Jugar de nuevo.");
-    Button botonSalir = new Button("Salir.");
+    Button botonReiniciar =  new Button("Jugar de nuevo");
+    Button botonSalir = new Button("Salir");
     VBox botones = new VBox();
 
     public VistaGanadorAlgohoot(){
@@ -47,9 +44,6 @@ public class VistaGanadorAlgohoot extends VBox{
         this.setAlignment(Pos.BASELINE_CENTER);
 
         this.getChildren().addAll(botonSalir,botonReiniciar);
-
-
-
 
         setFondoDePantalla(this, URL_FONDO);
 
