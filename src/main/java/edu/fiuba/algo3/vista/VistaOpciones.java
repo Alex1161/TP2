@@ -2,7 +2,6 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.Panel;
 import edu.fiuba.algo3.vista.eventos.*;
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -13,7 +12,6 @@ import javafx.scene.layout.*;
 import java.util.Collection;
 
 public class VistaOpciones {
-
 
     private final String SRC_GRUPO_1 = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/fondoDegradadoNaranjaPrueba.png";
     private final Collection<String> opciones;

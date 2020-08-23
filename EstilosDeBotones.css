@@ -121,6 +121,25 @@
     color: white;
 }
 
+.button5:hover{
+    -fx-background-color: #8b096f;
+    -fx-border-radius: 20px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-color: white;
+}
+
+.button6:hover{
+    -fx-background-color: #117459;
+    -fx-border-radius: 20px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-color: white;
+}
+
+
 .enunciado-text{
     -fx-text-fill: white;
 }
@@ -159,9 +178,27 @@
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-font-color: white;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 150px;
 }
 
 .botonConfirmarSeleccion:hover{
     -fx-background-color: #106b03;
+    color: white;
+}
+
+.botonSiguientePregunta{
+    -fx-background-color: #0541b4;
+    -fx-border-radius: 35px;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-color: white;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 200px;
+}
+
+.botonSiguientePregunta:hover{
+    -fx-background-color: #042e7d;
     color: white;
 }

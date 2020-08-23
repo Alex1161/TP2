@@ -5,11 +5,14 @@ import edu.fiuba.algo3.vista.eventos.HandlerSiguientePregunta;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 public class VistaPuntajeJugador{
+
+    private static final String SRC_FONDO = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/fondoPuntajesParciales.jpg";
+
     GridPane tablaDeInfo;
     VBox panel;
     Text j1Txt;
@@ -63,15 +66,35 @@ public class VistaPuntajeJugador{
         tablaDeInfo.add(puntosJ1txt, 1, 1);
         tablaDeInfo.add(j2Txt, 0, 2);
         tablaDeInfo.add(puntosJ2txt, 1, 2);
-        panel.getChildren().addAll(tablaDeInfo,botonSiguientePregunta);
+        panel.getChildren().addAll(tablaDeInfo, botonSiguientePregunta);
 
         HandlerSiguientePregunta siguiente = new HandlerSiguientePregunta();
 
-        botonSiguientePregunta.getStyleClass().add("botonConfirmarSeleccion");
+        botonSiguientePregunta.getStyleClass().add("botonSiguientePregunta");
         botonSiguientePregunta.setOnAction(siguiente);
+
+        setFondoDePantalla(panel, SRC_FONDO);
+
     }
 
     public VBox obtenerPanel() {
         return panel;
     }
+
+    private void setFondoDePantalla(Pane miPanel, String src){
+        Image fondoPantallaInicial = new Image(src);
+        BackgroundSize bSize =
+                new BackgroundSize(1.0,
+                        1.0,
+                        true,
+                        true,
+                        false, false);
+
+        miPanel.setBackground(new Background(new BackgroundImage(fondoPantallaInicial,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                bSize)));
+    }
+
 }
