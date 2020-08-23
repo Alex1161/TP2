@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.Panel;
+import edu.fiuba.algo3.Juego;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.vista.eventos.HandlerBotonAccionarComodin;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonRevancha;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonSalir;
 import javafx.geometry.Pos;
@@ -14,7 +13,7 @@ import javafx.scene.layout.*;
 
 public class VistaGanadorAlgohoot extends VBox{
 
-    Panel panelJuego = Panel.getInstancia();
+    Juego panelJuego = Juego.getInstancia();
     Label labelGanador = new Label();
 
     private static final String URL_FONDO = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/ganador.jpg";

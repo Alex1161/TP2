@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.PanelTest;
 
-import edu.fiuba.algo3.Panel;
+import edu.fiuba.algo3.Juego;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import org.junit.jupiter.api.Test;
 
@@ -8,10 +8,10 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class PanelTest {
+public class JuegoTest {
     @Test
     public void test01CreoPanelYVerificoSuContenido(){
-        Panel panelJuego = Panel.getInstancia();
+        Juego panelJuego = Juego.getInstancia();
         try{
             panelJuego.cargarPreguntas();
         }catch (IOException e){

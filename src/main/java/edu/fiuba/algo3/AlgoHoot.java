@@ -21,13 +21,7 @@ public class AlgoHoot extends Application {
 
         stage = StagePrincipal.getInstance();
         stage.setTitle(NOMBRE_JUEGO);
-        Panel panelJuego = Panel.getInstancia();
-
-        try{
-            panelJuego.cargarPreguntas();
-        }catch (IOException e){
-            e.getMessage();
-        }
+        Juego panelJuego = Juego.getInstancia();
 
         VistaIngresoDeJugadores ingresoDeJugadores = new VistaIngresoDeJugadores(stage);
         Scene escenaDeBienvenida = new Scene(ingresoDeJugadores.getVista(), ANCHO, ALTO);
@@ -49,7 +43,7 @@ public class AlgoHoot extends Application {
 
 
     public void restart(Stage stage) {
-        Panel panelJuego = Panel.getInstancia();
+        Juego panelJuego = Juego.getInstancia();
         panelJuego.limpiar();
         start(stage);
     }

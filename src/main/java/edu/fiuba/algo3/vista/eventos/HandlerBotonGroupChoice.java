@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
-import edu.fiuba.algo3.Panel;
-import javafx.event.Event;
+import edu.fiuba.algo3.Juego;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.ClipboardContent;
@@ -11,7 +10,7 @@ import javafx.scene.input.TransferMode;
 
 public class HandlerBotonGroupChoice implements EventHandler<MouseEvent> {
 
-    private Panel panelJuego = Panel.getInstancia();
+    private Juego panelJuego = Juego.getInstancia();
     Button btn;
     //String opcion;
     public HandlerBotonGroupChoice(Button btn) {

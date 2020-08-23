@@ -53,4 +53,8 @@ public class Ronda {
     public String getTipoPregunta() {
         return pregunta.getTipo();
     }
+
+    public void responder(List<String> opcionesElegidas) {
+        turnoActual().responder(opcionesElegidas,this);
+    }
 }

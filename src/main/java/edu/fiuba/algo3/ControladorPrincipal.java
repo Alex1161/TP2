@@ -12,7 +12,7 @@ public class ControladorPrincipal {
     private static ControladorPrincipal instancia = new ControladorPrincipal();
 
     Stage ventana = StagePrincipal.getInstance();
-    Panel panel = Panel.getInstancia();
+    Juego panel = Juego.getInstancia();
     Cronometro cronometro;
     ControladorPrincipal(){   }
 
@@ -25,7 +25,6 @@ public class ControladorPrincipal {
     }
 
     public void iniciarTurno(){
-        Panel.getInstancia().cambiarJugador();
         cronometro=new Cronometro();
         iniciarVistaPregunta();
     }
@@ -56,8 +55,8 @@ public class ControladorPrincipal {
 
     public void iniciarSiguientePregunta() {
 
-        if(Panel.getInstancia().tieneSiguientePregunta()){
-            Panel.getInstancia().cambiarPregunta();
+        if(Juego.getInstancia().tieneSiguientePregunta()){
+            Juego.getInstancia().cambiarPregunta();
             iniciarTurno();
         }else{
             Scene escenaDeJuego = new Scene(new VistaGanadorAlgohoot().obtenerVista(), 1200, 680);

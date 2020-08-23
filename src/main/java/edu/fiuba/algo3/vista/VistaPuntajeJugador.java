@@ -28,8 +28,8 @@ public class VistaPuntajeJugador{
     public VistaPuntajeJugador(){
 
         botonSiguientePregunta.setText("Siguiente Pregunta");
-        jugador1 = Panel.getInstancia().obtenerJugador(0);
-        jugador2 = Panel.getInstancia().obtenerJugador(1);
+        jugador1 = Juego.getInstancia().obtenerJugador(0);
+        jugador2 = Juego.getInstancia().obtenerJugador(1);
 
         this.tablaDeInfo = new GridPane();
         tablaDeInfo.setPadding(new Insets(10, 10, 10, 10));

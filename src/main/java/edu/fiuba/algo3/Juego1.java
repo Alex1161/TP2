@@ -11,14 +11,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.ListIterator;
 
-public class Juego {
+public class Juego1 {
     private static final String ARCHIVOJSON = "Preguntas.json";
-    private static Juego instancia = new Juego();
+    private static Juego1 instancia = new Juego1();
     List<Ronda> rondas = new ArrayList<Ronda>();
     ListIterator<Ronda> iteradorRondas;
     List<Jugador> jugadores = new ArrayList<Jugador>();
 
-    private Juego(){
+    private Juego1(){
         iteradorRondas = rondas.listIterator(1);
         cargarRondas();
     }
@@ -61,7 +61,7 @@ public class Juego {
         return rondaActual().obtenerJugadorActual();
     }
 
-    public static Juego getInstancia(){
+    public static Juego1 getInstancia(){
         return instancia;
     }
 
@@ -76,7 +76,7 @@ public class Juego {
     }
 
     public void limpiar(){
-        instancia = new Juego();
+        instancia = new Juego1();
     }
 
     public void aplicarComodin(Comodin comodin) {
@@ -89,9 +89,5 @@ public class Juego {
 
     public String tipoPreguntaActual() {
         return rondaActual().getTipoPregunta();
-    }
-
-    public void responder(List<String> opcionesElegidas) {
-        rondaActual().responder(opcionesElegidas);
     }
 }
