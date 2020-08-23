@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.VistaIngresoDeJugadores;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -7,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 
 
 public class AlgoHoot extends Application {

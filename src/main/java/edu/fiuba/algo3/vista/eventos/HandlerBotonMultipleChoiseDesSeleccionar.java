@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
-import edu.fiuba.algo3.Juego;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.ControladorOpciones;
 import javafx.event.Event;
 import javafx.event.EventHandler;

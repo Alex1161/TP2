@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
-import edu.fiuba.algo3.ControladorPrincipal;
-import edu.fiuba.algo3.Juego;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.application.Platform;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
-import edu.fiuba.algo3.Juego;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.ClipboardContent;

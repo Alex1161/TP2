@@ -1,10 +1,6 @@
 package edu.fiuba.algo3.modelo.PanelTest;
 
-import edu.fiuba.algo3.Juego;
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

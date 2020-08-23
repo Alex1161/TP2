@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.Juego;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonRevancha;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonSalir;

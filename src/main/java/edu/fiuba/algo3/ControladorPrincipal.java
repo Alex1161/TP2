@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.VistaGanadorAlgohoot;
 import edu.fiuba.algo3.vista.VistaPreguntaEnCurso;
 import javafx.scene.Scene;
