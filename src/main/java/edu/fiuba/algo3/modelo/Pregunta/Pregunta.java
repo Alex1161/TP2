@@ -60,7 +60,11 @@ public class Pregunta {
     public void agregarComodin(Comodin comodin, Respuesta respuesta){
         penalidad.validar(comodin);
         respuesta.setComodin(comodin);
+        this.agregarComodin(comodin);
+    }
+    private void agregarComodin(Comodin comodin){
         comodines.add(comodin);
+
     }
 
     public void calificar(List<Respuesta> respuestas){
