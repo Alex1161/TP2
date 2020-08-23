@@ -4,6 +4,7 @@ import java.util.*;
 public class Opciones {
     private Collection<String> elementos = new ArrayList<String>();
 
+    //Constructores
     public Opciones(Collection<String> opcionesElegidas) {
         elementos = opcionesElegidas;
     }
@@ -12,7 +13,12 @@ public class Opciones {
 
     }
 
+    //Setters y Getters
     private Collection<String> elementos(){
+        return elementos;
+    }
+
+    public Collection<String> obtenerOpciones(){
         return elementos;
     }
 
@@ -20,11 +26,7 @@ public class Opciones {
         elementos.add(elemento);
     }
 
-    public Collection<String> obtenerOpciones(){
-        return elementos;
-    }
-
-    public int cantidadDeOpciones(){return this.elementos().size();}
+    public int cantidadDeOpciones(){return this.elementos.size();}
 
     public boolean esta(String opcion) {
         return elementos.contains(opcion);
@@ -54,8 +56,5 @@ public class Opciones {
         Collection<String> opcionesAComparar = new HashSet<String>(opciones.elementos());
 
         return misOpciones.containsAll(opcionesAComparar);
-    }
-    public void quitarOpcion(String opcion){
-        elementos.remove(opcion);
     }
 }
