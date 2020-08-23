@@ -9,7 +9,6 @@ import edu.fiuba.algo3.modelo.Respuestas.Respuestas;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 
 public class Panel {
@@ -67,7 +66,6 @@ public class Panel {
 
     public void cambiarJugador() {
         respuestas.cambiarJugador();
-
     }
 
     public boolean tieneSiguienteJugador(){
