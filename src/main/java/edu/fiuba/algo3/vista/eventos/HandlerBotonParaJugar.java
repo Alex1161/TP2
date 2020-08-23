@@ -18,7 +18,7 @@ public class HandlerBotonParaJugar implements EventHandler {
     private TextField campoJugador2;
     VBox cuadro;
 
-    public HandlerBotonParaJugar(Stage unaVentana, TextField nombreJug1, TextField nombreJug2, VBox cuadro){
+    public HandlerBotonParaJugar(TextField nombreJug1, TextField nombreJug2, VBox cuadro){
         paneljuego = Panel.getInstancia();
         this.campoJugador1 = nombreJug1;
         this.campoJugador2 = nombreJug2;
@@ -39,7 +39,6 @@ public class HandlerBotonParaJugar implements EventHandler {
             paneljuego.agregarJugador(jugador1);
             paneljuego.agregarJugador(jugador2);
 
-            //ControladorPrincipal.getInstancia().iniciarTurno();
             ControladorPrincipal controladorPrincipal = ControladorPrincipal.getInstancia();
             controladorPrincipal.iniciarTurno();
         }

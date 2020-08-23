@@ -2,7 +2,6 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.Panel;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.vista.eventos.HandlerBotonAccionarComodin;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonRevancha;
 import edu.fiuba.algo3.vista.eventos.HandlerBotonSalir;
 import javafx.geometry.Pos;
@@ -18,11 +17,9 @@ public class VistaGanadorAlgohoot extends VBox{
     Label labelGanador = new Label();
 
     private static final String URL_FONDO = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/ganador.jpg";
-    private static final int ANCHO = 1024;
-    private static final int ALTO = 768;
     Jugador jugadorGanador;
-    Button botonReiniciar =  new Button("Jugar de nuevo.");
-    Button botonSalir = new Button("Salir.");
+    Button botonReiniciar =  new Button("Jugar de nuevo");
+    Button botonSalir = new Button("Salir");
     VBox botones = new VBox();
 
     public VistaGanadorAlgohoot(){

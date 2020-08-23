@@ -29,7 +29,7 @@ public class AlgoHoot extends Application {
             e.getMessage();
         }
 
-        VistaIngresoDeJugadores ingresoDeJugadores = new VistaIngresoDeJugadores(stage);
+        VistaIngresoDeJugadores ingresoDeJugadores = new VistaIngresoDeJugadores();
         Scene escenaDeBienvenida = new Scene(ingresoDeJugadores.getVista(), ANCHO, ALTO);
 
         File f = new File("EstilosDeBotones.css");

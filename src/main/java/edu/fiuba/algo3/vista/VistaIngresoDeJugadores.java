@@ -3,11 +3,9 @@ package edu.fiuba.algo3.vista;
 import edu.fiuba.algo3.vista.botones.BotonParaJugar;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
 public class VistaIngresoDeJugadores{
 
@@ -15,11 +13,9 @@ public class VistaIngresoDeJugadores{
 
     BorderPane layoutInicial;
 
-    public VistaIngresoDeJugadores(Stage stage){
+    public VistaIngresoDeJugadores(){
 
         this.layoutInicial = new BorderPane();
-
-        Label textoInfo = new Label("Ingrese el nombre del primer jugador e ingrese 'ENTER' ");
 
         TextField solicitudNombre1 = new TextField();
         solicitudNombre1.setPromptText("Ingrese Nombre De Jugador1");
@@ -31,7 +27,7 @@ public class VistaIngresoDeJugadores{
 
         VBox cuadro = new VBox(solicitudNombre1, solicitudNombre2);
 
-        BotonParaJugar botonParaJugar = new BotonParaJugar(stage, solicitudNombre1, solicitudNombre2, cuadro);
+        BotonParaJugar botonParaJugar = new BotonParaJugar(solicitudNombre1, solicitudNombre2, cuadro);
         botonParaJugar.getStyleClass().add("botonPrimarioGrande");
         cuadro.getChildren().addAll(botonParaJugar);
 

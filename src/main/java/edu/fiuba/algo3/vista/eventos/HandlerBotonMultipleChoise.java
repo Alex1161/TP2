@@ -15,7 +15,7 @@ public class HandlerBotonMultipleChoise implements EventHandler {
     public HandlerBotonMultipleChoise(String opcion, Button btn) {
         super();
         this.btn = btn;
-        this.opcion=opcion;
+        this.opcion = opcion;
 
     }
 
@@ -23,7 +23,7 @@ public class HandlerBotonMultipleChoise implements EventHandler {
     @Override
     public void handle(Event event) {
         panelJuego.agregarOpcion(opcion);
-        btn.setOnAction(new HandlerBotonMultipleChoiseDesSeleccionar(btn,opcion));
+        btn.setOnAction(new HandlerBotonMultipleChoiseDesSeleccionar(btn, opcion));
         btn.setText("Seleccionado: " + btn.getText());
     }
 }

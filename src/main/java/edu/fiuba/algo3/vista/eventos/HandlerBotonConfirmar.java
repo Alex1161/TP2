@@ -7,9 +7,6 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
 public class HandlerBotonConfirmar implements EventHandler {
-
-    private Panel panelJuego = Panel.getInstancia();
-    private Button btn;
     private ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
 
     public HandlerBotonConfirmar() {

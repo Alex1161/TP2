@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.ControladorPrincipal;
-import edu.fiuba.algo3.Panel;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -39,7 +39,6 @@ public class VistaTemporizador {
             @Override
             public void actionPerformed(ActionEvent e) {
                 actualizar();
-                //animar();
             }
         });
 
@@ -57,9 +56,6 @@ public class VistaTemporizador {
         return contenedorTemporizador;
     }
 
-    public void dibujar(){
-        //contenedorTemporizador.getChildren().add(tiempoRestanteTxt);
-    }
 
     public void iniciarTempo(){
         timer.start();
@@ -77,11 +73,6 @@ public class VistaTemporizador {
         }else{
             contador ++;
         }
-        this.dibujar();
-    }
-
-    public void animar(){
-
     }
 
     public void setearImagenes(){
