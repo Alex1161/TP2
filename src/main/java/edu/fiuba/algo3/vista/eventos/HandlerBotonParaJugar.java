@@ -42,6 +42,7 @@ public class HandlerBotonParaJugar implements EventHandler {
             List<Jugador> jugadores = new ArrayList<Jugador>();
             jugadores.add(jugador1);
             jugadores.add(jugador2);
+            paneljuego.setJugadores(jugadores);
 
             ControladorPrincipal controladorPrincipal = ControladorPrincipal.getInstancia();
             controladorPrincipal.iniciarTurno();

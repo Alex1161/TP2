@@ -16,7 +16,7 @@ public class VistaOpciones {
 
     private final String SRC_GRUPO_1 = "file:src/main/java/edu/fiuba/algo3/vista/imagenes/fondoDegradadoNaranjaPrueba.png";
     private final Collection<String> opciones;
-    private Controlador controlador = new Controlador();
+    private ControladorOpciones controladorOpciones = new ControladorOpciones();
 
     private Juego panel = Juego.getInstancia();
 
@@ -57,7 +57,7 @@ public class VistaOpciones {
         for (String opcion : opciones) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
-            HandlerBotonMultipleChoise botonVoF = new HandlerBotonMultipleChoise(opcion, btn, controlador);
+            HandlerBotonMultipleChoise botonVoF = new HandlerBotonMultipleChoise(opcion, btn, controladorOpciones);
             btn.setOnAction(botonVoF);
             grillaRespuestas.add(btn, 0, i);
             i++;
@@ -65,7 +65,7 @@ public class VistaOpciones {
         }
         Button btn = new Button("CONFIRMAR");
         btn.getStyleClass().add("botonConfirmarSeleccion");
-        HandlerBotonConfirmar botonConfirmar = new HandlerBotonConfirmar(controlador);
+        HandlerBotonConfirmar botonConfirmar = new HandlerBotonConfirmar(controladorOpciones);
         btn.setOnAction(botonConfirmar);
         grillaRespuestas.add(btn, 2, 1);
     }
@@ -75,7 +75,7 @@ public class VistaOpciones {
         for (String opcion : opciones) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
-            HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso(opcion, controlador);
+            HandlerBotonVerdaderoFalso botonVoF = new HandlerBotonVerdaderoFalso(opcion, controladorOpciones);
             btn.setOnAction(botonVoF);
             grillaRespuestas.add(btn, 1, i);
             i++;
@@ -90,7 +90,7 @@ public class VistaOpciones {
         for (String opcion: opciones) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
-            btn.setOnAction(new HandlerBotonGroupChoiceClick(btn,grupo1,grupo2,controlador));
+            btn.setOnAction(new HandlerBotonGroupChoiceClick(btn,grupo1,grupo2, controladorOpciones));
             grillaRespuestas.add(btn, 0, i);
             i++;
         }
@@ -115,7 +115,7 @@ public class VistaOpciones {
 
         Button btn = new Button("CONFIRMAR");
         btn.getStyleClass().add("botonConfirmarSeleccion");
-        HandlerBotonConfirmarGroup botonConfirmar = new HandlerBotonConfirmarGroup(grillaRespuestas,grupo1,5,controlador);
+        HandlerBotonConfirmarGroup botonConfirmar = new HandlerBotonConfirmarGroup(grillaRespuestas,grupo1,5, controladorOpciones);
         btn.setOnAction(botonConfirmar);
         grillaRespuestas.add(btn, 8, 4);
 
@@ -133,7 +133,7 @@ public class VistaOpciones {
         for (String opcion : opciones) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
-            btn.setOnAction(new HandlerBotonOrderedChoiceClick(btn,grupoOrdenado,grillaRespuestas,controlador));
+            btn.setOnAction(new HandlerBotonOrderedChoiceClick(btn,grupoOrdenado,grillaRespuestas, controladorOpciones));
             grillaRespuestas.add(btn, i, 1);
             i++;
         }
@@ -153,7 +153,7 @@ public class VistaOpciones {
 
         Button btn = new Button("CONFIRMAR");
         btn.getStyleClass().add("botonConfirmarSeleccion");
-        HandlerBotonConfirmarGroup botonConfirmar = new HandlerBotonConfirmarGroup(grillaRespuestas,grupoOrdenado,3, controlador);
+        HandlerBotonConfirmarGroup botonConfirmar = new HandlerBotonConfirmarGroup(grillaRespuestas,grupoOrdenado,3, controladorOpciones);
         btn.setOnAction(botonConfirmar);
         grillaRespuestas.add(btn, 8, 4);
 

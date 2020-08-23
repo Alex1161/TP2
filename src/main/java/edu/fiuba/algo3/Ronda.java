@@ -3,6 +3,8 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.Comodin.Comodin;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
+import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -13,6 +15,7 @@ public class Ronda {
     private Pregunta pregunta;
     private List<Turno> turnos = new ArrayList<Turno>();
     private ListIterator<Turno> iteradorTurnos;
+    private List<Respuesta> respuestas = new ArrayList<Respuesta>();
 
     public Ronda(Pregunta pregunta) {
         this.pregunta = pregunta;
@@ -56,5 +59,16 @@ public class Ronda {
 
     public void responder(List<String> opcionesElegidas) {
         turnoActual().responder(opcionesElegidas,this);
+    }
+
+    public void agregarRespuesta(Respuesta respuesta) {
+        respuestas.add(respuesta);
+        if (iteradorTurnos.hasNext()){
+            iteradorTurnos.next();
+            Juego.getInstancia().actualizarTurno();
+        }else{
+            pregunta.calificar(respuestas);
+            Juego.getInstancia().mostrarPuntaje();
+        }
     }
 }

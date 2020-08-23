@@ -63,4 +63,8 @@ public class Respuesta {
     public void quitarComodinAlJugador(Comodin comodin) {
         jugador.sacarComodin(comodin);
     }
+
+    public void setOpcionesElegidas(Opciones opciones) {
+        this.opcionesElegidas = opciones;
+    }
 }

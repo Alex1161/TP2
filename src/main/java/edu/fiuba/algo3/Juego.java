@@ -19,8 +19,8 @@ public class Juego {
     List<Jugador> jugadores = new ArrayList<Jugador>();
 
     private Juego(){
-        iteradorRondas = rondas.listIterator(1);
         cargarRondas();
+        iteradorRondas = rondas.listIterator(1);
     }
 
     private void cargarRondas() {
@@ -94,4 +94,18 @@ public class Juego {
     public void responder(List<String> opcionesElegidas) {
         rondaActual().responder(opcionesElegidas);
     }
+
+    public void actualizarTurno() {
+        ControladorPrincipal.getInstancia().actualizarTurno();
+    }
+
+    public void mostrarPuntaje() {
+        if(iteradorRondas.hasNext()){
+            iteradorRondas.next();
+            ControladorPrincipal.getInstancia().mostrarVistaPuntajes();
+        }else {
+            ControladorPrincipal.getInstancia().vistaGanador();
+        }
+    }
+
 }

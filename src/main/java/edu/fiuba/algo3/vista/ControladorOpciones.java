@@ -5,7 +5,7 @@ import edu.fiuba.algo3.Juego;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Controlador {
+public class ControladorOpciones {
     List<String> opcionesElegidas = new ArrayList<String>();
     Juego juego = Juego.getInstancia();
 
@@ -14,6 +14,14 @@ public class Controlador {
     }
 
     public void enviarRespuestas() {
+        juego.responder(opcionesElegidas);
+    }
+
+    public void quitarOpcion(String opcion) {
+        opcionesElegidas.remove(opcion);
+    }
+
+    public void pasarOpcionesElegidas() {
         juego.responder(opcionesElegidas);
     }
 }

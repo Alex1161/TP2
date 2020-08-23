@@ -17,9 +17,9 @@ public class Cronometro {
     public int obtenerTiempoEnMilisegundos(){
         return tiempoPorTurnoEnMilisegundos;
     }
-    public void parar(){if (!(this==null)){
-       this.timer.cancel();
-    }
-
+    public void parar(){
+        if (!(this==null)){
+            this.timer.cancel();
+        }
     }
 }

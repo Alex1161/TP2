@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.ControladorPrincipal;
+import edu.fiuba.algo3.Juego;
 import javafx.application.Platform;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -15,9 +17,7 @@ public class TimerTaskPasarTurno extends TimerTask {
     @Override
     public void run() {
         Platform.runLater(() -> {
-
-        ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
-        controlador.siguienteTurno();
-     });
+            Juego.getInstancia().responder(new ArrayList<String>());
+        });
     }
 }

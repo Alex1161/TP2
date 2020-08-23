@@ -1,24 +1,21 @@
 package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.ControladorPrincipal;
-import edu.fiuba.algo3.Juego;
+import edu.fiuba.algo3.vista.ControladorOpciones;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 
 public class HandlerBotonConfirmar implements EventHandler {
 
-    private Juego panelJuego = Juego.getInstancia();
-    private Button btn;
-    private ControladorPrincipal controlador = ControladorPrincipal.getInstancia();
+    private ControladorPrincipal controladorPrincipal = ControladorPrincipal.getInstancia();
+    private ControladorOpciones controladorOpciones;
 
-    public HandlerBotonConfirmar() {
-
+    public HandlerBotonConfirmar(ControladorOpciones controladorOpciones) {
+        this.controladorOpciones = controladorOpciones;
     }
 
     @Override
     public void handle(Event event) {
-
-        controlador.siguienteTurno();
+        controladorOpciones.pasarOpcionesElegidas();
     }
 }

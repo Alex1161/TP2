@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.eventos;
 
-import edu.fiuba.algo3.vista.Controlador;
+import edu.fiuba.algo3.vista.ControladorOpciones;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -9,7 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 public class HandlerBotonOrderedChoiceClick implements EventHandler<ActionEvent> {
-    private Controlador controlador;
+    private ControladorOpciones controladorOpciones;
     GridPane grupo2;
     HBox grupo1;
     Pane grupoActual;
@@ -22,13 +22,13 @@ public class HandlerBotonOrderedChoiceClick implements EventHandler<ActionEvent>
         boton=btn;
     }
 
-    public HandlerBotonOrderedChoiceClick(Button btn, HBox grupoOrdenado, GridPane grillaRespuestas, Controlador controlador) {
+    public HandlerBotonOrderedChoiceClick(Button btn, HBox grupoOrdenado, GridPane grillaRespuestas, ControladorOpciones controladorOpciones) {
         this.grupo1=grupoOrdenado;
         this.grupo2=grillaRespuestas;
         grupoActual=grillaRespuestas;
 
         boton=btn;
-        this.controlador = controlador;
+        this.controladorOpciones = controladorOpciones;
     }
 
     @Override

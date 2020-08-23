@@ -29,14 +29,9 @@ public class ControladorPrincipal {
         iniciarVistaPregunta();
     }
 
-    public void siguienteTurno(){
+    public void actualizarTurno(){
         cronometro.parar();
-        if (panel.tieneSiguienteJugador()){
-          iniciarTurno();
-        }else{
-            panel.calificar();
-            mostrarVistaPuntajes();
-        }                 
+        iniciarTurno();
     }
 
     public static ControladorPrincipal getInstancia(){
@@ -44,6 +39,7 @@ public class ControladorPrincipal {
     }
 
     public void mostrarVistaPuntajes(){
+        cronometro.parar();
         Scene escenaDeJuego = new Scene((new edu.fiuba.algo3.VistaPuntajeJugador()).obtenerPanel(), 1200, 680);
         File f = new File("EstilosDeBotones.css");
         escenaDeJuego.getStylesheets().clear();
@@ -52,19 +48,12 @@ public class ControladorPrincipal {
         ventana.setScene(escenaDeJuego);
     }
 
-
-    public void iniciarSiguientePregunta() {
-
-        if(Juego.getInstancia().tieneSiguientePregunta()){
-            Juego.getInstancia().cambiarPregunta();
-            iniciarTurno();
-        }else{
-            Scene escenaDeJuego = new Scene(new VistaGanadorAlgohoot().obtenerVista(), 1200, 680);
-            File f = new File("EstilosDeBotones.css");
-            escenaDeJuego.getStylesheets().clear();
-            escenaDeJuego.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
-            ventana.setScene(escenaDeJuego);
-        }
+    public void vistaGanador() {
+        Scene escenaDeJuego = new Scene(new VistaGanadorAlgohoot().obtenerVista(), 1200, 680);
+        File f = new File("EstilosDeBotones.css");
+        escenaDeJuego.getStylesheets().clear();
+        escenaDeJuego.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+        ventana.setScene(escenaDeJuego);
     }
 
     public int obtenerTiempoEnMilisegundos() {

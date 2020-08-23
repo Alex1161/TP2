@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.ControladorPrincipal;
-import edu.fiuba.algo3.vista.Controlador;
+import edu.fiuba.algo3.vista.ControladorOpciones;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -20,13 +20,13 @@ public class HandlerBotonConfirmarGroup implements EventHandler {
     GridPane opcionesSinResponder;
     HBox grupo1;
     int elementosOptimos;
-    private Controlador controlador;
+    private ControladorOpciones controladorOpciones;
 
-    public HandlerBotonConfirmarGroup(GridPane grillaRespuestas, HBox grupo1, int elementosOptimos, Controlador controlador) {
+    public HandlerBotonConfirmarGroup(GridPane grillaRespuestas, HBox grupo1, int elementosOptimos, ControladorOpciones controladorOpciones) {
         opcionesSinResponder=grillaRespuestas;
         this.grupo1=grupo1;
         this.elementosOptimos=elementosOptimos;
-        this.controlador = controlador;
+        this.controladorOpciones = controladorOpciones;
     }
 
     @Override
@@ -34,9 +34,9 @@ public class HandlerBotonConfirmarGroup implements EventHandler {
         if(opcionesSinResponder.getChildren().size() == elementosOptimos){
             for (Node unBoton: grupo1.getChildren()) {
                 Button botonActual = (Button) unBoton;
-                controlador.agregarOpcion(botonActual.getText());
+                controladorOpciones.agregarOpcion(botonActual.getText());
             }
-            controladorPrincipal.siguienteTurno();
+            controladorOpciones.pasarOpcionesElegidas();
         }else{
             Stage dialog=new Stage();
 

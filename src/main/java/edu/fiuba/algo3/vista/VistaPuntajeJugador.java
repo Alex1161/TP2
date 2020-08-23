@@ -9,6 +9,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.util.List;
+
 public class VistaPuntajeJugador{
     GridPane tablaDeInfo;
     VBox panel;
@@ -28,8 +30,9 @@ public class VistaPuntajeJugador{
     public VistaPuntajeJugador(){
 
         botonSiguientePregunta.setText("Siguiente Pregunta");
-        jugador1 = Juego.getInstancia().obtenerJugador(0);
-        jugador2 = Juego.getInstancia().obtenerJugador(1);
+        List<Jugador> jugadores = Juego.getInstancia().getJugadores();
+        jugador1 = jugadores.get(0);
+        jugador2 = jugadores.get(1);
 
         this.tablaDeInfo = new GridPane();
         tablaDeInfo.setPadding(new Insets(10, 10, 10, 10));
