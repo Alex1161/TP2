@@ -17,25 +17,17 @@ public class Ronda {
     private ListIterator<Turno> iteradorTurnos;
     private List<Respuesta> respuestas = new ArrayList<Respuesta>();
 
+    //Constructores
     public Ronda(Pregunta pregunta) {
         this.pregunta = pregunta;
     }
 
-    public Pregunta pregunta() {
-        return pregunta;
-    }
-
-    public Pregunta getPregunta() {
-        return pregunta;
-    }
-
-    public Jugador obtenerJugadorActual() {
-        return turnoActual().getJugador();
-    }
-
+    //Private
     private Turno turnoActual() {
         return turnos.get(iteradorTurnos.previousIndex());
     }
+
+    //Setters y Getters
 
     public void setJugadores(List<Jugador> jugadores) {
         for (Jugador jugador : jugadores){
@@ -45,16 +37,25 @@ public class Ronda {
         iteradorTurnos = turnos.listIterator(1);
     }
 
-    public void aplicarComodin(Comodin comodin) {
-        turnoActual().aplicarComodin(pregunta, comodin);
+    public Jugador obtenerJugadorActual() {
+        return turnoActual().getJugador();
+    }
+
+    public String getEnunciadoPregunta() {
+        return pregunta.getEnunciado();
+    }
+
+    public String getTipoPregunta() {
+        return pregunta.getTipo();
     }
 
     public Collection<String> getOpciones() {
         return pregunta.obtenerOpciones().obtenerOpciones();
     }
 
-    public String getTipoPregunta() {
-        return pregunta.getTipo();
+    //Acciones
+    public void aplicarComodin(Comodin comodin) {
+        turnoActual().aplicarComodin(pregunta, comodin);
     }
 
     public void responder(List<String> opcionesElegidas) {

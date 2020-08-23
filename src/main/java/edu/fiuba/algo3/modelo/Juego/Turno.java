@@ -12,16 +12,20 @@ public class Turno {
     private Jugador jugador;
     private Respuesta respuesta;
 
+    //Constructores
     public Turno(Jugador jugador) {
         this.jugador = jugador;
         respuesta = new Respuesta(jugador);
     }
 
+    //Setters y Getters
     public Jugador getJugador() {
         return jugador;
     }
 
+    //Acciones
     public void aplicarComodin(Pregunta pregunta, Comodin comodin) {
+        jugador.sacarComodin(comodin);
         pregunta.agregarComodin(comodin, respuesta);
     }
 

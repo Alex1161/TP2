@@ -2,43 +2,43 @@
   "Preguntas": [
     {
       "tipoDePregunta":"VoFClasico",
-      "enunciado":"Los Perros Vuelan",
+      "enunciado":"¿Los perros vuelan?",
       "opcionesCorrectas": ["Falso"],
       "opcionesPosibles": ["Verdadero","Falso"]
     },
     {
       "tipoDePregunta":"VoFPenalizado",
-      "enunciado":"Los Perros Vuelan",
+      "enunciado":"¿2 + 2 = 3?",
       "opcionesCorrectas": ["Falso"],
       "opcionesPosibles": ["Verdadero","Falso"]
     },
     {
       "tipoDePregunta":"MultipleChoiceClasico",
-      "enunciado":"selecciones a todos los animales",
+      "enunciado":"Selecciones a todos los animales:",
       "opcionesCorrectas": ["Perro","Gato"],
       "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
     },
     {
       "tipoDePregunta":"MultipleChoicePenalizado",
-      "enunciado":"Colores que contengan A",
+      "enunciado":"Colores que contengan la letra: a",
       "opcionesCorrectas": ["Azul","Naranja"],
       "opcionesPosibles": ["Rojo","Verde","Negro","Azul","Naranja"]
     },
     {
       "tipoDePregunta":"MultipleChoiceParcial",
-      "enunciado":"selecciones a todos los animales",
-      "opcionesCorrectas": ["Perro","Gato"],
-      "opcionesPosibles": ["Tomate","Pera","Perro","Gato"]
+      "enunciado":"Selecciones los números multiplos de 3:",
+      "opcionesCorrectas": ["3","9"],
+      "opcionesPosibles": ["9","2","3","5"]
     },
     {
       "tipoDePregunta":"GroupChoice",
-      "enunciado":"Pares(G1) e Impares(G2)",
+      "enunciado":"Ubique los números pares en G1 y los impares en G2",
       "opcionesCorrectas": ["2","4","6"],
       "opcionesPosibles": ["1","5","2","4","6"]
     },
     {
       "tipoDePregunta":"OrderChoice",
-      "enunciado":"Ordene De Menor A Mayor",
+      "enunciado":"Ordene de manera ascendente:",
       "opcionesCorrectas": ["1","2","3","4","5"],
       "opcionesPosibles": ["1","5","2","4","3"]
     }

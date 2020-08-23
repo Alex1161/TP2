@@ -19,6 +19,12 @@ public class Juego {
     ListIterator<Ronda> iteradorRondas;
     List<Jugador> jugadores = new ArrayList<Jugador>();
 
+    //Static
+    public static Juego getInstancia(){
+        return instancia;
+    }
+
+    //Private
     private Juego(){
         cargarRondas();
         iteradorRondas = rondas.listIterator(1);
@@ -38,6 +44,11 @@ public class Juego {
         }
     }
 
+    private Ronda rondaActual() {
+        return rondas.get(iteradorRondas.previousIndex());
+    }
+
+    //Setters y Getters
     public void setJugadores(List<Jugador> jugadores){
         for (Ronda ronda : rondas){
             ronda.setJugadores(jugadores);
@@ -50,22 +61,23 @@ public class Juego {
         return jugadores;
     }
 
-    public Pregunta preguntaActual() {
-        return rondaActual().getPregunta();
-    }
-
-    private Ronda rondaActual() {
-        return rondas.get(iteradorRondas.previousIndex());
-    }
-
     public Jugador jugadorActual() {
         return rondaActual().obtenerJugadorActual();
     }
 
-    public static Juego getInstancia(){
-        return instancia;
+    public Collection<String> obtenerOpciones() {
+        return rondaActual().getOpciones();
     }
 
+    public String tipoPreguntaActual() {
+        return rondaActual().getTipoPregunta();
+    }
+
+    public String enunciadoPreguntaActual() {
+        return rondaActual().getEnunciadoPregunta();
+    }
+
+    //Acciones
     public String ganadorAlgohoot() {
         if (jugadores.get(0).puntajeValorNumerico() > jugadores.get(1).puntajeValorNumerico()) {
             return jugadores.get(0).getNombre();
@@ -75,7 +87,6 @@ public class Juego {
             return jugadores.get(1).getNombre();
         }
     }
-
 
     public int puntajeGanadorAlgohoot(){
         if (jugadores.get(0).puntajeValorNumerico() > jugadores.get(1).puntajeValorNumerico()) {
@@ -95,14 +106,6 @@ public class Juego {
         rondaActual().aplicarComodin(comodin);
     }
 
-    public Collection<String> obtenerOpciones() {
-        return rondaActual().getOpciones();
-    }
-
-    public String tipoPreguntaActual() {
-        return rondaActual().getTipoPregunta();
-    }
-
     public void responder(List<String> opcionesElegidas) {
         rondaActual().responder(opcionesElegidas);
     }
@@ -119,5 +122,4 @@ public class Juego {
             ControladorPrincipal.getInstancia().vistaGanador();
         }
     }
-
 }

@@ -18,14 +18,14 @@ public class VistaEnunciado {
         panelEnunciado = new VBox();
 
         panelEnunciado.setPrefSize(400,100);
-        enunciadoTxt = new Label(panelJuego.preguntaActual().getEnunciado());
+        enunciadoTxt = new Label(panelJuego.enunciadoPreguntaActual());
         enunciadoTxt.setFont(Font.font("Arial", FontWeight.BOLD, 36));
         enunciadoTxt.setMaxWidth(800);
         enunciadoTxt.setWrapText(true);
         enunciadoTxt.setAlignment(Pos.CENTER);
         enunciadoTxt.getStyleClass().add("enunciado-text");
 
-        tipoTxt = new Label(panelJuego.preguntaActual().getTipo());
+        tipoTxt = new Label(panelJuego.tipoPreguntaActual());
         tipoTxt.setFont(Font.font("Arial", FontWeight.BOLD, 20));
         tipoTxt.setMaxWidth(800);
         tipoTxt.setWrapText(true);

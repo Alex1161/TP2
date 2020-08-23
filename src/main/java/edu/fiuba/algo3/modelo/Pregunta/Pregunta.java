@@ -12,8 +12,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Pregunta {
-
     private String tipo;
+
     private String enunciado;
     private Opciones opcionesCorrectas, opcionesPosibles;
     private Calificador calificador;
@@ -24,6 +24,22 @@ public class Pregunta {
         this.enunciado = enunciado;
         opcionesCorrectas = new Opciones();
         opcionesPosibles = new Opciones();
+    }
+
+    public Opciones obtenerOpciones(){
+        return opcionesPosibles;
+    }
+
+    public String getEnunciado(){
+        return enunciado;
+    }
+
+    public void asignarTipo(String tipo){
+        this.tipo=tipo;
+    }
+
+    public String getTipo(){
+        return tipo;
     }
 
     public void asignarOpcionesCorrectas(Opciones opciones){
@@ -65,19 +81,6 @@ public class Pregunta {
         penalidad.validar(comodin);
         respuesta.setComodin(comodin);
         comodines.add(comodin);
-    }
-    public Opciones obtenerOpciones(){
-        return opcionesPosibles;
-    }
-
-    public String getEnunciado(){
-        return enunciado;
-    }
-    public void asignarTipo(String tipo){
-        this.tipo=tipo;
-    }
-    public String getTipo(){
-        return tipo;
     }
 
 }
