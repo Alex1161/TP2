@@ -1,17 +1,13 @@
 @startuml
-activate turnoActual
-turnoActual->Jugador:sacarComodin(comodin)
-turnoActual->Pregunta:agregarComodin(comodin,respuesta)
-deactivate turnoActual
-activate Pregunta
 
-
-Pregunta -> Penalidad:validar(comodin:Comodin)
+VoFClasicoPreguntaPregunta -> Penalidad:validar(comodin:Comodin)
+activate VoFClasicoPregunta
 activate Penalidad
 Penalidad->Comodin:validar(this:Penalidad)
 deactivate Penalidad
 Pregunta ->Respuesta:setComodin(comodin:Comodin)
 Pregunta ->Pregunta:agregarComodin(comodin :Comodin)
 deactivate Pregunta
+
 
 @enduml
