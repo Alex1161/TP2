@@ -9,12 +9,13 @@ deactivate Juego
 
 HandlerBotonAccionarComidin -> Juego : aplicarComodin(comodinActual: Comodin)
 
-HandlerBotonAccionarComidin->Boton:getText()
-activate Boton
-Boton -->HandlerBotonAccionarComidin:text:String
-deactivate Boton
-HandlerBotonAccionarComidin-> Boton: setText(text+": Selecionado")
+activate Juego
+Juego ->RondaActual:aplicarComodin(comodin:Comodin)
+activate RondaActual
+RondaActual ->turnoActual:aplicarComodin(pregunta,comodin)
 
-HandlerBotonAccionarComidin -> VBox:setDisable(true)
-deactivate
+
+deactivate Juego
+deactivate RondaActual
+
 @enduml
