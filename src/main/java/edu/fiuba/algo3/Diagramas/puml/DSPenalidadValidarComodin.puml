@@ -1,0 +1,7 @@
+@startuml
+[-> Penalidad:validar(comodin: Comodin)
+Penalidad->Comodin:validar(this:Penalidad)
+
+
+
+@enduml

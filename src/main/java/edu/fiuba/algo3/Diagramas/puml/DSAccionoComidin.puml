@@ -1,0 +1,20 @@
+@startuml
+Actor User
+User -> HandlerBotonAccionarComidin: ActionEvent
+activate HandlerBotonAccionarComidin
+HandlerBotonAccionarComidin-> Juego: getInstancia()
+activate Juego
+Juego --> HandlerBotonAccionarComidin
+deactivate Juego
+
+HandlerBotonAccionarComidin -> Juego : aplicarComodin(comodinActual: Comodin)
+
+HandlerBotonAccionarComidin->Boton:getText()
+activate Boton
+Boton -->HandlerBotonAccionarComidin:text:String
+deactivate Boton
+HandlerBotonAccionarComidin-> Boton: setText(text+": Selecionado")
+
+HandlerBotonAccionarComidin -> VBox:setDisable(true)
+deactivate
+@enduml
