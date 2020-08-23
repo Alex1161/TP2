@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.CalificadorTest;
 import edu.fiuba.algo3.modelo.Calificador.CalificadorNoPenalizado;
 import edu.fiuba.algo3.modelo.Calificador.Calificador;
 import edu.fiuba.algo3.modelo.Calificador.ComparadorParcial;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
+import edu.fiuba.algo3.modelo.Pregunta.Opciones;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import org.junit.jupiter.api.Test;
 

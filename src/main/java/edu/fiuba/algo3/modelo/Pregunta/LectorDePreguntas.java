@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Pregunta;
 
 import com.google.gson.*;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
 
 import java.io.IOException;
 import java.nio.file.Files;

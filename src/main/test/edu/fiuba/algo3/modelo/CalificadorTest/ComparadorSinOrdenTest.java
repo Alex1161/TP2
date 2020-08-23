@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.CalificadorTest;
 import edu.fiuba.algo3.modelo.Calificador.CalificadorNoPenalizado;
 import edu.fiuba.algo3.modelo.Calificador.CalificadorPenalizado;
 import edu.fiuba.algo3.modelo.Calificador.ComparadorSinOrden;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
+import edu.fiuba.algo3.modelo.Pregunta.Opciones;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoNulo;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;

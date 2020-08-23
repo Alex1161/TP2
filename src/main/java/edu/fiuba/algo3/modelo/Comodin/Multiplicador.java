@@ -2,8 +2,7 @@ package edu.fiuba.algo3.modelo.Comodin;
 
 import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
-import edu.fiuba.algo3.modelo.Puntaje.Puntos;
-import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
+import edu.fiuba.algo3.modelo.Pregunta.Respuesta;
 
 import java.util.List;
 

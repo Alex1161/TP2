@@ -1,6 +1,7 @@
-package edu.fiuba.algo3.modelo.Jugador;
+package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Comodin.*;
+import edu.fiuba.algo3.modelo.Errores.ComodinYaUsado;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Puntaje.Puntos;
 

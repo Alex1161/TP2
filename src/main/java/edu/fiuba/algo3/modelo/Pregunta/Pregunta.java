@@ -2,9 +2,7 @@ package edu.fiuba.algo3.modelo.Pregunta;
 
 import edu.fiuba.algo3.modelo.Calificador.Calificador;
 import edu.fiuba.algo3.modelo.Comodin.Comodin;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
-import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
 
 import java.util.LinkedList;
 import java.util.List;

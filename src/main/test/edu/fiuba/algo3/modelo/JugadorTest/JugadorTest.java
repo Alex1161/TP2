@@ -3,8 +3,8 @@ package edu.fiuba.algo3.modelo.JugadorTest;
 import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.Comodin.MultiplicadorX3;
-import edu.fiuba.algo3.modelo.Jugador.ComodinYaUsado;
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.modelo.Errores.ComodinYaUsado;
+import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Puntaje.*;
 import org.junit.jupiter.api.Test;
 

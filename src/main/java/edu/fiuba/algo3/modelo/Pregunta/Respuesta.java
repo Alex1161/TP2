@@ -1,9 +1,8 @@
-package edu.fiuba.algo3.modelo.Respuesta;
+package edu.fiuba.algo3.modelo.Pregunta;
 
 import edu.fiuba.algo3.modelo.Comodin.Comodin;
 import edu.fiuba.algo3.modelo.Comodin.ComodinVacio;
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
+import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 
 public class Respuesta {

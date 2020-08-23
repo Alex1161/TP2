@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.OpcionesTest;
 
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
+import edu.fiuba.algo3.modelo.Pregunta.Opciones;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Opciones;
+package edu.fiuba.algo3.modelo.Pregunta;
 import java.util.*;
 
 public class Opciones {

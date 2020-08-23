@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
 
 
 import edu.fiuba.algo3.modelo.Calificador.*;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
 
 public class CreadorDePreguntas {
     public Pregunta crearPregunta(String tipo, String enunciado, Opciones opcionesCorrectas, Opciones opcionesPosibles){

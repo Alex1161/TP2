@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.ControladorPrincipal;
 import edu.fiuba.algo3.modelo.Comodin.Comodin;
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Pregunta.LectorDePreguntas;
 import edu.fiuba.algo3.modelo.Pregunta.Pregunta;
 

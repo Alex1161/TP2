@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.LectorDePreguntasTest;
 
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Opciones.Opciones;
+import edu.fiuba.algo3.modelo.Juego.Jugador;
+import edu.fiuba.algo3.modelo.Pregunta.Opciones;
 import edu.fiuba.algo3.modelo.Pregunta.*;
-import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
+import edu.fiuba.algo3.modelo.Pregunta.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

@@ -2,14 +2,14 @@ package edu.fiuba.algo3.modelo.ComodinTest;
 
 import edu.fiuba.algo3.modelo.Comodin.ComodinVacio;
 import edu.fiuba.algo3.modelo.Comodin.Exclusividad;
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.modelo.Juego.Jugador;
 import edu.fiuba.algo3.modelo.Penalidad.ConPenalidad;
 import edu.fiuba.algo3.modelo.Errores.ExclusividadNoPermitida;
 import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoNulo;
 import edu.fiuba.algo3.modelo.Puntaje.PuntoPositivo;
-import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
+import edu.fiuba.algo3.modelo.Pregunta.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
