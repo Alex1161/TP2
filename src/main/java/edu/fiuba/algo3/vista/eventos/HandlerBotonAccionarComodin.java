@@ -22,7 +22,7 @@ public class HandlerBotonAccionarComodin implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         Juego panelJuego = Juego.getInstancia();
-        panelJuego.aplicarComodin(comodinActual);   //Facil de refactorizar
+        panelJuego.aplicarComodin(comodinActual);
         botonComodin.setText(botonComodin.getText()+": Selecionado");
         panelRelacionado.setDisable(true);
     }
