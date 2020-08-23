@@ -12,18 +12,12 @@ public class Respuesta {
     Comodin comodin = new ComodinVacio();
     Jugador jugador;
 
+    //Constructor
     public Respuesta(Jugador jugador){
         this.jugador = jugador;
     }
 
-    public Puntaje puntaje() {
-        return puntajeObtenido;
-    }
-
-    public void agregarOpcion(String opcion){
-        opcionesElegidas.agregarOpcion(opcion);
-    }
-
+    //Setters y Getters
     public void setPuntajeObtenido(Puntaje puntaje){
         puntajeObtenido = puntaje;
     }
@@ -32,8 +26,21 @@ public class Respuesta {
         this.comodin = comodin;
     }
 
+    public void setOpcionesElegidas(Opciones opciones) {
+        this.opcionesElegidas = opciones;
+    }
+
+    public Puntaje puntaje() {
+        return puntajeObtenido;
+    }
+
     public Opciones obtenerOpciones(){
         return opcionesElegidas;
+    }
+
+    //Accion
+    public void agregarOpcion(String opcion){
+        opcionesElegidas.agregarOpcion(opcion);
     }
 
     public void aplicarPuntaje(){
@@ -50,21 +57,7 @@ public class Respuesta {
         respuesta.setPuntajeObtenido(puntajeOponente);
     }
 
-    public void quitarOpcion(String opcion){opcionesElegidas.quitarOpcion(opcion); }
-
     public void aplicarComodin(Comodin comodin) {
         puntajeObtenido = comodin.aplicar(puntajeObtenido);
-    }
-
-    public Jugador obtenerJugador() {
-        return jugador;
-    }
-
-    public void quitarComodinAlJugador(Comodin comodin) {
-        jugador.sacarComodin(comodin);
-    }
-
-    public void setOpcionesElegidas(Opciones opciones) {
-        this.opcionesElegidas = opciones;
     }
 }

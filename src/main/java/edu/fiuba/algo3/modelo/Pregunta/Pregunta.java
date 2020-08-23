@@ -20,26 +20,16 @@ public class Pregunta {
     private Penalidad penalidad;
     private List<Comodin> comodines = new LinkedList<Comodin>();
 
+    //Constructor
     public Pregunta(String enunciado){
         this.enunciado = enunciado;
         opcionesCorrectas = new Opciones();
         opcionesPosibles = new Opciones();
     }
 
-    public Opciones obtenerOpciones(){
-        return opcionesPosibles;
-    }
-
-    public String getEnunciado(){
-        return enunciado;
-    }
-
+    //Setter y Getters
     public void asignarTipo(String tipo){
         this.tipo=tipo;
-    }
-
-    public String getTipo(){
-        return tipo;
     }
 
     public void asignarOpcionesCorrectas(Opciones opciones){
@@ -56,6 +46,25 @@ public class Pregunta {
 
     public void setPenalidad(Penalidad penalidad) {
         this.penalidad = penalidad;
+    }
+
+    public Opciones obtenerOpciones(){
+        return opcionesPosibles;
+    }
+
+    public String getEnunciado(){
+        return enunciado;
+    }
+
+    public String getTipo(){
+        return tipo;
+    }
+
+    //Acciones
+    public void agregarComodin(Comodin comodin, Respuesta respuesta){
+        penalidad.validar(comodin);
+        respuesta.setComodin(comodin);
+        comodines.add(comodin);
     }
 
     public void calificar(List<Respuesta> respuestas){
@@ -75,12 +84,6 @@ public class Pregunta {
 
     public boolean sonCorrectas(Opciones opciones){
         return calificador.sonCorrectas(opcionesCorrectas, opciones);
-    }
-
-    public void agregarComodin(Comodin comodin, Respuesta respuesta){
-        penalidad.validar(comodin);
-        respuesta.setComodin(comodin);
-        comodines.add(comodin);
     }
 
 }
