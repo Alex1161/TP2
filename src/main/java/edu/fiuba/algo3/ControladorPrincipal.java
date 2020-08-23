@@ -3,6 +3,7 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.VistaGanadorAlgohoot;
 import edu.fiuba.algo3.vista.VistaPreguntaEnCurso;
+import edu.fiuba.algo3.vista.VistaPuntajeJugador;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -41,7 +42,7 @@ public class ControladorPrincipal {
 
     public void mostrarVistaPuntajes(){
         cronometro.parar();
-        Scene escenaDeJuego = new Scene((new edu.fiuba.algo3.VistaPuntajeJugador()).obtenerPanel(), 1200, 680);
+        Scene escenaDeJuego = new Scene((new VistaPuntajeJugador()).obtenerPanel(), 1200, 680);
         File f = new File("EstilosDeBotones.css");
         escenaDeJuego.getStylesheets().clear();
         escenaDeJuego.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
