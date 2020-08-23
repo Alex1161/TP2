@@ -4,33 +4,43 @@ activate "VoFClasico:Pregunta"
 "VoFClasico:Pregunta" -> "SinPenalidad:Penalidad":validar(comodin:Comodin)
 "SinPenalidad:Penalidad"->":Exclusividad":validar(this:Penalidad)
 activate "SinPenalidad:Penalidad"
-"Exclusividad"-->"SinPenalidad:Penalidad":validarExclusividad;
+":Exclusividad"-->"SinPenalidad:Penalidad":validarExclusividad;
  deactivate "SinPenalidad:Penalidad"
- "VoFClasico:Pregunta"->"respuesta1:Respuesta":setComodin(comodin:Comodin)
+ "VoFClasico:Pregunta"->":Respuesta":setComodin(comodin:Comodin)
 "VoFClasico:Pregunta" ->"VoFClasico:Pregunta" :agregarComodin(comodin :Comodin)
 deactivate "VoFClasico:Pregunta"
 
 [->"VoFClasico:Pregunta":calificar(respuestas:List<Respuesta>)
+loop PorRespuesta
 activate "VoFClasico:Pregunta"
-"VoFClasico:Pregunta"->"respuesta1:Respuesta":obtenerOpciones()
-activate "respuesta1:Respuesta"
-"respuesta1:Respuesta"-->"VoFClasico:Pregunta": opcionesElegidas:Opciones
-deactivate "respuesta1:Respuesta"
+"VoFClasico:Pregunta"->":Respuesta":obtenerOpciones()
+activate ":Respuesta"
+":Respuesta"-->"VoFClasico:Pregunta": opcionesElegidas:Opciones
+deactivate ":Respuesta"
 "VoFClasico:Pregunta"->":Calificador":calificar(opcionesCorrectas,opcionesElegidas)
-
-"VoFClasico:Pregunta"->"respuesta2:Respuesta":obtenerOpciones()
-activate "respuesta2:Respuesta"
-"respuesta2:Respuesta"-->"VoFClasico:Pregunta": opcionesElegidas:Opciones
-deactivate "respuesta2:Respuesta"
-"VoFClasico:Pregunta"->":Calificador":calificar(opcionesCorrectas,opcionesElegidas)
-
+end
+loop PorComodin<-esteCasoUnaExclusividad
 "VoFClasico:Pregunta"->":Exclusividad":aplicar(respuestas:List<Respuesta>)
 activate ":Exclusividad"
- ":Exclusividad"->"respuesta1:Respuesta":vs(respuesta2:Respuesta)
-
- ":Exclusividad"->"respuesta1:Respuesta":aplicar(new MultiplicadorX2)
- ":Exclusividad"->"respuesta2:Respuesta":aplicar(new MultiplicadorX2)
-
+ ":Exclusividad"->":Respuesta":vs(otraRespuesta:Respuesta)
+ loop PorRespuestas
+ ":Respuesta"->":Puntaje":puntaje()
+ ":Puntaje"-->":Respuesta":puntaje:Puntaje
+end
+loop PorPuntajes
+":Respuesta"->":Puntaje":vs(puntajeOponente:Puntaje)
+end
+note left of ":Puntaje"
+aca se setea mi PuntajeObtenido
+y el de la respuesta del oponente
+end note
+loop PorRespuesta
+ ":Exclusividad"->":Respuesta":aplicar(new MultiplicadorX2)
+end
+end
+loop PorRespuesta
+"VoFClasico:Pregunta"-> ":Respuesta": aplicarPuntaje()
+end
 deactivate "VoFClasico:Pregunta"
 
 
