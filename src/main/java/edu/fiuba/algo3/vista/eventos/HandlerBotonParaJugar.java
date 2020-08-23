@@ -5,10 +5,14 @@ import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +34,23 @@ public class HandlerBotonParaJugar implements EventHandler {
     @Override
     public void handle(Event event){
         if(campoJugador1.getText().isEmpty() || campoJugador2.getText().isEmpty()){
+
+            Stage dialog=new Stage();
+
+            Button botonSalir = new Button("Nombre de Usuario Incorrecto");
+            botonSalir.setPrefSize(500,80);
+            HandlerCerrarVentana manejadorSalir = new HandlerCerrarVentana(dialog);
+            botonSalir.setOnAction(manejadorSalir);
+            Scene scene= new Scene(new Group(botonSalir));
+            dialog.setScene(scene);
+            dialog.show();
+            /*
             Label textoInfoError = new Label();
             textoInfoError.setText("Nombre de Usuario Incorrecto");
             textoInfoError.setTextFill(Color.RED);
             cuadro.getChildren().addAll(textoInfoError);
+
+             */
 
         }else {
             Jugador jugador1 = new Jugador(campoJugador1.getText());

@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.Opciones.Opciones;
 import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
 import edu.fiuba.algo3.modelo.Penalidad.SinPenalidad;
 import edu.fiuba.algo3.modelo.Respuesta.Respuesta;
-import edu.fiuba.algo3.modelo.Respuestas.Respuestas;
 
 import java.util.LinkedList;
 import java.util.List;
