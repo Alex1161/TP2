@@ -66,13 +66,24 @@ public class Juego {
         return instancia;
     }
 
-    public Jugador ganadorAlgohoot() {
+    public String ganadorAlgohoot() {
         if (jugadores.get(0).puntajeValorNumerico() > jugadores.get(1).puntajeValorNumerico()) {
-            return jugadores.get(0);
+            return jugadores.get(0).getNombre();
         }else if ((jugadores.get(0).puntajeValorNumerico() == jugadores.get(1).puntajeValorNumerico())) {
-            return new Jugador("Empate");
+            return "Empate";
         } else {
-            return jugadores.get(1);
+            return jugadores.get(1).getNombre();
+        }
+    }
+
+
+    public int puntajeGanadorAlgohoot(){
+        if (jugadores.get(0).puntajeValorNumerico() > jugadores.get(1).puntajeValorNumerico()) {
+            return jugadores.get(0).puntajeValorNumerico();
+        }else if ((jugadores.get(0).puntajeValorNumerico() == jugadores.get(1).puntajeValorNumerico())) {
+            return jugadores.get(0).puntajeValorNumerico();
+        } else {
+            return jugadores.get(1).puntajeValorNumerico();
         }
     }
 
