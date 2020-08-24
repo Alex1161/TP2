@@ -42,13 +42,6 @@ public class HandlerBotonParaJugar implements EventHandler {
             Scene scene= new Scene(new Group(botonSalir));
             dialog.setScene(scene);
             dialog.show();
-            /*
-            Label textoInfoError = new Label();
-            textoInfoError.setText("Nombre de Usuario Incorrecto");
-            textoInfoError.setTextFill(Color.RED);
-            cuadro.getChildren().addAll(textoInfoError);
-
-             */
 
         }else {
             Jugador jugador1 = new Jugador(campoJugador1.getText());
