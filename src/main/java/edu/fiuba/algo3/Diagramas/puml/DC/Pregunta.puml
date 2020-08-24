@@ -4,13 +4,6 @@ skinparam classAttributeIconSize 0
 
 class CreadorDePreguntas{
     +crearPregunta(nombreTipoDePregunta : String, enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
-    +{static}preguntaVoFClasico(enunciado: String, opcionCorrecta: Opciones): Pregunta
-    +{static}preguntaVoFPenalizado(enunciado: String, opcionCorrecta: Opciones): Pregunta
-    +{static}preguntaMultipleChoiceClasico(enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
-    +{static}preguntaMultipleChoicePenalizado(enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
-    +{static}preguntaMultipleChoiceParcial(enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
-    +{static}preguntaGroupChoice(enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
-    +{static}preguntaOrderedChoice(enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
 }
 
 class LectorDePreguntas{

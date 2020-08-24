@@ -39,15 +39,7 @@ Class AsignadorPenalizado{
     +sonCorrectas(correctas: Opciones, elegidas: Opciones): boolean
 }
 
-Class Opciones{
-    -opciones: Collection<String>
-    +compararConOrden(opciones: Opciones): boolean
-    +compararSinOrden(opciones: Opciones): boolean
-    +esta(opcion: String): boolean
-}
-
 'Relaciones
-Calificador ..> Opciones
 Calificador o-- Calificador
 ComparadorConOrden -up-|> Calificador
 ComparadorSinOrden -up-|> Calificador

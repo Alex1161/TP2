@@ -39,8 +39,8 @@ Class PuntoPositivo{
 }
 
 'Relaciones
-PuntoNegativo -up-|> Punto
-PuntoNulo -up-|> Punto
+PuntoNegativo -down-|> Punto
+PuntoNulo -down-|> Punto
 PuntoPositivo -up-|> Punto
 Puntos -up-|> Puntaje
 Puntos o-up- "*" Puntaje
