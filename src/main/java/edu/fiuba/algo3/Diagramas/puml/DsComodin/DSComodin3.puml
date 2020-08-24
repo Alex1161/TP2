@@ -10,38 +10,4 @@ activate "SinPenalidad:Penalidad"
 "VoFClasico:Pregunta" ->"VoFClasico:Pregunta" :agregarComodin(comodin :Comodin)
 deactivate "VoFClasico:Pregunta"
 
-[->"VoFClasico:Pregunta":calificar(respuestas:List<Respuesta>)
-loop PorRespuesta
-activate "VoFClasico:Pregunta"
-"VoFClasico:Pregunta"->":Respuesta":obtenerOpciones()
-activate ":Respuesta"
-":Respuesta"-->"VoFClasico:Pregunta": opcionesElegidas:Opciones
-deactivate ":Respuesta"
-"VoFClasico:Pregunta"->":Calificador":calificar(opcionesCorrectas,opcionesElegidas)
-end
-loop PorComodin<-esteCasoUnaExclusividad
-"VoFClasico:Pregunta"->":Exclusividad":aplicar(respuestas:List<Respuesta>)
-activate ":Exclusividad"
- ":Exclusividad"->":Respuesta":vs(otraRespuesta:Respuesta)
- loop PorRespuestas
- ":Respuesta"->":Puntaje":puntaje()
- ":Puntaje"-->":Respuesta":puntaje:Puntaje
-end
-loop PorPuntajes
-":Respuesta"->":Puntaje":vs(puntajeOponente:Puntaje)
-end
-note left of ":Puntaje"
-aca se setea mi PuntajeObtenido
-y el de la respuesta del oponente
-end note
-loop PorRespuesta
- ":Exclusividad"->":Respuesta":aplicar(new MultiplicadorX2)
-end
-end
-loop PorRespuesta
-"VoFClasico:Pregunta"-> ":Respuesta": aplicarPuntaje()
-end
-deactivate "VoFClasico:Pregunta"
-
-
 @enduml
