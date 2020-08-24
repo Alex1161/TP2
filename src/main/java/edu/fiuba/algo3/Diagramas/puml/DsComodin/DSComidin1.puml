@@ -1,14 +1,14 @@
 @startuml
 hide footbox
 Actor User
-User -> ":HandlerBotonAccionarComidin": ActionEvent
-activate ":HandlerBotonAccionarComidin"
-":HandlerBotonAccionarComidin"-> ":Juego": getInstancia()
+User -> ":HandlerBotonAccionarComodin": ActionEvent
+activate ":HandlerBotonAccionarComodin"
+":HandlerBotonAccionarComodin"-> ":Juego": getInstancia()
 activate ":Juego"
-":Juego" --> ":HandlerBotonAccionarComidin"
+":Juego" --> ":HandlerBotonAccionarComodin"
 deactivate ":Juego"
 
-":HandlerBotonAccionarComidin" -> ":Juego" : aplicarComodin(comodinActual: Comodin)
+":HandlerBotonAccionarComodin" -> ":Juego" : aplicarComodin(comodinActual: Comodin)
 
 activate ":Juego"
 ":Juego" ->"RondaActual:Ronda":aplicarComodin(comodin:Comodin)

@@ -8,5 +8,4 @@ hide footbox
 
 [<--"siguienteCalificador:CalificadorNoPenalizado": PuntoNulo :Puntaje
 [<--":ComparadorSinOrden": PuntoNulo :Puntaje
-
 @enduml
