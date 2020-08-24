@@ -1,0 +1,58 @@
+@startuml
+scale 350 width
+[*] --> IngresoDeJugadores
+
+state IngresoDeJugadores {
+
+}
+
+state finDelJuego <<end>>
+state choice1 <<choice>>
+IngresoDeJugadores --> choice1
+choice1 -left-> IngresoDeJugadores : Campo/s Vacios
+
+choice1 --> CicloDeJuego : CamposRellenados
+
+
+
+state CicloDeJuego {
+
+    [*] -right-> TurnoJugador1
+    state enviaRespuesta <<choice>>
+    state cumpleTiempoDeCronometro <<choice>>
+    TurnoJugador1 -right->  enviaRespuesta : enviaRespuesta?
+    enviaRespuesta -right-> cumpleTiempoDeCronometro : cumpleTiempoDeCronometro?
+    cumpleTiempoDeCronometro -left-> enviaRespuesta : No
+    cumpleTiempoDeCronometro --> TurnoJugador2 : Si
+    enviaRespuesta -up-> TurnoJugador2 : Si
+
+    state finCicloDeJuego <<end>>
+
+    state enviaRespuestaJ2 <<choice>>
+    state cumpleTiempoDeCronometroJ2 <<choice>>
+    TurnoJugador2 -up-> enviaRespuestaJ2 : enviaRespuesta?
+    enviaRespuestaJ2 --> cumpleTiempoDeCronometroJ2 : No, cumpleTiempoDeCronometro?
+    cumpleTiempoDeCronometroJ2 --> enviaRespuestaJ2 : No, enviaRespuesta?
+    cumpleTiempoDeCronometroJ2 -left-> vistaPuntajesParciales : Si
+    enviaRespuestaJ2 -left-> vistaPuntajesParciales : Si
+
+    state ultimaPregunta <<choice>>
+    state vistaPuntajesParciales
+    vistaPuntajesParciales --> ultimaPregunta : esUltimaPregunta?
+    ultimaPregunta --> TurnoJugador1: No
+    ultimaPregunta -right-> finCicloDeJuego: Si
+
+}
+
+state mostrarGanador
+state salirORevancha <<choice>>
+
+
+CicloDeJuego --> mostrarGanador
+mostrarGanador -up-> salirORevancha
+salirORevancha --> finDelJuego: Salir
+salirORevancha --> IngresoDeJugadores: JugarDeNuevo
+
+
+
+@enduml
