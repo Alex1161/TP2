@@ -1,6 +1,5 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.VistaGanadorAlgohoot;
 import edu.fiuba.algo3.vista.VistaPreguntaEnCurso;
 import edu.fiuba.algo3.vista.VistaPuntajeJugador;
@@ -14,7 +13,6 @@ public class ControladorPrincipal {
     private static ControladorPrincipal instancia = new ControladorPrincipal();
 
     Stage ventana = StagePrincipal.getInstance();
-    Juego panel = Juego.getInstancia();
     Cronometro cronometro;
     ControladorPrincipal(){   }
 

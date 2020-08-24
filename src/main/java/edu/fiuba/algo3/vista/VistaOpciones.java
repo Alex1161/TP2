@@ -66,7 +66,7 @@ public class VistaOpciones {
         btn.getStyleClass().add("botonConfirmarSeleccion");
         HandlerBotonConfirmar botonConfirmar = new HandlerBotonConfirmar(controladorOpciones);
         btn.setOnAction(botonConfirmar);
-        grillaRespuestas.add(btn, 2, 1);
+        grillaRespuestas.add(btn, 30, 1);
     }
 
     private void crearBotonesNormales() {
@@ -103,11 +103,11 @@ public class VistaOpciones {
         grupo2.setPadding(new Insets(10,10,10,10));
 
 
-        grupo1.setPrefHeight(100);
+        grupo1.setPrefHeight(75);
         grupo1.setPrefWidth(200);
         setFondoDePantalla(grupo1, SRC_GRUPO_1);
 
-        grupo2.setPrefHeight(100);
+        grupo2.setPrefHeight(75);
         grupo2.setPrefWidth(200);
         setFondoDePantalla(grupo2, SRC_GRUPO_1);
 
@@ -116,7 +116,7 @@ public class VistaOpciones {
         btn.getStyleClass().add("botonConfirmarSeleccion");
         HandlerBotonConfirmarGroup botonConfirmar = new HandlerBotonConfirmarGroup(grillaRespuestas,grupo1,5, controladorOpciones);
         btn.setOnAction(botonConfirmar);
-        grillaRespuestas.add(btn, 8, 4);
+        grillaRespuestas.add(btn, 30, 0);
 
         grillaRespuestas.add(nombreGrupo1,5,0);
         grillaRespuestas.add(grupo1, 6,0);
@@ -127,13 +127,14 @@ public class VistaOpciones {
     }
 
     private void crearBotonesOrdered(){
+        int CORRECCION_A_LA_DERECHA_ORDERED = 1;
         HBox grupoOrdenado = new HBox();
         int i = 0;
         for (String opcion : opciones) {
             Button btn = new Button(opcion);
             btn.getStyleClass().add("button"+(i+1));
             btn.setOnAction(new HandlerBotonOrderedChoiceClick(btn,grupoOrdenado,grillaRespuestas, controladorOpciones));
-            grillaRespuestas.add(btn, i, 1);
+            grillaRespuestas.add(btn, i+CORRECCION_A_LA_DERECHA_ORDERED, 10);
             i++;
         }
 
@@ -141,11 +142,10 @@ public class VistaOpciones {
 
         grupoOrdenado.setPadding(new Insets(10,10,10,10));
 
-        Label grupoAORdenar = new Label("Grupo Sin Ordenar");
 
 
 
-        grupoOrdenado.setPrefHeight(100);
+        grupoOrdenado.setPrefHeight(75);
         grupoOrdenado.setPrefWidth(200);
         setFondoDePantalla(grupoOrdenado, SRC_GRUPO_1);
 
@@ -154,7 +154,7 @@ public class VistaOpciones {
         btn.getStyleClass().add("botonConfirmarSeleccion");
         HandlerBotonConfirmarGroup botonConfirmar = new HandlerBotonConfirmarGroup(grillaRespuestas,grupoOrdenado,3, controladorOpciones);
         btn.setOnAction(botonConfirmar);
-        grillaRespuestas.add(btn, 8, 4);
+        grillaRespuestas.add(btn, 20, 0);
 
         grillaRespuestas.add(nombreGrupoOrdenado,5,0);
         grillaRespuestas.add(grupoOrdenado, 6,0);
