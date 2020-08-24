@@ -2,14 +2,12 @@ package edu.fiuba.algo3.modelo.Pregunta;
 
 import edu.fiuba.algo3.modelo.Calificador.Calificador;
 import edu.fiuba.algo3.modelo.Comodin.Comodin;
-import edu.fiuba.algo3.modelo.Penalidad.Penalidad;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class Pregunta {
     private String tipo;
-
     private String enunciado;
     private Opciones opcionesCorrectas, opcionesPosibles;
     private Calificador calificador;
@@ -60,11 +58,7 @@ public class Pregunta {
     public void agregarComodin(Comodin comodin, Respuesta respuesta){
         penalidad.validar(comodin);
         respuesta.setComodin(comodin);
-        this.agregarComodin(comodin);
-    }
-    private void agregarComodin(Comodin comodin){
-        comodines.add(comodin);
-
+        this.comodines.add(comodin);
     }
 
     public void calificar(List<Respuesta> respuestas){

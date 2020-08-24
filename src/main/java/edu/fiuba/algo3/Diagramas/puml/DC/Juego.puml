@@ -1,0 +1,49 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+'Clases
+
+Class Juego{
+    -{static} instancia: Juego
+    -iteradorRondas: ListIterator<Ronda>
+    +{static}getInstancia(): Juego
+    +nombreGanadorAlgohoot(): String
+    +puntajeGanadorAlgohoot(): int
+    +limpiar(): void
+    +aplicarComodin(comodin: Comodin): void
+    +responder(opcionesElegidas: List<String>): void
+    +actualizarTurno(): void
+    +mostrarPuntaje(): void
+}
+
+Class Ronda{
+    -pregunta: Pregunta
+    -iteradorTurnos: ListIterator<Turno>
+    -respuestas: List<Respuesta>
+    +aplicarComodin(comodin: Comodin): void
+    +responder(opcionesElegidas: List<String>): void
+    +agregarRespuesta(respuesta: Respuesta): void
+}
+
+Class Turno{
+    -respuesta: Respuesta
+    +aplicarComodin(pregunta: Pregunta, comodin: Comodin): void
+    +responder(opcionesElegidas: List<String>, ronda: Ronda): void
+}
+
+Class Jugador{
+    -nombre: String
+    -puntaje: Puntaje
+    -comodines: List<Comodin>
+    +agregarPuntaje(puntaje: Puntaje): void
+    +sacarComodin(comodin: Comodin): void
+}
+
+'Relaciones
+Juego "1" *-- "*" Ronda
+Juego "1" *-- "2" Jugador
+Ronda "1" *-- "2" Turno
+Turno *-up- Jugador
+
+@enduml

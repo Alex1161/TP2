@@ -1,4 +1,5 @@
 @startuml
+hide circle
 skinparam classAttributeIconSize 0
 
 'Clases
@@ -9,11 +10,11 @@ Class Opciones{
     +contiene(opciones: Opciones): boolean
     +esta(opcion: String): boolean
 }
+
 Class Pregunta{
     -enunciado: String
     -tipo: String
-    +asignarTipo(tipo: String):void
-    +setPenalidad(penalidad: Penalidad):void
+    +agregarComodin(comodin: Comodin, respuesta: Respuesta): void
     +calificar(Respuestas: List<Respuesta>): void
     +agregarComodin(comodin: Comodin, respuesta: Respuesta): void
 }
@@ -21,13 +22,10 @@ Class Pregunta{
 Class Respuesta{
     -opcionesElegidas: Opciones
     -puntajeObtenido: Puntaje
-    +puntaje():Puntaje
-    +setPuntajeObtenido(puntaje: Ppntaje):void
     +agregarOpcion(opcion: String):void
     +aplicarComodin(comodin: Comodin): void
     +aplicarPuntaje(): void
     +vs(respuesta: Respuesta): void
-    +calificacionValorNumerico(): int
 }
 
 Class Jugador{
@@ -43,8 +41,6 @@ abstract Puntaje{
     +{abstract}valor(): int
     +multiplicarPor(factor: int):Puntaje
 }
-
-
 
 Abstract Class Comodin{
     +{abstract}aplicar(puntaje: Puntaje): Puntaje

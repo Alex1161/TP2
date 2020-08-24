@@ -39,8 +39,8 @@ public class LectorDePreguntas {
         List<Pregunta> preguntas = new ArrayList<>();
         JsonArray arrayPreguntas = jsonObjectPreguntas.getAsJsonArray("Preguntas");
         for (JsonElement jsonPregunta : arrayPreguntas) {
-            LectorDePreguntas fabrica = new LectorDePreguntas();
-            Pregunta pregunta = fabrica._recuperarPregunta(jsonPregunta.getAsJsonObject());
+            LectorDePreguntas lector = new LectorDePreguntas();
+            Pregunta pregunta = lector._recuperarPregunta(jsonPregunta.getAsJsonObject());
             preguntas.add(pregunta);
         }
 

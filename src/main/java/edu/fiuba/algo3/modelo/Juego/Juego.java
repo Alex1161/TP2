@@ -77,7 +77,7 @@ public class Juego {
     }
 
     //Acciones
-    public String ganadorAlgohoot() {
+    public String nombreGanadorAlgohoot() {
         if (jugadores.get(0).puntajeValorNumerico() > jugadores.get(1).puntajeValorNumerico()) {
             return jugadores.get(0).getNombre();
         }else if ((jugadores.get(0).puntajeValorNumerico() == jugadores.get(1).puntajeValorNumerico())) {

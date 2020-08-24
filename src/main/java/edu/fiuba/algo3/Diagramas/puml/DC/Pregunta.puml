@@ -1,0 +1,52 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+class CreadorDePreguntas{
+    +crearPregunta(nombreTipoDePregunta : String, enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
+    +{static}preguntaVoFClasico(enunciado: String, opcionCorrecta: Opciones): Pregunta
+    +{static}preguntaVoFPenalizado(enunciado: String, opcionCorrecta: Opciones): Pregunta
+    +{static}preguntaMultipleChoiceClasico(enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
+    +{static}preguntaMultipleChoicePenalizado(enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
+    +{static}preguntaMultipleChoiceParcial(enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
+    +{static}preguntaGroupChoice(enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
+    +{static}preguntaOrderedChoice(enunciado: String, correctas: Opciones, posibles: Opciones): Pregunta
+}
+
+class LectorDePreguntas{
+    +recuperarPreguntas(src_Preguntas : String) : List<Pregunta>
+    +recuperarPregunta(src_Preguntas : String) : Pregunta
+}
+
+Abstract Class Pregunta{
+    -enunciado: String
+    -tipo: String
+    -calificador: Calificador
+    -comodines: List<Comodin>
+    +calificar(Respuestas: List<Respuesta>): void
+    +agregarComodin(comodin: Comodin, respuesta: Respuesta): void
+    +calificar(respuestas: List<Respuesta>): void
+    +sonCorrectas(opciones: Opciones): boolean
+}
+
+Class Opciones{
+    -opciones: Collection<String>
+    +compararConOrden(opciones: Opciones): boolean
+    +compararSinOrden(opciones: Opciones): boolean
+    +esta(opcion: String): boolean
+}
+
+Class Respuesta{
+    -jugador: Jugador
+    -comodin: Comodin
+    -puntaje: Puntaje
+    +aplicarPuntaje(): void
+    +vs(Respuesta respuesta): void
+    +aplicarComodin(Comodin comodin): void
+}
+
+LectorDePreguntas..> CreadorDePreguntas
+CreadorDePreguntas ..> Pregunta
+Pregunta "1" *-- "2" Opciones
+Respuesta o-left- Opciones
+@enduml

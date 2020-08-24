@@ -1,0 +1,20 @@
+@startuml
+
+Package "Calificador"
+
+Package "Comodin"
+
+Package "Juego"
+
+Package "Pregunta"
+
+Package "Puntaje"
+
+Juego ..> Comodin
+Juego ..> Pregunta
+Comodin <.left.> Pregunta
+Comodin ..> Puntaje
+Calificador <.right.> Pregunta
+Calificador ..> Puntaje
+
+@enduml

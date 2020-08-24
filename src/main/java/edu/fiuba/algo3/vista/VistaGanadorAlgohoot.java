@@ -30,7 +30,7 @@ public class VistaGanadorAlgohoot extends BorderPane{
         botonSalir.setPadding(new Insets(10,10,10,10));
         botonReiniciar.setPadding(new Insets(10,10,10,10));
 
-        jugadorGanador = panelJuego.ganadorAlgohoot();
+        jugadorGanador = panelJuego.nombreGanadorAlgohoot();
         puntajeGanador = panelJuego.puntajeGanadorAlgohoot();
         labelGanador.setText(jugadorGanador + " con " + puntajeGanador+" puntos!");
         labelGanador.getStyleClass().add("ganadorAlgohoot");

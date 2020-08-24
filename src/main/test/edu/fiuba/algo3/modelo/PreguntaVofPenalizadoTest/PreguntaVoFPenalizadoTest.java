@@ -20,7 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PreguntaVoFPenalizadoTest {
     @Test
     public void test00VerifivoTipoYEnunciado() {
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("4 + 2 = 6","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("4 + 2 = 6",opcionCorrecta);
 
         assertEquals("VoFPenalizado", pregunta.getTipo());
 
@@ -28,7 +30,9 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test01PreguntaVoFPenalizadaConOpcionCorrectaVerdaderoSeLePasaOpcionVerdaderoDaTrue(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("4 + 2 = 6","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("4 + 2 = 6",opcionCorrecta);
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
@@ -38,7 +42,9 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test02PreguntaVoFPenalizadaConOpcionCorrectaVerdaderoSeLePasaOpcionFalsoDaFalse(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4",opcionCorrecta);
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
@@ -48,7 +54,9 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test03PreguntaVoFPenalizadaConOpcionCorrectaFalsoSeLePasaOpcionFalsoDaTrue(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 3",opcionCorrecta);
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
@@ -58,7 +66,9 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test04PreguntaVoFPenalizadaConOpcionCorrectaFalsoSeLePasaOpcionVerdaderoDaFalse(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 3",opcionCorrecta);
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
@@ -68,7 +78,9 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void Test05PreguntaVoFPenalizadoJugadorUnoContestaMalJugadorDosBienRecibenMenosUnoYUnoPuntosRespectivamente(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 3","Falso");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 3",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -88,7 +100,9 @@ public class PreguntaVoFPenalizadoTest {
     }
     @Test
     public void test06PreguntaVoFPenalizadoJugadorUnoContestaBienJugadorDosMalRecibenUnoYMenosUnoPuntosRespectivamente(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -109,7 +123,9 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test07PreguntaVoFPenalizadoSeAgregaMultiplicadorX2YSeVeReflejadoEnLosPuntajes(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -131,7 +147,9 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test08PreguntaVoFPenalizadoSeAgregaMultiplicadorx3YSeVeReflejadoEnLosPuntajes(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -153,7 +171,9 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test09PreguntaVoFPenalizadoSeAgregaMultiplicadorx2YX3SeVeReflejadoEnLosPuntajes(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -176,7 +196,9 @@ public class PreguntaVoFPenalizadoTest {
 
     @Test
     public void test10PreguntaVoFPenalizadoSeAgregaExclusividadLanzaException(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFPenalizado("2 + 2 = 4",opcionCorrecta);
 
         Respuesta respuesta = new Respuesta(new Jugador("Carlos"));
 

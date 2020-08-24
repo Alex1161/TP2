@@ -19,7 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PreguntaVoFClasicoTest {
     @Test
     public void test00VerifivoTipoYEnunciado() {
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("4 + 2 = 6","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("4 + 2 = 6",opcionCorrecta);
 
         assertEquals("VoFClasico", pregunta.getTipo());
 
@@ -27,7 +29,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test01PreguntaVoFClasicoConOpcionCorrectaVerdaderoSeLePasaUnaOpcionVerdaderoDaTrue(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4",opcionCorrecta);
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
@@ -37,7 +41,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test02PreguntaVoFClasicoConOpcionCorrectaVerdaderoSeLePasaUnaOpcionFalsoDaFalse(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4",opcionCorrecta);
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
@@ -47,7 +53,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test03PreguntaVoFClasicoConOpcionCorrectaFalsoSeLePasaUnaOpcionFalsoDaTrue(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 1 = 4","Falso");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 1 = 4",opcionCorrecta);
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Falso");
@@ -57,7 +65,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test04PreguntaVoFClasicoConOpcionCorrectaFalsoSeLePasaUnaOpcionVerdaderoDaFalse(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("Enunciado","Falso");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 1 = 4",opcionCorrecta);
 
         Opciones opcion = new Opciones();
         opcion.agregarOpcion("Verdadero");
@@ -67,7 +77,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test05PreguntaVoFClasicoJugadorUnoContestaMalJugadorDosBienRecibenCeroYUnoPuntosRespectivamente(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 3","Falso");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Falso");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 3",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -88,7 +100,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test06PreguntaVoFClasicoJugadorUnoContestaBienJugadorDosMalRecibenUnoYCeroPuntosRespectivamente(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("Enunciado","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("Enunciado",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -109,7 +123,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test07PreguntaVoFClasicoSeAgregaMultiplicadorX2LanzaException(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4",opcionCorrecta);
 
         assertThrows(MultiplicadorNoPermitido.class,
                 () -> {
@@ -120,7 +136,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test08PreguntaVoFClasicoSeAgregaMultiplicadorX3LanzaException(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4",opcionCorrecta);
 
             assertThrows(MultiplicadorNoPermitido.class,
                     () -> {
@@ -131,7 +149,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test09PreguntaVoFSeAgregaExclusividadUnoRespondeMalElOtroBienEsteRecibePutajeDoble(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -153,7 +173,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test10PreguntaVoFSeAgregaExclusividadUnoRespondeMalElOtroTambienAmbosTienenCeroDePuntaje(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -175,7 +197,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test11PreguntaVoFSeAgregaExclusividadUnoRespondeBienElOtroTambienAmbosTienenCeroDePuntaje(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -197,7 +221,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test12PreguntaVoFSeAgregaDosExclusividadUnoRespondeBienElOtroTambienAmbosTienenCeroDePuntaje(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
@@ -220,7 +246,9 @@ public class PreguntaVoFClasicoTest {
 
     @Test
     public void Test13PreguntaVoFSeAgregaDosExclusividadUnoRespondeBienElOtroMalElPrimeroRecibeCuatroPuntos(){
-        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4","Verdadero");
+        Opciones opcionCorrecta = new Opciones();
+        opcionCorrecta.agregarOpcion("Verdadero");
+        Pregunta pregunta = CreadorDePreguntas.preguntaVoFClasico("2 + 2 = 4",opcionCorrecta);
         Jugador jugador1 = new Jugador("carlos");
         Jugador jugador2 = new Jugador("juan");
 
