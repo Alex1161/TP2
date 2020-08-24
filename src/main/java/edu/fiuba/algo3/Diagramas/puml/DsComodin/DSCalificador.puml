@@ -2,8 +2,7 @@
 hide footbox
 
 [->":ComparadorSinOrden":calificar(opcionesCorrectas,opcionesElegidas)
-":ComparadorSinOrden"->":ComparadorSinOrden":sonCorrectas
-":ComparadorSinOrden"->"sonCorrectas:Opcines":compararSinOrden(opcionesElegidas:Opciones)
-"sonCorrectas:Opcines"-->":ComparadorSinOrden": true
-[<--":ComparadorSinOrden": PuntoPositivo :Puntaje
+":ComparadorSinOrden"->"opcionesCorrectas:Opciones":compararSinOrden(opcionesElegidas:Opciones)
+"opcionesCorrectas:Opciones"-->":ComparadorSinOrden": true
+[<--":ComparadorSinOrden": puntoPositivo :PuntoPositivo
 @enduml

@@ -1,11 +1,10 @@
 @startuml
 hide footbox
 [->":ComparadorSinOrden":calificar(opcionesCorrectas,opcionesElegidas)
-":ComparadorSinOrden"->":ComparadorSinOrden":sonCorrectas
-":ComparadorSinOrden"->"sonCorrectas:Opcines":compararSinOrden(opcionesElegidas:Opciones)
-"sonCorrectas:Opcines"-->":ComparadorSinOrden": false
+":ComparadorSinOrden"->"opcionesCorrectas:Opciones":compararSinOrden(opcionesElegidas:Opciones)
+"opcionesCorrectas:Opciones"-->":ComparadorSinOrden": false
 ":ComparadorSinOrden"->"siguienteCalificador:CalificadorNoPenalizado":calificar(opcionesCorrectas,opcionesElegidas)
 
-[<--"siguienteCalificador:CalificadorNoPenalizado": PuntoNulo :Puntaje
-[<--":ComparadorSinOrden": PuntoNulo :Puntaje
+"siguienteCalificador:CalificadorNoPenalizado" --> ":ComparadorSinOrden": puntoNulo :PuntoNulo
+[<--":ComparadorSinOrden": puntoNulo :PuntoNulo
 @enduml
