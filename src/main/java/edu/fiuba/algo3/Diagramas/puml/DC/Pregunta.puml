@@ -45,8 +45,27 @@ Class Respuesta{
     +aplicarComodin(Comodin comodin): void
 }
 
+Abstract Class Penalidad{
+    +validar(comodin: Comodin): void
+    +{abstract}validarExclusividad(): void
+    +{abstract}validarMultiplicador(): void
+}
+
+Class ConPenalidad{
+    +validarExclusividad(): void
+    +validarMultiplicador(): void
+}
+
+Class SinPenalidad{
+    +validarExclusividad(): void
+    +validarMultiplicador(): void
+}
+
 LectorDePreguntas..> CreadorDePreguntas
 CreadorDePreguntas ..> Pregunta
 Pregunta "1" *-- "2" Opciones
 Respuesta o-left- Opciones
+ConPenalidad -up-|> Penalidad
+SinPenalidad -up-|> Penalidad
+Pregunta o-- Penalidad
 @enduml
