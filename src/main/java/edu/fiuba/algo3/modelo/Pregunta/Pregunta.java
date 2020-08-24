@@ -21,7 +21,13 @@ public class Pregunta {
         opcionesPosibles = new Opciones();
     }
 
+    //Private
+    private void agregarComodin(Comodin comodin){
+        this.comodines.add(comodin);
+    }
+
     //Setter y Getters
+
     public void asignarTipo(String tipo){
         this.tipo=tipo;
     }
@@ -53,12 +59,12 @@ public class Pregunta {
     public String getTipo(){
         return tipo;
     }
-
     //Acciones
+
     public void agregarComodin(Comodin comodin, Respuesta respuesta){
         penalidad.validar(comodin);
         respuesta.setComodin(comodin);
-        this.comodines.add(comodin);
+        agregarComodin(comodin);
     }
 
     public void calificar(List<Respuesta> respuestas){

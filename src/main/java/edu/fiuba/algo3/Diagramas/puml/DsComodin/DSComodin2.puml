@@ -1,5 +1,5 @@
 @startuml
-
+hide footbox
 "turnoActual:Turno"->":Jugador":sacarComodin(comodin)
 activate "turnoActual:Turno"
 "turnoActual:Turno"->":Pregunta":agregarComodin(comodin,respuesta)

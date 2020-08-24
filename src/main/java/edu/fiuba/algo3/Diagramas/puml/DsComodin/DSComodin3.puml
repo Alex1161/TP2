@@ -1,13 +1,14 @@
 @startuml
-[->"VoFClasico:Pregunta":agregarComodin(comodin,respuesta1)
+hide footbox
+[->"VoFClasico:Pregunta":agregarComodin(exclusividad,respuesta1)
 activate "VoFClasico:Pregunta"
-"VoFClasico:Pregunta" -> "SinPenalidad:Penalidad":validar(comodin:Comodin)
+"VoFClasico:Pregunta" -> "SinPenalidad:Penalidad" ++:validar(exclusividad: Exclusividad)
 "SinPenalidad:Penalidad"->":Exclusividad":validar(this:Penalidad)
 activate "SinPenalidad:Penalidad"
-":Exclusividad"-->"SinPenalidad:Penalidad":validarExclusividad;
+":Exclusividad"-->"SinPenalidad:Penalidad":validarExclusividad()
  deactivate "SinPenalidad:Penalidad"
- "VoFClasico:Pregunta"->":Respuesta":setComodin(comodin:Comodin)
-"VoFClasico:Pregunta" ->"VoFClasico:Pregunta" :agregarComodin(comodin :Comodin)
+ "VoFClasico:Pregunta"->":Respuesta":setComodin(exclusividad: Exclusividad)
+"VoFClasico:Pregunta" ->"VoFClasico:Pregunta" :agregarComodin(exclusividad: Exclusividad)
 deactivate "VoFClasico:Pregunta"
 
 @enduml

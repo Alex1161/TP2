@@ -1,4 +1,5 @@
 @startuml
+hide footbox
 Actor User
 User -> ":HandlerBotonAccionarComidin": ActionEvent
 activate ":HandlerBotonAccionarComidin"

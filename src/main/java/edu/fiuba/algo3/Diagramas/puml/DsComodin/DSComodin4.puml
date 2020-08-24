@@ -1,5 +1,5 @@
 @startuml
-
+hide footbox
 [->"VoFClasico:Pregunta":calificar(respuestas:List<Respuesta>)
 loop PorRespuesta
 activate "VoFClasico:Pregunta"
