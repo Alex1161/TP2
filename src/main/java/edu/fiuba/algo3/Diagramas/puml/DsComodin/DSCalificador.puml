@@ -1,0 +1,8 @@
+@startuml
+
+[->":ComparadorSinOrden":calificar(opcionesCorrectas,opcionesElegidas)
+":ComparadorSinOrden"->":ComparadorSinOrden":sonCorrectas
+":ComparadorSinOrden"->"sonCorrectas:Opcines":compararSinOrden(opcionesElegidas:Opciones)
+"sonCorrectas:Opcines"-->":ComparadorSinOrden": true
+[<--":ComparadorSinOrden": PuntoPositivo :Puntaje
+@enduml

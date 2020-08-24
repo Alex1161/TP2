@@ -1,21 +1,21 @@
 @startuml
 Actor User
-User -> HandlerBotonAccionarComidin: ActionEvent
-activate HandlerBotonAccionarComidin
-HandlerBotonAccionarComidin-> Juego: getInstancia()
-activate Juego
-Juego --> HandlerBotonAccionarComidin
-deactivate Juego
+User -> ":HandlerBotonAccionarComidin": ActionEvent
+activate ":HandlerBotonAccionarComidin"
+":HandlerBotonAccionarComidin"-> ":Juego": getInstancia()
+activate ":Juego"
+":Juego" --> ":HandlerBotonAccionarComidin"
+deactivate ":Juego"
 
-HandlerBotonAccionarComidin -> Juego : aplicarComodin(comodinActual: Comodin)
+":HandlerBotonAccionarComidin" -> ":Juego" : aplicarComodin(comodinActual: Comodin)
 
-activate Juego
-Juego ->RondaActual:aplicarComodin(comodin:Comodin)
-activate RondaActual
-RondaActual ->turnoActual:aplicarComodin(pregunta,comodin)
+activate ":Juego"
+":Juego" ->"RondaActual:Ronda":aplicarComodin(comodin:Comodin)
+activate "RondaActual:Ronda"
+"RondaActual:Ronda" ->"turnoActual:Turno":aplicarComodin(pregunta,comodin)
 
 
-deactivate Juego
-deactivate RondaActual
+deactivate ":Juego"
+deactivate "RondaActual:Ronda"
 
 @enduml

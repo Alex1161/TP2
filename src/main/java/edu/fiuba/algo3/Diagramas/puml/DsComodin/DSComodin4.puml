@@ -8,6 +8,12 @@ activate ":Respuesta"
 ":Respuesta"-->"VoFClasico:Pregunta": opcionesElegidas:Opciones
 deactivate ":Respuesta"
 "VoFClasico:Pregunta"->":Calificador":calificar(opcionesCorrectas,opcionesElegidas)
+
+note right ":Calificador"
+revisar DSCalificador
+end note
+
+
 end
 loop PorComodin<-esteCasoUnaExclusividad
 "VoFClasico:Pregunta"->":Exclusividad":aplicar(respuestas:List<Respuesta>)
