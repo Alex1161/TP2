@@ -72,7 +72,10 @@ maven 3.6.0
 ...
 ```
 ## Informe
+En PDF:
+https://drive.google.com/file/d/1kGBZ38eR1fDaAcCsZ1-GIzpcEYFGWlma/view?usp=sharing
 
+Editable:
 https://www.overleaf.com/8612565415jsdytcpmrjbb
 
 ## Ejecutando las pruebas
